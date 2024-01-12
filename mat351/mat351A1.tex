@@ -1,0 +1,243 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathcal{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\bd}{\partial}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{351}
+\newcommand{\hwNumber}{1}
+
+%preamble
+
+\title{}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+
+
+
+\begin{problem}
+\end{problem}
+\penum
+\item This is linear and homogenous. Consider the operator $\mathcal{L}= \partial_t + t^2 \partial_x $. This is a linear operator, and we have that $\mathcal{L}u=0$ is our desired PDE. 
+\item This is a nonlinear PDE, since we have a term with $uu_x$. It is not fully nonlinear since it is linear in $u_{xxx}$. 
+\item This is inhomogenous linear PDE, since it is of the form $Lu=g$, where $L = \partial_t^2 + \partial_x, g=t^2$.  
+\item This is a totally nonlinear PDE. It is nonlinear in each of the partial derivatives. 
+\epenum
+ \newpage 
+\begin{problem}
+\end{problem}
+\penum
+\item Integrating $u_x$ by $x$, we get that $$\int u_x dx = \sin(xy) + \frac{A}{2} x^2y + F(y) \quad (1),$$ for some arbitrary function $F(y)$.
+	Similarly, for $u_y$ we compute that $$ \int u_ydy = sin(xy) + 3x^2y + arctan(y) + G(x). \quad (2)$$
+Thus we must have that $A=6$ for this PDE to have a solution. 
+\item Given that $u(0,0) = B$, using our expressions from $a)$ we get that $$B = u(0,0) = F(0) = G(0).$$
+By differentiating expression $2$ with respect to $x$, we get that $G_x=0$. So $G=B$. Therefore we have that $u(x,y) = sin(xy)+3x^2y+\arctan(y)+B$ is the solution to the PDE. 
+\item We claim that a necessary condition on $f$ is ${f_1}_y ={f_2}_x$. Suppose that $u$ solves $\grad u = f$. 
+Then on any closed curve $\gamma$ with interiour $D$, we have that $$0 = \int_\gamma \grad u = \int_\gamma f = \int_D (f_{1y} - f_{2x}) dy dx $$
+Since this holds for all $\gamma, D$, we have that $f_{1y} = f_{2x}$. 
+\epenum
+\newpage 
+\begin{problem}
+\end{problem}
+Maxwells Equations tells us that $\frac{1}{c} E_t = \grad \times B$. Applying $\partial_t$ we get that 
+\begin{align*}\frac{1}{c} E_{tt} & = \partial_t(\grad \times B)
+	\\& = \grad \times B_t \tag{since derivatives commute}
+	\\& = - \frac{1}{c} \grad \times ( \grad \times E) \tag{Maxwells Equations}
+	\\& =\frac{1}{c} (E_{xx},E_{yy}, E_{zz})\tag{Vector Calc identity for $\grad \cdot E=0$} .
+\end{align*}
+Similarly for $B$ we compute that: 
+\begin{align*}
+	\frac{1}{c} B_{tt}& = - \partial_t(\grad \times E)
+	\\ & = - \grad \times E_t \tag{since deriavtives commute}
+	\\ & = -\frac{1}{c}  \grad \times (\grad \times B) \tag{Maxwells Equations}
+	\\ & = \frac{1}{c} (B_{xx}, B_{yy}, B_{zz}) \tag{Vector calc identity for $\grad \cdot B=0$}
+\end{align*}
+Therefore every component of $E,B$ satisfy the wave equation. 
+ \newpage 
+\begin{problem}
+\end{problem}
+We wish to show that $\int_{\R^n} \grad \cdot F(x) dx = 0$. Let $B(r)$ be the ball of radius $r$.  We have by the divergence theorem, that
+\begin{align*}
+	\left| \int_{\R^n} \grad \cdot F(x) dx \right| & = \lim_{r \to \infty} \left|\int_{B(r)} \left( F(x) \cdot n(x) \right) dx  \right|\tag{Divergence theorem on $\R^n$}
+	\\& \leq \lim_{r\to \infty} \int_{B(r)} |F(x)|\cdot |n(x)| dx \tag{Integral ineqality + Cauchy-Schwartz}
+	\\ & \leq \lim_{r\to \infty} \int_{B(r)} |F(x)| dx \tag{since $|n(x)|=1$}
+	\\ & \leq \lim_{r\to \infty} \int_{B(r)} C |x|^{-n}dx \tag{upper bound on $|F(x)|$}
+	\\ & \leq \lim_{r \to \infty} C |r|^{-n} \cdot \sigma(S^{n-1}) |r|^{n-1}
+	\tag{since $ \int_{B(r)}1 dx = \sigma(S^{n-1})r^{n-1}$, where $\sigma(S^{n-1}) =\int_{S^{n-1}} 1 dx $ }
+	\\ & = \lim_{r \to \infty} \frac{C \sigma(S^{n-1})}{r}
+	\\ & = 0.
+\end{align*}
+We conclude that $\int_{\R^n} \grad \cdot F(x) dx = 0$. 
+\newpage 
+\begin{problem}
+\end{problem}
+\penum
+
+\item We claim that $\int_D f = \int_{\bd D}g$ is necessary. Observe that if $u$ is a solution to this PDE, then by the divergence theorem we have that 
+	$$\int_D f = \int_D \Delta u = \int_D \grad \cdot \grad u = \int_{\bd D} \grad u \cdot n(x) = \int_{\bd D} g . $$
+Thus $\int_D f = \int_{\bd D} g$ is a necessary condition. 
+\item Suppose that $u$ solves this PDE. Then for any constant $c$ we also have that
+	$$ \Delta(u+c)=\Delta u = f, \frac{\partial(u+c)}{\partial n} = \frac{\partial u}{\partial n} + \frac{\partial c}{\partial n} = g$$
+
+\epenum
+
+\end{document}
