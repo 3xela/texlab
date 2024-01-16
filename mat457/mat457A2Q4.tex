@@ -1,0 +1,66 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q4a: We first will deal with the case that $m(E)< \infty$.We suppose for the sake of contradiction that there is some $\alpha\in (0,1)$ such that for all intervals $I$ such that $$m(E \cap I)< \alpha m(I)$$
+From the measurability of $E$, for any $\varepsilon>0$, we can find some open cover of $E$ by intervals $\{I_n\}$ with $$m(E) \leq \sum_{n}m(I_n) \leq m(E) + \varepsilon$$ 
+We mupltiply this inequality with $\alpha$ to get that $$\alpha m(E ) \leq \sum_n \alpha m(I_n) \leq \alpha m(E) + \alpha \varepsilon $$ 
+Using our assumption, we get that $$\sum_n m(E \cap I_n) < \sum_{n} \alpha m(I_n)$$
+Using subadditivity we get $$m(\bigcup_{n} E \cap I_n) \leq \sum_n m(E \cap I_n) $$ And since $E \subset \bigcup_{n} E \cap I_n$, we get $$m(E) < m(\bigcup_{n} E \cap I_n)$$
+Combining these inequalities together we get that $$m(E) < \alpha m(E) + \alpha \varepsilon$$ 
+We assume that $\alpha\in (0,1)$ and $\varepsilon$ is arbitrary, hence we obtain a contradiction. Now if $m(E) = \infty$, we can cover it with countable many $E_n$ which all have some $I^n$ corresponding to them, along with some $\alpha_n$. Take $I = \bigcup_n I_n$ and we are done. 
+\newline \\ \noindent
+Q4b: Suppose for the sake of contradiction that $E- E$ contains no interval centered about $0$. Then for all $\varepsilon>0$, there exists some $p\in (-\varepsilon, \varepsilon)$ so that $E+p \cap E = \emptyset$. Take $\alpha \in (\frac{3}{4}, 1)$. From 4a, there must exist some interval $I$ with $$m(E \cap I)\geq \alpha m(I)$$
+Translation invariance of the lebesgue measure also guarantees that $$m(E\cap I + p) = m(E \cap I)$$
+and our choice of $p$ guarantees that $$(E \cap I +p)\cap(E\cap I) = \emptyset$$
+Hence using the property of the measure, we get that $$ m((E \cap I +p)\cup(E\cap I)) \geq 2\alpha m(I) $$
+From properties of sets it is clear that we have $$(E\cap I+p) \cup (E\cap I) \subset (I+p)\cup I$$ and so $$m((E\cap I+p) \cup (E\cap I)) \leq m((I+p)\cup I )$$
+Since $I$ is an interval, it follows that $m( I + p \cup I) = \mu(I) + |p|$. Since $|p|<\varepsilon$, along with the inequalities from above, and taking $\varepsilon<m(I)$ we get $$m(I) + \varepsilon \geq 2\alpha m(I)$$
+If we take $\varepsilon = \frac{1}{2}m(I)$, 
+We get that $$\frac{3}{2} m(I) \geq 2\alpha m(I) > \frac{3}{2} m(I)$$
+A contradiction. We conclude that there exists an interval cenetered around $0$ contained in $E-E$. 
+\end{document}

@@ -1,0 +1,202 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathcal{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{MAT454 }
+\newcommand{\hwNumber}{5}
+
+%preamble
+
+\title{a}
+\author{A.N.}
+\date{\today}
+
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+	\begin{problem}
+	\end{problem}
+We compute that $$P \circ h = \left(z+\frac{1}{z} \right)^4 - 4\left(z+\frac{1}{z}\right)^2 + 2 =z^4+4z^2+6+\frac{4}{z^2}+ \frac{1}{z^4}-4z^2-8 - \frac{4}{z^2}+2 = z^4+\frac{1}{z^4} = h\circ Q. $$ Now, notice that $$P^n \circ h = \overbrace{P \circ \dots \circ P}^{\text{n times}} \circ h = h \circ Q^n = z^{4n} + \frac{1}{z^{4n}}. $$
+Furthermore, from MAT354 we know that $h(z)$ is a conformal mapping of $D$ to $\C \setminus{[-2,2]}$. Thus $\{P^n|_U\}$ is a normal family on some $U$, a neighbourhood of some $a\in [-2,2]$ if and only if $ \left\{(P^n\circ h)|_{h(U)} \right\}$ is normal. Our previous computation verifies that $\left\{(P^n\circ h)|_{h(U)} \right\} =  \left\{(h\circ Q^n)|_{h(U)} \right\}$. For any choice of $U$,the family  $ \left\{(h\circ Q^n)|_{h(U)} \right\}$ becomes pointwise unbounded as $n\to \infty$. Therefore not a normal family. 
+\newpage
+\begin{problem}
+\end{problem}
+\penum
+\item If $f_n\to \infty$ we are done and $d(f_n,\infty) = \frac{2}{\sqrt{1+ |f_n|^2}} \rightrightarrows 0 $. Suppose that $f_n\to f$ uniformly for $f$ not identically $\infty$ on compact subsets. Let $z$ be a point so that $f_n(z)\to f(z)$ with $f(z)\neq \infty$. By marty's theorem, it is sufficient to show that $\{f_n^\sharp\}$ is locally bounded in a neighbourhood of $z$, then the limit of this sequence will be holomorphic. Notice that $f_n^\sharp(z) = \frac{2|f_n^\prime(z)|}{1+ |f_n(z)|^2}$. If we had that $f_n^\sharp(z)\to \infty$ then it must be that $f_n^\prime(z)\to \infty$. However, this would contradict Montel's Little theorem, since $f_n(z)$ is bounded by $|f(z)|+c$ for some constant $c$. Therefore $f$ must have no poles i.e. it is holomorphic. 
+\item If $f_n \to f$ with $f$ holomorphic, then on any compact subset, $f_n$ and $f$ are both bounded uniformly, say by $M$. So convergence in the chordal metric implies that $$d(f_n,f) = \frac{2|f_n-f|}{\sqrt{(1+|f|^2)(1+|f_n|^2)} } \leq \frac{2|f_n-f|}{1+M} \rightrightarrows 0 \implies |f-f_n| \rightrightarrows 0. $$ 
+\epenum
+\newpage 
+\begin{problem}
+\end{problem}
+Let $f$ be a periodic holomorphic function with period $c$. Suppose $f$ has no fixed points, that is $f(z)-z \neq 0$. Define the holomorphic function $g(z) = f(z) -z$. We have that $g(z)\neq 0$. Furthermore, $g(z-c) = f(z-c)- z+c = g(z)+c. $ Since $g(z)$ omits $0$, it must also omit $c$. This contradicts Picards little theorem. 
+\newpage 
+\begin{problem}
+\end{problem} 
+\penum 
+\item Consider the function $f(z) = e^{z}+z$. This has a fixed point if there is some $z$ so that $z= f(z)= e^z+z$. Note that no such $z$ can exist however, since such $z$ must also satisfy $e^z=0$.
+\item First suppose that $f\circ f$ has no fixed points. Then it follows that $f$ has no fixed points, since any fixed point of $f$ will be a fixed point of $f \circ f$. Consider the function $$g(z) = \frac{f(f(z)) - z}{f(z) - z}.$$ Note that $g$ is entire since $f$ is, and $g$ omits $0$. By Picards theorem, we have that at some $w$, $g(w) =1$. Therefore $f(f(w)) = f(w)$. Which contradicts the assumption that $f\circ f$ has no fixed points. 
+\epenum
+\newpage
+\begin{problem}
+\end{problem}
+We write $$w = z-\sqrt{z^2-1} \implies \sqrt{z^2-1} = w-z \implies w^2-2zw+1 = 0.$$
+This defines a Riemann surface with branch points at $z= \pm1$. So it looks like two copies of $\C$ identified along the interval $[-1,1]$. If we have the holomorphic differential form $$\omega = \frac{dz}{\sqrt{z^2-1}},$$ 
+we can write it as $$\omega = \frac{dz}{z-w}$$  in a neighbourhood of $(z_0,w_0)\in X$ away from $w=z$. In a neighbourhood of $z=w$, we have $$d(w^2-2zw +1) = 0 \implies wdz = (w-z)dw.$$ So $\omega = \frac{w-z}{w \sqrt{z^2-1}} dw.$
+Homogenizing, our equation becomes $$\left(	\frac{w}{t}\right)^2 -2 \left(\frac{w}{t}\cdot  \frac{z}{t}\right) + 1 = 0 \implies w^2 - 2zw + t^2 = 0.$$
+Setting $t=0$, we determine that the coordinates at $\infty$ are $[0,1,0]$ and $[\frac{1}{2}, 1, 0]$ By finding the values of $z,w$ when $w,z$ are local coordinates respectively at $t=0$. We compute the residues of $\omega$ at $\infty$ as: $$res(\omega, [0,1,0]) = 1, res(\omega, [\frac{1}{2} ,1, 0]) = -1.$$
+
+\end{document}

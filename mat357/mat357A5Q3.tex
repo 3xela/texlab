@@ -1,0 +1,52 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 5 (done with Walter Merjo/Payam Fakoorziba)}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q3a: Consider the function $f(x) = \frac{1}{2}x^2$ on $(-1,1)$. We claim that this is a weak contraction, yet not a contraction. Since $x,y\in (-1,1)$, note that for distinct $x,y$
+$$\frac{1}{2}|(x+y)|<1 \iff \frac{1}{2}|x+y|\cdot|x-y|<|x-y| \iff \frac{1}{2}|x^2-y^2| < |x-y|$$
+Therefore $d(fx,fy)<d(x,y)$. We claim that this function is not a contraction. Let $0<k<1$. Choosing $x,y$ such that $\frac{1}{2}|x+y|>k$ we have that $$\frac{1}{2}|x+y|> k \iff \frac{1}{2}|x-y|\cdot|x+y|>k|x-y|$$
+And so $d(fx,fy)>k\cdot d(x,y)$
+\newline \\ Q3b: Use the same $f(x)$ as defined in $3a$, except we define it on $[-1,1]$. Using the exact same proof as in $3a$, we have that this function is a weak contraction yet not a contraction. 
+\newline \\ Q3c: Define $g: M\to M$ by $g(x) = d(fx,x)$. This is a continuous map and so $g(M)=[a,b]$, for some $0<a<b$. We claim that $a=0$. Suppose not, that it assume that $g$ attains its minimum at some $y\in M$, and $g(y)>0$. Consider however $g(fy)$. We have that $g(fy) = d(f^2y,fy)<d(fy,y)=g(y)$. This is a contradiction and hence $g$ attains a minimum of $0$ at some point $x_0$. Therefore, $0=x_0=d(fx_0,x_0)$ and so $fx_0=x_0$. We now claim uniqueness. Suppose that $x,y$ are two distinct fixed points. We therefore have that $d(x,y)=d(fx,fy)<d(x,y)$. This is a contradiction. Hence the fixed point of $f$ is unique. 
+\end{document}

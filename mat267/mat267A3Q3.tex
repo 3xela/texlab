@@ -1,0 +1,44 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 267}
+\lhead{Assignment 3}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q3: The inverse function theorem tells us that given a map $f:\R^n \to \R^n$, if the differential of $f$ at some point $p$ is nonsingular, then there exists a neighborhood of $f(p)$ where $f$ is locally invertible, and given that $f$ is locally invertible, $Df^{-1}(p) = (Df(p))^{-1}$. A consequence of this theorem is that if $f$ is of class $C^r$, then so will be $f^{-1}$. This makes sense since when we invert a matrix of continuous functions, we have that the inverted matrix will be a continuous function. Therefore if we have an ODE of the form $f(y) = y^\prime$, then we will have a corresponding ODE in the neighborhood of a point $f^{-1}(y^\prime) = y$ will also have a solution, and since the original system is well posed, our new system will be as well. 
+\end{document}

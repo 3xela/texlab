@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 16}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q1a: It is clear that if $b=\bd c$, then $\bd b = \bd^2c =0$ 
+\newline \\ Q1b: Suppose that there is a chain $B$ such that $\bd B = b$. Consider the 1-form $\omega = \frac{-y}{x^2+y^2}dx + \frac{x}{x^2+y^2}dy$. Hence by Stoke's Theorem on Chains, we have that $\int_{\bd B} \omega = \int_{B} d\omega $. Thus we compute $$\int_{\bd B} \omega = \int_{b} \omega = \int_{[0,1]} b^{*}\omega = \int_{[0,1]} 2\pi \sin^2(2\pi t) dt + 2\pi \cos^2(2\pi t) dt \int_{[0,1]} 2\pi dt = 2\pi$$
+However we know that $d\omega=0$ and so we have that $\int_{B}d\omega =0$. We obtain a contradiction and conclude that $b$ is not in the image of the boundary operator. We will now verify using Stoke's theorem that $\bd b=0$: 
+$$0= \int_{b}d\omega = \int_{\bd b}\omega$$ We see that the integral is 0 and conclude that $\bd b=0$. 
+\end{document}

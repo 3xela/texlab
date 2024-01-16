@@ -1,0 +1,62 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 10}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q2: \\ 
+By changing to polar coordinates we can rewrite define $V_1 = \{ (r,\theta): r\in (0,1), \theta \in (0,2\pi)\}$ and  \newline $V_2 = \{ (r,\theta): r>1, \theta \in (0,2\pi)\}$. We see that $g(V_1)=U_1$ and $g(V_2) = U_2$. 
+We know $|\det g^\prime| = r$, and $g$ injective on $V_1$ and $V_2$ so by the COV theorem we evaluate:
+\begin{align*}
+    \int_{g(V_1)} f & = \int_{V_1} f\circ g |\det g^\prime|
+    \\ & =  \lim_{t\rightarrow 0}\int_t^1 \int_{0}^{2\pi} \frac{1}{r^2} r \space d\theta dr \tag{by Fubini's Theorem and discussion in class}
+    \\ & =  \lim_{t \rightarrow 0} 2\pi \int_{0}^{1} \frac{1}{r} dr 
+    \\ & = \lim_{t\rightarrow 0} 2\pi [log(r)]\bigg|_t^1
+    \\ & = - \infty 
+\end{align*}  In other words, for some PO1, $\{\phi_i\}$ , $\sum \int \phi_i f$ diverges so $f$ is not integrable. 
+We now evaluate $\int_{g(V_2)} f$ using the COV theorem. 
+\begin{align*}
+    \int_{g(V_2)} f &= \int_{V_2} f\circ g |\det g^\prime|
+    \\ & = \lim_{t \rightarrow \infty} \int_1^t \int_0^{2\pi} \frac{1}{r^2}r \space d\theta dr \tag{by Fubini's Theorem, and discussion in class}
+    \\ & =  \lim_{t \rightarrow \infty}2\pi \int_1^t \frac{1}{r} \space dr 
+    \\ & = \lim_{t\rightarrow \infty}2\pi [\log(r)]\bigg|_1^t 
+    \\ & = \infty
+\end{align*}
+So, for some PO1 of $V_2$, $\sum \int \phi_i f$ diverges, so $f$ is not integrable.
+\end{document}

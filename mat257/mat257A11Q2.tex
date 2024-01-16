@@ -1,0 +1,51 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 11}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q2: Since $V$ a 3 dimensional vector space we have from basic linear algebra that $V^*$ will also be 3 dimensional.
+It suffices to check that $\phi_{-1},\phi_0,\phi_1$ either span $V^*$ or are linearly independant. We will show linear independance. We will denote $p\in V$ as $p(x)=ax^2+bx+c$. Suppose that for some scalars $\alpha_1,\alpha_2,\alpha_3$,
+$$\alpha_1\phi_{-1}(p) + \alpha_2 \phi_{0}(p) + \alpha_3 \phi_{1}(p)=0, \forall p\in V$$
+Then we have that $$\alpha_1(a-b+c)+\alpha_2(c)+\alpha_3(a+b+c)=0$$ Re writing this expression get that 
+$$a(\alpha_1+ \alpha_4) + b(\alpha_3-\alpha_3) +c(\alpha_2+\alpha_3)$$ Since this is true for all polynomials, we, taking $b=1=a,c=0$ we see that $\alpha_3=0$, taking $a=c=0,b=1$ gives us that $\alpha_1=\alpha_3=0$.
+Finally, if we take $a=1$, we see that $\alpha_2 = -\alpha_1=0$. Thus we conclude this is a linearly independant list, and so it is a basis of $V^*$. 
+We now will find a basis $\beta=(p_{-1},p_0,p_1)$ of $V$ so that $\beta^*=\gamma$. In other words, for each $\phi_i$, $\phi_i(p_j)=\delta_{ij}$. First consider $p_{-1}$. We require that $p_{-1}(-1)=1,p_{-1}(0)=p_{-1}(1)=0$. Choosing $p_{-1}(x) = \frac{1}{2}x^2  - \frac{1}{2}x$ will satisfy these properties. 
+Setting $p_0(x)=-x^2+1$, we see that $p_0(-1)=p_0(1)=0$ and $p_0(0)=1$. Finally, setting $p_1(x) = \frac{1}{2}x^2 + \frac{1}{2}$ will give us the desired properties. Hence the basis $\beta = (\frac{1}{2}x^2-\frac{1}{2}x,-x^2+1,\frac{1}{2}x^2+\frac{1}{2}x)$ satisifes $\beta^* = \gamma$. 
+\end{document}

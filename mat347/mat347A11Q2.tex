@@ -1,0 +1,61 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 347}
+\lhead{Assignment 11}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\normal}{\triangleleft}
+\newcommand{\normaleq}{\trianglelefteq}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\newcommand{\ring}{\mathcal{R}}
+\begin{document} 
+\noindent Q2i: First suppose that $I$ is principal. Then for some $a+b\sqrt{-5}$, we have $I = (a+ b\sqrt{-5}).$ Since $2\in I$ for some $\alpha \in \ring$, $\alpha (a+ b\sqrt{-5}) = 2.$ 
+Taking the usual norm we get $$4 = N(\alpha) (a^2+5b^2).$$ Since both sides are strictly positive we must have that $a^2+5b^2 =1$ or $2$. If $a^2+5b^2=1$ then the only solution over $\Z$ is $(a,b) = (1,0)$. 
+Therefore $I = (1)$ which is clearly absurd since this implies that $\ring = I$ which is not true. The equation $a^2+ 5b^2=2$ has no solutions over $\Z$. Thus $I$ is not principle. 
+Similarly, if $J = (a+b \sqrt{-5})$ for some $a+ b\sqrt{-5}$. Then for some $\beta \in \ring$, we have that $3 = \beta (a+ b\sqrt{-5})$ and so taking norms get $$9 = N(\beta)(a^2+5b^2).$$ 
+Similarly to $I$, $a^2+5b^2$ must be $1,3$ or $9$.  If it is equal to $1$, we have that $(a,b) = (1,0)$ which can not be for the same reason as $I$. If we have $a^2+5b^2=3$, we see that this has no solutions over the naturals. 
+Finally if $a^2+5b^2=9$, possible solutions for $(a,b)$ will be $(3,0)$ and $(2,1)$. We have that $(3,0)$ does not generate the ideal for a similar reason as $1$ does not. Finally we show that $I \neq (2+\sqrt{-5})$. Since $3\in I$, 
+there must be some $c+ d\sqrt{-5}$ with $(2+\sqrt{-5})(c+d\sqrt{-5}) = 3.$ We can solve this to get that $2c-5d =3, 2d+c = 0$. This has no solutions over $\Z$. Thus this ideal is not principal. 
+\newline \\ Q2ii: We have that $I^2 = (4,2-2\sqrt{-5}, -4-2\sqrt{-5})$. We wish to find some $r\in I^2$ so that $I^2= (r)$. Note that any element $i$ in $I^2$ must be written of the form $$ i= 4(a_1 + b_1\sqrt{-5}) + (2-2\sqrt{-5})(a_2 + b_2\sqrt{-5})+ (-4-2\sqrt{-5})(a_3+b_3\sqrt{-5}). $$ Expanding this out we get $$i = 2(2a_1+2b_2\sqrt{-5} + a_2 + b_2\sqrt{-5}-a_2\sqrt{-5} + 5b_2 + -2a_3-2b_3\sqrt{-5} - a_3\sqrt{-5}+ 5b_3).$$
+We can write any element of $I$ as $2$ times an arbitrary element of $\ring$. Therefore, $I = (2)$ and so it is principal. 
+\newline \\ Q2iii: Note that $IJ = ( 6,3-3\sqrt{-5}, 2-2\sqrt{-5}, (1-\sqrt{-5})^2).$ We can write $$6 = 1^2+5^2 = (1-\sqrt{-5})(1+\sqrt{-5}).$$ Therefore every element that generates $IJ$ is a multiple of $1-\sqrt{-5}$. Therefore $IJ = (1-\sqrt{-5})$ 
+\end{document}

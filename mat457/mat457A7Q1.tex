@@ -1,0 +1,67 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 7}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q1: We first define $\Omega = \{(x,y): a< x\leq y \leq b\}$. Using Fubini-Tonelli Theorem, we compute 
+\begin{align*}
+    \mu_F\times \mu_G(\Omega) &= \int_{(a,b]} \int_{(a,y]} dF(x)dG(y)
+    \\ & = \int_{(a,b]} [F(y) - F(a)]dG(y)
+    \\ & = \int_{(a,b]} \varDelta F dG(y) + \int_{(a,b]} F_{-}dG(y) - \int_{(a,b]} F(a)dG(y) \tag{since $F = \varDelta F + F_{-}$ and linearity}
+    \\ & = \sum_{x, \varDelta F\neq 0}\int_{x} \varDelta F dG(x) + \int_{(a,b]} F_{-}dG(x) - F(a)[G(b) - G(a)] \tag{$\varDelta F$ nonzero on countable points}
+    \\ & = \sum_{x, \varDelta F \neq 0} \varDelta F(x) \varDelta G(x) + \int_{(a,b]} F_{-}dG(x) - F(a) [ G(b) - G(a)] \tag{using the definition of $dG$}
+\end{align*}
+Similarly, we compute that 
+\begin{align*}
+    \mu_F \times \mu_G (\Omega) &= \int_{(a,b]} \int_{(x,b]} dG(y) dF(x)
+    \\ & = \int_{(a,b]} [G(b) - G(x)]dF(x) \tag{take decreasing sequence to $(x,b]$, apply downward measure cont.}
+    \\ & = \int_{(a,b]} G(b) dF(x) - \int_{(a,b]} \varDelta G(x)dF(x) - \int_{(a,b]} G_{-}(x) dF(x) 
+    \\ & = G(b)[F(b)-F(a)] - \sum_{x, \varDelta G(x) \neq 0} \int_{x} \varDelta G(x)dF(x) - \int_{(a,b]} G_{-}dF(x) 
+    \\ & = G(b)[F(b) - F(a)] - \sum_{x, \varDelta G(x) \neq 0 } \varDelta F(x) \varDelta G(x) -\int_{(a,b]} G_{-}dF(x)
+\end{align*}
+Taking the differences we get that $$G(b)F(b)- G(a)F(a) = \int_{(a,b]} F_{-}dG + \int_{(a,b]}G_{-}dF  + \sum_{a< x\leq b} \varDelta G(x) \varDelta F(x)$$
+Since the points where either is $\varDelta G(x)$ or $\varDelta F(x)$ are zero will vanish in either of the equations we take the difference. 
+\end{document}

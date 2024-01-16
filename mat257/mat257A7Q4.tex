@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 6}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q4:\\
+Suppose that $f$ is integrable. Choose partition $P$ such that $U(f,P)-L(f,P)< \varepsilon$. For any $S\in P$ we have that $$M_S(|f|)-m_S(|f|) \leq M_S(f) - m_S(f)$$
+Therefore $$U(|f|,P)-L(|f|,P) = \sum_{S\in P} [M_S(|f|)- m_S(|f|)] \cdot vol(S) \leq \sum_{S\in P}[M_S(f)-m_S(f)]\cdot vol(S) < \varepsilon$$ 
+hence $|f|$ is integrable. We know want to show that $|\int_A f| \leq \int_A |f|$. We have 
+\begin{align*}
+    & |\int_A f| = |\inf U(f,P)| 
+    \\ & \leq \inf |U(f,P)| \tag*{(from discussion in class)}
+    \\ & = \inf |\sum_{S\in P} M_S(f)\cdot vol(S)|
+    \\ & \leq \inf \sum_{S\in P} |M_S(f)|\cdot vol(S)
+    \\ & \leq \inf \sum_{S\in P} M_S(|f|)\cdot vol(S)
+    \\ & = \int_A |f|
+\end{align*} As desired. 
+\end{document}

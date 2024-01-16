@@ -1,0 +1,51 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 6}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q1a: Suppose that a solution to the ODE escapes to infinity in finite time, then we know from calculus that there must be a vertical asymptote of $x$. The slope of $x$ will become arbitrarily large as you approach the asymptote hence $f(x)$ is unbounded, contradicting our assumption. 
+\newline \\ Q1b: Suppose that a solution to the ODE escapes to infinity in finite time. We have that $$|x^\prime(t)| = |x(0) + \int_{0}^t f(x(s))ds |\leq |x(0)| + |\int_{0}^t Cx(s)ds| + |Kt| $$ If $x$ escapes to infinty in finite time then there must be a vertical asymptote at some point $t_0$. We can now apply Gronwall's inequality to $x(t)$, we see that on some neighborhood $(a,b)$ sufficiently close to $t_0$, we have that $|x(t)|\leq \alpha e^{Ct_0}$, but since $x(t)$ is unbounded this can not happen. 
+\newline \\ Q1c: Simply by applying the norm to $f$, we have reduced it to the case on the real line, hence we know it is true by part a and b. 
+\newline \\ Q1d: We know by uniform continuity that there exists a $\delta>0$ such that for all $x,y$ where $|x-y|<\delta$, we have that $|f(x)-f(y)|<1$. Let $z>0$ be such that $0<z<\delta$. It is true that for any $x\in \R^m$, there is a $C_x\in \N$ such that $$\frac{|x|}{z}<C_x<\frac{|x|}{z}+1$$ And so we have that $\frac{|x|}{C_x}<z<\delta$ Now by the reverse triangle inequality, $$||f(x)|-|f(0)|| \leq |f(x)-f(0)| \leq \sum_{i=1}^{C_x} |f(\frac{ix}{C_x}) - f(\frac{(i-1)x}{C_x})| < C_x < \frac{|x|}{z}+1$$ 
+Hence we have that $|f(x)| \leq \frac{|x|}{z}+1 + |f(0)|$ as desired. hence we can reason by 1c that the solution to this ODE will not escape to infinity.
+\end{document}

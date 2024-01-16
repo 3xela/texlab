@@ -1,0 +1,57 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 13}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q1: If $v_1,v_2.v_3$ is a basis for $\R^3$, we let $\omega_1,\omega_2,\omega_3$ be a basis for $\Lambda^1 \R^3$ and let $\omega_1 \wedge \omega_2, \omega_2 \wedge \omega_3, \omega_1 \wedge \omega_3$ be a basis for $\Lambda^2 \R^3$.
+We can identify $\Lambda^1 \R^3$ with $\R^3$ by viewing $v_i$ as $\omega_i$. Similarly, we can identify $\Lambda^2 \R^3$ with $\R^3$ by $v_1 \to \omega_1 \wedge \omega_2, v_2 \to \omega_2\wedge \omega_3, v_3 \to \omega_1 \wedge \omega_3$. We claim that the usual $\wedge$ product on $\Lambda^1\R^3 \times \Lambda^1\R^3 \to \Lambda^2 \R^3$ can be viewed as a vector product operation on $\R^3\times \R^3$. 
+Let $\lambda = \alpha_1 \omega_1 + \alpha_2 \omega_2 + \alpha_3 \omega_3$ and let $\eta  = \beta_1 \omega_1 + \beta_2 \omega_2 + \beta_3 \omega_3$. We evaluate $\lambda \wedge \eta$ in the usual way; 
+\begin{align*}
+    \lambda \wedge \eta & = (\alpha_1 \omega_1 + \alpha_2 \omega_2 + \alpha_3 \omega_3)\wedge (\beta_1 \omega_1 + \beta_2 \omega_2 + \beta_3 \omega_3)
+    \\ & = \alpha_1 \omega_1 \wedge (\beta_1 \omega_1 + \beta_2 \omega_2 + \beta_3 \omega_3) + \alpha_2 \omega_2 \wedge \beta_1 \omega_1 + \beta_2 \omega_2 + \beta_3 \omega_3 + \alpha_3 \omega_3 \wedge \beta_1 \omega_1 + \beta_2 \omega_2 + \beta_3 \omega_3
+    \\ & = \alpha_1 \omega_1 \wedge \beta_1 \omega_1 + \alpha_1 \omega_1 \wedge \beta_2 \omega_2 + \alpha_1 \omega_1 \wedge \beta_3 \omega_3 + \alpha_2 \omega_2 \wedge \beta_1 \omega_1 + \alpha_2 \omega_2 \wedge \beta_2 \omega_2 + \\ &  \alpha_2 \omega_2 \wedge \beta_3 \omega_3 + \alpha_3 \omega_3 \wedge \beta_1 \omega_1 + \alpha_3 \omega_3 \wedge \beta_2 \omega_2 + \alpha_3 \omega_3 \wedge \beta_3 \omega_3
+    \\ & = \alpha_1 \omega_1 \wedge \beta_2 \omega_2 + \alpha_1 \omega_1 \wedge \beta_3 \omega_3 -\beta_1 \omega_1 \wedge \alpha_2 \omega_2 + \alpha_2 \omega_2 \wedge \beta_3 \omega_3 - \beta_1 \omega_1 \wedge \alpha_3 \omega_3 - \beta_2 \omega_2 \wedge \alpha_3 \omega_3 \tag{by supercommutativity}
+    \\ & = (\alpha_1\beta_2-\beta_1\alpha_2)\omega_1\wedge \omega_2 + (\alpha_2\beta_3 - \beta_2 \alpha_3)\omega_2 \wedge \omega_3 + (\alpha_1\beta_3 - \beta_1 \alpha_3) \omega_1 \wedge \omega_3 \tag{by linearity of $\wedge$}
+\end{align*} 
+Therefore, we have a product operation on vectors in $\R^3$ defined in the following way: $$(\alpha_1,\alpha_2,\alpha_3)\times (\beta_1,\beta_2,\beta_3) \mapsto (\alpha_1\beta_2-\alpha_2\beta_1, \alpha_2\beta_3-\alpha_3\beta_2,\alpha_1\beta_3-\alpha_3\beta_1) $$
+Note this product inherits properties of the wedge product. It is bilinear, alternating, supercommutative. 
+\end{document}

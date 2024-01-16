@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 458}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\newcommand{\X}{\mathfrak{X}}
+\begin{document}\noindent 5.5.56: Note that the smallest closed subspace that contains $E$ is by definition $ \ol{span(E)}$.
+We claim that $ \ol{span(E)} = E^{\perp \perp}$. If $v \in E^{\perp \perp}$ then for all $u \in E^\perp$, $\inn{v,u} = 0$. Therefore $v \in span(E)$ and so it belongs to the closure. 
+Now suppose that $v\in span(E)$. Let $\{v_n\}$ be a sequence in $span(E)$ converging to $v$ in the closure. We have that for all $u\in E^\perp$, $\inn{v_n, u} = 0$. Since the inner product is continuous, we have that $\inn{v,u}=0$. Thus $v\in E^{\perp \perp}$. 
+
+
+\end{document}

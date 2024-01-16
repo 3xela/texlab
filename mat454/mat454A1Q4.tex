@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 454}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document} \noindent 
+Q4a: Fix $z_0\in \Omega$. Since $\Omega$ simply connected, for any $z\in \Omega$ one can define the curve $\gamma(t):[0,1] \to \Omega$ so that $\gamma(0)=z_0$ and $\gamma(1)=z$.
+We define the function $$g(z) = \int_{\gamma} \frac{f^\prime(z)}{f(z)}dz -f(z_0).$$ This makes sense since $f(z)\neq 0$ for all $z$, and is well defined since on any other path $\delta$ satisfying the same endpoint conditions as $\gamma$,
+ the holomorphicity of $\frac{f^\prime(z)}{f(z)}$ implies that $$\int_{\gamma - \delta} \frac{f^\prime(z)}{f(z)}dz =0 \implies \int_\gamma \frac{f^\prime(z)}{f(z)}dz = \int_\delta \frac{f^\prime(z)}{f(z)}dz.$$
+We compute that $$g(z)= \int_{\gamma} \frac{f^\prime(z)}{f(z)}dz -f(z_0) = \int_{[0,1]}\frac{f^\prime(\gamma(t))}{f(\gamma(t))}\cdot \gamma^\prime(t) dt - f(z_0) = \log(f(\gamma(t)))\Big|_{0}^1 - f(z_0) = \log(f(z)).$$ This shows that $g(z)$ is our desired construction, 
+and is independant of choice of base point. Finally, we have that $g(z)$ is holomorphic, since it is equal to a composition of holomorphic functions. 
+\newline \\ Q4b: We define the function $g(z) = \exp(\frac{1}{n}\log(f(z)))$. We have that $g(z)$ is a composition of holomorphic functions. We see that $$\log(g(z)) = \frac{1}{n} \log(f(z))\implies log(g(z)^n) = \log(f(z)) \implies g(z)^n = f(z),$$ As desired.
+\end{document}

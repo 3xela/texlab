@@ -1,0 +1,58 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 367}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document} 
+\noindent Q7: We first show that $\sim$ as defined is an equivalence relation. First $x \sim x$ since $x = \varphi \circ \varphi^{-1}(x)$ for any $\varphi$. 
+If $x \sim y$, then $y = \varphi_i \circ \varphi_j^{-1} (x)$. Applying $\varphi_j \circ \varphi_i^{-1}$, we see that $x = \varphi_{j}  \circ \varphi_i^{-1}(y)$. So $y \sim x$. 
+Finally suppose that $x \sim y$ and $y \sim z$. We can write $ y = \varphi_j \circ \varphi_i^{-1}(x)$ and $z = \varphi_l \circ \varphi_j^{-1}(y).$ Composing we see that
+ $$z = \varphi_l \circ \varphi_j^{-1} \circ \varphi_j \circ \varphi_i^{-1}(x) = \varphi_l \circ \varphi_i^{-1}(x).$$ 
+As desired. We now claim there is a bijection between $X$ and $\bigsqcup V_i / \sim$. Define $f: X \to \bigsqcup V_i / \sim$ by $x \mapsto [\varphi_i(x)]$. We claim that such $f$ is a bijection. 
+Let $y \in \bigsqcup V_i$ belonging to the class $[\varphi_i(x)]$. For some $\varphi_j$, we have that $\varphi_j^{-1}(y) = x$ and so $\varphi_j(x) = y$ so $f(x) = y$. 
+Now suppose that $[\varphi_i(x)] = [\varphi_j(y)]$. By the equivalence relation we have that $\varphi_i(x) = \varphi_i\circ\varphi_j^{-1}  \circ \varphi_j (y)= \varphi_i(y). $ Since $\varphi_i$ is injective we have that $x = y$. 
+Therefore $f$ is a bijection. Finally we show that $X$ is a smooth manifold and the topology on $X$ is induced by
+the quotient topology of $\bigsqcup V_i / \sim$. For each $\varphi_i$, using the same $f$ as above, we define the coordinate charts on $\bigsqcup V_i$ as $\psi_i: f^{-1}(U_i) \to V_i$ with $\psi_i = \varphi_i \circ f^{-1}$. Each $\psi_i$ is a composition of injective and continuous maps, 
+hence they are injective and continuous as well. We also see that they are $C^\infty$ related since 
+$$\psi_i \circ \psi_j^{-1} = (\varphi_i \circ f^{-1}) \circ (\varphi_j \circ f^{-1})^{-1} = \varphi_i \circ f^{-1} \circ f \circ \varphi_j^{-1} = \varphi_j \circ \varphi_i^{-1}. $$
+Therefore $\bigsqcup V_i / \sim$ is a smooth manifold, and the identification with $X$ makes $X$ a smooth manifold as well. 
+\end{document}

@@ -1,0 +1,62 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 354}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q2: We first take note that $$\frac{2}{(1-w)^3} =  \frac{\partial^2}{\partial w^2} \frac{1}{1-w}$$
+We can therefore have that $$\frac{2}{(1-w)^3} =  \frac{\partial^2}{\partial w^2} \cdot \sum_{n=0}^\infty w^n$$
+Applying termwise differentiation, get that $$\frac{2}{(1-w)^3} = \sum_{n=2}^\infty n(n-1)w^n$$
+Substituting $w = z^2$, get that 
+$$\frac{2}{(1-z^2)^3} = \sum_{n=2}^\infty n(n-1)z^{2n}$$
+We now multiply by $z^2$ and conclude that 
+$$\frac{z^2}{(1-z^2)^3} = \sum_{n=2}^\infty \frac{n(n-1)}{2}z^{2n+2}$$
+Now using Hadamards Formula, we compute the radius of convergence as 
+\begin{align*}
+    \frac{1}{R} & = \lim_{n \to \infty} \sup \sqrt[n]{\Big|\frac{n(n-1)}{2} \Big|}
+    \\ & = \lim_{n \to \infty} \sup \sqrt[n]{n(n-1)} \cdot \lim_{n \to \infty} \sup \sqrt[n]{\frac{1}{2}}
+    \\ & =1
+\end{align*}Hence this power series converges on $|z|<1$ and diverges everywhere else. 
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 347}
+\lhead{Assignment 8}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\normal}{\triangleleft}
+\newcommand{\normaleq}{\trianglelefteq}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q3i: Suppose that $H \normal^c K \normal G$. Note that for any $g\in G,$ we have that $K = gK g^{-1}$. Hence conjugation by an element of $G$ preserves $K$ i.e. it is an outer automorphism. Furthermore since $H$ is characteristic, we have that conjugation by an element of $G$ must also preserve it. Hence $gHg^{-1} = H.$ 
+\newline \\ Q3ii: Consider the chain of groups $\{e,(12)(34)\} \normal A_4 \normal^c S_4$. We first claim that this is true. Since any automorphism of $A_4$ is a conjugation by an element of $S_4$, we have that $A_4 \normal^c S_4$. We have previously shown that $\{e,(12)(34)\}$ is normal in $A_4$ but not normal in $S_4$ by A3Q3. Thus we are done. 
+\end{document}

@@ -1,0 +1,58 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 458}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\hil}{\mathcal{H}}
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\newcommand{\X}{\mathfrak{X}}
+\begin{document} \noindent Q7: We wish to minimize the integral $$\int_{[-1,1]} |x^3-a-bx-cx^2|^2.$$
+Equivalently, we minimize $$\inn{x^3-a-bx-cx^2, x^3-a-bx-cx^2}.$$
+If we choose an orthonormal basis of polynomials, we get that the minimum is given by 
+$$\inn{x^3-a-bx-cx^2, x^3-a-bx-cx^2} = \inn{c_1x^3 + c_2 x^2 + c_3 x + c_4 , c_1x^3 + c_2 x^2 + c_3 x + c_4}= c_1^2+c_2^2+c_3^2+c_4^2.$$
+We see that this quantity will be minimzed when $c_1 =1,c_2=c_3=c_4=0$. i.e. the minimum is $\int_{-1}^1 x^6 = \frac{2}{7}$.
+\newline \\ By cauchy Swartz Inequality, we have that $$\int_{[-1,1]} x^3 g(x) \leq \Big[ \int_{[-1,1]} x^{6} \Big] dx \cdot \int_{[-1,1]} |g(x)|^2 =\frac{\sqrt{2}}{\sqrt{7}}.$$ 
+
+
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 4}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q1: First note that $|f_n-f|\leq |f_n| + |f| \leq 2|g|$. If we define $E_n(k) = \bigcup_{m=n}^\infty \{x: |f_m-f|\geq \frac{1}{k}\}$, and \newline $A(k) = \{x: 2|g| \geq \frac{1}{k}\}$. We see that $A(k)\supset E_n(K)$. We have that for fixed $k$, $E_n(k)$ is a decreasing sequence. We wish to show that $\mu(E_n(k))$ is of finite measure. Applying Markovs inequality to $A(k)$, we get that $$\mu(A(k)) \leq k \int_X 2|g|$$
+Since $g\in L^1$ we have that $\mu(A(k)) <\infty$. Therefore we get that $\mu(E_1(k)) < \infty$. Since $\bigcap_{n=1}^\infty E_{n}(k) = \emptyset$, measure continuity implies that $\mu(E_n(k)) \to 0$ as $n\to \infty$. Given $\ep >0$, and $k\in \N$, choose $n_k$ sufficiently large so that $\mu(E_{n_k}(k))< \ep 2^{-k}$. Let $E = \bigcap_{k=1}^\infty E_{n_k}(k)$. We get that $\mu(E) < \ep$ and $|f_n(x)-f(x)|<\frac{1}{k}$ for $n>n_k$ and $x \notin E$. Therefore $f_n \to f$ uniformly on $E^c$.  
+\end{document}

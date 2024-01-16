@@ -1,0 +1,61 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 13}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q2a: We take note that $L_1$ has 2 eigenvalues, $-1$ corresponding to $(1,0)$ and $1$ corresponding to $(0,1)$. The determinant is the product of the eigenvalues, so $det(L_1)=-1<0$. Therefore, this reverses the standard orientation of $\R^2$. 
+\newline \\ Q2b: The matrix representing $L_2$ looks like $A= \begin{bmatrix}
+    0 & 1 \\ 1 & 0
+\end{bmatrix}$ We have that $\det(A) = -1$. Therefore this linear map is orientation reversing. 
+\newline \\ Q2c: Let $A$ be the matrix representing the linear transformation $L_3$, then $A = \begin{bmatrix}
+    \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta
+\end{bmatrix}$ for $\theta = \frac{2\pi}{7}$. This will have a determinant 1, thus $L_3$ is orientation preserving. 
+\newline \\ Q2d: The matrix $A$ representing $L_4$ will be represented by the same matrix as in 2c, except $\theta = \frac{12\pi}{7}$. The determinant of $A$ will be 1 as well, thus $L_4$ is orientation preserving. 
+\newline \\ Q2e: The matrix $A$ representing $L_5$ takes the form $A = \begin{bmatrix}
+    1 & 0 \\ 0 & -1
+\end{bmatrix}$ The determinant of $A$ is $-1$, so $L_5$ is orientation reversing. 
+\newline \\ Q2f: $L_6$ is represented by the matrix $A = \begin{bmatrix}
+    0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0
+\end{bmatrix}$ We see that $\det(A) = 1$. Therefore, $L_6$ is orientation preserving 
+\newline \\ Q2g: $L_7$ will have n identical eigenvalues, $-1$, corresponding to each basis vector. Therefore the $\det(L_7) = (-1)^n$. $L_7$ is orientation preserving if $n$ is even, and orientation reversing if $n$ is odd. 
+\newline \\ Q2h: Note that $L_8$ can be written as the composition of $n\cdot m$ transpositions, each of which swaps one basis entry with another. Each transposition has a determinant of $-1$, so their composition has a determinant of $(-1)^{n\cdot m}$. Therefore, $L$ preserves orientation if $n\cdot m$ is even, and reverses orientation if $n\cdot m$ is odd. 
+\end{document}

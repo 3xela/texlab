@@ -1,0 +1,56 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 5}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q4: Without loss of generality, we can assume that $E$ is compact by Folland Theorem 2.40. We define $$r_1 = \sup \{r: B_r(x)\subset E, \text{ for some $x$}  \},$$ and take $B_{r_1}(x_1)$ to be the corresponding ball. 
+We inductively define $B_{r_i}(x_i)$ to be the ball disjoint from all $B_{r_j}(x_j)$ for $j<i$ and $r_i$ satisfying $$r_j = \sup \{r:B_r(x) \subset (E \setminus \bigcup_{i=1}^{j-1}B_{r_i}(x_i)) \text{ for some $x$}\}$$
+We get a collection of balls $\{B_{r_i}(x_i)\}$ all contained in $E$. Since $m(E)< \infty$, we know that $$m(\bigcup_{i=1}^\infty B_{r_i}(x_i)) = \sum_{i=1}^\infty m(B_{r_i}(x_i)) \leq m(E) < \infty$$
+Hence the sum $\sum_{i=1}^\infty m(B_{r_i}(x_i))$ converges. Now given $\ep >0$, we can take $N$ sufficiently large so that $$\sum_{i=N+1}^\infty m(B_{r_i}(x_i))<\ep. $$ We now claim that $$E \setminus \bigcup_{i=1}^n B_{r_i}(x_i) \subset \bigcup_{i=N+1}^\infty B_{cr_i}(x_i)$$ for some sufficiently large $c$.
+ Let $x\in E \setminus \bigcup_{i=1}^n B_{r_i}(x_i)$. There must be some $\delta>0$ such that $B_\delta(x)$ belongs to our cover $\mathcal{C}$. If we take $c = \sup \{k:B_{kr_i}(x_i) \supset B_\delta(x) \text{ for all $x\in E \setminus \bigcup_{i=1}^n B_{r_i}(x_i)$} \}$, this set is nonempty since we can take some $x\in B_{r_{i+1}}(x_{i+1})$, and is bounded above since $E$ is compact. We will have that 
+ $$m(E \setminus \bigcup_{i=1}^n B_{r_i}(x_i)) \leq m(\bigcup_{i=N+1}^\infty) B_{cr_i}(x_i) = c^n m(\bigcup_{i=N+1}^\infty B_{r_i}(x_i)) < c^n \ep$$
+ As desired. 
+\end{document}

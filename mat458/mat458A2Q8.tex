@@ -1,0 +1,63 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 458}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\newcommand{\X}{\mathfrak{X}}
+\begin{document} \noindent 5.5.57a: We claim that $V^{-1} T^{t} V$ satisfies the adjoint condition. 
+We compute that $$\inn{x, V^{-1} T^{t} V y} = \inn{y, V^{-1} Tx} = \inn{Tx, y}. $$
+We now claim uniqueness. Let $T^\ast_1, T^\ast_2$ be adjoints of $T$. For all $x,y\in \mathcal{H}$ we have that $$\inn{x,T^\ast_1 y} = \inn{x,T^\ast_2 y} \implies \inn{x,T^\ast_1 - T^\ast_2 y} = 0.$$
+Non degeneracy of the inner product implies that $T_1^\ast = T_2^\ast$. 
+\\ \newline 5.5.57b: We first claim that $T^{\ast \ast} = T$. We have that $$\inn{T^\ast x,y} = \ol{\inn{y, T^\ast x}} = \ol{\inn{Ty, x}} = \inn{x,Ty}.$$
+As desired. We now show that $\norm{T^\ast} = \norm{T}.$ We have that $$\norm{T^\ast x} = \norm{V_y(Tx)} = \inn{Tx,y} \leq \norm{T}\norm{y}.$$
+Symmetry implies that $\norm{T}\leq \norm{T^\ast}. $ Next , we have that $$\norm{T^\ast T} = \sup_{\norm{x} = 1} \inn{T^\ast T x, x} = \sup_{\norm{x} = 1} \inn{Tx,Tx} = \sup_{\norm{x} = 1} \norm{Tx}^2 = \norm{T}^2.$$
+Furthermore, for any linear operators $T,s$ and scalars $a,b$ , $$\inn{(aS+bT)x,y}  = \ol{a} \inn{Sx,y} + \ol{b} \inn{Tx,y} =\ol{a} \inn{x,S^\ast y} + \ol{b} \inn{x,T^\ast y} = \inn{x, \ol{a}S^\ast + \ol{b} T^\ast y}. $$
+\newline \\ 5.5.57c: Suppose that $y\in R(T)^\perp$. Then for all $x \in \mathcal{H}$, $$ 0 = \inn{Tx,y} \iff 0 = \inn{x,T^\ast y} \iff y\in N(T^\ast),$$ where the last implication holds by non degeneracy of the inner product.
+Now if $y\in \ol{R(T^\ast)}$, for some $u, \ol{T^\ast u} = y$. Therefore, if $x\in N(T)$ then $$ \inn{u, Tx} = 0 \iff \inn{T^\ast(u), x } = 0 \iff \inn{x,y} = 0.$$
+As desired. 
+\newline \\ 5.5.57d: Suppose that $T$ is unitary. Then $$ \inn{Tx,Tx} = \inn{x,x} = 0 \iff x= 0. $$ Thus $T$ is invertible. We also have that for all $x,y\in \mathcal{H}$, $$\inn{x,T^\ast T y} = \inn{x,y}.$$ Thus $T^\ast T = I$.
+Therefore by uniqueness of inverses, we have that $T^\ast = T^{-1}.$ Now suppose that $T$ invertible with $T^\ast = T^{-1}$. Then $$\inn{x,y} = \inn{x, T^\ast T y} = \inn{Tx,Ty}. $$ As desired.  
+
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 14}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q3: If we let that $\gamma(t) = (\gamma_1(t),\gamma_2(t))$, then we note that since $|\gamma(t)|^2=1$, then $\frac{d}{dt}|\gamma(t)|^2=0$. For the two vectors in $T_{\gamma(t)}\R^2$, $(\gamma(t),\gamma(t))$ and $(\gamma(t),\gamma^\prime(t))$ we compute their inner product as 
+\begin{align*}
+\inn{(\gamma(t),\gamma(t)),(\gamma(t),\gamma^\prime(t))} & = \inn{\gamma(t),\gamma^\prime(t)}
+\\ & = \gamma_1(t)\cdot \gamma_1^\prime(t) + \gamma_2(t)\cdot \gamma^\prime(t)
+\\ & = \frac{1}{2}\frac{d}{dt}|\gamma(t)|^2
+\\ & =0
+\end{align*}Therefore, these tangent vectors are perpendicular. 
+\end{document}

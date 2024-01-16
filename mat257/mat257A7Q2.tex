@@ -1,0 +1,55 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 6}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q2:\\ $"\implies"$ Suppose that $f$ is integrable, and let $P$ be a partition of $A$. Since $f$ integrable, by Spivak Theorem 3-8, it is continuous except on a set of measure 0. Let $E$ be such set. For any $S\in P$ we claim that $f$ is continous on it except perhaps on a set of measure 0.
+ Clearly if $S$ is disjoint from $E$, then $f|_S$ will be continous on $S$ and hence integrable. If $S$ contains any points from $E$, then $S\cap E$ will be of measure 0 since any subset of a set of measure 0 is also measure 0. 
+ Hence $f|_S$ will be integrable on S. We now claim that $\int_A f = \sum_{S\in P} \int_S f|_S$. If we take $\chi_S$ to be the characteristic function of $S\in P$, we compute 
+\begin{align*}
+   & \int_A f
+   \\ & = \int_A \sum_{S\in P} \chi_S \cdot f \tag*{rewriting f as sum of its restrictions}
+   \\ & = \sum_{S\in P} \int_A \chi_S f \tag*{by question 1}
+   \\ & = \sum_{S\in P} \int_S f|_S
+\end{align*} As desired. 
+\\ $"\impliedby"$ Suppose that $P$ is a partition of $A$, and each $f|_S$ is integrable on $S$ for each $S\in P$. By spivak 3-8, we have that each $f|_S$ is continuous except on some measure 0 set $E_S$. Let $E = \bigcup_{S\in E} E_S$. By spivak theorem 3-4, $E$ will have measure 0. We can now express $f$ in terms of each $f|_S$. We define $\tilde{f}|_S:A\rightarrow \R$ as any function which is equal to $f|_S$ on $S$. 
+We can write $f = \sum_{S\in P} \chi_S \tilde{f}|_S$, where $\chi_S$ is the characterstic function of $S$. Thus $f$ will be continous except on $E$, a set of measure 0 and perhaps along the finite union of the boundaries of each $S$.
+ From discussion in class, we know that the boundary of a rectangle is of measure 0 so the union over all the boundaries of subrectangles of $P$ will be measure 0. Hence $f$ will be integrable. Using the linearity of the integral shown in question 1, we compute 
+ $\int_A f$ as $$\int_A f = \int_A \sum_{S\in P} \chi_S \tilde{f}|_S = \sum_{S\in P}\int_A \chi_S \tilde{f}|_S = \sum_{S\in P } \int_S f|_S$$
+\end{document}

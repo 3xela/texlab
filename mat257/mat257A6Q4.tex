@@ -1,0 +1,44 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 6}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q4:\\ Since $Df$ has rank n, assume $WLOG$ that the last n columns of $Df$ are linearly independant. Define $F(x,y)=(x,f(x,y))$. This will be a function from $\R^{k+n}$ to $\R^{k+n}$. We have that $DF = \begin{bmatrix}  I & 0 \\ \frac{\partial f}{\partial (x_1 \dots x_k)} & \frac{\partial f}{\partial (x_{k+1}\dots x_{k+n})}\end{bmatrix}$. 
+At the point $a$, $det DF = \frac{\partial f}{\partial (x_{k+1}\dots x_{k+n})} \neq 0$ since we assume that the columns of $\frac{\partial f}{\partial (x_{k+1} \dots x_{k+n})}$ are linearly independant. Since the differential of $F$ is invertible, we can apply the Inverse function theorem. So there must be an open neighbourhood $U \times V \ni a$ and an open neighbourhood $W_1 \times W_2 \ni (a_1, \dots a_k, 0\dots 0)$ along with a $G: W_1 \times W_2: \rightarrow U \times V$. 
+We now show that for all $c\in W_2$, there is some $x\in U \times V$ with $f(x)=c$. First, note that $G(x,y) = (x,h(x,y))$ for some $h$. We see that $$(a_1,\dots a_k,c) = F(G(a_1,\dots a_k,c)) = F(a_1,\dots a_k, h(a_1,\dots a_k,c)) = (a_1,\dots a_k, f(a_1,\dots a_k,h(a_1,\dots a_k,c)))$$. We see that $c= f(a_1,\dots a_k,h(a_1,\dots a_k,c))$ as desired. 
+\end{document}

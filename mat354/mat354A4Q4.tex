@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 354}
+\lhead{Assignment 4}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q4: Take $\gamma$ to be sufficiently large. Using Cauchy's Integral formula, we can write $g(z)$ as 
+$$g(z) = \frac{1}{2\pi i} \sum_{m=0}^\infty z^m \int_{\gamma} \frac{f(\zeta)}{\zeta^{m+1}}d\zeta - \frac{1}{2 \pi i} \int_{\gamma} \frac{f(\zeta)}{\zeta-z} \cdot \frac{z^n}{\zeta^n} $$
+We can write $$\frac{1}{\zeta - z} = \frac{1}{\zeta} \sum_{m=0}^\infty \frac{z^m}{\zeta^m}.$$
+We have that $g(z)$ becomes $$g(z) = \frac{1}{2\pi i} \sum_{m=0}^\infty z^m \int_\gamma \frac{f(\zeta)}{\zeta^{m+1}} d\zeta - \frac{1}{2 \pi i} \sum_{m=n}^\infty z^{m} \int_{\gamma} \frac{f(\zeta)}{\zeta^{m+1}} d\zeta = \frac{1}{2\pi i} \Big( \sum_{m=0}^{n-1}z^{m} \int_{\gamma} \frac{f(\zeta)}{\zeta^{m+1}} d\zeta \Big)$$
+Which is clearly a polynomial of degree $n-1$. Using Cauchy's Integral Formula to construct a power series for $f$, we have that for $k \leq n-1$, $$g^{(k)}(0) = \frac{k!}{2\pi i} \int_{\gamma}\frac{f(\zeta)}{\zeta^{k+1}} d \zeta = f^{(k)}(0). $$ As desired. 
+
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 354}
+\lhead{Assignment 3}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q4: We first map $\C \setminus [-1,1]$ to $\C \setminus [-\infty, 0]$ using the conformal mapping $f_1(z)$ defined by $$z \mapsto \frac{z+1}{z-1}.$$
+Now we map $C\setminus [-\infty , 0]$ to $\C \setminus \{z= x+ iy : x<0, \arg(z) \in [\pi - \arccos(r), \pi + \arccos(r)] \}$, using the conformal mapping $f_2(z)$ defined by $$z \mapsto z^{1 - \frac{\arccos(r)}{\pi}}.$$
+We choose the power of $z$ such that the boundary of $C \setminus \{z= x+ iy : x<0, \arg(z) \in [\pi - \arccos(r), \pi + \arccos(r)] \}$ gets sent to the boundary of the lense by our choice of $f_4$. 
+We now apply $f_3(z) = -z$, which is conformal, to rotate the plane. We finally apply $$f_4(z) = \frac{1-z}{1+z}$$ to transform this unbounded region into the compliment of the lense. Hence we take $$f = f_4 \circ f_3 \circ f_2 \circ f_1,$$ to be our conformal mapping of the given region 
+\end{document}

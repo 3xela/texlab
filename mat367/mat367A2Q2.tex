@@ -1,0 +1,75 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 367}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\smooth}{\mathcal{C}^\infty}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document} 
+\noindent Q2a: By question 1, it is enough to show that $V$ is a $\smooth$ submanifold of $\R^{2n}$.
+By Assignment 1, Q1, it is equivalent to finding a $\smooth$ function $f$ that is $0$ exactly on a neighborhood of a point $a\in V$ intersected with $V$.  
+Note that points in $V$ satisfy $$|(x,y)|^2 = |x|^2 + 2\inn{x,y} + |y|^2 = 2.$$
+Define the function $f: \R_x^n \times \R^n_y \to \R^3$ as $$f(x,y) = (\inn{x,y}, |x|^2-1, |y|^2-1).$$ 
+We see that for any $a\in V,$ and any neighborhood $U$ of $a$, $f^{-1}(\{0\}) = U \cap M$ 
+since $f$ is defined to be $0$ exactly on $V$. As well note that $f\in \smooth$ since arithmetic is smooth. 
+We compute the jacobian of $f$ as 
+$$f^\prime (x,y)= \begin{bmatrix}
+    y_1 & \cdots & y_n & x_1 & \cdots & x_n 
+    \\ 2x_1 & \cdots & 2x_n & 0 & \cdots & 0
+    \\ 0 & \cdots & 0 & 2y_1 &\cdots & 2y_n 
+\end{bmatrix} $$ We observe that this matrix has a rank of $3$, since the rows are linearly independant in $\R^{2n}$.
+Therefore $V$ is a submanifold of $\R^{2n}$ and hence a $\smooth$ manifold. 
+\newline \\ Q2b: Using the analysis from A1Q1, we have that $V$ is a submanifold of dimension $2n-3$. 
+\newline \\ Q2c: We write $z_k = u_k + iv_k$, and we identify $\C^n $ with $\R_u^{n} \times \R^{n}_v$.
+We can rewrite our given constraints as $$ 0=  \sum_k z_k^2 \iff 0 = \sum_{k} u_k^2 + 2iu_k v_k -v_k^2 \iff \sum_k u_kv_k =0 \text{ and } \sum_{k}u_k^2 = \sum_k v_k^2, $$ 
+and $$1= \sum_{k} |z_k|^2 \iff 1 = \sum_k u_k^2 + \sum_k v_k^2 $$ 
+We get that $\sum_k u_k^2 = \sum_{k} v_k^2 = \frac{1}{2}$. Therefore $W = \{(u,v) \in \R_u^{n} \times \R_v^n: \inn{u,v} = 0, |u|^2 = |v|^2 = \frac{1}{2}  \}.$ 
+Similarly to $2a$, we have that $W$ is the $0$ level set of the function $$g(u,v) = \Big(\inn{u,v}, |u|^2 - \frac{1}{2}, |v|^2 - \frac{1}{2} \Big).$$
+The proof that $W$ is a $\smooth$ manifold is idential to $f$ as defined in $2a$ moduluo variable names. 
+Therefore $W$ is a $\smooth$ manifold. Define the map $h:\R^{2n} \to \R^{2n} $ as $h(x,y) = (\sqrt{2}x, \sqrt{2}y)$. 
+We claim that $h$ is a diffeomorphism from $W$ to $V$. First note that $h$ is an invertible linear mapping, hence it is a homeomorphism. 
+Furthermore as a map from $\R^{2n} \to \R^{2n}$ it is $\smooth$ since it is just scaling. 
+Next, note that $$h(W) = \{(\sqrt{2}u,\sqrt{2}v) \in \R_u^{n} \times \R_v^{n} : \inn{u,v}= 0, |u|^2= |v|^2 =1\}.$$ 
+So we have that $h$ is a smooth bijective mapping from $W$ to $V$. Finally it remains to show that it is a diffeomorphism.
+By question $6$, $f$ is a diffeomorphism if and only for any coordinate chart $\psi$, $\psi\circ f$ is a coordinate chart of $V$. 
+Since $f$ gives a bijection between the open sets in $W$ and $V$, for any $\psi$, $\psi\circ f$ is a coordinate chart on $W$. Similarly, if $\psi \circ f$ is a coordinate chart on $W$, 
+then $\psi \circ f \circ f^{-1} = \psi$ is a coordinate chart on $V$. 
+\end{document}

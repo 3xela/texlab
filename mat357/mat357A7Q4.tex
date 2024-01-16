@@ -1,0 +1,52 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 7}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q4: First note that since $A$ and $B$ are compact, we have that their union and intersection will also be compact. Hence if the formula is true, then it must also hold for the Lebesgue measure, since the Lebesgue measure agrees with the Jordan measure on compact sets. Hence it is sufficient to prove the formula is true for the Lebesgue measure. Each set we will be enountering will be closed and hence is measurable. Therefore, 
+$$m^\ast(A\cup B) = m^\ast((A\cup B)\cap A) + m^\ast ((A\cup B )\cap A^c) = m^\ast(A) + m^\ast(A\setminus B)$$
+And similarly $$m^\ast(A\cup B) = m^\ast((A\cup B)\cap B) + m^\ast((A\cup B)\cap B^c) = m^\ast(B) + m^\ast(B\setminus A)$$
+Summing these two equations together we get that $$2m^\ast(A\cup B) = m^\ast(A) + m^\ast(B) + m^\ast(A\setminus B) + m^\ast(B \setminus A)$$. 
+By disjointness, we have that $m^\ast(A) = m^\ast(A\cap B) + m^\ast(A\setminus B)$ and $m^\ast(B) = m^\ast(A\cap B) + m^\ast(B\setminus A)$. This implies that $$2m^\ast(A\cup B) = 2m^\ast(A) + 2m^\ast(B) - 2m^\ast(A\cap B)$$
+And we conclude $$m^\ast(A\cup B) + m^\ast (A \cap B) = m^\ast(A) + m^\ast (B)$$ and so this is true for the Jordan measure as well. 
+\end{document}

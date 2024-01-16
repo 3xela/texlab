@@ -1,0 +1,56 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 354}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q5: We first claim that any mobius transformation as given must map only the real line to the real line. Suppose there was some complex number $z$ such that $f(z)\in \R$. By properties of $f$ we have that in $\hat{\C}$, $f(\R)$ is a circle. Since $f^{-1}$ is also a mobius transformation we have that $f^{-1}(\R)$ will be disconnected, since we can write it as a disjoint union $(-\infty , f^{-1}(z))\sqcup (f^{-1}(z), \infty) $. This is a contradiction, since continuous maps take connected sets to connected sets. Thus no such point $z$ can exist, and $f$ maps the real line exactly to the real line. Therefore, we can consider the real values $z_1,z_2,z_3$ which get mapped to $0,1,\infty$
+respectively. Since $$f(z) = \frac{az+b}{cz+d}$$ we can deduce that $$0 = f(z_1) = \frac{az_1 + b}{cz_1 +d} \implies z_1 = - \frac{b}{a} \in \R$$
+and, $$\infty = f(z_3) = \frac{az_3 + b}{cz_3 + d} \implies z_3 = - \frac{d}{c} \in \R$$
+And so 
+$$1 = f(z_2)= \frac{az_2 + b}{cz_2 + d}$$
+Together these imply that $$\frac{a}{c} = \frac{z_2-z_3}{z_2-z_1}$$
+We get that $$f(z) = \frac{az+b}{cz+d} = \frac{a(z-z_1)}{c(z-z_3)} = \frac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)} = \frac{z(z_2-z_3) + z_1(z_3-z_2)}{z(z_2-z_1) + z_3(z_1-z_2)}$$
+Since each $z_i$ is real we reach the desired result. 
+\end{document}

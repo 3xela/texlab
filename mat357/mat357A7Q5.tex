@@ -1,0 +1,49 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 7}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q5: By question 21, it is sufficient to show that Lipshchitz $T$ sends zero sets to zero sets0. Let $L$ be the lipshchitz constant. Let $Z$ be a zero set, let $\{I_k\}$ be a countable covering of $Z$ by squares whose total volume is less than $\varepsilon$, which exists by lemma 16. The diameter of $I_k\cap Z \leq \text{diam } I_k$. By Lipschitz of $T$, $T(S_K\cap  I_K)$ will have a diameter less than or equal to $L Diam I_k$. Thus we can find a square $I^\prime_k$ with diameter $L \text{Diam}I_k$ covering $T(Z\cap I_k)$. These squares cover $T(Z)$ and we see that 
+$$\sum_{k}I^\prime_k \leq L^n \sum_{k}diam(I_k)^n \leq nL^n \sum_{k}|I_k| \leq nL^n\ep$$
+Since $L,n$ both fixed, we have that $T(Z)$ is a measure 0 set. 
+\end{document}

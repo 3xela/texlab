@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 454}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q1i: We write $f(z) = c(z-b_1)\dots(z-b_k).$ It follows that $f^\prime(z) = c \sum_{i=1}^k \prod_{j\neq i}^k (z-b_j)$. When $f(z)$ iz nonzero the quotient becomes $$\frac{f^\prime(z) }{f(z)} = \frac{\sum_{i=1}^k \prod_{j\neq i}^k (z-b_j)}{(z-b_1)\dots(z-b_k)} = \sum_{i=1}^k \frac{1}{(z-b_i)}. $$
+If $f(z)=0$, and the zero is of degree 1, then the quotient will just be infinty. If $z_0$ is a zero of degree $k>1$,  then in the summation, the $z_0$ term will appear $k-1$ times. 
+\newline \\ Q1ii: We have that $$0 = \sum_{i=1}^k \frac{1}{(z-b_k)} = 0 \implies 0 = \sum_{i=1}^k \frac{1}{(z-b_i)} \cdot \ol{ \Big( \frac{z-b_i}{z-b_i}\Big) } \implies 0 = \sum_{i=1}^k \frac{\ol{z} - \ol{b_i}}{|z-b_i|^2}$$
+Seperating the summands we get that $$\ol{z} \cdot \sum_{i=1}^k \frac{1}{|z-b_i|^2} = \sum_{i=1}^k \frac{\ol{b_i}}{|z-b_i|^2},$$ as desired. If we have that $z = b_l$ for some $i$, then as we take $z \to b_l$ then the terms in the summation with index $l$ will both approach the same value and hence they will not be counted. 
+\newline \\ Suppose that $z$ satisfies $P^\prime(z) = 0$. Then by conjugating the result from $Q1ii$, we have that $z$ satisfies the expression $$z \cdot \sum_{i=1}^k\frac{1}{|z-b_i|^2} = \sum_{i=1}^k \frac{b_i}{|z-b_i|^2}.$$
+Thus we write $$z = \frac{\sum_{i=1}^k \frac{b_i}{|z-b_i|^2}}{\sum_{i=1}^k\frac{1}{|z-b_i|^2} }.$$ The coefficients of the $b_i$ are all positive since it is a sum of norms. Their sum will be $$\frac{\sum_{i=1}^k \frac{1}{|z-b_i|^2}}{\sum_{i=1}^k\frac{1}{|z-b_i|^2} }= 1.$$ Therefore $z$ is a convex linear combination of the $b_i's$ and so it belongs to the convex hull they generate.  
+\end{document}

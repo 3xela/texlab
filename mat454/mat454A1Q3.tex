@@ -1,0 +1,60 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 454}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document} \noindent Q3:
+Suppose $z,w\in S^2$. We have that their distance on the sphere is given by $$d(z,w)^2 = |z-w|^2 = (z_1-w_1)^2 + (z_2-w_2)^2 + (z_3-w_3)^2 = 2- 2(z_1w_1 +z_2w_2+ z_3w_3).$$
+Using the fact that for any vector $x\in \C$, $$(x_1,x_2,x_3) = \Big(\frac{x+\ol{x}}{1+|x|^2},\frac{x-\ol{x}}{i(1+|x|^2)}, \frac{|x|^2-1}{|x|^2+1} \Big),$$ 
+therefore we compute that 
+\begin{align*}
+    d(z,w)^2 & = 2 - 2\Big(\frac{(z+\ol{z})(w+\ol{w})}{(1+|z|^2)(1+|w|^2)} - \frac{(z-\ol{z})(w-\ol{w})}{(1+|z|^2)(1+|w|^2)}+ \frac{(|z|^2-1)(|w|^2-1)}{(1+|z|^2)(1+|w|^2)} \Big)
+    \\ & = 2 - 2\Big( \frac{z\ol{w} +\ol{z}w + z\ol{w} + \ol{z}w + |z|^2|w^2|-|z|^2-|w|^2 +1}{(1+|z|^2)(1+|w|^2)} \Big)
+    \\ & = \frac{2(1+|z|^2+|w|^2 +|z|^2|w|^2) - 2(z\ol{w} +\ol{z}w + z\ol{w} + \ol{z}w + |z|^2|w^2|-|z|^2-|w|^2 +1)}{(1+|z|^2)(1+|w|^2)}
+    \\ & = \frac{4|w-z|}{(1+|z|^2)(1+|w|^2)}
+\end{align*} Taking the square root gives the desired result. 
+If we wish to compute $d(z,\infty)$, we write $\infty = (0,0,1)$. The same computations as above except with $w=(0,0,1)$ gives us $$d(z,\infty)^2 = 2 - 2(\frac{|z|^2-1}{|z|^2+1}) = \frac{4}{|z|^2+1}.$$
+We are done. 
+
+\end{document}

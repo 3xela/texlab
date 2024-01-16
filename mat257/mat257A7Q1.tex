@@ -1,0 +1,78 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 6}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q1a: \\
+Let $P$ be a partition of $A$. We have that 
+\begin{align*}
+    & m_S(f)+m_S(g) 
+    \\ & = \inf_{x\in S} f(x) +  \inf_{x\in S} g(x)
+    \\ & \leq \inf_{x\in S} (f+g)(x) \tag*{by discussion in lecture 25}
+    \\ & = m_S(f+g)
+\end{align*}
+ And similiarly, $M_S(f+g) \leq M_S(f) + M_S(g)$. Therefore we have that 
+\begin{align*}
+    & L(f,P) + L(g,P) 
+    \\ & = \sum_{S\in P} \inf_{x\in S} f(x) \cdot vol(S) + \sum_{S\in P} \inf_{x\in S} g(x) \cdot vol(S)
+    \\ & \leq \sum_{S\in P} \inf_{x\in S}(f+g) \cdot vol(S) 
+    \\ & = L(f+g,P)
+\end{align*}
+Similiarly we have $U(f+g,P)\leq U(f,P) + U(g,P)$. 
+\\ 1b: \\ 
+Choose partitions $P_1$ and $P_2$ such that $U(f,P_1)-L(f,P_1) < \frac{\varepsilon}{2}$ and $U(g,P_2)- U(g,P_2) < \frac{\varepsilon}{2}$. Let $P_3$ be a partition which refines $P_1$ and $P_2$, now by 1a we have that 
+$$U(f+g,P_3) - L(f+g,P_3) \leq U(f,P_1) + U(g,P_2) - L(f,P_1) - L(g,P_2) < \varepsilon$$ Thus if $f$ and $g$ are integrable so is $f+g$. We also have that 
+$$L(f)+ L(g) \leq L(f+g) \leq U(f+g) \leq U(f) + U(g)$$ which implies that $\int_A (f+g) = \int_A f + \int_A g$
+\\ 1c: \\ Let $c\in \R$. It suffices to check 3 cases, $c <0,c=0,c>0$. When $c=0$ the statement is trivially true, since $\int_A 0\cdot f = 0 = 0\cdot \int_A f$. If $c>0$,  let $\varepsilon >0$. Choose partition $P$ such that $U(f,P)-L(f,p) < \frac{\varepsilon}{c}$. We compute 
+\begin{align*}
+& U(cf,P)- L(cf,P)
+\\ & = \sum_{S\in P} [M_S(cf) - m_S(cf)] \cdot vol(S)
+\\ & = \sum_{s\in P}c [M_S(f)-m_S(f)]\cdot vol(S)
+\\ & = c [U(f,P)-L(f,P)]
+\\ & < \varepsilon
+\end{align*}Now suppose that $c<0$, Let $\varepsilon >0$. Choose a partition $P$ such that $U(cf,P)-L(cf,P)< - \frac{\varepsilon}{c}$. we compute 
+\begin{align*}
+    & U(cf,P)- L(cf,P)
+    \\ & = \sum_{S\in P}[M_S(cf)-m_S(cf)]\cdot vol(S)
+    \\ & = \sum_{S\in P}[c\cdot m_S(f)-c \cdot M_s(f)]\cdot vol(S) \tag*{since multiplying by c below 0 swaps sup and inf}
+    \\ & = \sum_{S\in P } -c \cdot [M_S(f)-m_S(f)]\cdot vol(S)
+    \\ & < \varepsilon
+\end{align*} Hence for any constant $c$ we have that if $f$ integrable, so is $cf$. By above we know that 
+$$c[U(f,P)-L(f,p)]= U(cf,P)-L(cf,P)< \varepsilon$$ Since this is true for all $\varepsilon>0$, it must be that $\int_A cf = c \int_A f$
+\end{document}

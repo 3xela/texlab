@@ -1,0 +1,72 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 347}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q2i: Let $g\in G$. Suppose that $a,b$ are both multiplicative inverses of $g$. Using the properties of group multiplication, we get that 
+$$bg = e \implies (bg)a = ea \implies b(ga) = a \implies b=a$$
+Hence the multiplicative identity is unique. 
+\newline \\ 
+Q2ii: Let $g,h\in G$. We let $(gh)^{-1}=a$. We see that 
+\begin{align*}
+    (gh)a &= e
+    \\ g^{-1}(gh)a &= g^{-1}e \tag{multiply left sides by $g^{-1}$}
+    \\ (g^{-1}g)(ha) &= g^{-1} \tag{by associativity and identity}
+    \\ ha &= g^{-1} \tag{by inverse}
+    \\ (h^{-1} h) a &=h^{-1} g^{-1} \tag{multiply left sides by $h^{-1}$}
+    \\ a &=h^{-1}g^{-1} \tag{by inverse}
+\end{align*}
+Thus we see that $a=(gh)^{-1} = h^{-1}g^{-1}$ as desired. 
+\newline \\ 
+Q2iii: First, note that by multiplying $gh =e$ by $h^{-1}$ to the right, we get that $g = h^{-1}$. Similarly, when we multiply $gh = e$ by $g^{-1}$ to the left we get that $h = g^{-1}$. We can now verify that indeed
+\begin{align*}
+    gh & = e
+    \\ (hg)h &= he \tag{multiply both sides by $h$}
+    \\ (hg)(hg)&= (he)g \tag{numtiply both sides by g, associativity}
+    \\ (g^{-1}g)(h^{-1}h) & =hg 
+    \\ ee& =hg \tag{by inverse}
+    \\ e&=hg \tag{by identity}
+\end{align*} Thus we have that $gh = e = hg$ as desired. 
+\end{document}

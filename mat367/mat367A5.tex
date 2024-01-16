@@ -1,0 +1,253 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathcal{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{MAT367 }
+\newcommand{\hwNumber}{5}
+
+%preamble
+
+\title{a}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+\begin{problem}
+\end{problem}
+\penum
+\item 
+First note that on the domain $(0,\infty)$ we have that $\vph_t(x)$ is smooth. Furthermore, we have that $$\frac{d}{dx}\vph_t(x) = (\sqrt{x} + t)\cdot \frac{1}{\sqrt{x}}.$$
+By the inverse function theorem we have that $\vph_t(x)$ is a diffeomorphism. Finally we show that $\vph_t(x)$ defines a 1 parameter group in $t$. 
+$$\vph_t \circ \vph_s(t) = \vph_t\left( (\sqrt{x}+s)^2\right) = \left(\sqrt{(\sqrt{x}+s)^2}+t \right)^2	 = \left(\sqrt{x} +s+t\right)^2 = \vph_{s+t}(x). $$
+Therefore $\vph_t(x)$ defines the flow of a vector field. 
+\item To find an $X$ which $\vph_t(x)$ generates, we compute $$\frac{d}{dt}\Big|_{t=0} \vph_t(x) = 2\sqrt{x}\frac{d}{dt}. $$
+\epenum
+\newpage
+\begin{problem}
+\end{problem}
+\penum
+\item By a long computation we verify the Jacobi identity holds for Lie Bracket: 
+\begin{align*}
+	[X,[Y,Z]] + [Z,[X,Y]]+[Y,[Z,X]] & = [X, YZ-ZY]+ [Z,XY-YX] +[Y,ZX-XZ]
+	\\ & = XYZ-XZY-YZX+ZYX+ZXY  -ZYX\\ &-XYZ+YXZ+YZX-YXZ-ZXY+XZY
+	\\ & = 0
+\end{align*}
+\item 
+\begin{enumerate}[label = \roman*)  ]
+	\item Using the Jacobi identity for the lie bracket, along witg the fact that $L_X Y= [X,Y] $ we see that $$0 = [X,[Y,Z]] +[Z,[X,Y]] -[Y,[X,Z]] = L_X[Y,Z] - [L_X Y , Z] - [Y, L_X Z] \implies L_X[Y,Z] = [L_X Y , Z] - [Y, L_X Z]$$
+	\item Since the Lie bracket is bilinear, we get that $$L_{[X,Y]}f = L_{XY}f - L_{YX}f = XYf - YXf = L_x \circ L_y f - L_y \circ L_x f$$
+\end{enumerate}
+\epenum
+
+\newpage
+\begin{problem}
+\end{problem}
+\penum
+\item  Suppose $\phi_h$ and $\psi_h$ are the flows associated to $X,Y$ respectively. Furthermore suppose that $f_\ast X = Yf$. We first claim that $f\circ \psi_h = \phi_h \circ f$. We see that $$\frac{d}{dt} \Big|_{t= 0} \left(f\circ \psi_h \right(q)) = \frac{d}{dt} \Big|_{t= 0} (f(\psi_t(q)) \circ \frac{d}{dt} \Big|_{t= 0} \psi_t(q) = f_\ast X_q = Y_{f(q)}f = \frac{d}{dt} \Big|_{t= 0} \phi_t(f(q)).$$ This computation along with the initial condition $f_\ast X = Yf$ implies that $f\circ \psi_h = \phi_h \circ f$. It follows that $(\phi_h \circ f)_\ast = (f\circ \psi_h)_\ast$. Therefore we compute that 
+\begin{align*}
+[Y_1,Y_2]& = L_{Y_1}Y_2 
+\\ &= \lim_{h\to 0} \frac{1}{h} \left[{Y_2}_{f(p)} - \psi_{h\ast}{Y_2}_{f(p)}\right]
+\\ & = \lim_{h\to 0} \frac{1}{h} \left[ f_\ast {X_2}_p - \psi_{h\ast} f_\ast {X_2}_p \right] \tag{since $X$ is a lifting of $Y$}
+\\ & = \lim_{h\to 0 } \frac{1}{h} \left[ f_\ast {X_2}_p - (\psi_{h}\circ f)_{\ast p } {X_2}_p \right] \tag{by chain rule}
+\\ & = \lim_{h\to 0 } \frac{1}{h} \left[ f_\ast {X_2}_p - (f\circ \phi_h)_{\ast p } {X_2}_p \right]\tag{by claim}
+\\ & = \lim_{h\to 0 } \frac{1}{h} \left[ f_\ast {X_2}_p - f_\ast\circ {\phi_h}_{\ast p } {X_2}_p \right]\tag{by chain rule}
+\\ & = f_\ast \left( \lim_{h\to 0} \frac{1}{h} \left[{X_2}_p - {\phi_{h \ast}}{X_2}_p \right]\right) \tag{since $f_\ast$ is continous}
+\\ & = f_\ast L_{X_1}X_2
+\\ & = f_\ast [X_1,X_2]
+\end{align*}
+Therefore $[X_1,X_2]$ is a lifting of $[Y_1,Y_2]$. 
+\item Suppose that $[X_1,X_2]$ is tangent to $f^{-1}(q)$ for all $q\in N$. First, note that since $f$ is a surjective submersion, we have that $f^{-1}(q)$ is a submanifold of $M$. Since $f$ is constant on $f^{-1}(q)$, and for $p\in f^{-1}(q)$ we have $[X_1,X_2]_p \in T_p f^{-1}(q)$ and $$f_\ast[X_1,X_2]_p = [Y_1,Y_2]_q = 0.$$ 
+Conversely, suppose that $[Y_1,Y_2]=0$. Then we have that $f_\ast[X_1,X_2]=0$ by $3a$. Therefore on every fiber $f^{-1}(q)$ we have that $f_\ast[X_1,X_2]_{f^{-1}(q)}=0$, so $[X_1,X_2]$ is tangent to every fiber. 
+\epenum
+\newpage 
+\begin{problem}
+\end{problem}
+\penum
+\item 
+Note that $\mathfrak{X}(G)^L$ is a vector space, since it is the image of a vector space, namely $TM_h$ under the mapping $(\mu_{g})_\ast$.
+We claim that the evaluation map $X \mapsto X_e$ is a linear mapping. Indeed, $$(Y+\alpha X)_e = Y_e + \alpha X_e.$$
+We now claim that is a linear isomorphism. We show that it is injective and surjective. 
+First suppose that for some left invariant vector fields $X,Y$ we have that $X_e=Y_e$. By left invariance, we have that $$0= (\mu_g)_\ast (Y_e-X_e)= Y_g-X_g.$$ We have $X_g=Y_g$ for all $g$ so $X=Y$. Now suppose that $v\in TG_e$. Define the vector field $X_g = (\mu_g)_\ast v$. Observe that this is a smooth mapping into the tangent space, so $X_g$ is a vector field, and $X_e = v$. We quickly verify that $X$ is left invariant: $$(\mu_h)_\ast X_g = (\mu_h)_\ast\circ (\mu_g)_\ast v = (\mu_{hg})_\ast v  = X_{hg}.$$
+Therefore the evaluation map is a isomorphism of vector spaces. 
+\item As proven in a previous assignment, $(\mu_g)_\ast$ is a linear isomorphism since $\mu_g$ is a diffeomorphism. It follows that $(\mu_g)_\ast$ is a surjective submersion. Furthermore, note that $X,Y$ are left invariant if and only if they are liftings of themselves. By $3a$, we have $$(\mu_g)[X,Y]_h = [X,Y]_{\mu(g,h)}.$$
+So the left invariant vector fields form a Lie Algebra. 
+\epenum
+\newpage
+\begin{problem}
+\end{problem}
+We can rewrite the vector fields $X,Y$ as $X_{(x,y,z)} = (y-z,0,0), Y_{(x,y,z)} =(0,1,1)$. Define the function $p(t,s)$ so that $p$ satisfies $X,Y$ and $p(0,0)= a$. To satisfy $Y$ we must have $$\frac{\partial p}{\partial s} (s,t) = (0,1,1) \implies p(s,t) = (f(t), s+c,s+d).$$ The condition $X$ gives us that $$\frac{\partial p}{\partial t}(s,t) = c-d \implies p(s,t) = (e+(c-d)t , s+c,s+d). $$ Initial conditions imply that $(e,c,d) = a$, so the solution surface is given as $$p(s,t) = a+((a_2-a_3)t, s, s). $$
+\newpage
+\begin{problem}
+\end{problem}
+\penum
+\item Let $\{U_\alpha\}$ be a finite covering of $f^{-1}(\{0\})$ by coordinate charts so that we can apply the submersion theorem on each $U_\alpha$. Take $\{\psi_i\}$ to be a partition of unity subordinate to this cover. On each $U_i$ define the vector field $X^i_y = \frac{\partial }{\partial x_1}\Big|_{y}$. Let ${\vph_i}_t(x)$ be the associated flow of $X^i$ defined for $t\in (-\ep_i, \ep_i)$. We define the vector field $X = \sum_i \psi_i X^i$. By the submersion theorem, we have that $$f_\ast X = \sum_{i}\psi_i f_\ast X^i = \frac{d}{dt}.$$
+We now define the mapping $\phi_t(x)$ to be ${\phi_t}_i(x)$ for $x$ belonging to $U_i$, and $t\in \bigcap_i^n (-\ep_i, \ep_i) = (-\ep, \ep)$. We claim that this is a diffeomorphism, and thus will be the flow of $X$. Note this function is smooth since the ${\phi_i}_t(x)'s$ agree on the intersection of the $U_i's$ by uniqueness. First we have that $\frac{\partial}{\partial t} \phi_t(x)$ is nonsingular, since for each $i$, $\frac{\partial}{\partial t} {\phi_i}_t(x)$ is non singular. Furthermore, $\frac{\partial}{\partial x}\phi_t(x)$ will also be nonsingular since each $\frac{\partial}{\partial x} {\phi_i}_t(x)$ is nonsingular. Hence $\phi_t(x)$ is a diffeomorphism. By uniqueness it corresponds to the flow of $X$. It follows that $f(\phi(t,x)) = t$ since $f_\ast(X) = \frac{d}{dt}$ and $f(f^{-1}(0)) = 0$. Therefore $\phi_t(x)$ is a diffeomorphism from $f^{-1}(0)\times (-\ep, \ep)$ to $f^{-1}(-\ep,\ep )$.  
+\item 
+First assume that $N = \R^m$ and $b=0$. Since $0$ is a regular point of $f$, by the submersion theorem we can take a covering of $f^{-1}(\{0\})$ by charts $\{U_i,x^i\}$ so that $f$ is a projection i.e. $f_i(x^j) = x^j_i$. By part $a)$ we can find a diffeomorphism $\phi^j_i(y,t)$ defined on $f^{-1}_i(0)\cap U_j\times (-\ep_i , \ep_i) \to f^{-1}((-\ep, \ep ))$ so that $f_i(\phi^j_i(y,t)) = t$. By the same process as $a)$, we can extend $\phi^j_i$ to a diffeomorphism $\phi_i$, which satisfies $f_i(\phi_i(x,t)) = t$. Let $(-\ep_1 , \ep_1)\times \dots \times (-\ep_m, \ep_m) =I$ and define the mapping $\phi(x,t): f^{-1}(0)\times I\to f^{-1}(I)$ as $$\phi(x,t_1, \dots , t_m) = \left(\phi_1(x,t_1) , \dots , \phi_m(x,t_m)\right).$$
+First, notice that by the submersion theorem we have that $f^{-1}(0) = \prod_i f_i^{-1}(0)$ and $f^{-1}(I) = \prod_i f^{-1}((-\ep_i, \ep_i))$, so $\phi(x,t)$ is actually defined from $\prod_i f^{-1}(0) \times I$ with values into $\prod_i f^{-1}((-\ep_i, \ep_i))$. By the submersion theorem we have that $f(\phi(x,t_1, \dots , t_m)) = (t_1, \dots , t_m)$. Finally,  $\phi(x,t)$ is a diffeomorphisms since it is a product of diffeomorphisms with images into a product of manifolds. If $N$ is a manifold, we can take a sufficiently small neighbourhood $U$ of $b$ and coordinates so that $U$ is an open set in $\R^m$ and $b=0$. 
+\item The claim is false. Consider the Hopf Fibration: 
+$$\begin{tikzcd}
+	{S^1} & {S^3} & {S^2}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow["p", two heads, from=1-2, to=1-3]
+\end{tikzcd}.$$ It has been shown that for any $\lambda\in S^2$, $p^{-1}(\lambda )=S^1$. If it were the case that $S^1\times S^2 \cong S^3$ that would imply that $S^1\times S^2$ has trivial tangent bundle, since $S^3$ is a lie group after identification with $SU(2)$. However a product of manifolds has trivial tangent bundle if and only if each factor has trivial tangent bundle. $S^2$ does not have a trivial tangent bundle, a contradiction.
+\epenum
+\end{document}

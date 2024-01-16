@@ -1,0 +1,58 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 8}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q4:\\
+Given that $f(x,y) = \int_x^x g_1(t,0)dt + \int_0^y g_2(x,t)dt$, we will compute $D_1f$ and $D_2f$. First, $D_1f$
+\begin{align*}
+    D_1f & = D_1\int_0^x g_1(t,0)dt + D_1 \int_0^y g_2(x,t)dt
+    \\ & = g_1(x,0) + D_1 \int_0^y g_2(x,t)dt \tag{by FTC}
+    \\ & = g_1(x,0) + \int_0^y D_1 g_2(x,t)dt \tag{by the Leibniz Rule}
+    \\ & = g_1(x,0) + \int_0^y D_2 g_1(x,t)dt \tag{by assumption}
+    \\ & = g_1(x,0) + g_1(x,y) - g(x,0) \tag{by FTC}
+    \\ & = g_1
+\end{align*} As desired. We now will compute $D_2f$
+\begin{align*}
+    D_2 f & = D_2 \int_0^x g_1(t,0)dt + D_2 \int_0^y g_2(x,t)dt 
+    \\ & = D_2 \int_0^x g_1(t,0)dt + g_2(x,y) \tag{by FTC}
+    \\ & = 0 +  g_2(x,y) \tag{since first integral contstant in y}
+    \\ & = g_2(x,y)
+\end{align*} As expected.
+\end{document}

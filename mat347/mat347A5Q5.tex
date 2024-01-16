@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 347}
+\lhead{Assignment 5}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q5: The maximum order of an element of $C_m \times C_n$ is $lcm(n,m)$, since if $g$ generates $C_m$ and $h$ generates $C_n$, we have that $(g,h)$ generates $C_m \times C_n$. The order of this element must be both a multiple of $n$ and $m$, so the largest it can be is $lcm(n,m)$. We now claim that $$C_m \times C_n \cong C_{lcm(m,n)} \times C_{gcd(m,n)}.$$
+First note that from basic number theory we have that $m\cdot n = lcm(m,n) \cdot gcd(m,n)$. Hence these groups must have the same order. We will construct an injective homeomorphism between them and conclude that they are isomorphic. Note that for every element $([x]_m, [y]_n)$ we can find some integer $a$ so that $[a]_m = [x]_m$ and $[a]_n = [y]_n$. Define $\varphi: C_m \times C_n \to C_{lcm(m,n)} \times C_{gcd(m,n)}$ by $$\varphi([a]_m , [a]_n) = ([a]_{lcm(m,n)}, [a]_{gcd(m,n)}). $$
+Note that from properties of integers mod $n$, we have that $\varphi$ is a homeomorphism. We claim that this is an injective mapping. First suppose that for some $(x,y) \in C_m \times C_n$, we have that $\varphi(x,y) = (0,0)$. Find a $b\in \Z$ so that $[b]_m  = [x]_m$ and $[b]_n = [y]_n$. We have that $\varphi(b,b) = (0,0)$. We have that $b |nk , lm $ for some $k,l \in \Z$ and so $[b]_m = [b]_n = e$. Hence $(x,y) = (e,e)$ and $\varphi $ is an isomorphism. It is clear from elementary number theory that $gcd(n,m) | lcm(n,m)$. We now claim that if for any $r,s $ with $s|r$, and $C_m \times C_n \cong C_r \times C_s$ we must have that $r = lcm(m,n) $ and $r = gcd(m,n)$. 
+Note that we must have that $r\cdot s = m \cdot n$, furthermore $gcd(m,n) = gcd(r,s)$ and $lcm(r,s) = kcm(m,n)$. If $s|r$. This uniquely determines $s,r$ as $r = lcm(m,n)$ from number theory. 
+
+\end{document}

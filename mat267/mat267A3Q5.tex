@@ -1,0 +1,56 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 267}
+\lhead{Assignment 3}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q5a: We claim that Picard Iteration is monotone. We claim this is true by strong induction. For $n=0$, we have that by assumption $$x=x_0 \leq a+ b\int_0^t x = x_1$$
+Now suppose that for all $i< k$, we have that $x_i \leq x_{i+1}$. We wish to show that $x_k\leq x_{k+1}$. Observe that 
+$$x_{k-1} \leq x_k \implies a+b \int_{0}^t  x_{k-1} \leq a + b\int_0^t x_k \implies x_k \leq x_{k+1}$$ Where the first implication follows by assumption, that $0\leq x_{k-1},x_{k}$.
+\newline \\ Q5b: We claim that $\{x_k\}$  is a cauchy sequence. Let $\sup_{t\in[0,T_1]|}|x(t)| = M$. We see that $$|x_1-x_0| = |a+b \int_{0}^t x -x | \leq a+ bT_1 M +M $$
+For $|x_2-x_1|$,  we see $$|x_2-x_1| \leq b\int_{0}^t |x_1-x_0| \leq bT_1 M$$
+For $|x_3-x_2|$, we see that $$|x_3-x_2| \leq (bT_1)^2M$$ 
+Extending this we see $|x_{k+1}-x_k| \leq (bT_1)^kM$. Now we compute that 
+\begin{align*}
+    |x_n-x_m| & \leq \sum_{k=m}^n |x_k-x_{k-1}|
+    \\ & \leq \sum_{k=m}^n (bT_1)^kM
+    \\ & < \varepsilon \tag{since $bT_1<1$ can be made sufficiently small}
+\end{align*} Hence this sequence is Cauchy and thus converges. By 5a, it converges upwards to some $y(t)$. Since the solution to our system is $y(t)= ae^{bt}$ we have that $0\leq x(t) \leq ae^{bt}$.
+\newline \\ Q5c: By partitioning $[0,T]$ into intervals of length less than $T_1$ we apply the same argument form 5b, and we get that $x(t)$ exists on $[0,T]$ and $x(t)\leq ae^{tb}$
+\end{document}

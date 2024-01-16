@@ -1,0 +1,46 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q3:\\
+Since $U$ open, $U^c$ must be closed. it then follows from 2b that there exists some $d$ such that $\norm{x-y} \geq d$ for all $x \in U^c$ and $y \in C$. Now, we cover each $y\in C$ with a ball of radius $\frac{d}{2}$. 
+This is an open cover of $C$, so we can take a finite subcover by compactness of $C$. Let $D$ be the closure of this finite subcover. We first claim that $D$ is a compact set. Note that $D$ is the finite union of closed balls with radius $\frac{d}{2}$. It follows that $D$ is closed and bounded and thus is compact by the Heine Borel Theorem. Note that as well, since every point in $D$ is at most $\frac{d}{2}$ away from $U^c$, $D$ must be disjoint with $U^c$ and as such $D \subset U$. 
+Finally it remains to show that $C \subset int D$. Suppose that $x\in C$. From our choice of $D$ , there must exist an open ball centered at some point $y$, $B_{\frac{d}{2}}(y)$, such that $x$ belongs to this open ball. Since this ball is open we can find some smaller open set $U$ with $x\in U \subset B_{\frac{d}{2}}(y)$. This is exactly what it means to be in the interiour of $D$. Therefore, $C \subset int D$. 
+
+\end{document}

@@ -1,0 +1,63 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 18}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\s}{\mathcal{S}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q2a: It is known that the 2 form $xdx+ydy+zdz$ vanishes everywhere on $\s^2$. Hence by wedging with $dx$, we see that 
+$$(xdx+ydy+zdz)\wedge dx = 0 \implies ydy\wedge dx + z dz\wedge dx =0 \implies ydx \wedge dy = z dx\wedge dz $$
+Similarly, when we wedge with $dy$, we see that 
+$$(xdx+ydy+zdz)\wedge dy = 0 \implies xdx \wedge dy + z dz\wedge dy =0 \implies x dx \wedge dy = z dy\wedge dz$$
+Lastly, when we wedge with $dz$ we get 
+$$(xdx+ydy+zdz)\wedge dz = 0 \implies xdx\wedge dz + ydy\wedge dz = 0 \implies x dz \wedge dx = y dx\wedge dz$$
+\newline \\ Q2b: We can write $x^2+y^2=1-z^2$ on $\s^2$, and since $x,y\neq 0$ division by these quantities makes sense. Hence, we see that 
+\begin{align*}
+    \omega &= \frac{x(1-z^2)}{x^2+y^2}dy\wedge dz + \frac{y(1-z^2)}{x^2+y^2}dz \wedge dx + \frac{z(1-z^2)}{x^2+y^2}dx \wedge dy
+    \\ & = \Big[ \frac{x}{x^2+y^2}dy\wedge dz + \frac{y}{x^2+y^2}dz\wedge dx + \frac{z}{x^2+y^2}dx\wedge dy \Big] -\frac{z}{x^2+y^2} \Big[xzdy \wedge dz + yz dz\wedge dx + z^2 dx\wedge dy \Big]
+    \\ & = \Big[ \frac{x}{x^2+y^2}dy\wedge dz + \frac{y}{x^2+y^2}dz\wedge dx + \frac{z}{x^2+y^2}dx\wedge dy \Big] - \frac{z}{x^2+y^2}\Big[ x^2dx \wedge dy + y^2 dx\wedge dy + z^2 dx\wedge dy \Big] \tag{by 2a}
+    \\ & = \Big[ \frac{x}{x^2+y^2}dy\wedge dz - \frac{y}{x^2+y^2}dx\wedge dz + \frac{z}{x^2+y^2}dx\wedge dy \Big] - \frac{z}{x^2+y^2}[(x^2+y^2+z^2)dx\wedge dy]
+    \\ & = \Big[ \frac{x}{x^2+y^2}dy\wedge dz - \frac{y}{x^2+y^2}dx\wedge dz + \frac{z}{x^2+y^2}dx\wedge dy \Big] - \frac{z}{x^2+y^2}dx\wedge dy \tag{since on $\s^2$}
+    \\ & = \Big(\frac{xdy}{x^2+y^2} -\frac{ydx}{x^2+y^2}\Big)\wedge dz
+\end{align*} As desired. 
+\newline \\ Q2c: Suppose we have a spherical bread being sliced into $n$ slices. Each slice will have a height of $h=\frac{2}{n}$. We wish to integrate $\big(\frac{xdy - ydx}{x^2+y^2} \big)\wedge dz$ on the chain whose image is given by $A = \{ \}$
+\end{document}

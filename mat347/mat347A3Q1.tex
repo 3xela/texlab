@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 347}
+\lhead{Assignment 3}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q1i: 
+It is sufficient to show that for any $\alpha\in G$, $\alpha H = H \alpha$. First suppose that $\alpha \in G - H$. Since the index of $H$ is 2, we know that we can obtain a partition of $G$ as $G = H \sqcup \alpha H$. Similarly, we can obtain the partition of $G = H \sqcup H \alpha$. This implies that for $\alpha \in G - H$, $\alpha H = H \alpha$. Now suppose that $\alpha \in H$. Since $H$ is a group which inherits its multiplication from $G$, we have that $\alpha H = H \alpha$. We have that $\alpha H = H \alpha$ for all $\alpha\in G$, hence we apply our result from assignment 2, question 4 and conclude that $H \trianglelefteq G$.
+\newline \\ \noindent 
+Q1ii:  We write $n = ak$ for some positive integer $a$. Take $G = \Z / n\Z$, and $H = \inn{[a]} = \{[a], [2a], \dots [ka] \}$. $H$ is clearly a subgroup of $G$ with order $k$, and since $G$ is abelian, it follows that every subgroup is normal in $G$. 
+\end{document}

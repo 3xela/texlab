@@ -1,0 +1,57 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 10}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q1:\\
+First letting $A = (0,a)\times (0,\frac{\pi}{2}) \times (0, 2\pi)$ we see that $g(A)=V\setminus C$, for some content 0 set $C$. Thus by COV $\int_{g(A)} z = \int_A z\circ g \cdot |det g^\prime|$. We see that $z\circ g = r sin\phi$
+Computing $g^\prime $ get $$ g^\prime =  \begin{bmatrix}  \cos\theta\cos\phi & -r \sin\phi\cos\theta & -r\cos\phi \sin\theta \\ \cos\phi\sin\theta & -r \sin\phi \sin\theta & r\cos\phi \cos\theta  \\ \sin\phi & r\cos\phi & 0 \end{bmatrix}$$
+We have that $|\det g^\prime| = r^2 \cos\phi$. This will be nonzero on the domain of $g$, so we can apply COV. 
+We evaluate: 
+\begin{align*}
+     \int_{g(A)} z &= \int_A z\circ g |\det g^\prime| \tag{by COV}
+    \\ & = \int_A r^3 sin\phi cos\phi
+    \\ & = \int_0^a \int_0^{2\pi} \int_0^{\frac{\pi}{2}} r^3 \sin\phi \cos\phi \quad d\phi d\theta dr \tag{by Fubini's Theorem}
+    \\ & = \int_0^a \int_0^{2\pi} r^3 \frac{\sin^2 \phi}{2}\bigg|_0^\frac{\pi}{2} \quad d\theta dr 
+    \\ & = \int_0^a \int_0^{2\pi} \frac{r^3}{2} \quad d\theta dr 
+    \\ & = \int_0^a \pi r^3 dr
+    \\ & = \frac{\pi a^4}{4}
+\end{align*}
+\end{document}

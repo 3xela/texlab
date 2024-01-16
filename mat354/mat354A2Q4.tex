@@ -1,0 +1,61 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 354}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q4: Note that by definition of $\cos(z)$, we can write $$\cos(z) = \frac{e^{iz} + e^{-iz}}{2}$$ We wish to find a $z$ such that for all $c\in \C$ $$\frac{e^{iz} + e^{-iz}}{2}=c$$
+Take $z = -i \log(-c - \sqrt{c^2-1})$. We compute that:
+\begin{align*}
+    \frac{e^{iz} + e^{-iz}}{2} & = \frac{e^{i (-i \log(-c - \sqrt{c^2-1}))} + e^{-i(-i \log(-c - \sqrt{c^2-1}))}}{2}
+    \\ & = \frac{e^{\log(-c - \sqrt{c^2-1})} + e^{-\log(-c - \sqrt{c^2-1})}}{2}
+    \\ & = \frac{\frac{-c - \sqrt{c^2-1}}{1} + \frac{1}{-c - \sqrt{c^2-1}}}{2}
+    \\ & =  \frac{1}{2}\cdot \frac{c^2 -2c\sqrt{c^2-1} + c^2-1+1}{-c - \sqrt{c^2-1}}
+    \\ & = \frac{1}{2} \cdot \frac{2c(-c - \sqrt{c^2-1})}{-c-\sqrt{c^2-1}}
+    \\ & = c
+\end{align*}
+We conclude that $\cos(z)$ is surjective onto the complex plane. 
+
+\end{document}

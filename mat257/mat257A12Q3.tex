@@ -1,0 +1,56 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 12}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q3: We begin by defining the relevant objects. Let $u_1, \dots ,u_m$ be a basis for $\R^m$. Let $v_1,\dots ,v_n$ be a basis for $\R^n$. Let $I= \{ i_1\dots i_k \} \in \underline{n}_a^k$ and let $J^\prime = \{ j_1, \dots , j_k \}$. Let $A = (a_{ij})$ where $i$ ranges over $1,\dots ,n$ and $j$ ranges over $1,\dots , m$. We know that for some $\{c_J \}$, $L^{*}\omega_I = \sum_{J\in \underline{m}_a^k}c_J \omega_J$.
+If we apply both sides of the equation to $u_{J^\prime}$. We see on the right that $\sum_{J\in \underline{m}_a^k} c_J \omega_J(v_{J^\prime}) = c_{j^\prime}$, since $\omega_J(v_I)=\delta_{IJ}$. 
+The left side will be $L^{*}\omega_I(v_{J^\prime})$. This quantity is equal to $c_{J^\prime}$ so we will determine what it is. 
+\begin{align*}
+    L^{*}\omega_I(v_J^\prime) & = \omega_I(L(v_{J^\prime}))
+    \\ & = \omega_I(L(u_{j_1}) , \dots , L(u_{j_k}))
+    \\ & = \omega_I(({a_{1j_1}v_1 + \dots + a_{nj_1}v_n} ), \dots ,(a_{1j_k})v_1 + \dots + a_{nj_k}v_n )
+    \\ & = \sum_{\sigma} (-1)^{\sigma} \varphi_{I}\circ \sigma^{*} (({a_{1j_1}v_1 + \dots + a_{nj_1}v_n} ), \dots ,(a_{1j_k})v_1 + \dots + a_{nj_k}v_n )
+    \\ & = \sum_{\sigma} (-1)^{\sigma} \prod_{\alpha=1}^k a_{i_\alpha \sigma{\alpha}}
+    \\ & = \det(B)
+\end{align*} Where $B=(a_{i_\alpha j_\beta})$ for $\alpha,\beta $ ranging over $1,\dots k$. Therefore $c_{J^{\prime}} = \det(B)$.
+\end{document}

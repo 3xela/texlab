@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 4(done with Payam Fakoorziba)}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q2: First, we have that $\norm{\frac{d}{dx}cos(n+x)} = \norm{-sin(n+x)} \leq 1$. So by the mean value theorem, $|cos(n+x)-cos(n+y)|\leq |x-y|$. This implies that $h_n(x)=cos(n+x)$ is Lipschitz and hence is equicontinuous. 
+Now define $g_n(x) = \log(1+\frac{\sin(n^nx)}{\sqrt{n+2}})$. We need to show that it uniformly converges to 0, which would imply eqcontinuity. We see that if we take $\varepsilon>0$, $n$ sufficiently large we get that $\log(1+\frac{\sin(n^nx)}{\sqrt{n+2}})<\varepsilon$, regardless of the value of $x$. Hence this sequence uniformly converges and is equicontinuous. It remains to show the sum, $f_n = h_n+g_n$ is equicontinuous. Let $\varepsilon>0$. Take $\delta_1,\delta_2$ such that $|s-t|<\delta_1\implies |g_n(t)-g_n(s)|<\frac{\varepsilon}{2}$ and $|s-t|<\delta_2 \implies |h_n(t)-h_n(s)|<\frac{\varepsilon}{2}$. Take $\delta= \min{\delta_1,\delta_2}$. Then we see that $$|f_n(s)-f_n(t)| = |h_n(s)+g_n(s) - h_n(t) -g_n(t)| \leq |h_n(s)-h_n(t)| + |g_n(s)-g_n(t)| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$$
+Thus the sum of two equicontinuous function is equicontinuous, and so we conclude that $f_n$ is equicontinuous. 
+
+\end{document}
+

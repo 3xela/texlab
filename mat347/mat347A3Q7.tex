@@ -1,0 +1,81 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 347}
+\lhead{Assignment 3}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q7i: We compute the commutator subgroup of $D_6$. Any element of the commutator subgroup is of the form $$(\sigma^i \rho^j)(\sigma^k \rho^l)(\sigma^i \rho^j)^{-1}(\sigma^k \rho^l)^{-1}$$ We can use the relations on $D_{2n}$ as outlined in chapter 1.2 of the textbook, to compute this product. 
+\begin{align*}
+    (\sigma^i \rho^j)(\sigma^k \rho^l)(\sigma^i \rho^j)^{-1}(\sigma^k \rho^l)^{-1} & = (\sigma^i \rho^j \sigma^k \rho^l)(\rho^{-j}\sigma^{-i})(\rho^{-l}\sigma^{-k})
+    \\ & = (\sigma^i \rho^j \sigma^k \rho^l)(\rho^{-j}\sigma^{i})(\rho^{-l}\sigma^{k})
+    \\ & = \sigma^{i} \rho^{j-l}(\sigma^k \rho^{-j})(\sigma^{i}\rho^{-l})\sigma^{k}
+    \\ & = \sigma^{i}\rho^{j-l}\rho^j \sigma^k\sigma^i\rho^{-l}\sigma^k
+    \\ & = \sigma^i \rho^{2j-l}\sigma^{i+k}\rho^{-l}\sigma^k
+    \\ & = \sigma^i \rho^{2l-2j} \sigma^{i+2k}
+    \\ & = \sigma^{2i+2k}\rho^{2(j-l)}
+    \\ & = \rho^{2(j-l)}
+\end{align*} Hence the commutator subgroup of $D_2n$ is simply just the set of all rotations. Therefore, $D_6 / D_6^\prime$ is just $\{e,\sigma\}$. We can identify this subgroup with $\Z / 2\Z$ with the isomorphism $\phi(\sigma) = 1$. 
+\newline \\ \noindent 
+Q7ii: Similarly to 7i, we know that the commutator subgroup of $D_8$ is all the rotations, hence $$D_8 / D_8^\prime \cong \{e,\sigma\} \cong \Z / 2\Z$$
+\newline \\ \noindent
+Q7iii:  We compute the commutator subgroup of $\mathcal{Q}_8$. We compute all elements of the form $ghg^{-1}h^{-1}$. First assume that either $g$ is equal to $\pm 1$. We get that $$ghg^{-1}h^{-1} = (\pm 1)h(\pm 1)^{-1}h^{-1}= (\pm 1)(\pm 1)^{-1}hh^{-1} = 1$$
+If we had instead $h=\pm 1$ we would have the exact same conclusion. 
+Now if $g=h$, we get that 
+\begin{align*}
+    ghg^{-1}h^{-1} & = ggg^{-1}g^{-1}
+    \\ & = g g^{-1}
+    \\ & = 1
+\end{align*}
+Now finally suppose that $g\neq h$ and both are not $\pm 1$. Note that this implies that $g^{-1} = -g$
+We compute:
+\begin{align*}
+    ghg^{-1}h^{-1} & = gh(-g)(-h)
+    \\ & = g(hg)h
+    \\ & = -g^2h^2 \tag{from anticommutativity of $\mathcal{Q}_8$}
+    \\ & = -1 \tag{since $g^2=h^2=-1$}
+\end{align*}
+Thus we have that $\mathcal{Q}_8^\prime = \{\pm 1\}$. Hence $$\mathcal{Q}_8 / \mathcal{Q}_8^\prime \cong \{1,i,j,k\}$$
+\end{document}

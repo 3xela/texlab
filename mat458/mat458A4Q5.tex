@@ -1,0 +1,67 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 458}
+\lhead{Assignment 4}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\hil}{\mathcal{H}}
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\newcommand{\X}{\mathfrak{X}}
+\begin{document} \noindent 5a: 
+First note that if we substitute $x = \frac{z}{y}$,  $$\int K(xy)x^{-\frac{1}{q}} dx = \int K(z)( \frac{z}{y})^{-\frac{1}{q}} \frac{1}{y}dz = y^{\frac{1}{q} -1} \int K(z) z^{\frac{1}{p}-1} dz = y^{- \frac{1}{p}} \phi(p^{-1}).$$
+We now see that \begin{align*}
+    \Big( \int K(xy)f(x)dx \Big)^p & \leq \Big( \int K(xy)x^{-\frac{1}{q}} dx \Big)^{\frac{p}{q}} \int x^{\frac{p}{q^2}}K(xy) {f(x)}^p dx \tag{by Holders inequality}
+    \\ &=y^{-\frac{1}{q}}\phi(p^{-1})^{\frac{p}{q}}\int x^{\frac{p}{q^2}}K(xy) {f(x)}^p dx \tag{by above}
+\end{align*}
+Furthermore, we have that 
+\begin{align*}
+    \int \Big( \int K(xy)f(x)dx \Big)^p dy & \leq \int y^{-\frac{1}{q}} \phi(p^{-1})^\frac{p}{q} dy \int x^{\frac{p}{q^2}}K(xy) {f(x)}^p dx \tag{by tonelli and above}
+    \\ & = \phi(p^{-1})^\frac{p}{q} \int \int y^{-\frac{1}{q}} x^{\frac{p^2}{q}}K(xy)f(x)^p dx dy 
+    \\ & = \phi(p^{-1})^\frac{p}{q} \int x^{\frac{p^2}{q}}f(x)^p \int K(xy) y^{-\frac{1}{q}} dy dx 
+    \\ & = \phi(p^{-1})^p \int x^{p-2} f(x)^p dx 
+\end{align*}
+Therefore by Holders inequality, 
+$$\int \int K(xy)f(x)g(y) dx dy \leq \norm{g}_q \phi(p^{-1}) \int x^{p-2} f(x)^p dx.$$
+\newline \\ Q5b: Using 5a, we get that $$\norm{Tf(x)}^2_2 = \int \Big| \int K(xy)f(y)dy \Big|^2 dx \leq \phi(\frac{1}{2})^2 \int |f(x)|^2 dx. $$
+Therefore this operator is bounded and maps $L^2$ into $L^2$. 
+\end{document}

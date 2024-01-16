@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 354}
+\lhead{Assignment 5}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q1a: Note by $A1Q1$ we have that for $|\ol{a}z |\neq 1$, $$1 - |\frac{a-z}{1- \ol{a}z}| = \frac{(1-|z^2|) (1-|a|^2)}{|1-\ol{a}z|^2}.$$
+When $|z|=1$ this will hold, since $|a|<1$, and we have that it will be $0$, or equivalently, we have that $$|\frac{a-z}{1- \ol{a}z}|=1.$$ Hence this fractional linear transformation will map $S^1$ to $S^1$. We can check that it maps the interiour to the interiour since $g_a(a) =0$. Continuity implies that this holds for all $z\in D$. Thus this is a homeomorphism of $D$. 
+\newline \\ Q1b: Let $a = f^{-1}(0). $ Consider the mapping $f\circ g_a$. We claim that it is scaling by some $\lambda\in S^1$. First we have that $$f(g_a(0))= f(a)=0.$$ 
+We now claim that for some $z\neq 0$ we have $$|f(g_a(z))| = |z|.$$ Applying Schwartz' lemma to $f\circ g_a$ and $(f\circ g_a)^{-1}$ we get that for all $z$,$$|f(g_a(z))| = |z|. $$ Thus we have that $$f(g_z(z)) = \lambda z \implies \frac{1}{\lambda }f(g_a(z)) = z \implies \frac{1}{\lambda}f = g_a^{-1}(z) \implies f(z) = \lambda g^{-1}_a(z)$$
+We have that $$g^{-1}_a(z) = \frac{z-a}{\ol{a}z-1} = g_{a}(z).$$ Thus we are done. 
+
+\end{document}

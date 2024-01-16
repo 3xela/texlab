@@ -1,0 +1,48 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 5}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q2a:\\
+Suppose not, that is suppose that $f$ is injective. Then we have that $D_1f$ and $D_2f$ are both not identically $0$. $WLOG$ say that $D_1f$ is nonzero on some open set $A$. 
+Define $g(x,y) = (f(x,y),y)$. Then by properties of the differential, $$Dg(x,y) = \begin{pmatrix}
+ D_1f(x,y)   & D_2f(x,y) \\ 0 & 1
+\end{pmatrix}$$ We have that $Det Dg = D_1f(x,y)$ which is nonzero on $A$. Notice that our choice for $g$ makes it injective.  Thus by the inverse function theorem, there exists some open set $A$ around the point $(x_0,y_0)$ and open $B$ around $g(x,y)$ such that $g^{-1}:B \rightarrow A$ exists and is both continous and differentiable. 
+Consider distinct points $(\alpha,y_0), (\alpha,y_1)\in B$. Since $g^{-1}$ is injective we have that there is some distinct $(x_0,y_0)$ and $(x_1,y_1)$ where $f(x_0,y_0)= f(x_1,y_1) =\alpha $. We obtain a contradiction and thus $f$ is not injective. 
+
+\end{document}

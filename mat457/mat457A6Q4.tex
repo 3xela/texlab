@@ -1,0 +1,59 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 6}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q4a: Note that for any for any $\lambda \in (0,1), x_1< x_3,$ let $x_2= (1-\lambda) x_1 + \lambda x_3$. By convexity we have that $$f(x_2) \leq (1-\lambda )f(x_1) + \lambda f(x_3) = f(x_1) - \lambda f(x_1) + \lambda f(x_3).$$ 
+Rearranging yields $$f(x_2) - f(x_1) \leq \lambda [f(x_3) - f(x_1)].$$ Since $$\lambda = \frac{x_2-x_1}{x_3 - x_1} ,$$ we get $$\frac{f(x_2)-f(x_1)}{x_2-x_1} \leq \frac{f(x_3) -f(x_1)}{ x_3-x_1},$$ As desired. 
+\newline \\ Q4b: Let $[a,b]$ be an interval. Let $x,y\in [a,b], x<y. $ For any $c<a, b<d$ by convexity we have that  $$\frac{f(x)-f(c)}{x-c} \leq \frac{f(x)-f(y)}{x-y} \leq \frac{f(y) - f(d)}{y-d}.$$ Therefore if we take $L = \max \Big\{ \Big| \frac{f(y) - f(d)}{y-d} \Big|, \Big|\frac{f(x)-f(c)}{x-c} \Big| \Big\},$ we get that $$\Big| \frac{f(x) - f(y)}{x-y} \Big| \leq L $$ i.e. $f$ is locally lipschitz. We now claim that $f$ is differentiable a.e. with respect to $m$. It is enough to show that it is absolutely continuous, then the claim follows from Folland Theorem 3.35. Let $\{(a_i,b_i)\}$ be a finite collection of intervals. Let $L$  be the maximum lipschitz constant on $(a_i,b_i)$. Let $\ep>0$. Take $\delta  < \frac{\ep}{L}$. Then we have that 
+$$\sum_{i}^N |b_i-a_i| < \frac{\ep}{L} \implies \sum_{i=1}^N L|b_i-a_i| < \ep \implies \sum_{i}^N |f(b_i) - f(a_i)| < \ep . $$
+Hence $f$ absolutely continuous and hence differentiable almost everywhere. Note that for any $x<y$ and a sufficiently small $h$, we have that $$\frac{f(x+h)-f(x)}{h} \leq \frac{f(x)-f(y)}{x-y}.$$ This implies that $f$ is right differentiable at every $x$. By $4b$ this is an increasing function hence differentiable almost everywhere. Convexity also implies that $$\frac{f(x+h)-f(x)}{h}\leq \frac{f(y+h)-f(y)}{h},$$ so we have that $f^\prime(x+)$ is increasing. 
+\newline \\ Q4c: We claim that $f$ convex is twice differentiable. Let $g(x) = f^\prime(x+).$ We evaluate that $$g^\prime(x) = \lim_{h\to 0} \frac{g(x+h) -g(x)}{h} = \lim_{h\to 0} \frac{f^\prime((x+h)+) - f^\prime(x+)}{h}  = \lim_{h\to 0^+}\frac{f^\prime(x+h) - f^\prime(x)}{h} = f^{\prime \prime }(x)$$ 
+We now claim that the limit $$\lim_{h\to \infty} \frac{2}{h^2} (f(x+h) -f(x) -f^\prime(x)h)$$ exists. Using the fundamental theorem of calculus, we write $$f(x+h) -f(x) -f^\prime(x)h = \int_x^{x+h} f^\prime(t) -f^\prime(x) dt = \int_{x}^{x+h} g^\prime(t) - g^\prime(x) dt. $$ Since $g$ is differentiable, we can take $\ep>0,\delta>0$ such that $\frac{g(x+h) - g(x)}{h} \in (g^\prime(x)-\ep, g^\prime(x)+\ep )$ for $h< \delta$. 
+Equivalently, we have that $$g(x+h)-g(x) \in (h(g^\prime(x) - \ep), h(g^\prime(x)+\ep)),$$ or $$h(g^\prime(x) - \ep) < g(x+h) - g(x) < h(g^\prime(x) + \ep). $$ 
+Therefore $$\int_{x}^{x+h}(g^\prime(x) - \ep) (t-x) dt < \int_{x}^{x+h} g(t) -g(x) dt < \int_{x}^{x+h}(g^\prime(x) + \ep) (t-x) dt.$$ Which yields $$ \frac{h^2}{2} (g^\prime(x) - \ep) < \int_{x}^{x+h} g(t) - g(x) < \frac{h^2}{2}(g^\prime(x) + \ep )$$
+Therefore $$\lim_{h\to 0} \frac{2}{h^2} (f(x+h) -f(x) -f^\prime(x)h) = \lim_{h\to 0} \frac{2}{h^2} \cdot  \frac{h^2}{2}g^\prime(x) = g^\prime(x) = f^{\prime \prime}(x)$$
+\end{document}

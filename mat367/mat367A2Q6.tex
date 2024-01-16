@@ -1,0 +1,59 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 367}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\smooth}{\mathcal{C}^\infty}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document} \noindent Q6: 
+$a \implies b$: Suppose that $f:M\to N$ is a diffeomorphism.
+ Suppose that $\psi_1 : V \to \R^n$ is a coordinate chart of $\mathcal{B}$. 
+ Then we have that $\psi_1\circ f$ is a homeomorphism from $f^{-1}(V)$ to $\R^n$ since $f$ is a homeomorphism.
+Now given $\varphi$, coordinate chart of $M$, $(\psi_1 \circ f) \circ \varphi^{-1}$ is a diffeomorphism since $f$ is.  
+If $\psi_2$ is another chart of $N$, then $$(\psi_2 \circ f) \circ (\psi_1\circ f)^{-1} = \psi_2 \circ f \circ f^{-1} \circ \psi_1^{-1} = \psi_2 \circ \psi_1^{-1}\in \smooth.$$
+Now if $\psi\circ f$ is a coordinate chart of $\mathcal{A}$, $\psi \circ f \circ f^{-1} = \psi$ is a homeomorphism on $N$ into $\R^n$. 
+We can see that for any other coordinate chart $\psi_2$ on $N$, $(\psi\circ f)\circ(\psi_2 \circ f)^{-1}$ is $\smooth$, since they are charts on $\mathcal{A}$, but $$(\psi\circ f)\circ(\psi_2 \circ f)^{-1} = \psi \circ \psi_2^{-1}.$$ 
+So $\psi$ is $\smooth$ related to any other chart $\psi$. 
+\newline \\ $b \implies c$: Suppose $g \in \smooth$ on $(N, \mathcal{B})$. Then for any chart $\psi\in \mathcal{B}$, we have that $g\circ \psi^{-1} \in \smooth$. Then $$g\circ f \circ \varphi^{-1} = (g\circ \psi^{-1}) \circ (\psi \circ f \circ \varphi^{-1}).$$ By assumption $\psi \circ f$ is a chart on $(M , \mathcal{A})$, so its composition with $\varphi^{-1}$ is smooth. 
+We have that $g\circ f \circ \varphi^{-1}$ is the composition of smooth functions hence smooth. Now suppose that $g\circ f$ is $\smooth$ on $(M, \mathcal{A})$. 
+Therefore, $$g \circ f \circ \varphi^{-1} = (g \circ \psi^{-1}) \circ ( \psi \circ f \circ \varphi^{-1}). $$ We have that $( \psi \circ f \circ \varphi^{-1})$ is a diffeomorphism by assumption, so $g\circ \psi$ is $\smooth$.
+\newline \\ $c \implies a$. Take $g = \psi \in \mathcal{B}$. We know that $\psi$ is $\smooth$ on $(N, \mathcal{B})$, so we must have that $\psi \circ f$ is smooth on $(M, \mathcal{A})$ i.e. $\psi \circ f \circ \varphi^{-1}$ is smooth. Since $f$ is a homeomorphism, we conclude that $f$ is a diffeomorphism.  
+\end{document}

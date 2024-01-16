@@ -1,0 +1,53 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 315}
+\lhead{Assignment 9}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q3a, 7.12: First consider the case when $a = -3\in Q_p$. We see by inspection that $-3\in Q_2$ and $-3\in Q_3$. So it is reasonable to assume that $p>3$. By theorem 7.5, we have that $$(\frac{-3}{p}) = (\frac{-1}{p})(\frac{3}{p})$$ If it is the case that $p=\equiv 1\mod{4}$, then $(\frac{-1}{p})=1$. By example $7.10$, $(\frac{3}{p})=1$ when $p\equiv 1 \mod{12}$. If if $p \equiv 3 \mod{4}$, then we have that $(\frac{-1}{p})= -1$. 
+Once again by example 7.10, $(\frac{3}{p})=-1$ for $p\equiv 7\mod{12}$. Therefore, $p\equiv 1\mod{6}$. A similar argument can be made for $a=5$. We get that $(\frac{p}{5})=1$ if $p \equiv \pm 1 \mod{5}$.For $a=6$, since $6 \not \in Q_3,Q_2$ we can assume that $p>3$.If $p\equiv 1 \mod{4}$, then $(\frac{6}{p})=1$ when $(\frac{p}{2})= (\frac{p}{3})$. So, $p \equiv \pm 1 \mod{24}$ or $p \equiv \pm5 \mod{24}$. When $a=7$, $p=2$, $p \equiv \pm 1 \mod{28}, p \equiv \pm 3 \mod{28}, p\equiv \pm 9 \mod{28}$. When $a=10$, we get that $p \equiv \pm 1,3,9,13 \mod{40}$. When $a=169$, $p\neq 13$. 
+\newline \\ 7.21: Notice that $-1\in Q_n$ by theorem 7.15. This is only true iff $-1\in Q_{p^e}$, for each $p^e ||n$. Note that by thm 7.14, $-1\in Q_{2^e} \iff e=0$ or 1. If $p>2, -1\in Q_p \iff -1\in Q_{p^e}$ by theorem 7.13. By cor. 7.7, this is true if and only if $p\equiv 1 \mod{4}$. Therefore, $-1\in Q_n$ if and only if 4 does not divide n or n is not divisible by a prime $p\equiv 3 \mod{4}$. 
+\newline \\ 7.22: We can observe that the quantities $\pm \sqrt{q}, \pm \sqrt{r}, \pm \sqrt{qr}$ are not integral. But at least one of $r,q,qr\equiv 1\mod{8}$. Therefore at least one belong to $Q_{2^e}$ for all $e$, and so $(\frac{q}{r})=1$, and so $q\in Q_{r^e}$ for all $e$. Using the CRT, we want to show that for all prime $p$,$p^e$ there exists some solution to $f(x)\equiv 0 \mod{p^e}$. By LQR, $(\frac{r}{q}) = (\frac{q}{r})=1$ and so $r\in Q_{p^e}$. By theorem 7.5, if $p\neq 2, p\neq q,p \neq r$ then $(\frac{qr}{p}) = (\frac{q}{p})(\frac{r}{p})$. So at minimum one of $q,r,qr$ belong to $Q_{p^e}$ for all $e$. So thus $h(x)\equiv 0 \mod{n}$ has a solution for all $n$.
+\newline \\ 7.11. We factor $219=3\cdot 73$ so by thm 7.5, $$(\frac{219}{383}) = (\frac{3}{383})(\frac{73}{383})$$ We use the LQR to evaluate $$(\frac{3}{383}) = (-\frac{383}{3}) = -(\frac{2}{3})=1$$ Similarly by applying corr. 7.10, we get that $$(\frac{73}{383}) = 1$$ And so $$(\frac{219}{383})=1$$ and so $219\in Q_{383}$
+\newline \\ 7.25 We factor $923=13\cdot 71$ So $43 \equiv 4 \mod{13}$ and $43\equiv 4 \mod{13}$ and $43\in Q_{13}$. Hence by LGR we can write $$(\frac{43}{71}) = - (\frac{71}{43}) = -(\frac{28}{43}) = -(\frac{7}{43}) = (\frac{43}{7}) =(\frac{1}{7}) = 1$$ And so $43\in Q_{923}$
+
+\end{document}

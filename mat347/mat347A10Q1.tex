@@ -1,0 +1,53 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 347}
+\lhead{Assignment 10}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\normal}{\triangleleft}
+\newcommand{\normaleq}{\trianglelefteq}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document} 
+\noindent Q1i: We claim the element $x^2y$ is in $I\cap J$ but not in $IJ$. Note that it belongs to both the ideal $I$ and $J$, since we can take $y\cdot x^2$, or $x\cdot xy$ respectively. However, every element of $IJ$ can be written as $$\sum_{i}a_i \cdot x^3y$$ for some $a_i\in \mathcal{R}.$ In this polynomial, $x$ must have a degree of at least $3.$ Thus $x^2y \not \in IJ.$
+\newline \\ Q1ii: Consider the ideals $I = (2), J=(4).$ It is clear that $I\cap J =J$, since every multiple of $4$ is also a multiple of $2$. However, we have that $IJ$ is all elements of the form $$\sum_{i}a_i (2\cdot 4) = 8\cdot \sum_{i}a_i,$$ for $a_i\in \Z$. Thus we have that $IJ = (8).$  
+
+\end{document}

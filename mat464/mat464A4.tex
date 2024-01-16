@@ -1,0 +1,257 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathbb{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\bd}{\partial}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{464}
+\newcommand{\hwNumber}{4}
+
+%preamble
+
+\title{}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+\begin{problem}
+\end{problem}
+We claim the existence of a vector field $V$ satisfying $\inn{V(0), \gamma^\prime(0)} =0 $ and that the if we parallel transport $V(0)$ along $\gamma$, then $P_{\gamma , t , 1}(V(0)) = V(0)$ i.e. it gets parallel transported to itself along $\gamma$. Let $W$ be the subspace orthogonal to $\gamma^\prime(0)$. Let $\tilde{A}$ be the linear map given by parallel transporting $T_{\gamma(0)}M$ along $\gamma$ to $\gamma(0)$ along $\gamma$. $\tilde{A}$ is an orientation preserving isometry, so it must have determinant of  $1$. Let $A$ be the restriction of $\tilde{A}$ on $W$, it must also be an isometry and has determinant of $1$, since $\tilde{A} \gamma^\prime(0) = \gamma^\prime(0)$. By Do Carmo Lemma 3.8 pg 203, we have that $A$ must fix a subspace of $W$. Take a vector $v\in W$ and choose $V$ so that $V(0) = v$. We compute the index as: 
+$$I(V,V) = \int \inn{V^\prime,V^\prime} - \inn{R(\gamma^\prime, V) \gamma^\prime , V} dt = \int - \inn{R(\gamma^\prime, V) \gamma^\prime , V} dt <0$$
+Since curvature is positive. There is a subspace of positive dimension where $I$ is negative definite so we conclude that the index of $\gamma$ is at least $1$. 
+ \newpage 
+\begin{problem}
+\end{problem}
+We first create a triangle, by letting $\gamma_3$ be the minimal geodesic from $q_2$ to $q_1$. Using criticality, we can find a minimal geodesic $\gamma_4$ so that the angle $\phi$ between $\gamma_3,\gamma_4$ is at most $\frac{\pi}{2}$. Since $\mathbb{H}^n$ is simply connected, complete and has curvature of $K=-1$, we can apply the Toponogov Comparison theorem. Consider the triangle with sides $(a,b,c)$ where $|a| = |\gamma_4|$ and $|b| = |\gamma_3|$ and the angle between $a$ and $b$ is $\phi$. Using hyperbolic trig. identities, we have that 
+$$\cosh|c| \leq \cosh|a| \cosh |b|.$$
+Furthermore, the toponogov comparison theorem implies that $|\gamma_2| \leq |c|$. Since $\cosh$ is increasing on the positive reals we have
+$$\cosh|\gamma_2| \leq \cosh|c| \leq \cosh |\gamma_3| \cosh |\gamma_4|.$$
+Furthermore $|\gamma_4| = |\gamma_1|$ by minimality, so we get that $\cosh|\gamma_2| = \cosh |\gamma_3| \cosh|\gamma_1|$. 
+We now consider the triangle in $\mathbb{H}^n$ formed by $(d,c,b)$ where $|d| = |\gamma_1|$, $|b| = |\gamma_2|$ and the angle between $d$ and $b$ is $\theta$. 
+The hyperbolic law of cosines tells us that 
+$$\cosh|b| = \cosh|d| \cosh|c| - \sinh |d|\sinh|c| \cos \theta. $$
+Similarly as before we apply toponogov's theorem to get that $|\gamma_3|\leq |b|$ and get that 
+$$\cosh|\gamma_3| \leq \cosh |\gamma_1| \cosh|\gamma_2| - \sinh|\gamma_1|\sinh|\gamma_2|\cos \theta.$$
+Combining this with the inequality for the other triangle, we get:
+$$\cosh |\gamma_2| \leq \cosh|\gamma_1| (\cosh|\gamma_1| \cosh|\gamma_2| - \sinh|\gamma_1| \sinh|\gamma_2| \cos \theta).$$
+Dividing by $\cosh |\gamma_2|$ we get
+$$1 \leq \cosh^2|\gamma_1| - \cosh|\gamma_1|\sinh|\gamma_1 | \tanh|\gamma_2| \cos \theta.$$
+Rearranging, we get 
+$$\cos \theta \leq \frac{\tanh |\gamma_1|}{\tanh |\gamma_2|}.$$
+By assumption we had that $\alpha|\gamma_1|\leq |\gamma_2| \leq d$, so 
+$\cos \theta \leq \frac{\tanh |\gamma_2| / \alpha}{\tanh |\gamma_2|}$ since $\tanh$ is increasing. Finally we get that $\cos \theta \leq \frac{\tanh d/\alpha}{\tanh d}$ since $\frac{\tanh x/\alpha}{\tanh x}$ is increasing. 
+ \newpage 
+\begin{problem}
+\end{problem}
+\penum
+\item It is not possible to provide $\T^n$ with a metric of negative curvature. The fundamental group is $\pi_1(\T^n)= \Z^n$ which admits a non cyclic subgroup. By Preissman's theorem (Do Carmo Thm 3.2) it can not have negative curvature. $\T^n$ cannot be given a constant positive curvature since if it could be, the universal covering space would be $S^n$, by Do Carmo thm 4.1. 
+\item $S^n$ is compact, simply connected for $n>1$. If $S^n$ admits non-positive sectional curvature it must be diffeomorphic to $\R^n$ by hadamards theorem. However this is absurd since $S^n$ is compact and $\R^n$ is not.
+\item $S^1 \times \R P^2$ cannot have negative curvature since it is compact, and any compact manifold with negative curvature has non abelian fundamental group by Do Carmo thm 3.8. The fundamental group is $\Z \times \Z_2$ which is abelian. If $S^1\times \R P^2$ has positive sectional curvature, it must be orientable by Synge. But this is clearly untrue since $\R P^2$ is not orientable. 
+
+\item $S^2 \times S^2$ can not have non positive sectional curvature, since if it did it would be diffeomorphic to $\R^4$ by Hadamards theorem. We can endow $S^2 \times S^2$ with non negative curvature in the following way. Consider the product metric, where each $S^2$ is given the standard metric. At any point $(a,b)\in S^2 \times S^2$, we compute the scalar curvature as: 
+$$K(a,b) = \frac{1}{12} \sum_{i,j} \inn{R(z_i,z_j) z_i, z_j}.$$ Since we choose that the $\{z_i\}$ orthonormally, the sum above will be positive except for when $a=b$, then it will vanish. 
+
+\epenum 
+ \newpage 
+\begin{problem}
+\end{problem}
+\penum
+\item First take a sequence $\{q_n\}\subset N$ such that $q_n\to q$ and $d(p_0,q_n)\to d(p_0,N)$. Since $N$ is closed we must have that $q\in N$, and $d(p_0,q)= d(p_0,N)$. Choose geodesic $\gamma:[0,a]\to M$ so that $\gamma(0)=p_0,  \gamma(a) = q_0$ by completeness of $M$.
+By the formula for the first variation of energy, given a variation $f$ of $\gamma$, we have
+$$\frac{1}{2}E^\prime(0) = -\int_0^a \inn{V(t), \frac{D}{dt} \gamma^\prime}dt - \sum_{i=1}^k \inn{V(t_i), \gamma^\prime(t_i^+)  - \gamma^\prime(t_i^-)} - \inn{V(0), \gamma^\prime(0)} + \inn{V(a), \gamma^\prime(a)}.$$
+Note however that since $\gamma$ is $C^1$ the left and right derivatives are equal. Choose a vector field $V$ so that $V(0) = 0$, and $V(a)\in T_{q_0}N$. Then by prop. 2.2, there exists a variation $f$ of $\gamma$ so that $V$ is the variational field of $f$. First we must have that $E^\prime(0)=0$ since $\gamma$ is a geodesic, and $\frac{D}{dt}\gamma^\prime =0$. We get that 
+$$0 = -\inn{V(0), \gamma^\prime(0)} + \inn{V(a), \gamma^\prime(a)} \implies\inn{V(a), \gamma^\prime(a) } = 0. $$
+Therefore $\gamma$ is orthogonal to $T_{q_0}N$. 
+\item We compute $\frac{1}{2} \Delta |\grad u|^2$. Take a moving orthonormal frame $\{e_i\}$, so that $\grad_{e_i}e_j(x) = 0$ for all $x$: 
+\begin{align*}
+	\frac{1}{2} \Delta |\grad u|^2 & = \frac{1}{2}\sum_{i=1}^n e_i(e_i(\inn{\grad u, \grad u})) \tag{using the definitions of the operators}
+	\\ & = \sum_{i=1}^n e_i(\inn{\grad_{e_i} \grad u , \grad u }) \tag{applying $e_i$ to the inner product}
+	\\ & = \sum_{i=1}^n e_i H(u)(e_i, \grad u) \tag{by definition of hessian}
+	\\ & = \sum_{i=1}^n e_i H(u)(\grad u, e_i) \tag{by symmetry}
+	\\ & = \sum_{i=1}^n e_i \inn{\grad_{\grad u} \grad u , e_i}
+	\\ & =\sum_{i=1}^n \inn{\grad_{e_i} \grad_{\grad u}\grad u, e_i } \tag{applying $\grad_{e_i}$}
+	\\ & = \sum_{i=1}^n \inn{\grad_{\grad u} \grad_{e_i}\grad u, e_i} + \inn{\grad_{[e_i, \grad u]}\grad u, e_i } + \inn{R(e_i, \grad u)\grad u,e_i } \tag{by definition of curvature}
+	\\ & = \sum_{i=1}^n \left[ \grad u \inn{\grad_{e_i}\grad u, e_i } - \inn{\grad_{e_i}\grad u , \grad_{\grad u}e_i } \right] + \sum_{i=1}^n H(u)([e_i, \grad u], e_i) + \sum_{i=1}^n \inn{R(e_i, \grad u)\grad u,e_i }\tag{expanding out first and second term in sum,}
+	\\ & = \grad u (\Delta u)+ \sum_{i=1}^n 
+	H(u)(e_i, \grad_{e_i} \grad u)+ Ric(\grad u, \grad u ) \tag{simplyifying}
+	\\ & = \inn{\grad u, \grad(\Delta u) } + |H(u)|^2 + Ric(\grad u, \grad u ). 
+\end{align*} 
+\epenum
+ \newpage 
+\begin{problem}
+\end{problem}
+First take a set of points $\{p_i\} \subset B_{r - \ep/2}(p)$ so that $d(p_i,p_j)\geq \frac{\ep}{2}$ when $i \neq j$.
+We must then have that the $\frac{\ep}{4}$ balls at each $p_i$ are disjoint from one another. We have that 
+\begin{align*}
+	N & \leq \frac{Vol(B_r(p))}{\min_i Vol(B_{\frac{\ep}{4}} (p_i))} 
+	\\ & = \frac{Vol(B_r(p))}{ Vol(B_{\frac{\ep}{4}} (p^\prime))} \tag{since we have a finite set of points, min attained at some $p^\prime$ }
+	\\ &  \leq \frac{Vol( B_{2r}(p^\prime))}{Vol(B_{\frac{\ep}{4}} (p^\prime))} \tag{since $B_{2r}(p^\prime) \supset B_r(p)$} 
+	\\ & \leq \frac{Vol(B_{2r}(H))}{Vol(B_{\frac{\ep}{4}}(H))} \tag{Do Carmo Rmk 2.7 pg 220}
+	\\ & = C_1(n,Hr^2,\frac{r}{\ep})
+\end{align*}
+We have that $d(p_i,p^\prime) \leq 2\ep$, so by disjointness we have that the multiplicity satisfies:
+\begin{align*}
+	\text{mult.} & \leq \frac{Vol(B_{3\ep}(p^\prime))}{\min_i Vol(B_{\frac{\ep}{4}}(p_i) ) }
+	\\ & \leq\frac{Vol(B_{3\ep}(p^\prime))}{ Vol(B_{\frac{\ep}{4}}(p^{\prime \prime}) ) } \tag{min attained at some $p^{\prime \prime}$}
+	\\ & \leq \frac{Vol(B_{5\ep}(p^{\prime \prime}))}{ Vol(B_{\frac{\ep}{4}}(p^{\prime \prime}) ) } \tag{since $B_{5\ep}(p^{\prime \prime}) \supset B_{3\ep}(p^\prime)$}
+	\\ & \leq \frac{Vol(B_{5\ep}(H))}{Vol(B_{\frac{\ep}{4}} (H))} \tag{Do Carmo rmk 2.7 pg 220}
+	\\ & = C_2(n,H\ep^2)
+\end{align*} 
+\end{document}

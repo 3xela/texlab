@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 10}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q5: \\ First notice that $|\det g^\prime| = r >0$. We can apply the COV Theorem to compute the value of the integral. 
+\begin{align*}
+    \int_{T(A)} 1  & = \int_{A} 1 |\det g^\prime|
+    \\ & = \int_0^{2\pi} \int_{b-a}^{b+a} \int_{-\sqrt{a^2-(r-b)^2}}^{\sqrt{a^2-(r-b)^2}} r \quad  dz dr d\theta \tag{by Fubini's Theorem}
+    \\ & = 2 \int_0^{2\pi} \int_{b-a}^{b+a} r\sqrt{a^2-(r-b)^2}\quad dr d\theta
+    \\ & = 2\int_0^{2\pi} \int_{-a}^a (u+b)\sqrt{a^2-u^2} \quad du d\theta \tag{substitution u = r-b}
+    \\ & = 2\int_0^{2\pi} \int_{-a}^a u\sqrt{a^2-u^2} \quad du d\theta + 2\int_0^{2\pi} \int_{-a}^a b\sqrt{a^2-u^2} \quad du d\theta
+    \\ & = 2\int_0^{2\pi} \int_{-a}^a b\sqrt{a^2-u^2} \quad du d\theta \tag{since first integral is of an odd function}
+    \\ & = 2b\int_0^{2\pi} \frac{\pi}{2}a^2 d\theta
+    \\ & = 2\pi^2 a^2b
+\end{align*}
+\end{document}

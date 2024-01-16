@@ -1,0 +1,47 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 315}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q2a: Prove $(2)\iff (2^\prime)$ \\ $"\implies"$ \\
+Let $P(n)$ be the statement $1,\dots n \in  B$. P(1) is true since $1 \in B$. If $P(n)$ is true, then we have that $1,\dots n \in B$, so $1\dots n,n+1 \in B$ and so $P(n+1)$ is true. $P(1)$ is true and $P(n)\implies P(n+1)$, so $P(n)$ is true for all $n\in \N$ by (2). Thus $1,\dots n \in B$ for all $n\in N$, so $B = \N$. 
+\\ $"\impliedby"$\\ Given $P(1) \dots P(n)$, take $B= \{ n\in \N : P(1) \dots P(n) true \}$. Then we have that $1\in B$, since $P(1)$ is true, and if $1,\dots n \in B$ then $P(1),\dots P(n)$ is true so $P(n+1)$ is true and so $n+1\in B$ hence $B=\N$. So $P(n)$ true for all $n\in N$. 
+\\ Q2b: \\ Let $B= \{ n\in \N: P(1)\dots P(n)\text{ true} \}$. Since $P(1)$ is true by assumption, we have that $1\in B$. Since $P(n)\implies P(n+1)$, by our assumption $(2^\prime)$ we know that if $1\dots n\in B$ then $n+1\in B$, so $B=\N$. Thus $P(n)$ is true for all $n\in \N$.
+\end{document}
