@@ -1,0 +1,57 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q3:\\
+We first claim that $f(0)=0$. 
+\begin{align*}
+    & \norm{f(0)} \leq \norm{0}^2
+    \\ & \implies \norm{f(0)} \leq 0
+    \\ & \implies \norm{f(0)} = 0
+    \\ & \implies f(0) = 0
+\end{align*}
+We not show that $f \in o(h)$ Now consider $f(h)$ for some $h\in \R^n$. 
+\begin{align*}
+    & \norm{f(h)} \leq \norm{h}^2
+    \\ & \implies \frac{\norm{f(h)}}{\norm{h}} \leq \norm{h}
+    \\ & \implies \lim_{h \rightarrow 0} \frac{\norm{f(h)}}{\norm{h}} \leq \lim_{h\rightarrow 0} \norm{h}
+    \\ & \implies \lim_{h \rightarrow 0 } \frac{\norm{f(h)}}{\norm{h}} = 0
+\end{align*}
+Thus we can write $f(h) = f(0) + Lh + o(h)$ for some linear mapping $L$. Since $f\in o(h)$, this implies that $L\in o(h)$. By the lemma from class any linear mapping in $o(h)$ is 0. And so $f$ is differentiable with $Df(0)=0$. 
+\end{document}

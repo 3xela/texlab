@@ -1,0 +1,59 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 458}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\hil}{\mathcal{H}}
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\newcommand{\X}{\mathfrak{X}}
+\begin{document} \noindent 5.5.64a: Show that for any $x$, $\norm{L_k x}\to 0$ as $k\to \infty$. Let $x = \sum_{n}a_n u_n$. 
+We have that $$\norm{L_kx}^2 = \norm{\sum_k a_k^2} \to 0,$$ since $\sum_{i=1}^\infty a_i^2 = \norm{a}< \infty$, so the tail end converges to $0$. 
+However, in the norm toplogy, $\sup_{k} \norm{L_k} =1$ since for any $L_k$, we can always find a vector $x = u_{k+1}$ so $\norm{L_k x} = 1$. 
+\newline \\ 5.5.64b: For any linear functional $f$, we can write $$f(R_k x) = \inn{R_k x, y} $$ for some $y = \sum_{i}b_i u_i.$ If $x = \sum_{i}a_i u_i$, then we evaluate $f(R_kx)$ as $$\inn{\sum_{n} a_nu_{n+k}, \sum_{n} b_n u_n} = \sum_{n=k} a_n b_{n+k}.$$
+This converges to $0$ since $\lim_{k\to \infty} b_{n+k} \to 0$. $R_k$ does not converge to $0$ in the strong operator topology
+since for any $R_k$, $x$, $\norm{R_k x} = \norm{x}$. 
+\newline \\ 5.5.64c: We see that $ \norm{R_kL_k x}= \sum_{n=k} a_{n}^2  $ which goes to $0$ as $k\to \infty$, since $\norm{a} < \infty$. 
+However, $R_kL_k x= L_k \sum_{1}^\infty a_n u_{n+k} = \sum_{n=1}^\infty a_n u_n = x$.  
+
+\end{document}

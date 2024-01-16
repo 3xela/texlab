@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 347}
+\lhead{Assignment 4}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q2: We first show that $H \times H^\prime $ is normal in $G \times G^\prime$ for normal $H, H^\prime$. Let $(h,h^\prime)\in H\times H^\prime$. Take any $(g,g^\prime) \in G\times G^\prime$. We compute that $$(g,g^\prime)(h,h^\prime)(g^{-1}, {g^\prime}^{-1}) = (gh,g^\prime h^\prime)(g^{-1}, {g^\prime}^{-1}) = (ghg^{-1}, g^\prime h^{\prime} {g^\prime}^{-1})$$
+Since $ghg^{-1}\in H$ and $g^\prime h^{\prime} {g^{\prime}}^{-1}\in H^\prime$, the pairing must belong to the product $H \times H^\prime$. Hence we conclude that $H\times H^\prime \trianglelefteq G \times G^\prime$. We now claim that $(G\times G^\prime) /( H\times H^\prime) \cong (G/ H) \times (G^\prime / H^\prime)$. We define a map $$\varphi: (G\times G^\prime) /( H\times H^\prime) \to  (G/ H) \times (G^\prime / H^\prime)$$ $$(g,g^\prime)(H\times H^\prime) \mapsto (gH, g^\prime H^\prime)$$
+We claim that $\varphi$ is an isomorphism. We verify that $$\varphi((g,g^\prime)(k,k^\prime)) = (gkH,g^\prime k^\prime H^\prime) = (gH,g^\prime H)(kH,k^\prime H^\prime) = \varphi(g,g^\prime)\varphi(k,k^\prime)$$
+It remains to show that $\varphi$ is a bijection. It is clearly onto, since if we take a pairing $(gH,g^\prime H)$ we can take $a= (g,g^\prime)(H\times H^\prime)$ so that $\phi(a) = (gH,g^\prime H^\prime)$. We claim that $\varphi$ is injective. Note that if we have for some $(g,g^\prime)(H\times H^\prime)$, $\phi((g,g^\prime )H\times H^\prime) = (eH,eH^\prime)$, this implies that $gH = eH$ and $g^\prime H^\prime = eH^\prime$. We can deduce that $(g,g^\prime) = (e,e)$. We conclude that $\phi$ is an isomorphism and hence the two groups must be isomorphic. 
+
+\end{document}

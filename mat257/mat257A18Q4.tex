@@ -1,0 +1,51 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 18}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q4: $\implies$
+\\ \newline Suppose that $M$ is an orientable k-manifold. Let $p\in M$. Let $\mu_p$ be an orientation of $M$ at $p$. By assumption there exists coordinate patches $\alpha,\beta$ such that there is an $\alpha:W_1 \to U$, and $\alpha(x)=p$ for some $x\in W_1$. Similarly, let $\beta: W_2 \to V$ be another coordinate chart around $p$, such that $p=\beta(y)$ for some $y\in W_2$. Therefore, we know that $\alpha_\ast \mu_x=\mu_p$ and $\beta_\ast \mu_y = \mu_p$. Thus we have that $$\mu_y = (\beta\circ \beta^{-1})_\ast \mu_y = \beta_\ast^{-1} \mu_p = (\beta^{-1}\circ \alpha)_{\ast} \mu_x$$ Hence we have that the pushforward of the transition map $\beta^{-1}\circ \alpha$ pushes forward orientation and thus $\det(\beta^{-1}\circ \alpha)>0$. 
+\newline \\ $\impliedby$
+\\ \newline Suppose that the tranistion map between each coordinate patch has a positive determinant differential. We know that we can find an orientation preserving map around each point in $M$, since we can precompose each coordinate patch with a orientation reversing linear map to flip the orientation back. Thus we will be assuming without loss of generality that there is an orientation preserving coordinate system around each point. Let $p\in M$ with corresponding coordinate patch $f_1:W_1\to U\ni p$, and let $q\in U$ such that $f_2:W_2 \to U$ preserves orientation. Let $x$ satisfy $f_1(x)=p$. Letting $\mu_x$ be an orientation of $U_1$, we have that $f_{1_\ast}\mu_x = \mu_p$. However, we have that $$ \mu_p = (f_2 \circ f_2^{-1}\circ f_1)_{\ast} \mu_x  = f_{2_\ast} \circ (f_2^{-1}\circ f_1)_{\ast}\mu_x$$ 
+We have that $(f^{-1}_2 \circ f_1)_{\ast}$ is orientation preserving by assumption, so thus $\mu_p=\mu_q$, and so we conclude that $M$ is orientable. 
+\end{document}

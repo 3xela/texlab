@@ -1,0 +1,47 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 3 done with Payam Fakoorziba}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q5: 
+We begin by proving the reverse implication. Suppose that $f$ has a modulus of continuity, $\mu(y)$. Then by the definition of $\mu$, we have that for all $\varepsilon>0$, there exists some $\delta$ such that $|y|<\delta$ implies that $|\mu(y)|<\varepsilon$. Set $y=|s-t|$ for $s,t\in [a,b]$. Therefore, $|s-t|<\delta$. and by the assumption $|f(s)-f(t)|\leq \mu(|s-t|)<\varepsilon$. Therefore $f$ is continuous, and by $Q2$ it is uniformly continuous. 
+We now prove the forward implication. Suppose that $f$ is uniformly continuous. Define $\mu(|s-t|) = \sup\{f(x)-f(y): x,y \in M_{|s-t|}(a) \}$. By this definition of $\mu$, we have that $|f(s)-f(t)|\leq \mu(|s-t|)$. Notice as well as $|s-t| \to 0$, we have that the supremum of the differences approaches 0 by continuity. This function is also strictly increasing, since as we increase $|s-t|$, the supremeum over all differences increases. 
+\end{document}

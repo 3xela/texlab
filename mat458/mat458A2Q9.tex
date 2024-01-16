@@ -1,0 +1,60 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 458}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\newcommand{\X}{\mathfrak{X}}
+\begin{document} 5.5.58a: We have as given that $$ \inn{Px-x , Px} =\inn{Px, Px-x} =0.$$
+Together with linearity this implies that for all $x$, $$\inn{Px,x} = \inn{x,Px}.$$ Thus we have that $P^\ast = P$. Furthermore, linearity implies that 
+$$\inn{Px,Px} = \inn{P^2x,x} = \inn{Px,x}.$$ Therefore $P^2 = P.$
+\newline \\ 5.5.58b: We first claim that $R(P)$ is closed. Let $\{x_n\}$ be a sequence in $R(P)$, that converges to some $x$. Then we have that $Px_n = x_n$, and so $$\inn{Px_n - x_n, x_n} = 0. $$ Inner product continuity implies that $$\inn{Px - x, x} = 0.$$ Therefore $Px=x$ and so $x\in R(P).$ Thus $R(P)$ is closed. We now verify that $\inn{Px-x, Px} =0$. Since $P^2 = P = P^\ast$.
+$$\inn{Px-x,Px} = \inn{Px-x, P^2x} = \inn{P^2x - Px, Px} = 0.$$
+\newline \\ 5.5.58c: It is enough to check that $Px = \sum\inn{x,u_\alpha} u_\alpha$ satisfies $\inn{Px-x, Px} = 0$.
+\begin{align*} \inn{\sum\inn{x,u_\alpha} u_\alpha - x , \sum\inn{x,u_\alpha} u_\alpha} 
+    &= \inn{ \sum\inn{x,u_\alpha} u_\alpha , \sum\inn{x,u_\alpha} u_\alpha} - \inn{x, \sum\inn{x,u_\alpha} u_\alpha} 
+    \\ &  = \inn{\sum\inn{x,u_\alpha} u_\alpha, \sum\inn{x,u_\alpha} u_\alpha} - \sum \inn{x,u_\alpha}\cdot \sum\inn{x,u_\alpha} u_\alpha 
+    \\ & = 0
+\end{align*}
+\end{document}

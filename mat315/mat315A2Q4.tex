@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 315}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q4a: By q2a, we have that $\gcd(1485,1745) = 5$. Once again, by 2a, we know that $5= (-47)\cdot 1485 + (40)\cdot 1745$. 
+Thus we have a particular solution of $x_0 = - 47 \cdot 3 = -141$ and $y_0 = 40 \cdot 3=120$. Thus by Theorem 1.13, the general solution takes the form of $$x= -141 + \frac{1745n}{5} = -141 + 349n$$  $$y = 120 - \frac{1485n}{5}= 120-297n$$ for $n\in \Z$. 
+\newline \\ Q4b: We claim $a_1x_1 + \dots a_n x_n = c$ if and only iff $gcd(a_1\dots a_n)|c$. We prove the forward implication.  Suppose $(x_1,\dots x_n)$ solves the equation. By definition of the gcd, $gcd(a_1\dots a_n)|a_i$ for each $i$. Then $gcd(a_1\dots a_n)|a_ix_i$ and so $gcd(a_1\dots a_n)|a_1x_1 + \dots + a_n x_n=c$. We now show the reverse implication. Assume that $gcd(a_1\dots a_n)|c$. By 1.11, there exists $v_1\dots v_n$ with $gcd(a_1\dots a_n) = a_1 v_1 + \dots + a_n v_n$ 
+Therefore for some $d\in \Z$ where $d\cdot gcd(a_1\dots a_n) = c$ i.e. $a_1\cdot d\cdot v_1 + \dots a_n \cdot d \cdot v_n = c$. Thus a solution exists. 
+\newline \\ Q4c: We want to find a solution to $2x+3y+5z=1$. By above, a solution will exist since 2,3,5 are coprime. We first set $y=1$. This reduces the equation to $2x+5y=-2$. Now we can choose an even $y$ to proceed with finding $x$. If we choose $y=2$, then we have that $2x=-12$. This is solved by settings $x=-6$.
+
+
+\end{document}

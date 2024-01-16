@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 315}
+\lhead{Assignment 3}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q3a: We will prove the contrapositive. If $a$ is odd, then we have that $a^m$ is also odd, for any $m\in N$. Therefore, $a^m+1$ is even, and it has factors. 
+Now, if $m$ is a power of 2, we can write it as $m=2^n\cdot q$ for some odd $q$. Consider the polynomial $f(t) = t^q+1$.  This polynomial has a root $t=-1$ and thus it splits. 
+Letting $t=x^{2^n}$, we see that $g(x)=f(x^{2^n})=x^m+1$ has a proper factor $x^{2^n}$. Letting $x=a$ we see that $a^{2^n}+1$ is a proper factor of $2^m+1$ thus it cannot be prime. 
+\newline \\ Q3b: First suppose that $a>2$. Then we have that $a^m-1 = (a-1)(a^{m-1} + a^{m-2}+ \dots + 1)$. Therefore, $a-1| a^m-1$. Since $(a-1)>1$we have that $a^m-1$ is composite. Therefore $a=2$
+Now suppose that $m$ is not prime. Therefore, $m=qp$ for some $q,p\neq 1$. Then we have that 
+\begin{align*}
+    a^m-1 & = a^{pq}-1
+    \\ & = a^{p^q}-1
+    \\ & = (a^p-1)(a^{p^{q-1}} + a^{p^{q-2}} + \dots +a^p+1)
+\end{align*}
+Thus $(a^p-1)|(a^m-1)$. Thus it can not be prime. Therefore if $m>1$ and $a^n-1$ is prime, $a\geq 2$ and $m$ is prime. 
+\end{document}

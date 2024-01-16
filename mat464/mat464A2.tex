@@ -1,0 +1,340 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathbb{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\bd}{\partial}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{464}
+\newcommand{\hwNumber}{2}
+
+%preamble
+
+\title{}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+
+
+
+\begin{problem}
+	Q1 page 77 Do Carmo
+\end{problem}
+\penum
+\item We first show that $\varphi$ is an immersion. We compute 
+	$$d\varphi = \bmat{- f(v) \sin u & f^\prime (v) \cos u\\ f(v) \cos u& f^\prime(v) \sin u \\ 0 & g^\prime (v)  }.$$
+	We compute the cross product of $\frac{\partial}{\partial u}$ and $\frac{\partial }{\partial v}$ as
+$$\frac{\partial}{\partial u} \times \frac{\partial }{\partial v} = \left( f(v) \cdot \cos u \cdot f^\prime (v) , f(v) \cdot \sin u \cdot g^\prime (v) , -f(v) \cdot f^\prime (v) \sin^2 u - \cos^2\cdot  u f(v) \cdot f^\prime(v) \right).$$
+We compute the norm as $$ \norm{\frac{\partial}{\partial u} \times \frac{\partial}{\partial v}} = f^2({f^\prime}^2 + {g^\prime}^2) \neq 0.$$
+Therefore $d\varphi$ has rank 2 and hence an immersion. We compute the induced metric as: 
+$$g_{11} = \inn{\frac{\partial}{\partial u }, \frac{\partial}{\partial u}} = f^2, g_{12}= g_{21} = \inn{\frac{\partial}{\partial u},  \frac{\partial}{\partial v}}=0 , g_{22} = \inn{\frac{\partial }{\partial v}, \frac{\partial }{\partial v}} = {f^\prime}^2 + {g^\prime}^2.$$
+\item We compute the Christoffel symbols, $\Gamma^m_{ij}$. We compute that: 
+	$$\Gamma_{12}^1 = \Gamma_{21}^1  = \frac{1}{2} \left[ \frac{\partial g_{21} }{\partial u}  + \frac{\partial g_{11}}{\partial v} - \frac{\partial g_{12}}{\partial u} \right]g^{11} = \frac{ff^\prime}{f^2}. $$
+We also have that $\Gamma_{11}^1 = \Gamma_{22}^1=0$. 
+Similarly, we compute that 
+$$\Gamma_{11}^2 = \frac{1}{2} \left[\frac{\partial g_{12}}{\partial u} + \frac{\partial g_{21}}{\partial u} - \frac{\partial g_{11}}{\partial v} \right]g^{22} = \frac{-f f^\prime}{{f^\prime}^2 +{g^\prime}^2} .$$
+The last nonzero christoffel symbol is given by $$\Gamma_{22}^2 = \frac{f^\prime f^{\prime \prime} + g^\prime g^{\prime \prime}}{{f^\prime}^2 + {g^\prime}^2}. $$
+Therefore the geodesic equations are given as: 
+$$\frac{d^2 u}{dt^2} + \frac{2f f^\prime}{f^2} \frac{du}{dt} \frac{dv}{dt} = 0, $$
+and
+$$\frac{d^2v}{dt^2} - \frac{f f^\prime}{{f^\prime}^2+{g^\prime}^2}\left( \frac{du}{dt} \right)^2 + \frac{f^\prime f^{\prime \prime} + g^\prime g^{\prime \prime}}{{f^\prime}^2+ {g^\prime}^2}\left( \frac{dv}{dt} \right)^2 = 0,$$
+by Do Carmo pg 62 eqn (1). 
+\item We first show that the energy is constant. To make the calculations look nicer we will use the dot to represent a time derivative. Letting $\gamma= (u(t), v(t))$ in local coordiantes, We compute that: 
+	\begin{align*}
+		\frac{d}{dt}|\gamma^\prime(t)|^2 & = \frac{d}{dt} \inn{\gamma^\prime(t), \gamma^\prime(t)}
+		\\ & = \frac{d}{dt}\inn{(\dot{u}, \dot{v}), (\dot{u}, \dot{v})}
+		\\ & = \frac{d}{dt} \left( \dot{u}^2 f^2 + \dot{v}^2 ({f^\prime}^2  + {g^\prime}^2) 
+\right)
+		\\ & = 2\dot{u}\ddot{u}f^2 + \dot{u}^2 \dot{v} 2ff^\prime+ 2\dot{v} \ddot{v}({f^\prime}^2 + {g^\prime}^2) + 2\dot{v}^3 (f^\prime f^{\prime \prime} + g^\prime g^{\prime \prime})
+		\\ & = -4f f^\prime \dot{u}^2\dot{v} + 2f f^\prime \dot{u}^2 \dot{v} + 2ff^\prime\dot{v}\dot{u}^2  - 2\dot{v}^3(f^\prime f^{\prime \prime }  + g^\prime g^{\prime \prime} + 2 \dot{v}^3(f^\prime f^{\prime \prime} + g^\prime g^{\prime \prime}) \tag{by b)}
+	\\ & = 0
+	\end{align*}
+We now wish to show Clairauts Relation holds. Let $P(s)$ by the parametrization of a parrellel, given by: 
+$$P(s) = \left( f(v)\cos u(s) , f(v) \sin u(s) , g(v) \right)$$ so that $u$ has constant speed, say $1$. 
+Similarly, we can write a geodesic $\gamma$ as:
+$$\gamma(t) = (f(v(t)) \cos u(t) , f(v(t)) \sin u(t) , g(v(t)) ).$$ At such a $t$, $s$ where $P(s) = \gamma(t)$, we know from basic linear algebra that $$\inn{\dot{P} , \dot{\gamma}} = \norm{\dot{\gamma}} \cdot \norm{\dot{P}} \cos \beta(t).$$
+We have that $\norm{\dot{\gamma}}$ is constant by above. It is easy to see that $\norm{\dot{P}} = f(v)= r$. Thus we want to show that the left hand side is constant, when $P = \gamma$. 
+We compute: 
+$$\dot{P} =(-\sin u(s)\cdot f(v), \cos u(s) \cdot f(v), 0 ) $$
+and 
+$$\dot{\gamma}(t)  = \left( f^\prime (v) \dot{v} \cos u(t) - f(v(t)) \sin u(t) \dot{u},f^\prime(v) \dot{v} \sin u(t)  + f(v) \cos u(t) \dot{u}  ,  g^\prime(v) \cdot \dot{v} \right).$$
+Therfore at the points where $P= \gamma$ we have that 
+$$\inn{\dot{P} , \dot{\gamma}} =f^2 \dot{u}. $$ 
+This is constant since $$\frac{d}{dt} f^2 \dot{u} = 2f f^\prime \dot{u}\dot{v} + f^2 \ddot{u} =0$$
+by b). 
+\item We first change to polar coordinates. The metric takes the form $ds^2 = (1+4v^2)dv^2 + v^2 du^2$. Let $\gamma(t) = (v(t), u(t))$ be a unit speed parametrization of a geodesic which is not a meridian. 
+We first claim that $u(t)$ is unbounded as $t \to \infty$. 
+We first show that $\int_0^\infty u^\prime(t) dt$ is infinity.  
+We can write by Clairaut's relation that 
+$$v(t) \cos \beta(t) =C,$$
+for some constant $C$. Since $\beta(t)$ is the angle between $\gamma^\prime$, and $\frac{\partial}{\partial u} \gamma(t)$, we write that 
+$$\cos \beta(t) = \frac{\inn{\gamma^\prime(t), \frac{\partial}{\partial u}}}{|\frac{\partial}{\partial u}|}  = \frac{\inn{v^\prime(t) \frac{\partial }{\partial v} + u^\prime(t) \frac{\partial}{\partial u},\frac{\partial}{\partial u}}}{v(t)}  = u^\prime(t) v(t).$$
+By Claurauts relation, we have $$u^\prime(t) = \frac{C}{v^2(t)}.$$
+We now claim that $v^2(t)\leq v^2(0) + t$. We compute: 
+$$1 = |\gamma^\prime(t)|=\sqrt{(1+4v^2){v^\prime}^2 + v^2 {u^\prime}^2} \geq \sqrt{1+4v^2}|v^\prime|\geq 2|vv^\prime| = |(v^2)^\prime|.$$
+Therefore $1\leq|(v^2)^\prime|$. Integrating from $0$ to $t$, we get that $v^2(t)  \leq v^2(0) +t$. 
+Therefore we have that by Claurauts relations, 
+$$\int_0^\infty |u^\prime(t)|dt \geq \int_0^\infty \frac{|C|}{v^2(0) + t}dt = \infty.$$
+We now claim that $v(t) \to \infty$ as $t \to \infty$.  First suppose that at some $t_0$, we have $\beta(t_0)>0$. Then by Claurauts relation we have that $\cos \beta(t) \geq \cos \beta(t_0)$ and so $v^\prime>C>0$. Therefore $v(t) \to \infty$. Now suppose that $\beta(t) \leq 0$ for all $t$. By clairuts relation we must have that 
+$\lim_{t \to \infty} v(t) = v_0 >0.$. We claim that this cannot happen. 
+By above, we can write $$1 = (1+4v^2)(v^\prime)^2 + v^2(u^\prime)^2 = (1+4v^2)(v^\prime)^2 + \frac{C^2}{v^2}.$$
+So we must have that $\lim_{t \to \infty}v^\prime(t)=0$, since if it were negative we would have that $v(t) \to -\infty$. 
+We have by the geodesic equation that:
+$$v^{\prime \prime} = \frac{C^2}{(1+4v)v^4} - \frac{4v}{1+4v^2}(v^\prime)^2.$$
+Therefore we have that $$v^{\prime \prime}> \frac{C^2}{2(1+4v_0^2)v_0^4}$$
+as $t \to \infty$. Therefore $v^{\prime \prime}>0$ and so $v^\prime(t)>0$. 
+Since $r(t)$ and $\beta(t)$ both go to $\infty$ as $t\to \infty$, we have that the curve must intercept itself an infinite number of times, since the angle with the parrellel is always increasing, and $v(t) \to \infty$. 
+\epenum
+ \newpage 
+\begin{problem}
+	Do Carmo Q7,Q8 p.83
+\end{problem}
+Q7: Take  an orthonormal basis $\{e_i\}$ of $T_p M$. By prop. 4.2, we can take a strongly convex neighbourhood $U$ of $p$. For any $q\in U$, let $\gamma $ be a geodesic from $p$ to $u$. We define $E_i(q) = P_{\gamma, t_0, t} (e_i)i$ i.e. the parrellel transport of the basis vectors. This is well defined, since there is only one choice of $\gamma$ by strong convexity. $E_i(q)$ will be smooth since parrellel transport is smooth. Furthermore parrellel transport is an isometry so we have that $\inn{E_i(q), E_j(q)} = \delta_{ij}$. We finally claim that $\nabla_{E_i}E_j(p)=0$. By the previous problem set, we can write:
+$$\nabla_{E_i} E_j(p) = \frac{d}{dt}P^{-1}_{\gamma,t_0, t}E_j(\gamma(t)) \Big|_{t= 0} = \frac{d}{dt} e_j|_{t=0} = 0.$$
+Thus we are done. 
+\\ \newline 
+Q8:\penum
+\item We first write $\text{grad } f(p) = \sum_{i}g_i E_i(p)$ for some smooth functions $g_i$. 
+	Using orthonormality, we compute $$\inn{\text{grad } f(p), E_j(p)} = g_j =df_p(E_j(p)) =E_j(f). $$
+Thus we can write $\text{grad } f (p) = \sum_{i=1}^n E_i(f) E_i(p)$. Now let $X = \sum_{i} f_i E_i$.
+If $T$ is the linear mapping which assigns $Y(p) \to \grad_Y X(p)$, then we have that 
+\begin{align*} 
+	div X(p) & = Trace(T)
+	\\ & = \sum_{i=1}^n \inn{TE_i(p) , E_i(p)}  \tag{definition of trace}
+	\\ & = \sum_{i=1}^n \inn{\grad_{E_i}X(p) , E_i(p) }
+	\\ & = \sum_{i=1}^n \inn{ \grad_{E_i} \sum_{j}f_j E_j(p) , E_i(p)}
+	\\ & = \sum_{i=1}^n \inn{ \sum_{j=1}^n f_j \grad_{E_i} E_j + E_i(f_j) E_j , E_i}\tag{property of affine connection}
+	\\ & = \sum_{i=1}^n \sum_{j=1}^n  \inn{E_i(f_j) E_j, E_i} \tag{by 7}
+	\\ & = \sum_{i=1}^n E_i(f_i) \tag{by orthonormality}
+\end{align*}
+\item Since in $\R^n$, geodesics are straight lines and parrellel transport along straight lines is just translation, we have that $E_i(p) = \frac{\partial}{\partial x_i} = e_i$. By the previous question, we can write $$\text{grad }f(p) = \sum_{i=1}^n E_i(f) E_i(p) = \sum_{i=1}^n \frac{\partial f}{\partial x_i} e_i.$$
+Similarly we compute the divergence of $X = \sum_{i=1}^n f_i E_i(p)$ as: 
+$$div X(p) =\sum_{i=1}^n E_i(f_i) = \sum_{i=1}^n \frac{\partial f_i}{\partial x_i} $$
+\epenum 
+ \newpage 
+\begin{problem}
+	Do Carmo Q9,Q10, pg 83-84
+\end{problem}
+Q9:
+\penum
+\item Using $8a$, we compute the laplacian of $f$ as: 
+	$$\Delta f  = div  \sum_{i=1}^n E_i(f) E_i(p) = \sum_{i=1}^n E_i(E_i(f)). $$
+When $M = \R^n$, we have instead that $E_i(f) =   \frac{\partial f}{\partial x_i}$, $E_i(E_i(f)) = \frac{\partial^2 f}{\partial x_i^2}$ so $$\Delta f = \sum_{i=1}^n \frac{\partial^2 f}{\partial x_i^2}.$$
+\item Using 8a, we compute: 
+	\begin{align*}
+		\Delta(f \cdot g) & = div \text{ grad } (f \cdot g)
+		\\ & = div \sum_{i=1}^n E_i(f \cdot g) E_i(p) 
+		\\ & = div \sum_{i=1}^n \left[ f  E_i(g) + g E_i(f) \right]E_i(p) \tag{$E_i$ is a derivation}
+		\\ & = \sum_{i=1}^n E_i(f E_i(g) + g E_i(f))\tag{definition of div}
+		\\ & = \sum_{i=1}^n E_i(f E_i(g)) + \sum_{i=1}^n  E_i(g E_i(f)) \tag{linearity of $E_i$}
+		\\ & = \sum_{i=1}^n E_i(f) E_i(g) + f E_i(E_i(g)) + \sum_{i=1}^n  + \sum_{i=1}^n E_i(g) E_i(f) + g E_i(E_i(f)) \tag{$E_i$ is a derivation}
+		\\ & = f \Delta g + g \Delta f + 2 \inn{\text{grad } f, \text{grad }g}
+	\end{align*}
+As desired. \newline 
+\epenum
+Q10: 
+We wish to show that $$\inn{\frac{\partial f}{\partial s}, \frac{\partial f}{\partial t}} = 0. $$
+We compute that
+\begin{align*}
+	\frac{d}{ds} \inn{\frac{\partial f}{\partial s}, \frac{\partial f}{\partial t}} & = \inn{\frac{D}{ds} \frac{\partial f }{\partial s}, \frac{\partial f}{\partial t}} + \inn{\frac{\partial f}{\partial s} , \frac{D}{ds} \frac{\partial f}{\partial t}}\tag{by symmetry of connection}
+	\\ & = \inn{\frac{\partial f}{\partial s}, \frac{D }{dt } \frac{\partial f }{\partial s }} \tag{since f is geodesic in s}
+	\\ & = \frac{1}{2} \frac{d}{dt} \inn{\frac{\partial f}{\partial s}, \frac{\partial f}{\partial s}}
+	\\ & = 0 \tag{since f parametrized by arclength}
+\end{align*}
+Therefore $\inn{\frac{\partial f}{\partial s}, \frac{\partial f }{\partial t} } $ is independant of $s$ and $t$. Thus it must always be 0. 
+ \newpage 
+\begin{problem}
+	Do Carmo Q4 pg 104 + Find expontential map on $S^1$. 
+\end{problem}
+\penum
+\item Consider a parametrized surface $f: U \subset \R^2 \to M$, with 
+	$$U = \{(s,t)\in \R^2: -\ep <t<1+ \ep, -\ep< s< 1+\ep , \ep>0\},$$
+so that $f(s,0) =f(0,0)$. Take $V_0 \in T_{f(0,0)} M$, and define the vector field $V$ along $f$ by $V(s,0) = V_0$ and for $t \neq 0$, $V(s,t)$ is the parrellel transport of $V_0$ along $t \mapsto f(s,t)$. By lemma 4.1 Do Carmo, we have that 
+$$\frac{D}{\partial s} \frac{D}{\partial t} V - \frac{D}{\partial t} \frac{D}{\partial s} V = R \left(\frac{\partial f}{\partial t}, \frac{\partial f}{\partial s} \right) V.$$
+Since $V$ is a parrellel transport we have that $\frac{D}{\partial t} V = 0$. By assumption we have that parallel transport is independant of choice of curve. Therefore  $V(s,1)$ is a parallel transport of $V(0,1)$ along $s \mapsto f(s,1)$. Thus $\frac{D}{\partial s} V(s,1)=0$, and so we have that
+$$ R_{f(0,1)}(\frac{\partial f}{\partial t}(0,1), \frac{\partial f}{\partial s}(0,1))V(0,1) =0. $$
+Since $V_0$ arbitrary, and $f$ was arbitrary, we have that $R(X,Y)Z=0$ for all $X,Y,Z$. 
+\item By prop $2.7$ there is a unique geodesic $\gamma(t,p,v_p)$ defined for $t\in (-2,2)$ so that at $t=0$ $\gamma$ passes through $p = (\cos \phi, \sin \phi)$ with velocity $v_p = (-\theta \sin \phi, \theta \cos \phi)$ in some coordinate chart. Consider the curve given by
+	$$\gamma(t) = e^{i(\phi + \theta t)}. $$
+We have that $\gamma(0) \cong  p$, $\gamma^\prime(0) \cong v_p$, and $\exp_p(v_p) = \gamma(1) =(\sin\phi + \theta, \cos \phi + \theta) $. It remains to show that $\gamma$ is geodesic. We can take a coordinate system $x: (-\pi, \pi) \to S^1$ defined as $x(t) = (\cos \phi + t, \sin \phi + t)$. We have that $c(t) = x(\theta t)$, so $c = \theta t$ in local coordinates. We compute that: 
+$$g_{11} = \inn{x_t , x_t} = \norm{(-\sin \theta + t, \cos \theta + t)}^2 = 1.$$
+Therefore the christoffel symbol $\Gamma_{11}^1 = 0$, and so the geodesic equation becomes: 
+$$\frac{d^2}{dt^2}c = \frac{d^2}{dt^2} \theta t = 0.$$ 
+Thus $\gamma$ is a geodesic with corresponding $\exp$ given as $\gamma(1)$. 
+\epenum
+ \newpage 
+\begin{problem}
+	Do Carmo Q9 pg 107. 
+\end{problem}
+First we define an orthonormal basis $\{e_i\}$ so that if $x = \sum_{i=1}^n x_i e_i$, 
+then $Ric_p(x) = \sum_{i=1}^n \lambda_i x_i^2$. Since $|x| =1$, we have that $x$ defines an outward pointing normal on $S^{n-1}$. We define the vector field
+$$V = (\lambda_1 x_1, \dots , \lambda_n x_n).$$
+We compute using Stoke's Theorem,
+$$\frac{1}{\omega_{n-1}} \int_{S^{n-1}}(\sum \lambda x_i^2)dS^{n-1} = \frac{1}{\omega_{n-1}} \int_{S^{n-1}}\inn{V, x}dS^{n-1} =\frac{1}{\omega_{n-1}} \int_{B^n} \nabla \cdot V dB^n.$$
+Since we know that $\nabla \cdot V= \sum_{i=1}^n \lambda_i$, 
+We have that
+$$\frac{\sum_{i=1}^n \lambda_i}{\omega_{n-1}} \int_{B^n} dB^n = \frac{\sum_{i=1}^n \lambda_i}{n} = \frac{\sum_{i=1}^n Ric_p(e_i)}{n} = K(p),$$
+where we use the fact that $\frac{vol(B^n)}{\omega_n} = \frac{1}{n}$. Thus we have $K(p) = \frac{1}{\omega} \int_{S^{n-1}} Ric_p(x) dS^{n-1}$. 
+ \newpage 
+\begin{problem}
+	Is there a closed Riemannian manifold diffeomorphic to $S^2$, such that a shortest geodesic loop in M is not a periodic geodesic?
+\end{problem}
+
+\end{document}

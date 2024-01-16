@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 367}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\smooth}{\mathcal{C}^\infty}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document} \noindent Q3a: Without loss of generality, $n<p$. If there existed a diffeomorphism $h: \R^n \to \R^p$ for $n \neq p$, then we have that $$D(h \circ h^{-1}(a)) = I = h^\prime(h^{-1}(a))\circ {h^{-1}}^\prime(a).$$
+The identity matrix has rank $p$, but $h^\prime$ and ${h^{-1}}^\prime $ both have rank $n$. We obtain a contradiction.
+\newline \\ Q3b: Let $U $ be an open neighborhood of $0$ in $\mathbb{H}^n$. We can write $U = V \cap \R^n$ for some open $V \subset \mathbb{H}^n$. 
+If there exists a diffeomorphism $f$ from $U$ to $W$ for some open $W\subset \R^n$. 
+We have that $f$ extends to a diffeomorphism $\tilde{f}: V \to \R^n$. Since $\tilde{f}$ is a diffeomorphism, 
+we have that $\tilde{f}(V) $ is open. Furthermore, $\tilde{f}(V) \cap \tilde{f}(V \cap {\mathbb{H}^n}^c)^c$ cannot be open, since $\mathbb{H}^n$ is closed in $\R^n$, so its compliment is open and thus any 
+intersection with an open set is open. Pushing this open set by $\tilde{f}$ gives us an open set, and taking the set difference will yield us a set that is not open. 
+However, $\tilde{f}$ is a diffeomorphism, $\tilde{f}(V) \cap \tilde{f}(V \cap {\mathbb{H}^n}^c)^c = \tilde{f}(U) = f(U)$. Which contradicts the assumption that $f(U)$ is open. 
+\end{document}

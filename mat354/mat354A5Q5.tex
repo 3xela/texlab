@@ -1,0 +1,69 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 354}
+\lhead{Assignment 5}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q5a: We wish to compute the integral $$ \int_{[0, \infty]} \frac{\log(x^2+1)}{x^2+1}dz $$
+Substituting for $z = \arctan(x)$, we compute that 
+\begin{align*}
+    \int_{[0, \infty]} \frac{\log(x^2+1)}{x^2+1}dx & = \int_{[0,\frac{\pi}{2}]} \log(\cos^{-2}(z)) dz \tag{by change of variables}
+    \\ & = -2 \int_{[0, \frac{\pi}{2}]} \log(\cos(z))dz
+    \\ & = - \int_{[-\frac{\pi}{2} , \frac{\pi}{2}]} \log \Big(\frac{e^{iz} + e^{-iz}}{2} \Big)dz
+    \\ & = \int_{[-\frac{\pi}{2} , \frac{\pi}{2}]}\log(2) dz + \int_{[-\frac{\pi}{2} , \frac{\pi}{2}]} \log(e^{iz} + e^{-iz})dz
+    \\ & = \pi \log(2) + \int_{[-\frac{\pi}{2} , \frac{\pi}{2}]} \log(e^{iz} + e^{-iz})dz. 
+\end{align*}
+We now claim that the integral $\int_{[-\frac{\pi}{2} , \frac{\pi}{2}]} \log(e^{iz} + e^{-iz})dz=0$. Note that $|e^{-iz} + e^{iz}|>1$ on the domain of integration, hence the function will integrate to be a positive number. However, if we take a rectangle given by $[-\frac{\pi}{2}, \frac{\pi}{2}]\times [0,R]$ for sufficiently large $R$, we have that the integral will be $0$ along this rectangle by the residue formula. Furthermore, the value of the function is positive along the boundary. Hence the integral on the interval $[-\frac{\pi}{2}, \frac{\pi}{2}]$ will be $0$. 
+\newline \\ Q5b: We wish to compute the integral $$\int_{[0,\infty]} \frac{\sin^2(kx)}{x^2}dx. $$ Since this is an even function, we can write this as $$\frac{1}{2} \int_{\R} \frac{\sin^2(x)}{kx}dx.$$ 
+Substituting for $y=kx,$ get $$\frac{k}{2} \int_{\R} \frac{\sin^2(y)}{y^2} dy.$$ 
+Taking half circles of radius $r$ as $\gamma_1$ such that it encloses $0$ and $\gamma_2$ does not, we integrate this over $\C$ in the following way: 
+\begin{align*}
+    \frac{k}{2} \int_{\R} \frac{\sin^2(z)}{z^2} dz & = \frac{k}{2} \int_{\R} \frac{1-\cos(2z)}{2z^2}dz
+    \\ & = \frac{k}{2} \int_{\R} \frac{(1-e^{2iz}) + (1-e^{-2iz})}{4z^2}
+    \\ & = \frac{k}{2} \Big[ \int_{\gamma_1} \frac{1-e^{2iz}}{4z^2} dz + \int_{\gamma_2} \frac{1-e^{-2ix}}{}  \Big]
+    \\ & = \frac{k}{2} \int_{\gamma_1} \frac{1-e^{2iz}}{4z^2} dz
+\end{align*}
+We now compute the laurent expansion of $\frac{1-e^{2iz}}{4z^2}$ in an annulus containing $0$. We have that $$\frac{1-e^{2iz}}{4z^2} = \frac{1}{4z^2}(-(2iz)- \dots) = -\frac{i}{2z}.$$
+Thus we have by the residue formula that $$\int_{[0,\infty]} \frac{\sin^2(kx)}{x^2}dx = \frac{k}{2} \cdot 2\pi i \cdot \frac{-i}{2} = \frac{k\pi}{2}. $$
+\end{document}

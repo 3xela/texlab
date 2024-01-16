@@ -1,0 +1,52 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 8}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q2:\\ WLOG suppose that $D_{12}f- D_{21}f>0$ at some point $(x,y)$. Since both functions are continuous, so must be their linear combination.Thus we know that in some open rectangle, $B$, around $(x,y)$, $D_{12}f- D_{21}f>0$ holds. Choose $A=[a,b]\times [c,d]$ such that it is contained in the interiour of $B$. By HW7Q3 it must be that $\int_A f(x,y)dxdy> \int_A 0 = 0$. We compute that 
+\begin{align*}
+    &\int_A D_{12}f- D_{21}f dx dy = \int_c^d \int_a^b D_{12}f- D_{21}f dx dy \tag{by Fubini's Theorem}
+    \\ & = \int_c^d \int_a^b D_1D_2f(x,y) dx dy - \int_c^d \int_a^b D_2D_1f(x,y)dxdy \tag{by linearity of the integral}
+    \\ & = \int_c^d \int_a^b D_1D_2f(x,y) dx dy - \int_a^b \int_c^d D_2D_1f(x,y)dydx \tag{by Fubini's Theorem}
+    \\ & = \int_c^d [D_2f(a,y)-D_2f(b,y)]dy - \int_a^b[D_1f(x,c)-D_1f(x,d)]dx \tag{by FTC}
+    \\ & = \int_c^d D_2f(a,y)dy - \int_c^d D_2f(b,y)dy - \int_a^b D_1f(x,c)dx + \int_a^b D_1f(x,d)dx \tag{By linearity of the integral}
+    \\ & = f(a,d)-f(a,c)- [f(b,d)-f(b,c)] - [f(b,c)-f(a,c)] + f(b,d)-f(a,d) \tag{by FTC}
+    \\ & = 0
+\end{align*} We get that $0>0$, a contradiction. Hence $D_{12}f = D_{21}f \qed$
+\end{document}

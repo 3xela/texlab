@@ -1,0 +1,53 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 7}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q4: Let $\ep>0$. Take the open cover $\{B(\frac{\ep}{3}, f)\}_{f\in \mathcal{K}}$. By compactness there is a finite subcover $\{B(\frac{\ep}{3}, f_i)\}$ for some $f_1, \dots, f_n$
+Since each $f_i$ is defined on a compact set and continuous, they are all uniformly continuous. Thus there is some $\delta_i$ such that $|x-y|< \delta_i$ implies $|f_i(x) -f_i(y)|< \frac{\ep}{3}.$ Any $g\in \mathcal{K}$ belongs to some open ball, so we have that for all $x$, 
+$|g(x)-f(x)|< \frac{\ep}{3}. $ Let $\delta = \min\{\delta_1 \dots \delta_n\}$. If we have $|x-y|< \delta$ then $$|g(x)-g(y)| < |g(x)-f_i(x)| + |f_i(x) - f_i(y)| +|f_i(y) - g(y)|  < \frac{\ep}{3} + \frac{\ep}{3} + \frac{\ep}{3} = \ep$$
+Our choice of $g$ is arbitrary, hence $\mathcal{K}$ is an equicontinuous family of functions. 
+\end{document}

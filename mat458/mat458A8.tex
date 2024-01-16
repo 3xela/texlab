@@ -1,0 +1,288 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathcal{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{MAT458 }
+\newcommand{\hwNumber}{8}
+
+%preamble
+
+\title{a}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+\begin{problem}
+Folland	8.4.30
+\end{problem}
+Take any $x$ in the Lebesgue set of $f$. Then by fatou's lemma, we have 
+$$\lim_{t\to 0} f^t(x) \geq \int \lim \inf _{t\to 0} \hat{f} (\xi)\Phi(t\xi) e^{2\pi i \xi \cdot x} d\xi = \int \hat{f} d\xi$$(Done with Robbert Liu)
+\newpage 
+\begin{problem}
+	Folland 8.4.26
+\end{problem}
+\penum
+\item Taking $\vph(x)$ as in $8.37$, then by the inverse fourier transform we get that 
+$$e^{-\beta} = \int \frac{1}{\pi(1+t^2)}e^{-i\beta t}dt $$
+\item 
+We verify that the equality holds by the following computation: 
+\begin{align*}
+	\int_{-\infty}^\infty \frac{1}{\pi }\frac{1}{1+t^2} e^{-i\beta t} & = \int_{-\infty}^\infty \frac{e^{-i\beta t}}{\pi} \int_0^\infty e^{-(1+t^2)s}ds dt \tag{by hint}
+	\\ & = \int_{0}^\infty \int_{-\infty }^\infty \frac{1}{\pi} e^{-i\beta t} e^{-(1+t^2)s}dt ds \tag{By Fubini-Tonelli}
+	\\ & =  \int_{0}^\infty \int_{-\infty }^\infty \sqrt{\pi}e^{-s}e^{-i\beta \sqrt{\pi}x}e^{-\pi x^2s}dx ds \tag{By substituting $x = \frac{t}{\sqrt{\pi}}$}
+	\\ & = \int_0^\infty \sqrt{\pi}e^{-s} \int_{-\infty}^\infty e^{\frac{-i\beta x 2\pi}{2\sqrt{\pi}}}e^{-\pi x^2s}
+	\\ & = \int_0^\infty \sqrt{\pi}e^{-s} \int_{-\infty}^\infty e^{-2\pi i \xi} e^{-\pi x^2 s}dx ds 
+	\\ & = \int_0^\infty (\pi s)^{-1/2} e^{-s}e^{\frac{-\beta^2}{4s}} ds
+\end{align*}
+\item By the previous results, 
+\begin{align*}
+	e^{-2\pi |\xi|} & = \int_0^\infty (\pi s)^{-1/2} e^{-s} e^{-\frac{\pi^2|\xi|^2}{s}}ds
+	\\  & = \int_0^\infty (\pi s)^{-1/2} e^{-s} \int_\R \left( \frac{s}{\pi}\right)^{n/2}e^{-s|x|^2}e^{-2\pi i \xi \cdot x} dxds
+	\\ & = \int_\R \int_0^\infty (\pi s)^{-1/2} e^{-s} \left( \frac{s}{\pi} \right)^{n/2} e^{-s|x|^2}e^{-2\pi i \xi \cdot x}ds dx
+	\\ & = \int_{\R}e^{-2\pi i \xi \cdot x} \left( \int_0^\infty (s)^{\frac{n-1}{2}} e^{-\pi s} e^{-\pi s |x|^2} ds\right) dx 
+	\\ & = \int_{\R}e^{-2\pi i \xi \cdot x} \frac{\Gamma \left(\frac{1}{2}(n+1) \right)}{\pi^{(n+1)/2}} \left(1 +|x|\right)^{-\frac{n+1}{2}} dx
+\end{align*}
+Which is exactly what we wanted to show. 
+(Done with Robbert Liu)
+
+\epenum
+\newpage 
+\begin{problem}
+	Folland 8.4.28
+\end{problem}
+\penum
+\item The following computation verifies what we wish to show:
+\begin{align*}
+	f\ast P_r(x) &= P_r\ast f(x) 
+	\\ & = \int f(y) P_r(x-y)dy
+	\\ & = \int f(y) \sum_{k\in \Z} r^{|k|}e^{2\pi i(x-y)} dy 
+	\\ & = \sum_{k\in \Z} r^{|k|} e^{2\pi i x}\int_{\R} f(y)e^{-2\pi i y}dy
+	\\ & = \sum_{k\in \Z} r^{|k|} e^{-2\pi i kx} \hat{f}(k)
+\end{align*} 
+\item We compute $P_r(x)$ as 
+\begin{align*}
+	P_r(x) & = \sum_{-\infty }^\infty r^{|k|}e^{2\pi i kx}
+	\\ & = 1+ \sum_{1}^\infty r^{|k|}e^{2\pi i kx} + \sum_{-\infty}^{-1} r^{|k|} e^{2\pi i kx}
+	\\ & = 1+ \sum_{1}^\infty \left( re^{2\pi i x}\right)^k + \sum_{1}^\infty \left(re^{-2\pi ix }\right)^k
+	\\ & = 1 + \left(-1 + \frac{1}{1- re^{2\pi i x}}	\right) + \left(-1 + \frac{1}{1-re^{-2\pi i x}}\right)
+	\\ & = -1 + \frac{1}{1 - re^{2\pi i x}} + \frac{1}{1- re^{2\pi i x}}
+	\\ & = \frac{- \left(1- re^{2\pi i x}\right) \left(1 - re^{-2\pi i x}\right) + 1 - re^{2\pi i x} + 1 - re^{2\pi i x} }{\left(1 - re^{2\pi i x}\right) \left( 1- re^{-2\pi i x} \right)}
+	\\ & = \frac{1-r^2}{1+r^2 - 2r\cos(2\pi x)}
+\end{align*}
+
+\epenum
+
+\newpage
+\begin{problem}
+	Folland 8.4.31
+\end{problem}
+Using 8.37, and the dilation formula, we compute that $$\frac{\pi}{a} \cdot \frac{ 1+ e^{-2\pi a}}{1 - e^{-2\pi a}} = \frac{\pi}{a} \left(\sum_1^\infty e^{-2\pi a k} + \sum_{0}^\infty e^{-2\pi a k }  \right) = \frac{\pi}{a} \sum_{-\infty}^\infty e^{-2\pi a|k|} = \sum_{-\infty }^\infty \frac{1}{(k^2+a^2)}.$$ Therefore the following series of equalities hold: 
+\begin{align*}
+	2 \sum_{k=1}^\infty \frac{1}{k^2 + a^2} &= \frac{\pi}{a} \cdot \frac{1+e^{-2\pi a}}{1 - e^{-2\pi a}} - \frac{1}{a^2}
+	\\ & = \frac{a\pi \left(1+ e^{-2\pi a}\right) - \left(1 - e^{2\pi a}\right)}{a^2\left(1 - e^{-2\pi a}\right)}
+\end{align*}
+To take the limit as $a\to 0$, we apply L'hoptals rule 3 times. The third derivative of the numerator with respect to $a$ is: $$4\pi^3 e^{-2\pi a} + 4\pi^3e^{-2\pi a}  + 4\pi^3e^{-2\pi a} + 8\pi^4ae^{-2\pi a} - 8\pi^3e^{- 2\pi a },$$ and the third derivative of the denominator is $$4\pi e^{-2\pi a}(2\pi^2 a^2 -6\pi a + 3).$$ At $a=0$ we have the quotient equal to $\frac{\pi^2}{3}$ and we conclude that $$2\sum_{1}^\infty \frac{1}{k^2} = \frac{\pi^2}{3}.$$
+(Done with Charles Swaney)
+\newpage 
+\begin{problem}
+	Folland 8.5.33
+\end{problem}
+\penum
+\item We compute the convolution as: 
+\begin{align*}
+	f\ast F_m (x) & = \int f(y)F_m(x-y)dy 
+	\\ & = \int f(y) \frac{1}{m+1} \sum_0^m \sum_{-k}^k e^{2\pi i k(x-y)}dy
+	\\ & = \sum_{-k}^k \int f(y) \frac{m+1- |k|}{m+1} e^{-2\pi ik y} e^{2\pi ik x}dy \tag{by counting like terms }
+	\\ & = \sum_{-k}^k e^{2\pi i kx}\frac{m+1-|k|}{m+1} \hat{f}(y)
+\end{align*}
+\item We compute $F_m$ as 
+\begin{align*}
+	F_m &= \frac{1}{m+1} \sum_{k=0}^m D_k
+	\\ & = \frac{1}{m+1}\sum_{k=0}^m \frac{e^{(2k+1) \pi i x } - e^{-(2k+1) \pi i x}}{2i}
+	\\ & = \frac{1}{m+1}\sum_{k=0}^m \frac{e^{(2k+1) \pi i x } - e^{-(2k+1) \pi i x}}{2i} \cdot \frac{e^{(2k+1) \pi i x } + e^{-(2k+1) \pi i x}}{e^{(2k+1) \pi i x } + e^{-(2k+1) \pi i x}}
+	\\ & = \frac{1}{m+1} \sum_{k=0}^m \frac{{e^{(2k+1)\pi i x}}^2 - {e^{-(2k+1)\pi i x}}^2}{2i\left(e^{(2k+1) \pi i x } + e^{-(2k+1) \pi i x} \right)}
+	\\ & = \frac{\sin^2([m+1]\pi x)}{(m+1)\sin^2(\pi x)} \tag{ by telescopic summations}
+\end{align*}
+\epenum
+\newpage
+\begin{problem}
+	Folland 8.5.34
+\end{problem}
+Using the closed form for the Dirichlet kernel, we compute the limit as $m\to \infty$ of  $\norm{D_m}_1$ as: 
+\begin{align*}
+	\lim_{m\to \infty }\norm{D_m}_1 & = \lim_{m\to \infty }\int_{\R} \left| \frac{\sin([2m+1] \pi x)}{\sin(\pi x)}\right| dx
+	\\ &= \lim_{m\to \infty} \int \left|\frac{\sin(y)}{\sin(y/\pi(2m+1))} \right|\frac{1}{\pi(2m+1)} dy \tag{substituting $y = \pi(2m+1)x$}
+	\\ & = \int \left|\frac{\sin(y)}{y}\right|dy \tag{by Monotone Convergence Theorem}
+	\\ & = \infty \tag{Mat157}
+\end{align*}
+\newpage 
+\begin{problem}
+Folland 8.5.35
+\end{problem}
+\penum
+\item First we show that $\phi_m$ is linear. We compute that $$\phi_m(f+g) = S_m(f+g)(0) = \sum_{-m}^m \hat{f} + \hat{g} (k) = \sum_{-m}^m \hat{f}(k) + \sum_{-m}^m \hat{g}(k) = \phi_m(f) + \phi_m(g), $$ and $$\phi_m(\alpha f) = S_m(\alpha f(0)) = \alpha \sum_{-m}^m \hat{f}(k) = \alpha \phi_m(f). $$ We now claim that $\phi_m$ is continuous. For $|f|_u< \ep$, we have $$\norm{\phi_m(f)} = \norm{\sum_{-m}^m \hat{f}(k) } \leq \sum_{-m}^m \norm{\hat{f}} = 2m \norm{\hat{f}} = 2m \int_{\mathbb{T}} \left|f(x)e^{-2\pi i kx} \right| dx \leq 2m \ep m^\ast(\mathbb{T}). $$ 
+Therefore $\phi_m \in C(\mathbb{T})^\ast$. We also have that by Young's Inequality that $\norm{\phi_m} \leq \norm{D_m}$, and that this equality will be attained when we take $f = 1$. Thus $\norm{\phi_m} = \norm{D_m}$. 
+\item Suppose that the set of all such $f$ is not meager. Then by Uniform Boundedness Principle we have that the sequence $\sup_{f}\{S_mf(0)\}<\infty$. This contradicts part $8.5.34$ since as $m\to \infty$, $\norm{D_m} \to \infty$ and by part $a)$ so does $\norm{\phi_m}$. 
+\item First note that the result from $b)$ holds for any $x\in T$, since if we replace $0$ with any point $x$ we still have that $\left|e^{2\pi i xk} \right| =1$. Then, by the Principle of Condensation of Singularities (Folland 5.3.40) there is a residual subset of $C(\mathbb{T})$ so that $\{S_mf(x)\}$ diverges on a dense subset of $\mathbb{T}$. 
+\epenum
+(Done with Petar Jovasevic)
+	
+	
+\end{document}

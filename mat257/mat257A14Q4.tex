@@ -1,0 +1,52 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 14}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q4: Let $(p,v)\in T_p\R^n$. We compute $D_{(p,v)}f$ as 
+\begin{align*}
+D_{(p,v)}f & = \frac{\partial f}{\partial x_1}(p) \cdot v_1 + \dots + \frac{\partial f}{\partial x_n}(p) \cdot v_n
+\\ & = \inn{(\frac{\partial f}{\partial x_1}(p), \dots \frac{\partial f}{\partial x_n}(p)),(v_1,\dots ,v_n)} \tag{definition of inner product}
+\\ & = \inn{(p,\frac{\partial f}{\partial x_1}(p), \dots \frac{\partial f}{\partial x_n}(p)),(p,v)} \tag{by definition of inner product on a tangent space}
+\\ & = \inn{(grad f)(p),(p,v)} \tag{by definition of grad f}
+\end{align*} By the Cauchy-Schwartz inequality, this quantity is maximized when $(p,v)$ is collinear with $grad f(p)$, hence it represents the growth of the function in the direction of $p$. 
+\end{document}

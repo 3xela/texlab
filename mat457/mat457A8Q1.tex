@@ -1,0 +1,60 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 8}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\newcommand{\X}{\mathfrak{X}}
+\begin{document}
+\noindent Q1i: We verify that $\norm{x+ \M}$ is indeed a norm on $\X / \M$. We verify semilinearity first:
+$$\norm{\alpha x + \M} = \inf_{y\in \M} \norm{\alpha x + y} = \inf_{\alpha y\in \M} \norm{\alpha x + \alpha y} = |\alpha| \inf_{y\in \M} \norm{x + y} = |\alpha| \cdot \norm{x + \M}.$$
+Similarly for sublinearity, we check that $$\norm{(x+w) + \M} = \inf_{y\in \M} \norm{x+w+y} = \inf_{2y\in \M} \norm{x+w+y+y} \leq \inf_{y \in \M} \norm{x+y} + \inf_{y\in \M} \norm{w+y} = \norm{x+\M} + \norm{w+ \M}.$$
+Finally we verify that $\norm{x+ \M} = 0$ if and only if $x\in \M$. First if $x\in \M$, we have that $$\norm{x + \M} = \inf_{y\in \M} \norm{x+y} \leq \norm{x+ (-x)} = 0.$$
+Now suppose we have that $ \inf_{y\in \M} \norm{x+y} =\norm{x + \M} = 0$. If this infimum is never attained, then we have that for any convergent sequence $\{y_n\}$ such that $\norm{x+ y_n}$ is decreasing, this will never be $0$. However since $\M$ is closed this sequence must converge to a point $y\in \M$ and so for some $y,\norm{x+y}=0$. This only happens if $y = -x$. Hence $x\in \M$. 
+\newline \\ Q1ii: Note that since $\M$ is a closed linear subspace, the projection onto $\X / \M$ is linear and well defined. We compute that $$\norm{\pi(x)} = \sup_{\norm{x} =1} \norm{x+ \M} = \sup_{\norm{x} = 1} \inf_{y\in \M} \norm{x+y} \leq \sup_{\norm{x} = 1} \norm{x} + \inf_{y\in \M} \norm{y} = \sup_{\norm{x} = 1} \norm{x} = 1.$$
+Now by Riesz' lemma, we have for all $\alpha \in (0,1)$, there is some $\norm{x} =1 $ such that $$\inf_{y\in \M} \norm{x-y} \geq \alpha \implies \sup_{\norm{x} = 1} \inf_{y\in \M} \norm{x-y} \geq \sup_{\norm{x} = 1} \alpha \geq 1.$$
+Thus we have that $\norm{\pi} = 1. $
+\newline \\ Q1iii: It is sufficient to show that any absolutely convergent sequence also converges. Let $\{x_n+ \M\}$ be an absoutely convergent series. Furthermore suppose that $\sum_{n}^\infty x_n \to x.$ We have that $$\norm{ \sum_{n=1}^N x_n + \M - x+\M} \leq \norm{ \sum_{n=1}^N x_n -x},$$ which goes to $0$ as $N\to \infty$ by completeness of $\X.$
+
+\end{document}

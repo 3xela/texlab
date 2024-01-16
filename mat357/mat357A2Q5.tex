@@ -1,0 +1,47 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 2(done with Payam Fakooirziba)}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q5: We will reason contrapositively. Assume that $M$ is not a compact metric space. Thus there exists a sequence $(p_n)$ with no convergent subsequence. WLOG assume that each $p_i$ is distinct.
+For each $n$, find a $r_n>0$ such that the neighbourhoods $M_{r_n}(p_n)$ are disjoint from one another and no sequence $q_n\in M_{r_n}(p_n)$ converges. We define $f_n(x)$ as: 
+$$f_n(x) = \frac{r_n-d(x,p_n)}{\frac{r_n}{n} + d(x,p_n)}$$
+We set $f(x)=f_n(x)$ if $x\in M_{r_n}(p_n)$ and $f(x)=0$ else. Observe that $f$ is a composition of continuous maps, hence is continuous. We see that $f(p_n) = \frac{r_n-d(p_n,p_n)}{\frac{r_n}{n}-d(p_n,p_n)} = \frac{r_n}{\frac{r_n}{n}} = n$. We see that $f(p_n)$ is unbounded. Thus we have proved the claim.  
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 4(done with Payam Fakoorziba)}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent 1a: True: If each $f_n$ has no discontinuities, then it must be continuous. By Chapter 4 Theorem 1(Pugh), the uniform limit of a sequence of continuous function is continuous as well. Hence continuity is preserved by uniform convergence. 
+\newline \\ 1b: False: Let $A = \{q_1,\dots,q_{10} : q_i\in \Q \cap [0,1] \}$ consider $f_n(x) =  \begin{cases} 
+    \frac{1}{n} & x \in A \\
+    0 & \text{otherwise} 
+ \end{cases}
+$ We have that $f_n \rightrightarrows 0$, but 0 does not have any discontinuities. 
+\newline \\ 1c: False: Take $A$ and $f_n$ as exactly the same as in 1b. Each $f_n$ has at least 10 discontinuties, namely it has exactly 10. We have an identical conclusion to 1b. 
+\newline \\ 1d: False: Take let $m\in \N$. Let $A = \{q_1 , \dots , q_m : q_i \in \Q \cap [0,1] \}$. Take $f_n$ as defined in 1b. Each $f_n$ has finitely many discontinuities, and it uniformly converges to 0, which is continuous. 
+\newline \\ 1e: False: Take $A = \{x\in [0,1]: \exists k\text{ such that } x =\frac{1}{k}\}$, and take $f_n(x)$ as defined in 1b. Clearly, each discontinuity is of the jump type, and occurs countably many times, yet the limit of $f_n(x)$ uniformly converges to 0, which has no jump discontinuities. 
+\newline \\ 1f: False: Take $f_n(x)=  \begin{cases} 
+    \frac{1}{n} \sin(\frac{1}{x}) & x\neq 0 \\
+    0 & x =0 
+\end{cases}$ on the domain $[-1,1]$. This has an oscillating discontinuity at $x=0$. We claim that $f_n \rightrightarrows 0$. Let $\varepsilon>0$. Choose $N > \varepsilon$. Then if $n\geq N$, $$\norm{\frac{1}{n}sin(\frac{1}{x})-0}< \norm{\frac{1}{n}}<\varepsilon$$ Where the second inequality follows from $-1 \leq \sin(y)\leq 1$. The function 0 has no discontinuities of the oscillation type. 
+\newline \\ 1g: False: Take the function from $1d$. This has no oscillating discontinuities.   
+\end{document}

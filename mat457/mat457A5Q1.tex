@@ -1,0 +1,58 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 5}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q1: Since $\lim_{n \to \infty} \nu_n(E)$ exists and is finite for each set we have that $$\nu(\emptyset) = \lim_{n\to \infty} \nu_n(\emptyset) = \lim_{n\to \infty} 0 =0.$$ Now suppose that $\{E_m\}_{m=1}^\infty$ is a disjoint sequence of sets in $\mathcal{M}. $ 
+We first claim that for any finite union of disjoint sets, $\nu(\bigcup_{m=1}^M E_m) = \sum_{m=1}^M \nu(E_m)$. We have that $$\nu(\bigcup_{m=1}^N E_m) = \lim_{n\to \infty} \nu_n(\bigcup_{m=1}^M E_m) = \lim_{n\to \infty} \sum_{m=1}^M \nu_n (E_m) = \sum_{m=1}^M \lim_{n\to \infty} \nu_n(E_m)  = \sum_{m=1}^M \nu(E_m),$$
+using the fact that limits commute with finite sums. We now will prove that countable additivity holds. Let $\varepsilon>0$ and $M$ sufficiently large so that $$\nu(\bigcup_{m=1}^\infty E_m) = \sum_{m=1}^M \nu(E_m) + \nu(\bigcup_{m=M+1}^{\infty} E_m) \leq \sum_{m=1}^M \nu(E_m) + \ep $$
+by setwise convergence. Furthermore, for all $n$, we have that $$\nu_n(\bigcup_{m=1}^M E_m) \leq \nu_n(\bigcup_{m=1}^\infty E_m) $$
+Taking the limits and applying our first claim we have that $$\sum_{m=1}^M \nu(E_m) \leq \nu(\bigcup_{m=1}^\infty E_m)$$
+Hence we have the inequality $$\sum_{m=1}^M \nu(E_m)\leq \nu(\bigcup_{m=1}^\infty E_m) \leq \sum_{m=1}^M \nu(E_m) + \nu(\bigcup_{m=M+1}^\infty E_m) \quad (1)$$
+We claim that as $M\to \infty$, $\nu(\bigcup_{m=M+1}^\infty E_m)\to 0$. Since each $\nu_n$ is bounded, it is sufficient to show that $\nu_n(\bigcup_{m=M+1}^\infty E_m) \to 0$ as $M \to \infty$. Note that $(1)$ holds for $\nu_n$ as well since it is a measure, so we can take $\ep>0$ and choose $M$ large enough so that $\sum_{m=M+1}^\infty \nu_n(E_m) = \nu_n(\bigcup_{m=M+1}^\infty E_m) < \ep$/ By uniform absolute measure continuity, we have that there is some $\delta>0$
+with $\mu(\bigcup_{m=M+1}^\infty E_m)  = \sum_{m=M+1}\mu(E_m) < \delta$. Since $\mu(X)<\infty$, we have that $\lim_{M\to \infty} \sum_{m=M+1}\mu(E_m)\to 0$, since it is convergent and so tails must converge. Therefore we have that $\sum_{m=M+1}^\infty \nu_n(E_m)\to 0$ as $M\to \infty$, and so $\nu(\bigcup_{m=M+1}^\infty E_m) \to 0 $ as $M\to \infty$. We apply the limit of $M\to \infty$ to $(1)$ and conclude that $$\sum_{m=1}^\infty \nu(E_m) = \nu(\bigcup_{m=1}^M E_m)$$
+\end{document}

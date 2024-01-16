@@ -1,0 +1,53 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 347}
+\lhead{Assignment 8}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\normal}{\triangleleft}
+\newcommand{\normaleq}{\trianglelefteq}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q6: Let $|G| = 75$. Note that by Sylow's First Theorem, there exists a sylow $5$ group. Furthermore, $n_5(G) \equiv 1 \mod{5}$. We claim that there is only 1 such subgroup. Suppose there was at least 6. Then we would have that there are 24 distinct elements in each group(excluding the identity).
+Since there are 6 subgroups, we would have at least $6\cdot 24>75$ elements in the group. Thus $n_5(G) = 1$ and $P \normal G$. Now let $Q \in Syl_3(G)$. Since $Q \cap P = \{e\}$, we can write $G = N \rtimes Q$. Since $|Q| =3$, we have that $Q \cong \Z_3$. Therefore we have $3$ possible $\varphi_i: Q \to Aut(P)$, with $\varphi_i(x) = x^i$. Since $P$ is abelian, by a previous result, We have either $P = \Z_{25}$ or $P = \Z_5 \times \Z_5$. Thus we are done.  
+
+\end{document}

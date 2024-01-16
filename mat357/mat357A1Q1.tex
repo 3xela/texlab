@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 1(done with Payam Fakoorziba)}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q1a:
+Assume $f:A\rightarrow A$ has some fixed point $b$. Then we have that $(b,f(b)) = (b,b)$ will be in the graph of $f$. By definition, this will also belong to the diagonal. 
+Conversely, assume that the graph of $f$ intersects the diagonal of $A \times A$. Then for some point $b\in A$ we have that $(b,f(b))= (b,b)$. 
+\newline \\    Q1b:
+We assume away the case in which $f(0)=0$ and $f(1)=1$. Define $g(x):= f(x)-x$, this will be continuous. We have that by our assumption, $g(0)>0$ and $g(1)<1$. Thus by the intermediate value theorem there is some $x_0$ where $g(x_0)=0$ or equivalently, $f(x_0)=x_0$. 
+\newline \\  Q1c:  No, consider the function $f(x)=x^2$. If we solve for $x^2=x$ we see that $x=1$ and $x=0$ are both fixed points, yet they are not elements of the domain $(0,1)$.
+\newline \\ Q1d: No, consider the function $\chi_{\Q}$ on $(0,1)$, defined to be $1$ on every rational, and 0 else. This function will fix no points on $(0,1)$. 
+\end{document}

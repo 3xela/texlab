@@ -1,0 +1,57 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 315}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent 
+Q3a: Since $\frac{ab}{\gcd(a,b)}=lcm(a,b)$, we know from Q2a that $gcd(1485,1745)=5$. Hence $lcm(1485,1745) = \frac{(1485)(1745)}{5} = 518265$
+\newline \\ Q3b: We begin by proving the reverse implication. Suppose that $c$ is a multiple of the $lcm(a,c)=l$. Then for some $k\in \Z$, $c = k\cdot l$. By the definition of the $lcm(a,b)$, we have $a\cdot q_1 = l$ and $b\cdot q_2 = l$ for some $q_1,q_2\in \Z$. Substituting in our equalities we see that $c = k \cdot q_1 \cdot a = k\cdot q_2 \cdot b$ and so $c$ is a common multiple of $a$ and $b$. 
+Now suppose that $c$ is a common multiple of $a,b$. Then for some $q_1,q_2$, $c=q_1 a = q_2 b$ We see that $$ \frac{c}{lcm(a,b)} = \frac{c}{\frac{ab}{\gcd(a,b)}} = \frac{c(av+bu)}{ab} = \frac{c(au+bv)}{\frac{c}{q_1}\cdot \frac{c}{q_2}} = \frac{q_1q_2(au+bv)}{c} = \frac{q_1q_2 a u+ q_1q_2bv}{c} = q_2u+q_1v$$
+This is an integer so we conclude $c$ is a multiple of $lcm(a,b)$. 
+\newline \\ Q3c: This statement is not necessarily true. Consider $a=b=c=2$. Then $\gcd(2,2,2)=2$ and $lcm(2,2,2)=2$, but $lcm(2,2,2)\cdot \gcd(2,2,2) \neq 2\cdot 2\cdot 2$
+\newline \\ Q3d: We claim that $\frac{abc}{\gcd(a,b,c)} = lcm(a,b,c)$ if and only iff $a,b,c$ are pairwise co-prime. 
+We first need the following lemma: 
+\newline Lemma: Suppose that we have $a_1\dots a_k$ each with a prime factorization $a_j = \Pi_{i=1}^n p_i^{e^j_i}$. Then $gcd(a_1,\dots a_k) = \Pi_{i=1}^n p_i^{min(e^1_i,\dots e^n_i)}$ and $lcm(a_1\dots a_k) = \Pi_{i=1}^n p_i^{max(e^1_i,\dots e^n_i)}$
+\newline pf: Clearly, by our choice of gcd, $gcd(a_1\dots a_k)|a_1\dots a_k$ by construction. It must also be the minimum divisor, since any smaller choice must divide the quantity $\Pi_{i=1}^n p_i^{min(e^1_i,\dots e^n_i)}$ but it would fail to divide at least one $a_i$. Similarly, for lcm, our choice for lcm will be divisible by each $a_i$, but if there was a lower number its prime factorization would not include all the prime factors of each $a_i$. $\qed$
+\newline \\ We proceed with the forward implication. 
+It suffices to check that if $a,b,c$ are not coprime, then the equality will not hold. We can write $a,b,c$ in the following way: $$a=\Pi_{i=1}^k p_i^{e_i}, b=\Pi_{i=1}^k p_i^{e_i}, c=\Pi_{i=1}^k p_i^{l_i}$$ for primes $p_i$ and $e_i,f_i,l_i\in \N \cup \{0\}$. We compute that $$\frac{abc}{\gcd(a,b,c)} = \frac{\Pi_{i=1}^k p_i^{e_i+f_i+l_i}}{\Pi_{i=1}^k p_i^{min(e_i,f_i,l_i)}} = \Pi_i^{k} p_i^{e_i+f_i+l_i-min(e_i,f_i,l_i)}$$
+By lemma, $lcm(a,c,b) = \Pi_{i=1}^k p_i^{max(e_i,f_i,l_i)}$. By assumption, $a,b,c$ are not coprime, so for some $i\in{1,\dots k}$, we have that at least two of $e_i,f_i,l_i$ are strictly more than zero. We now notice that the equality $$e_i+f_i+l_i-min(e_i,f_i,l_i) = max(e_i,f_i,l_i)$$ will never hold, for some $i$, since on the left side we add 3 positive numbers and subtract off one of them, and on the right side we have only one positive number, which is included in the sum on the left. 
+Therefore, the exponents on some $p_i$ in the expansion of $\frac{abc}{\gcd(a,b,c)}$ will be different than in the expansion of $lcm(a,b,c)$ and so they will be different. We now prove the reverse implication. Suppose that $a,b,c$ are co-prime. Then we evaluate $$\frac{abc}{\gcd(a,b,c)} = \frac{abc}{\gcd(\gcd(a,b),c)} = \frac{abc}{\gcd(a,c)} = abc = lcm(a,b,c)$$ where the equality $lcm(a,b,c)=abc$ holds my the lemma applied to comprime numbers $a,b,c$.
+\end{document}

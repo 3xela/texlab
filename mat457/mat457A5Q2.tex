@@ -1,0 +1,59 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 5}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q2: We will proceed by the contrapositive. Suppose that $\mu \not \perp \nu$. Then there exists some maximal sets $E,F$ such that $\mu |_{E^c} \equiv 0$ and $\nu|_F^c \equiv 0$ but $E\cap F \neq \emptyset$ and $E\cap F$ is not measure 0. We compute that 
+\begin{align*} 
+\norm{\alpha \mu - (1 - \alpha) \nu}  &= \int_{X} \alpha \mu + (1-\alpha) \nu
+\\ & = \int_E \alpha \mu + (1-\alpha) \nu + \int_F \alpha \mu + (1-\alpha) \nu - \int_{E\cap F} \alpha \mu + (1-\alpha) \nu
+\\ & = \alpha +(1-\alpha) - \int_{E \cap F}\alpha \mu + (1-\alpha) \nu
+\\ & = 1 - \int_{E \cap F}\alpha \mu + (1-\alpha) \nu
+\end{align*}
+Now we verify that $\int_{E \cap F}\alpha \mu + (1-\alpha) \nu >0$. Note that by definition of $E,F$ and since $\mu,\nu$ are both positive on their intersection, we have that $\alpha \mu +(1- \alpha \nu) >0$ on a nonempty set. 
+Hence we have that $\int_{E \cap F}\alpha \mu + (1-\alpha) \nu >0$. Thus we conclude that if $ \mu \not \perp \nu$, then $\norm{\alpha \mu -(1 - \alpha) \nu} \neq 1$. 
+\end{document}

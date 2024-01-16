@@ -1,0 +1,62 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 6}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q3a: First, WLOG suppose that $y=\alpha x$, that is assume that the line goes through 0. This clearly does not change the measure of the set, since measure is invariant under translation. Define the set $A_{\alpha} = \{(x,y)\in \R^2: x\in [0,1], y=\alpha x\}$. Since any line through 0 is a countable union of sets of similar for to $A_\alpha$, except with different ranges for the value of $x$, it will be sufficient to show that $A$ is the zero set. Let $\ep >0$, choose $N$ sufficiently large so that $N>\frac{\alpha}{\varepsilon}$. We now take $\{R_i\}_{i=1}^N$ to be
+the collection of rectangles $R_i$ where each $R_i = [\frac{i-1}{n},\frac{i}{N}]\times [\frac{\alpha(i-1)}{n}, \frac{\alpha(i)}{N}]$. This will be a cover of $A_\alpha$, and we can compute its measure as follows: 
+\begin{align*}
+    m^*A & \leq \sum_{i=1}^N |R_i|
+    \\ & = \sum_{i=1}^N (\frac{i}{N} - \frac{i-1}{N})(\frac{\alpha i}{N} - \frac{\alpha(i-1)}{N})
+    \\ & = \sum_{i=1}^N \frac{\alpha}{N^2}
+    \\ & = \frac{\alpha}{N}
+    \\ & < \ep
+\end{align*}Hence this set is the zero set, and so any line is the zero set. 
+\newline \\ Q3b: Let $P_i(a) = \{x\in \R^n : x_i =a\}$ be an $n-1$ hyerplane in $\R^n$. For the same reasoning as above, it is sufficient to consider when $a=0$. Let $\ep>0$ , we define $I_k= [\frac{-\ep}{k^{n-1} 2^{k+n}}, \frac{\ep}{k^{n-1}2^{k+n}}]$, and $J_k = [-k,k]$. Then consider the set of boxes $\{B_k\}$ where $B_k$ is the product of $n-1$ copies of $J_k$, and one $I_k$ in the $i'th$ spot
+We compute the volume of this covering as 
+\begin{align*}
+    \sum_{k}|B_k| & = \sum_{k} 2^{n-1}k^{n-1}\cdot \frac{2\varepsilon}{k^{n-1} \cdot 2^{k+n}}
+    \\ & = \sum_{k} \frac{\ep}{2^k}
+    \\ & = \ep
+\end{align*}Hence this is the zero set. The same is true for any arbitrary $n-1$ hyperplane, since we can map any $P_i(0)$ to it by an isometry, which is linear and has a determinant of $1$, so by Pugh Theorem 16 (page 397) any plane will also be the zero set. 
+\end{document}

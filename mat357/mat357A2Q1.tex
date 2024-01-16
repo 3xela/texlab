@@ -1,0 +1,49 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 2(done with Payam Fakooirziba)}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q1: Let $M$ be a metric space such that for a set is compact if and only if it compact. We define $(a_n)$ to be a cauchy sequence in $M$. 
+We first claim that $(a_n)$ is a bounded sequence. Recalling the definition of a Cauchy Sequence, we choose $\varepsilon = 1$. Then for some $N\in \N$, and for all $n,m\geq N$, we have that $|a_n-a_m|<1$. Setting $d=max\{d(a_i,a_j): 1\leq i,j\leq N\}$ and taking $M=d+1$, we see that $(a_n)\subset B_{M+1}(a_N)$
+Thus, any cauchy sequence in this space is bounded. Let $B$ be the closed ball containing $(a_n)$. This is a closed and bounded set and hence is compact by assumption. Thus, for our sequence $(a_n)$ there must exist some convergent subsequence $(a_{n_k})$. Let $a$ be the limit of this subsequence. We claim that $(a_n)$ converges to $a$. Let $\frac{\varepsilon}{2}>0$.
+By convergence, there exists some $N\in \N$ such that for all $n\geq N$, $d(a_{n_k},a)< \frac{\varepsilon}{2}$. Similarly, by Cauchy, for $\frac{\varepsilon}{2}>0$ there is some $K\in \N$ such that for all $m,n\geq K$, $d(a_n,a_m)< \frac{\varepsilon}{2}$. If we take $L = \max(N,K)$ and $n_k,n>L$ we see that by the triangle inequality
+$$d(a,a_n) \leq d(a_n,a_{n_k}) + d(a_{n_k},a) < \varepsilon$$
+And so our cauchy sequence converges. Thus this space $M$ is complete. 
+\end{document}

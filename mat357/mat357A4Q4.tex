@@ -1,0 +1,49 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 4(done with Payam Fakoorziba)}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q4a: Let $\varepsilon>0$. Define $g_n = f_n-f$. Since $f_n \leq f_{n+1}$, we have that $g_n$ is a decreasing sequence. $g_n$ is also continuous, since it is the sum of continuous functions, with its limit being 0. Let $G_n = g_n^{pre}(-\infty,\varepsilon)$. This will be an open set in $[a,b]$ by continuity. We have that $G_n \subset G_{n+1}$. Therefore, the set $\{G_n\}$ forms an open cover of $[a,b]$. By compactness, there is a finite subcover. Let $G_N$ be the largest such set, which contains every other element of the finite subcover. Therefore, if $n\geq N $, we have that $|g_n|<\varepsilon$ and so $|f_n(x)-f(x)|<\varepsilon$
+\newline 4b: If $g_n$ is an increasing convergent sequence bounded above by $g_n$, setting $g_n(x) = -f_n(x)$ and applying 4a shows that it is indeed uniformly convergent
+\newline 4c: Not true, since we require that every open cover has a finite subcover. 
+\newline 4d: If $[a,b] $ is replaced with a compact metric space, this will also be true, since in our proof for 4a, we made no assumptions about the domain except that it is compact. 
+\end{document}

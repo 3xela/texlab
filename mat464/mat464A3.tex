@@ -1,0 +1,258 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathbb{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\bd}{\partial}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\minus}{\scalebox{0.75}[1.0]{$-$}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{464}
+\newcommand{\hwNumber}{3}
+
+%preamble
+
+\title{}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+
+\begin{problem}
+\end{problem}
+\penum
+\item By proposition 3.6 we have that 
+	$$\inn{J(s), \gamma^\prime(s)} = \inn{J^\prime(0) , \gamma^\prime(0)}s + \inn{J(0), \gamma^\prime(0)}.$$
+	Since $\inn{J^\prime(0) , \gamma^\prime(0)} =0$, and $J^\prime(0)=0$ we have that $\inn{J(s), \gamma^\prime(s)}=0$. 
+\item We first claim that any geodesic $\gamma$ through $p=0$ must be a meridian. 
+Note that meridians are preserved under rotation, which is an isometry. Since isometries preserve geodesics, any geodesic with a tangent vector tangent to a meridian must be a meridian. Since meridians gro through 0 we have that the geodesics that travel through 0 are meridians. 
+Suppose that $p$ is conjugate to $0$. There exists a geodesic $\gamma$ attaining $p$ at $t_0$ and a Jacobi vector field $J$ so that $J(0) = J(t_0) = 0$. 
+By the proof of proposition 2.4, we can write 
+$$J(t) = \frac{\partial f}{ \partial s}(t,0)$$
+where $f(s,t) = (t\cos \theta(s), t \sin \theta(s), t^2)$, for some smooth $\theta(s)$. 
+We have that $J(t_0) = (0,0,0)$, so 
+$$(0,0,0) = J(t_0) = \frac{\partial f}{\partial s}(t_0,0) = ( - t_0 \cdot \theta^\prime(0) \cdot \sin \theta(0), t_0 \cdot \theta^\prime(0) \cos \theta(0), 0 ). $$
+Since $\sin$ and $\cos$ cannot vanish at the same time we have that $\theta^\prime(0) =0$. However this equation defines $J(t)$ for all choices of $t$, so we must have that $J(t) \equiv 0$. 
+\epenum
+ \newpage 
+\begin{problem}
+\end{problem}
+By corollary 2.5, we can write 
+$$J(t) = \left( d \exp_p	\right)_{t \gamma^\prime(0)} (t J^\prime(0))$$
+for any jacobian field $J$. Furthermore, since $M$ has 0 scalar curvature, we have that 
+$$J(t) = t w(t)$$
+where $J^\prime(0) = w(0)$, and $w$ is a parallel unit vector field along $\gamma$. Take a normal ball $B_\ep(0)$ of $p$. For any vectors $v,w$ so that $J_1^\prime(0) = v$, $J_2^\prime(0) = w$, using the cor. and lemma, we write
+$$\inn{\left( d \exp_p	\right)_{t \gamma^\prime(0)} (t J_1^\prime(0)), \left( d \exp_p	\right)_{s \gamma^\prime(0)} (sJ_2^\prime(0))} = \inn{J_1(t), J_2(s)} = \inn{t w_1(t) , s w_2(s)}.$$
+We use linearity of the differential and divide out $t\cdot s$ from both sides to get that: 
+$$\inn{\left( d \exp_p	\right)_{t \gamma^\prime(0)} ( J_1^\prime(0)), \left( d \exp_p	\right)_{s \gamma^\prime(0)} (J_2^\prime(0))} =\inn{w_1(t) , w_2(s)}.$$
+At $t=s=0$, we have that 
+$$\inn{\left( d \exp_p	\right) (v), \left( d \exp_p	\right) (w)} =\inn{w_1(0) , w_2(0)} = \inn{v,w}.$$
+ \newpage 
+\begin{problem}
+\end{problem}
+Suppose that $N \subset K \subset M$, with $N$ totally geodesic in $K$, and $K$ totally geodesic in $M$. By prop. 9 it is sufficient to show that a geodesic in $N$ is also a geodesic in $M$. Let $\gamma$ be a geodesic at $p \in N$. 
+Then since $N$ is totally geodesic in $K$ we have that $\gamma$ is also a geodesic at $p$ in $K$. Since $K$ is totally geodesic in $M$, we have that $\gamma$ is a geodesic in $M$ at $p$. 
+Our choice of $p$ and $\gamma$ was arbitrary so we have that $N$ is totally geodesic in $M$. 
+
+ \newpage 
+\begin{problem}
+\end{problem}
+\penum
+\item We first compute the differential of $x$. We get that 
+$$dx(\theta, \phi) = \frac{1}{\sqrt{2}}\bmat{\minus \sin \theta & 0 \\ \cos \theta & 0 \\ 0 & \minus \sin \phi \\ 0 & \cos \phi }.$$
+We see that $dx(1,0) = \frac{1}{\sqrt{2}} e_1, dx(0,1) = \frac{1}{\sqrt{2}}e_2$. Therefore $e_1,e_2$ belong to the tangent space. We see that they are orthonormal since $$\inn{e_i, e_j}= \delta_{ij}.$$
+It remains to check that $n_1,n_2$ form am orthonormal basis for the normal space. We see that 
+$$\inn{n_i,n_j} = \delta_{ij},$$
+as well as 
+$$\inn{n_i, e_j} = 0.$$ 
+\item By prop. 2.3, we can write 
+$$\inn{S_{n_k}(e_i), e_j} = - \inn{\overline{\nabla}_{e_i} n_k , e_j} = \inn{\overline{\nabla}_{e_i} e_j , n_k}.$$
+For a fixed choice of $n_k$ computing the above for each $e_i,e_j$ will give us the entries of the matrix of $S$ in the basis of $\{	e_1, e_2\}$. Since in $\R^n$ the covariant derivative agrees exactly with the usual derivative, we have that 
+$$\overline{\nabla}_{e_1}e_1 = (\minus \cos \theta, \minus \sin ,0,0), \overline{\nabla}_{e_2}e_2  = (0,0, \minus \cos \phi,\minus \sin \phi).$$
+For $n_1$, we compute that 
+$$\inn{\overline{\nabla}_{e_1}e_1, n_1 } = \frac{\sqrt{2}}{\sqrt{2}} \cdot -1 = -1 = \inn{\overline{\nabla}_{e_2}e_2, n_1},$$
+and 
+$$\inn{\overline{\nabla}_{e_1}e_2, n_1} = 0 = \inn{\overline{\nabla}_{e_2}e_1, n_1}.$$
+Therefore $$S_{n_1} = \bmat{-1 & 0 \\ 0 & -1}.$$
+For $n_2$, we compute that 
+$$\inn{\overline{\nabla}_{e_1}e_2, n_2} = 0 = \inn{\overline{\nabla}_{e_2}e_1, n_2},$$
+and 
+$$\inn{\overline{\nabla}_{e_1}e_1, n_2} = 1, \inn{\overline{\nabla}_{e_2}e_2, n_2} = -1.$$
+Therefore $$S_{n_2} = \bmat{1 & 0 \\ 0 & -1}.$$
+\item We claim that $n_1$ is in the tangent space of $S^3$. Since $x(\theta, \phi) = n_1 \in S^3,$ we have that $n_1 \in T_pS^3.$ Therefore $n_2$ spans $(T_p S^3)^\perp$. Any $\eta \in (T_p S^3)^\perp$ must satisfy $\eta = \alpha n_2$. Therefore by construction of $S_\eta$ by prop. 2.3, $S_\eta = \alpha S_{n_2}$, and since $S_{n_2}$ is traceless so must be $S_{\eta}$. 
+\epenum
+ \newpage 
+\begin{problem}
+\end{problem}
+\penum 
+\item Consider $S^1 \hookrightarrow \R^2$. We have that the geodesics from $x$ to $y$ on $S^1$ are given by travelling along the arc between $x,y$. So $d_M(x,y) = \min(arg(x) - arg(y), arg(y) - arg(x) ).$ However, $d_N(x,y) = |x-y|$. We have that $d_M> d_N$, even though $\iota: S^1 \to \R^2$ is an isometric immersion. 
+\item We first give the following riemannian structure to $\widetilde{M}$. For $\tilde{p} \in \widetilde{M}$, we define 
+$$\inn{v,w}_{\tilde{p}} = \inn{d\pi_p(v) , d\pi_p(w)}_{\pi(\tilde{p})}.$$
+This will be a local isometry exactly when $\pi$ is a diffeomorphism, so as long as we take a sufficiently small open neighbourhood of $\tilde{p}$. 
+We now claim that $\widetilde{M}$ is complete in this metric if and only if $M$ is complete.
+Suppose that $M$ is complete. Let $\gamma:[0,1] \to M$ be a geodesic. 
+We know from topology that we can lift $\gamma$ to a path $\tilde{\gamma}: [0,1] \to \widetilde{M}$ satisfying $\pi \circ \tilde{\gamma} = \gamma$. Since $\gamma$ is locally length minimizing, and $\pi$ is locally an isometry we have that $\tilde{\gamma}$ is also locally length minimizing and hence a geodesic. 
+We can extend $\gamma$ for all $t\in \R$, corresponding to extending $\tilde{\gamma}$ while still remaining a geodesic. Thus $\widetilde{M}$ is complete. 
+Conversely suppose that $\widetilde{M}$ is complete with respect to its metric. Let $\tilde{\gamma}$ be a geodesic defined for all $t\in \R$. Then the path $\pi \circ \tilde{\gamma} = \gamma$ is defined for all $t$. We claim that $\gamma$ is a geodesic. Since $\pi$ locally preserves distances, and $\tilde{\gamma}$ locally minimizes lengths, we have that $\gamma$ locally minimizes lengths. Therefore $\gamma$ is a geodesic and $M$ is complete. 
+\item Let $M_1$ be the open upper hemisphere of $S^2$, $M_2 = S^2$. Let $f = \iota$ the inclusion map of $M_1$ in $M_2$. If we endow $M_1$ with the restriction of any metric on $M_2$, then $f$ is an isometry. Since $M_2$ is compact it must be complete by corr. 2.9. Note however that $M_1$ is extendable, in particular it can be extended to $M_2$. By the contrapositive of prop. 2.3, $M_1$ is not complete.
+\epenum
+\newpage 
+
+
+\end{document}

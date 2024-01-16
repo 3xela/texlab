@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 16}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q3: Let $c_r (t)= (r\cos(2\pi t), r \sin(2\pi t))$, defined on $[0,1]$. Let $c^*_r \omega = f dt$. We have that $f(0)=f(1)$ so by Q2 there exists some $\lambda_r$ and $g$ so that $dg = c^*\omega -\lambda_r dt$. We see that $c^{-1}(x,y) = \frac{1}{2\pi}\theta(x,y)$. If we apply the pullback of $c_r^{-1}$ we see that
+$$d(c_r^{-1^*} g) = c_r^{-1^*}c_r^{*} \omega - \lambda_r d(c^{-1^*}t) = (c\circ c^{-1})^{*}\omega - \frac{\lambda_r}{2\pi}d(\theta(x,y))= \omega - \frac{\lambda_r}{2\pi}\cdot \frac{-ydx+ xdy}{x^2+y^2}$$ We know claim that such a $\lambda_r$ is in fact unique. Suppose that there is distinct $\lambda_1,\lambda_2$ and $g_1,g_2$ where $dg_1 = \omega - \lambda_1 \eta$ and $dg_2 = \omega - \lambda_2 \eta$. 
+We define the one form $h$ as $$h = g_1-g_2 =(\lambda_2-\lambda_1)\eta $$ 
+Let $c$ be any 1-chain, By Stoke's theorem, we compute the integral $$\int_{\bd c} h = \int_{c} dh = 0$$ Therefore, we have that for all chains, $(\lambda_2-\lambda_1)\eta=0$. Therefore, $\lambda_2-\lambda_1=0$. We conclude that $\lambda$ is unique. 
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 315}
+\lhead{Assignment 5}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\Mod}[1]{\ \mathrm{mod}\ (#1)}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q2a: We will prove this via induction on $e$. For when $e=1$, we have the simultaneous equations  \newline $x^{p-1}\equiv 1 \Mod{p}$ and $x\equiv i \Mod{p}$. For each $i$ nonzero we have that $i^{p-1}\equiv 1 \Mod{P}$ by Fermats little Theorem.
+ Now suppose that for $e$, there is some $x_e$ such that $x_e^{p-1}\equiv 1 \Mod{p^e}$ and $x_e\equiv i \Mod{p}$ for some $i$. Take $x_{e+1} = x_e + p^e\cdot k$, for some $k\in \Z$. We have that 
+\begin{align*}
+    f(x_{e+1}) & = f(x_e+kp^e)
+    \\ & = (x_e + kp)^{p-1} - 1
+    \\ & = \sum_{j=0}^n \begin{pmatrix}  p-1 \\ j\end{pmatrix} x_e^{p-i-j} (kp^e)^{j} - 1
+    \\ & = x_e^{p-1} + (p-1)x_e^{p-2} \cdot kp^e \dots -1
+    \\ & = x_e^{p-1}-1+ (p-1)x_e^{p-2}\cdot kp^e
+    \\ & = f(x_e)+ f^\prime(x_e)kp^e \Mod{p^{e+1}}
+\end{align*}
+By assumption, $f(x_e)\equiv 0 \Mod{p^e}$, we can write $f(x_e) = ap^e$ for some $a\in \Z$. Therefore,\newline  $ap^e + f^\prime(x_e)kp^e \equiv 0 \Mod{p^{e+1}}$ and so $q+f^\prime(x_e)k \equiv 0 \Mod{p}$. Since $f^\prime(x_e)$ is nonzero since $x_e\equiv i \not \equiv 0$, so we can take $k=(-q)\cdot (f^\prime(x_e))^{-1}$. Inverses are unique hence $x_{e+1}$ is unique. 
+\newline \\ Q2b: For each $e_i$ we take $x_{e_i} \equiv -1 \Mod{p^{e_i}}$. We can clearly see that $x_{e_i}^2 \equiv 1 \Mod{3^e}$ and $x_{e_i}\equiv 2 \Mod{3}$
+
+ 
+\end{document}

@@ -1,0 +1,53 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 454}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document} \noindent  Q7: Using the addition formula from Q6, we get that $$0 = \wp(u)(\wp^\prime(v) + \wp^\prime(u+p)) - \wp^\prime(u)(\wp(v) - \wp(u+v))  - \wp(v)\wp^\prime(u+v) - \wp^\prime(v)\wp(u+v).$$
+Now, subsituting the relationship $$\wp^\prime(u+v) = - \frac{\wp^\prime(v) - \wp^\prime(u)}{\wp(v) - \wp(u)} \wp(u+v) - \frac{\wp^\prime(u)\wp(v) - \wp^\prime(v)\wp(u)}{\wp(v) - \wp(u)},$$
+Which must hold when the addition formula holds, we get that $$4 \wp(u+v)(\wp(u) - \wp(v))^2 =-(\wp(u) + \wp(v))(\wp(u) - \wp(v))^2 + (\wp^\prime(u)- \wp^\prime(v))^2 $$
+And rearranging this gives us $$\wp(u+v) = -\wp(u) - \wp(v) + \frac{1}{4}\Big(\frac{\wp^\prime(u) - \wp^\prime(v)}{\wp(u) - \wp(v)} \Big)^2$$
+As desired. 
+\end{document}

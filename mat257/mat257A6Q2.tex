@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 6}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q2a: \\Define $K(x,y,u) = (G(x,y,u),H(x,y,u))$. We compute the derivative of $K$ as 
+\begin{align*} DK = \begin{bmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial G}{\partial u} \\ \\  \frac{\partial H}{\partial x} & \frac{\partial H}{\partial y} & \frac{\partial H}{\partial u}\end{bmatrix} \end{align*}
+At the point $(2,-1,1)$, we evaluate $DK$ as \begin{align*} DK_{(2,-1,1)} = \begin{bmatrix} \frac{\partial f(2,-1)}{\partial x} & \frac{\partial f(2,-1)}{\partial y} & 2\\ 1& 9& 5\end{bmatrix} \end{align*}
+From the implicit function theorem we can find functions $g(y)=x$ and $h(y)=u$ which satisfy $K(x,y,u)=0$ at the point $(2,-1,1)$ when $\frac{\partial K}{\partial (x,u)}$ is invertible. That is when $\begin{bmatrix} \frac{\partial f(2,-1)}{\partial x} & 2 \\ 1 & 5\end{bmatrix}$ is invertible. This will happen if and only if it has nonzero determinant.
+We have that $Det(\frac{\partial K}{\partial (x,u)}) = 5 \frac{\partial f(2,-1)}{\partial x}-2$. So long as $\frac{\partial f}{\partial x} \neq \frac{2}{5}$ this matrix will be invertable and we can find such a $h$ and $g$ with $g(-1)=2$ and $g(-1)=1$. 
+\\ Q2b \\ 
+Since $f^\prime (2,1) =\begin{pmatrix}1&-3\end{pmatrix} $ we have that $DK = \begin{bmatrix} 1 & -3 & 2 \\ 1 & 9 & 5\end{bmatrix}$. Since the matrix given by $\frac{\partial K}{\partial (x,u)}$ is invertible, we can find functions $h,g$ which satisfy $K(g(y),y,h(y))=0$. By the Implicit Function Theorem, we have that $$(g,h)^\prime = - \left[ \frac{\partial K}{\partial (x,u)} \right] ^{-1} \cdot \frac{\partial K}{\partial y}$$ We compute $ \left[ \frac{\partial K}{\partial (x,u)} \right] ^{-1} = \begin{bmatrix} \frac{5}{3} & \frac{-2}{3} \\ \frac{-1}{3} & \frac{1}{3}\end{bmatrix}$. From $DK$ we see that $\frac{\partial K}{\partial y} = \begin{bmatrix} -3 \\ 9\end{bmatrix}$. 
+\\ Thus $$(g,h)^\prime = - \begin{bmatrix} \frac{5}{3} & \frac{-2}{3} \\ \frac{-1}{3} & \frac{1}{3}\end{bmatrix} \cdot \begin{bmatrix} -3 \\ 9\end{bmatrix} = \begin{bmatrix} 11 \\ -4\end{bmatrix}$$
+Therefore, $g^\prime (-1) = 11$ and $h^\prime(-1) = -4$
+\end{document}

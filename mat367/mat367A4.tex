@@ -1,0 +1,256 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathcal{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{MAT367 }
+\newcommand{\hwNumber}{4}
+
+%preamble
+
+\title{a}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+\begin{problem}
+\end{problem}
+\penum
+\item Take $\{(\vph_n, U_n)\}, \{(\psi_m, V_m)\}$ maximal atlases for $M,N$. For any choice of charts $\vph_i, \vph_j, \psi_k$ we have that $$\vph_{i} \circ \pi_1 \circ(\vph_j^{-1}, \psi_{k}^{-1}) = \vph_i \circ \vph_{j}^{-1} \in C^\infty. $$ A similar computation for $\pi_2$ yields 
+$$\psi_j \circ \pi_2(\vph_k^{-1},\psi_i^{-1} ) = \psi_j \circ \psi_{i}^{-1} \in C^{\infty}. $$ 
+\item First we notice that $\dim(M^m\times N^n) = \dim(M^m)+\dim(N^n) = m+n$ so $$\dim\left(T(M\times N)_{(x,y)} \right) = \dim \left( TM_x \right) + \dim(TN_y) = \dim(TM_x \oplus TN_y).$$ It is sufficient to show that the mapping $f(v)$ defined by $$v\mapsto \left( {\left( \pi_1 \right)_{\ast}}_{(x,y)}v ,  {\left( \pi_2 \right)_{\ast}}_{(x,y)}v	 \right)$$ has trivial kernel. Suppose that for some $v$ we have that $f(v) = 0$. Notably we have that ${\left(	\pi_1\right)_{\ast}}_{(x,y)}v = 0.$ Viewed from the point of view of charts, we have that $$ 0 = D \left(\phi_i \circ \pi_1 \left(\vph_{j}^{-1}, \psi_{k}^{-1}\right) \right)v = \bmat{D(\vph_{i} \circ \vph_{j}^{-1}) & |& 0}v.$$ Since $D(\vph_{i} \circ \vph_{j}^{-1})$ is an isomorphism, we have that $$D(\vph_{i} \circ \vph_{j}^{-1}) \pi_{x}(v) = 0. $$ So the first $m$ coordinates must be $0$. A similar argument with ${(\pi_2)_{\ast}}_{(x,y)}$ shows that the last $n$ coordinates are $0$. Therefore $v=0$. 
+\item By part $b$, we have the mapping $(i_y)_{\ast x}:TM_x \to TM_x \oplus TN_y$ given by $$v \mapsto \left( {\left( \pi_1 \right)_{\ast}}_{(x,y)}\circ (i_y)_{\ast (x)} v ,  {\left( \pi_2 \right)_{\ast}}_{(x,y)}\circ (i_y)_{\ast (x)}v	 \right)$$
+This simplifies to $$\left( \left(\pi_1 \circ i_y \right)_{\ast x} v, \left(\pi_2 \circ i_y \right)_{\ast x} v	\right) = (v,0), $$ since the first coordinate is the identity, and the second is constant. 
+\item First note that $(f\times g)(x,y)$ is smooth since for any choice of charts on $M,N,P,Q$ the function $$(\lambda, \eta)\circ (f,g) \circ (\vph^{-1}, \psi^{-1}) = (\lambda \circ f \circ \vph^{-1} , \eta \circ g \circ \psi^{-1})$$ is smooth in both components. First, notice that the identity mapping on $T(M\times N)$ is of the form $$id_{T(P\times Q)} = (i_{g(y)})_{\ast f(x)} \circ (\pi_1)_{\ast(f(x),g(y))} + (i_{f(x)})_{\ast g(y)} \circ (\pi_2)_{\ast (f(x),g(y))}.$$
+If we compose with $(f\times g)_{\ast(x,y)}$, using the chain rule we get 
+\begin{align*}
+(f\times g)_{\ast(x,y)} & = id_{T(P\times Q)} \circ (f\times g)_{\ast(x,y)} 
+\\ & = \left[(i_{g(y)})_{\ast f(x)} \circ (\pi_1)_{\ast(f(x),g(y))} + (i_{f(x)})_{\ast g(y)} \circ (\pi_2)_{\ast (f(x),g(y))} \right] \circ (f\times g)_{\ast(x,y)}
+\\ & = \left[(i_{g(y)})_{\ast f(x)} \circ (\pi_1)_{\ast(f(x),g(y))} \circ (f\times g)_{\ast(x,y)}  \right] + \left[(i_{f(x)})_{\ast g(y)} \circ (\pi_2)_{\ast (f(x),g(y))} \circ (f\times g)_{\ast(x,y)} \right]
+\\ & = \left[(i_{g(y) } \circ \pi_1 \circ (f(x),g(y)))_{\ast(x,y)} \right] + \left[ (i_{f(x)} \circ \pi_2 \circ(f(x),g(y)) )_{\ast(x,y)} \right]
+\\ & = (f_{\ast x} , 0) +(0, g_{\ast y})
+\\ & = (f_{\ast x} , g_{\ast y})
+\end{align*}
+\epenum
+\newpage
+\begin{problem}
+\end{problem}
+\penum
+\item When we restrict $\mu$ to $G\times \{e\}, \{e\}\times G$ we see that $$\mu(e,g) = \mu(g,e) = g.$$ The multiplication map behaves like projection when restricted to these groups. 
+\item For $u+v \in TG_e \oplus TG_e$ the inverse of the mapping given in $1b$ is $$v+w \mapsto (i_{e})_{\ast e} v + (i_e)_{\ast e}w.$$ Therefore by the chain rule, 
+\begin{align*}
+	\mu_{\ast(e,e)}(v,w) & =  \mu_{\ast(e,e)}\circ \left[(i_{e})_{\ast e} v + (i_e)_{\ast e}w \right] 
+	\\ &= \mu_{\ast (e,e)} \circ(i_{e})_{\ast e} v + \mu_{\ast(e,e)} \circ (i_e)_{\ast e}w 
+	\\ & = \left(\mu\circ i_e\right)_{\ast e} v+ \left(\mu \circ i_{e}\right)_{\ast e}w
+	\\ & = \mu_{\ast (e\times G)}v + \mu_{\ast (G\times e)}w
+	\\ & = v+w 
+\end{align*}
+\item We compute the composition $\mu \circ(id\times \iota)\circ \Delta$ as $$\mu \circ(id \times \iota)\circ \Delta(g) = \mu \circ(id \times \iota)(g,g) = \mu(g, g^{-1}) = e. $$ 
+\item Since the mapping $\mu \circ(id \times \iota)\circ \Delta$ is constant, we have that $$\left(	\mu \circ(id \times \iota)\circ \Delta\right)_{\ast e} = 0. $$ Since $\Delta = id \times id$ we know that $\Delta_{\ast e}v = (id_{\ast e} , id_{\ast e})v = (v,v)$. Thus by the chain rule and $2b$, $$ 0 = \left(	\mu \circ(id \times \iota)\circ \Delta\right)_{\ast e} v = \mu_{\ast (e,e)} \circ (id_{\ast e},\iota_{\ast e} ) \circ \Delta_{\ast (e)} v = \mu_{\ast(e,e)} \circ (id_{\ast e} v, \iota_{\ast e} v) = v+ \iota_{\ast v} \implies \iota_{\ast e}v = -v$$
+\epenum
+\newpage 
+\begin{problem}
+\end{problem}
+\penum
+\item Since $\mu:G\times G \to G$ is a $C^\infty$ mapping, the restriction mapping $\mu_g: G\to G$ is also $C^\infty$. Furthermore, $\mu_g$ is a diffeomorphism, since it is smooth and bijective, and has smooth inverse $\mu_{g^{-1}}$. Therefore the tangent mapping $(\mu_{g})_{\ast e}$ is an isomorphism of $TG_e$ into $TG_g$. 
+\item Consider the mapping $f: TG \to G\times \R^n$ defined by $[g,v] \mapsto (g, (\mu_{g})^{-1}_{\ast e}v )$. We claim that this is an isomorphism. Since $(\mu_g)^{-1}_{\ast e}$ is a linear isomorphism, this is a bijection. Furthermore, the following diagram commutes 
+$$\begin{tikzcd}
+	TG && {G\times \R^n} \\
+	& G
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["\pi"', from=1-1, to=2-2]
+	\arrow["{\pi^\prime}", from=1-3, to=2-2]
+\end{tikzcd}$$
+\epenum Thus the tangent bundle of $G$ must be trivial. 
+\newpage 
+\begin{problem}
+\end{problem}
+Let $\mathscr{A} = \{(\phi_i, U_i)\}$ be a maximal atlas on $M$. Then the charts on $TM$ are of the form
+\begin{align*}f_i: U_i \times \R^n & \to\vph_i(U_i) \times \R^n 
+	\\ (v,p) & \mapsto  (\vph_i(p), (\vph_{i})_{\ast p} v).
+\end{align*}
+On a suitable domain, the transition maps are of the form $(\vph_{j} \circ \vph_i^{-1}(x), (\vph_{i}\circ \vph_{j}^{-1})_{\ast x}v ),$ and the jacobian will be $$D(\vph_{j} \circ \vph_i^{-1}(x), (\vph_{i}\circ \vph_{j}^{-1})_{\ast x}v )= \bmat{ (\vph_j \circ \vph_{i}^{-1})^\prime(x)  & 0 \\ * & (\vph_j \circ \vph_i^{-1})_{\ast x} }.$$
+Since $(\vph_j \circ \vph_{i}^{-1})^\prime(x) = (\vph_j \circ \vph_i^{-1})_{\ast x} $ as linear maps, and are both nonsingular by the inverse function theorem, $$Det(D(\vph_{j} \circ \vph_i^{-1}(x), (\vph_{i}\circ \vph_{j}^{-1})_{\ast x}v )) = Det(\vph_{j} \circ \vph_i^{-1}(x))^2 >0.$$ The transition mappings on $TM$ have positive determinants hence $TM$ is orientable. 
+\newpage
+\begin{problem}
+\end{problem}
+Let $M$ be a nonorientable manifold. Suppose $TM \cong M\times \R^n$. By problem 4 we have that $TM$ is orientable. Since some isomorphism $f$ maps $TM \to M \times \R^n$, the orientation on $TM$ gets pushed to an orientation of $M \times \R^n$. Then we must have that $M \times \R^n$ is orientable. Note however that charts on $M \times \R^n$ are of the form $\vph_i \times id$, where $\vph_i$ is a chart on $M$ and $id$ is the identity on $\R^n$. The transition maps on $M\times \R^n$ will be the product of transition maps on $M$ with the identity. For some choice of charts $\vph_i, \vph_j$ the tangent mapping $D(\vph_i \circ \vph_j^{-1} , id)$ will have negative determinant. Thus $M\times \R^n$ is not orientable, a contradiction.   
+\newpage
+\begin{problem}
+\end{problem}
+Given that the transition mappings of $E$ are of the form: 
+\begin{align*}
+	T\vph_i(U_i \cap U_j) &\to T\vph_j(U_i \cap U_j)
+		\\ (x,v) &\mapsto (\vph_j \circ \vph_i^{-1}(x) , \Lambda_{ij}(x) v) 
+\end{align*} For a smooth mapping $\Lambda_{ij}: \vph_i(U_i \cap U_j) \to GL(k, \R)$. Note that $\Lambda_{ij}(x)$ induces a map $\Lambda_{ij}^\ast(x):(\R^k)^\ast \to (\R^k)^\ast$ by pullback i.e. $\Lambda_{ij}^\ast (\eta)(v) = \eta(\Lambda_{ij}(x)(v))$. So we have bundle charts with transition maps on $E^\ast$ given by 
+\begin{align*}
+	T^\ast\vph_j(U_i \cap U_j) &\to T^\ast \vph_i(U_i \cap U_j)
+	\\ (y , \eta) & \mapsto (\vph_i \circ \vph_j^{-1}(y), \Lambda^\ast_{ij}((\vph_i \circ \vph_j^{-1}(y))\eta )
+\end{align*}
+The transition maps induce an equivalence relation $\sim$ on $\bigsqcup T^\ast\vph_i(U_i)$ where $(x,\lambda) \sim (y,\eta)$ if for some $i,j$, $$(x, \lambda ) =(\vph_i \circ \vph_j^{-1}(y), \Lambda^\ast_{ij}((\vph_i \circ \vph_j^{-1}(y))\eta ).$$
+By $A2Q7$ this gives a manifold structure to $E^\ast$. We have constructed a dual bundle $(E^\ast , M, \pi).$ 
+\newpage
+\begin{problem}
+\end{problem}
+\penum
+\item Recall from basic algebra, a root $b$ of $p(z)$ is of multiplicity greater than $1$ if and only if it is a root of $p^\prime(z)$. Take $a_0 , \dots , a_n$ so that $p(z) =a_0 + \dots + a_{n-1}z^{n-1} + z^n $ has $n$ distinct roots $\{b_1, \dots ,b_n\}$. We have that $p(b_i) - p^\prime(b_i)$ is nonzero. Since $p(z) - p^\prime(z)$ is continous when viewed as a function of $z,a_0, \dots , a_n$, there exists some $\ep$ ball $B_\ep$ around $(a_0, \dots , a_n)\in \C^n$ so that $p^\prime(b_i)-p(b_i)$ does not vanish for all $a\in B_\ep$. Since the roots $b_i$ smoothly vary with $(a_0 , \dots , a_{n-1})$, $M_n$ is an open set in $\C^n$, so it must be an $n-$manifold. 
+\item This is not a smooth manifold. Consider when $n=2$. Let $A \subset \C^2 \cong \R^4$ be the space of polynomials with complex coefficients with at least one complex root. If we notate coordinates in $\C^2$ as $(b_1,b_2, c_1, c_2)$ then $A$ will be the union of subsets parametrized by $A_1 = (b_1,0,c_1,c_2)$ and $A_2 = (b_1,b_2,c_1,0)$. Open neighbourhoods of this subset will look like $(b_1 \pm \ep, 0 , c_1 \pm \ep, c_2 \pm \ep)$ and $(b_1 \pm \ep , b_2 \pm \ep, c_1 \pm \ep , 0)$. However on $A_1 \cap A_2,$ the open neighborhoods will look like $(b_1 \pm \ep , 0 , c_1 \pm \ep , 0)$. These open sets are not of the same dimension hence this can not be a smooth manifold. 
+\epenum
+\end{document}

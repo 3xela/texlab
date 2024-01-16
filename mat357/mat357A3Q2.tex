@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 357}
+\lhead{Assignment 3 done with Payam Fakoorziba}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q2: We claim that if $f:M\to N$ is continous, and $M$ is covering compact, then $f$ is uniformly continuous. Since $M$ is compact, it follows that its image under the continuous $f$ is a compact subset of $N$. Now consider the following open cover of $N$. Let $\varepsilon>0$, define $\U = \{ N_{\frac{\varepsilon}{2}}(q): q\in N\}$. 
+We will denote each open cover corresponding to point $q$ as $U_q$. Thus by continuity of $f$, we will have that $\V =\{f^{pre}(U_q): q\in N\}$ will be an open cover of $M$. By covering compactness, we can extract a finite subcover corresponding to points $q_1,\dots q_n$ where $U_{q_1},\dots ,U_{q_n}$ and $(f^{pre}(U_{q_1}),\dots f^{pre}(U_{q_n}))$ are finite subcovers of $N$ and $M$, respectively.
+Since we know that sequential compactness is equivalent to covering compactness, we can apply the lebesgue number lemma to our open cover of $M$. Hence there exists some $\lambda(\varepsilon)>0$ with the property that for all $x\in M$, there exists some $f^{pre}(U_{q_x})$ with $M_{\lambda}(x)\subset f^{pre}(U_{q_x})$. 
+We see that for any $\varepsilon >0$, we choose $\delta = \lambda(\varepsilon)$. Then For any $x\in M$, we can find a $M_{\lambda}(x)\subset f^{pre}(U_{q_x})$. If we take any $y\in M_{\lambda}(x)$, we have that $d_{M}(x,y)<\delta$. Their image under $f$ will belong to some $U_{q_x}$ and thus $d_{N}(f(x),f(y))< \varepsilon$ by the triangle inequality. 
+This is exactly what it means for $f$ to be uniformly continuous. 
+
+\end{document}

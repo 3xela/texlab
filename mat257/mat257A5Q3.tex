@@ -1,0 +1,47 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 5}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q3a: Suppose $WLOG$ that $f^\prime (a) > 0$ for all $a\in \R$. Suppose not, that is suppose that $f^\prime (a) >0$ yet $f$ not injective. Then there must exist some distinct $a,b$ and $a < b\in \R$ where $f(a) = f(b)$. Then by the mean value theorem there must exist some $c\in (a,b)$ such that 
+$$f^\prime (c) = \frac{f(a)-f(b)}{a-b}$$ By our assumption it must be that $f^\prime(c) = 0$. We obtain a contradiction. 
+\\ Q3b: \\
+From Spivak Theorem 2-7 we have that $$f^{\prime}(x,y) = \begin{bmatrix} e^x cos(y) &  -e^x sin(y) \\ e^xsin(y) & e^x cos(y)
+\end{bmatrix}$$
+Computing the determinant, we have $Det (f^{\prime}(x,y)) = e^{2x} cos^2(y) + e^{2x} sin^2(y) = e^{2x}$. This is always nonzero hence $f^\prime$ is invertible for all $(x,y)\in \R^2$. However the function $f$ is not injective since for any choices of $(x,y)$, by the periodicity of $sin$ and $cos$ we will have $$f(x,y) = (e^x cos(y),e^x sin(y)) = (e^x cos(y+2 \pi), e^x sin(y+2 \pi)) = f(x,y+2 \pi)$$
+\end{document}

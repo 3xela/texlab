@@ -1,0 +1,62 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 267}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q4a: Suppose that $x(t) = t^\gamma$ solves $\sum_{k=0}^n a_k t^k x^{(k)}$. Then it must be that $\sum_{k=0}^n a_k t^k (t^\gamma)^{(k)}=0$. Evaluating, we see that 
+\begin{align*}
+0 & = \sum_{k=0}^n a_k t^k (t^\gamma)^{(k)}
+\\ & = \sum_{k=0}^n a_k t^k t^{\gamma-k}\cdot (\gamma-1)\cdot \dots (\gamma-k)
+\\ & = \sum_{k=0}^n a_k t^\gamma \frac{\gamma!}{(\gamma-k)!}
+\\ & = \sum_{k=0}^n a_k \frac{\gamma!}{(\gamma-k)!}
+\\ & = \sum_{k=0}^n b_k \gamma^k \tag{for some $b_k$}
+\end{align*} We see that $x(t) = t^\gamma$ is a solution to our ODE if and only if it is a root to the polynomial $\sum_{k=0}^n b_k x^k$, where each $b_k = \sum_{j=0}^k (-1)^{j}\cdot j! \cdot a_{k+j}$
+\newline \\ Q4b: Let $y(t) = t^\gamma Q(\log t)$ where $Q$ is a polynomial of degree m. We compute 
+$$t\cdot y^\prime - \alpha y = \gamma t^\gamma Q(\log t) + t^\gamma Q^\prime (log t) - \alpha t^\gamma Q(\log t)$$
+If $\alpha = \gamma$ we see that this expression evaluates to $t^\gamma Q^\prime (\log t)$, with $Q^\prime$ being of degree $m-1$. If $\alpha \neq \gamma$, then this will be of the form $t^\gamma P(\log t)$ for some polynomial $P$. 
+\newline \\ Q4c: Suppose that $\gamma$ is a root to $\sum_{k=0}^n b_k \gamma^k$. It suffices to check that $t^{\gamma_j}Q_j(\log t)$ satisfies our ODE, since it is linear and so any sum of functions of that form will work. We see that 
+\begin{align*}
+    \sum_{k=0}^n a_k \cdot t^k (\frac{d}{dt})^k y(t) & = \sum_{k=0}^n b_k (t\frac{d}{dt})^k (y(t))
+    \\ & = \sum_{k=0}^n b_k ( (t^\gamma Q_j^\prime ( \log t) + \alpha t^\gamma Q_j ( \log t))^k \tag{by 4b}
+    \\ & = \sum_{k=0}^n b_k (t^\gamma Q^\prime_j  (\log t))^k + \alpha \sum_{k=0}^n b_k (t^\gamma Q_j ( \log t))^k
+    \\ & = \alpha \sum_{k=0}^n (Q_j(\log t))^k \sum_{k=0}b^k \gamma^k
+    \\ & = 0
+\end{align*}    
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 267}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q2a: Solve $x^\prime = 2x+t^2$. We guess that $x$ takes the form of a quadratic, namely $x(t)=at^2+bt+c$. We know that $x^\prime(t)=2at+b$. For equality to hold, we can choose constants $a=b=-\frac{1}{2}$, and $c=\frac{b}{2}=-\frac{1}{4}$. Therefore we have that 
+$$x^\prime = -t+\frac{-1}{2} = 2(-\frac{1}{2}t^2-\frac{-1}{2}t-\frac{1}{4})+t^2=2x+t^2$$
+\newline \\ Q2b: Solve $x^\prime = 2x + e^{3t}$. We will guess that $x(t)=ce^(3t)$ for some constant $c$. We note that $x^\prime=3ce^{3t}$. Thus for equality to hold, we can take $c=1$ and observe that 
+$$x^\prime = 3e^{3t} = 2e^{3t}+e^{3t} = 2x+e^{3t}$$
+\newline \\ Q2c: To solve $x^\prime = 2x + te^{3t}$ we will proceed by guessing something of the form $x(t) = cte^{3t}-de^3t$. By simple computation we see that $x^\prime(t)=3ce^{3t}+3cte^{3t}-3de^{3t}$, and $2x+te^{3t} = 2cte^{3t}-2de^{3t}+te^{3t}$. We have equality holding if we choose constants $c=d=1$. Thus $x(t)=te^{3t}-e^{3t}$ solves. 
+\newline \\ Q2d: We guess a solution of the form $x(t)= c \sin(t) + 6d \cos(t) + e^{kt}$. We have that $x^\prime = c \cdot cos(t)-d\sin(t)+ke^{kt}$ and $2x-cos(t)=2c \sin(t) + (2d-1)cos(t) + 2e^{kt}$. We see that when $k=2$, $c=-\frac{2}{5}$, $d=-\frac{2}{5}$. Therefore, $x(t)=-\frac{cos(t)}{5}-\frac{2\sin(t)}{5}+e^{2t}$ solves. 
+\newline \\ Q2e:  To solve $x^\prime = 2x+f(t)$, we guess a solution of the form  $x(t) = te^{2t}+ e^{2t}$. We see that $x^\prime = e^{2t} + 2te^{3t} + 2e^{2t}$, and $2x+e^{2t}=2te^{2t}+2e^{2t}+e^{2t}$. These functions are equal, so our guess is correct. 
+\end{document}

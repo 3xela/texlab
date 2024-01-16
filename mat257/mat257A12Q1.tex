@@ -1,0 +1,48 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 12}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q1a: Need to show whether $f(x,y)= x_1y_2-x_2y_1+x_1y_1$ is an alternating tensor on $\R^4$ or not. We can verify by computation that $$f(x,x) = x_1x_2 -x_2x_1 + x_1x_1\neq 0$$ This function is not alternatin and thus can not be an alternating tensor. 
+\newline \\ Q1b: We need to show whether $g(x,y) = x_1y_3-x_3y_2$ is an alternating tensor on $\R^4$ or not. We see that $$g(x,x) = x_1x_3x_3x_2\neq 0$$ This is not an alternating tensor on $\R^4$. 
+\newline \\ Q1c: Need to show whether $h(x,y)= (x_1)^3(y_2)^3 - (x_2)^3(y_1)^3$ is an alternating tensor on $\R^4$ or not. We can verify that $h$ is not even a 2 tensor on $\R^4$ since $$h(\lambda x,y) = (\lambda x_1)^3(y_2)^3 - (\lambda x_2 )^3(y_1)^3 = \lambda ^3 h(x,y)$$ This function fails homogeneity and thus is not a tensor, much less an alternating tensor. 
+\end{document}

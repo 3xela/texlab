@@ -1,0 +1,53 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 12}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q4: We define $\underline{n}_s^k = \{ (i_1, \dots i_k): 1\leq i_1 \leq \dots \geq i_k \leq n \}$. Define $\sigma_{I} = \sum_{\sigma\in S_k} \varphi_{I} \circ \sigma^{*}$. We make the claim that $\sigma_I$ is a basis for $S^k(V)$.
+We will first show that indeed $\sigma_I\in S^k(V)$. It will definitely be k-linear, since it is the sum of k-linear maps. It is enough to show that it is symmetric on some list of vectors $u_1\dots u_k$. We let $\tau\in S_k$. We evaluate: 
+\begin{align*}
+    \sigma_I \circ \tau (u_1 , \dots , u_k) & = \sum_{\sigma\in S_k} \varphi_I \circ \sigma^{*} (u_{\tau(1)} , \dots ,  u_{\tau(k)})
+    \\ & = \sum_{\sigma \in S_k} \varphi_I (u_{\sigma(\tau(1))} , \dots u_{\sigma(\tau(k))})
+    \\ & = \sum_{\lambda \in S_k} \varphi_I \circ \lambda^{*} ( u_1 , \dots , u_k) \tag{since for fixed  $\tau, \sigma\circ \tau$ ranges over $S_k$ }
+    \\ & = \sigma_{I}(u_1, \dots u_k)
+\end{align*} 
+\end{document}

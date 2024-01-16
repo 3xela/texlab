@@ -1,0 +1,51 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 315}
+\lhead{Assignment 9}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q2ai: First note that by previous results, we have that $|M^\times|= p^{\deg(s(x))}-1$. Hence the order of any element can not exceed $p^{\deg(s(x))}-1$. Since we have that $M^\times$ is cyclic there must exist some element of order exactly $p^{\deg(s(x))}-1$. 
+\newline \\ 2aii: Let $\alpha$ be a root of $\Phi_{p^m-1}(x)$. Then by HW8Q2a, we have that $\alpha\in M^\times$ and therefore by HW8Q3 we have that the order of $\alpha$ is $p^m-1$. It follows by Lagranges theorem that $p^m-1 |p^{\deg(s(X))}-1$ and clearly 
+\newline \\ 2aiii: It has been shown that $\gcd(p^a-1,p^b-1)=p^{\gcd(a,b)}-1$. The euclidean algorithim then gives us that $\gcd(a,b) = \gcd(b,r)$. Hence we have that $$gcd(p^a-1,p^b-1) = p^{\gcd(b,r)}-1 \leq p^{r}-1$$
+Since $\gcd(b,r)\leq r$. It follows that if $p^b-1 | p^a-1$, then $\gcd(a,b)= \gcd(b,r)=b$ but by assumption $r<b$. Hence $p^a-1\nmid p^b-1$. Reasoning contrapositively, by above if $m\nmid \deg(s(x))$ then $p^m-1 \nmid p^{\deg(s(x))}-1$. 
+\newline \\ Q2iv: Since $alpha$ is a root of $\Phi_{p^m-1}$ it must have an order of $p^m-1$. Therefore, $\alpha^{p^m-1}=1$ and so $\alpha^{p^m}=\alpha$.  
+\end{document}

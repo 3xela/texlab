@@ -1,0 +1,52 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q2: For convinence, we define $$\bigcup _{\mathcal{F} \subset \E , \mathcal{F} \text{ countable}} \M(\mathcal{F}) = X$$ We first claim that $X$ is a $\sigma$ algebra. First, if $E\in X$, we have that there must be some countable $\mathcal{F}\subset \E$ with $E\in \M(\mathcal{F})$. Since $\M(\mathcal{F})$ is a $\sigma$ algebra, we have that $E^c\in \M(\mathcal{F})$. Therefore $E^c\in X$. Now consider a sequence $\{E_i\}_{i\in \N}\subset X$. These correspond to some other sequence $\{\mathcal{F}_{i}\}_{i\in \N}$ of which they belong to. Since each $\mathcal{F}_i$ is countable and contained in $\E$, their countable union is countable as well and also contained in $\E$. We therefore have that $$\bigcup_{i} E_i \in \bigcup_{i}\mathcal{F}_i \subset X$$ Where the second containment follows from the fact that $\bigcup_{i}\mathcal{F}_i$ is countable and contained in $\M(\cup_{i} \mathcal{F}_i)$ and hence in $X$. Hence $X$ is a $\sigma$ algebra. Now suppose that $A\in \E$. Then the singleton $\{A\}$ is a countable subset of $\E$. Therefore we have that $$A\in \M(\{A\}) \subset X$$  
+Therefore we have that $\E \subset X$. We apply the lemma from class and conclude that $\M(\E)\subset X$. Now we wish to show that $X \subset  \M(\E$). This follows immediately, since each $\M(\mathcal{F})$ is contained in $\M(\E)$, hence their union must also be contained in $\M(\E)$. 
+\end{document}

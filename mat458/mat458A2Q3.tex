@@ -1,0 +1,58 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 458}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\newcommand{\X}{\mathfrak{X}}
+\begin{document} \noindent 5.4.49a: It is sufficient to show that any element of the basis i.e. sets of the form 
+$$U_{f, \varepsilon}(x) = \{y\in \X : |f(x)-f(y)|< \varepsilon\}$$ is unbounded. Take any $v\in f^{-1}(\{0\})$ nonzero. Then for all $\alpha$, $\alpha v+ x\in U_{f, \varepsilon}$.
+For the weak * topology, the basis elements take the form $V_{f, \ep} =\{g\in X^\ast : \norm{f-g} < \ep\}.$
+It is sufficient to show that these sets are unbounded. For all $f\in V_{f, \ep }$, $\sup_{\norm{x} = 1} \norm{f(x)- g(x)} = \sup{\hat{x} (f-g)}<\ep$.
+Taking $l$ nonzero such that $\hat{x}(l) =0$, we get that for all scalars $\alpha$, $f+ \alpha l \in V_{f,\ep}$. This is unbounded. 
+\newline \\ 5.4.49b: If $E \subset \X$ is a bounded subset, then so is its weak closure by Q2b. However by part $a$ we have that the interiour must be empty. The result for bounded $F \subset \X^\ast$ follows in the same way. 
+\newline \\ 5.4.49c: We can $E_n = \{x: \norm{x}\leq n\}$. We have that $\X = \bigcup_{n\in \N} E_n$. Thus by $b$, $\X$ is meager in the weak topology. 
+Defining $F_n = \{f\in \X^\ast : \norm{f}\leq n \}$. We have that analogously $\X^\ast$ is meager in the weak * topology. 
+\newline \\ 5.4.49d: Suppose that some translation invariant metric $d$ defines the weak * topology on $\X^\ast$. Let $\inn{f_n}$ be a cauchy sequence. Then for any $V_{f, \ep}$ as defined in $a$, we have that (this problem set is too long i cant finish it sorry. )
+\end{document}

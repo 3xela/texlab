@@ -1,0 +1,61 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 4}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q4: Suppose that $f_n \to f$ in $L^1$. Let $E_k = \{x: |f_n-f| \geq \frac{1}{k}\}$. By markovs inequality, we have that $$\mu(E_k) \leq k \int_X |f_n-f|$$
+As $n$ get sufficiently large the integral goes to $0$ and we conclude that $\lim_{n\to \infty} \mu(E_k)=0$. Hence $f_n \to f$ in measure. 
+We now claim that $\{f_n\}$ is uniformly absolutely continuous. Let $\ep>0$. We take $N$ sufficiently large so that $\int_X |f_n-f| < \frac{\ep}{2}$ for $n \geq N$. By a result from class, there must exist some $\delta^\ast >0$ so that for all $E$ with $\mu(E) < \delta^\ast$, $\int_E |f| < \frac{\ep}{2}$. We therefore have that $$\int_{E} |f_n| \leq \int_{E} |f_n-f| + |f| < \frac{\ep}{2} + \frac{\ep}{2} = \ep$$ Now if $1 \leq n < N$, by the result from class for the same $\ep$ there exists $\delta_i$ so that $$\int_{E} |f_n| \leq \ep $$ for $\mu(E) < \delta_i$. We take $\delta$ to be the minimum of the $\delta_i$'s and $\delta^\ast$. Hence for all $E$, $\mu(E)<\delta$ we have that $\int_E |f_n| < \ep$ 
+Now suppose the converse. Let $\ep>0$. By convergence in measure choose $n$ sufficiently large so that if $E = \{x: |f_n-f| > \ep \}$ then $\mu(E) < \frac{\ep}{2}$. Then we have that 
+\begin{align*}
+    \int_X |f_n - f| & = \int_E |f_n-f | + \int_{E^c} |f_n-f|
+    \\ & \leq \int_E |f| + \int_E |f| + \int_{E^c} |f_n-f|
+    \\ & \leq \frac{\ep}{2} + \frac{\ep}{2} + \int_{E^c} \ep
+    \\ & < \ep (1+ \mu(X))
+\end{align*}
+Since $\ep$ is arbitrary, we conclude that $\int |f_n -f| \to 0$ and so $f_n \to f$. 
+\end{document}

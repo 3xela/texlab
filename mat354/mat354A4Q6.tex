@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 354}
+\lhead{Assignment 4}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q6: Let $\gamma$ be a parametrization of a circle with radius $R$. Cauchy's Integral formula tells us that $$|f^{(n)}(z) | = \Big| \frac{n!}{2\pi i} \int_\gamma \frac{f(\zeta)}{(\zeta - z)^{n+1}} d\zeta \Big|. $$
+Substituting for the bound on $f(z)$, we get that $$|f^{(n)}(z) | \leq \Big| \frac{Mn!}{2\pi i}\Big| \cdot  \int_\gamma \Big| \frac{1}{(\zeta - z)^{n+1}} d\zeta \Big| . $$
+To maximize the integral, we can minimize the denominator. We do this by taking any $z$ with $|z| = r$. 
+Hence we have that $$|f^{(n)}(z) | \leq \Big| \frac{M n!}{2\pi i} \Big| \cdot \int_{[0, 2\pi]} \Big| \frac{1}{(Re^{it} - re^{it})^n} \Big| \leq \Big| \frac{M n!}{2\pi i} \Big| \cdot \Big| \frac{1}{(R-r)^n} \Big| \cdot  \int_{[0, 2\pi]} \Big| \frac{1}{Re^{it} - z} dt \Big|. $$
+By Cauchy's integral formula, $$ \int_{[0,2\pi]} \Big| \frac{1}{Re^{it} - z} \Big| \leq |2\pi i|,$$ for some $z$. Hence $$|f^{(n)}(z)| \leq \Big| \frac{Mn!}{(R-r)^n} \Big|$$  
+
+\end{document}

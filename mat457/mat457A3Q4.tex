@@ -1,0 +1,57 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 3}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q4: For $a,b\geq 0$, we consider $$a- |a-b|$$
+We wish to bound it above and below. First note that by the triangle inequality we have that $$|a-b| \leq |a| + |b|$$ When we multiply by $-1$ and add $a$ to get that $$-b=a - |a| - |b| \leq a-|a-b|$$ 
+We now wish to find an upper bound for $$a - |a-b|$$. If $a-b>0$, then $$a-|a-b| = a-(a-b) =b$$
+If we have that $a-b<0$, then $$a-(-a+b) = 2a-b$$ Since $2a<2b$ we know that $2a-b <b$ and hence we conclude that $$ - b \leq a - |a-b|\leq b$$
+Replacing $a = f_n$, $b = f$, we get that $$\int f_n - |f_n -f| \leq \int f$$
+Applying the dominating convergence theorem, we have that $$\lim_{n\to \infty} \int f_n - |f_n - f| = \int \lim_{n \to \infty} f_n - \int \lim_{n \to \infty} |f_n - f| = \int f$$
+
+\end{document}

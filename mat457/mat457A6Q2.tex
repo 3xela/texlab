@@ -1,0 +1,55 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 6}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q2: Since $F(x)$ is right continuous, and defined on $[a,b]$ we have that $F(x) \in L^1$. Furthermore we have that each $F_j \in L^1$. By Folland 2.23 b, it is sufficient to show that $$ \int_{(a,x]} F^\prime(t) dt  =  \int_{(a,x]} \sum_{j}F^\prime (t) dt. $$
+Note that by Lebesgue Radon Nikodyn Theorem, we can write $$\mu_F = \nu_F + \rho_F = \nu_F + \int f dm ,$$ and for each $F_j$ we have $$\mu_{F_j} = \nu_{F_j} + \int f_j dm.$$ Summing over all $j$ we get that $$\nu_F + \int f dm = \mu_F = \sum_{j} \mu_{F_j} = \sum_{j} \nu_{F_j} + \sum_{j} \int f_j dm. $$ 
+We claim that this is a Lebesgue-Radon-Nikodyn decomposition of $\mu_F$. Note that if $\mu_F(E)=0$, then for each $j$, $\mu_{F_j}(E) =0$. Therefore for each $f_j, \int_{E} f_j dm =0$. Hence their countable sum is $0$ as well. We now claim that $\sum_{j} \nu_{F_j} \bot m$. For each $\nu_{F_j}$ let $E_j$ be the set which it is $0$ on. We have that for $E_j^c$, $m|_{E_j^c} =0$. 
+Take the set $E = \bigcap E_j$. If this intersection is empty then the result holds trivially. If not, then we have that $\sum_{j} \nu_{F_j} |_{E} = 0$. Similarly, $m|_{E^c}= 0$. Hence this is a L-R-N decomposition. 
+Mutual singularity of $\nu_{F_i}$ implies that on an $a.e.$ set $$\int f dm = \sum_{j} \int f_j dm.$$ Furthermore, by DCT we have that $$\int f dm = \int \sum_{j} f_j dm.$$ Hence we have that $f = \sum_{j} f_j.$ Thus we compute that $$\int_{(a,x]} F^\prime(t) dt = \int_{(a,x]} d \mu_F = \int_{(a,x]} d \nu_F + f dm = \int_{(a,x]} d \sum_{j} d\nu_{F_j} + d \sum_{j} \mu_{F_j} = \int_{(a,x]} \sum_{j} F^\prime(t) dt $$
+
+\end{document}

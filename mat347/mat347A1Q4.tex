@@ -1,0 +1,61 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 347}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q4i:We claim that $[1],[5],[7],[11]$ generate $C_{12}$ and no other elements do. We can verify using the group operation that indeed 
+\begin{align*}
+    \inn{1} & = \{1,2,3,4,5,6,7,8,9,10,11,0\}
+    \\ \inn{5} & = \{5,10,3,8,1,6,11,4,9,2,7,0\}
+    \\ \inn{7} & = \{7,2,9,4,11,6,1,8,3,10,5,0\}
+    \\ \inn{11} & = \{11,10,9,8,7,6,5,4,3,2,1,0 \}
+\end{align*}
+We claim that any other element of $C_{12}$ will not generate $C_{12}$. Note that $1,5,7,11$ are the only integers less than 12 which are coprime to 12. Assume that $n$ is not coprime to 12. We will show that $|\inn{n}| < 12$. Since $n<12$ and not coprime, for some integer $k<12$ we have that $nk = 12$. We see that 
+$$\inn{n} = \{n ,2n \dots kn \} $$
+We see that $|\inn{n}| = k$ which is strictly less than 12. Hence any element of $C_{12}$ which is not coprime to $12$ will not generate $C_{12}$
+\newline \\ 
+Q4ii: We claim that every $k<n$ that is coprime to $n$ generates $C_{n}$. By bezouts identity we have that there exists integers $a,b$ such that $ak + nb =1$. If we had any $c\in C_{n}$, we can write $c = (ac)k + n(bc)$. Therefore we see that $$[c]_n = [(ac)k + n(bc)]_n =  [(ac)k]_n + [nbc]_n = [(ac)k]$$
+Thus $k$ generates $C_n$ 
+\end{document}

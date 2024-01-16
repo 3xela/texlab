@@ -1,0 +1,56 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 354}
+\lhead{Assignment 4}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent Q2: Note that for any path from $0$ to $1$ in $\C$, we can write it as a sum of a closed path $\gamma$ and one of $3$ paths $\gamma_1,\gamma_2,\gamma_3$ which are paths from $0$ to $1$ which travel around $i$, $0$ to $1$ and $-i$ respectively. 
+Using Cauchy's integral formula, we have that $$\int_{\gamma + \gamma_i} \frac{dz}{1+z^2} = \int_{\gamma} \frac{dz}{1+z^2} + \int_{\gamma_i} \frac{dz}{1+z^2} . $$ 
+We will compute each integral seperately. By Cauchy's Integral Formula, we have that $$\int_{\gamma} \frac{dz}{1+z^2} = \frac{-i}{2} \int_\gamma \frac{dz}{z-(-i)} + \frac{i}{2} \int_{\gamma} \frac{dz}{z-i} = \frac{-i}{2}(2\pi i) w(\gamma , -i) + \frac{i}{2} (2\pi i) w(\gamma, i) = \pi w(\gamma, -i) - \pi w(\gamma, i)$$
+We now compute the value of $\int_{\gamma_i} \frac{dz}{1+z^2}$. First for $\gamma_1$, we have that $$\int_{\gamma_1} \frac{dz}{1+z^2} =\frac{-i}{2} \int_{\gamma_1} \frac{dz}{z-(-i)} + \frac{i}{2} \int_{\gamma_1} \frac{dz}{z-i} = \frac{-3 \pi}{4}.$$
+Since a complete path around $i$ will have an integral of $-\pi$, and we add $\frac{\pi}{4}$ from integrating along $[0,1]$. Similarly, we have that $$\int_{\gamma_3} \frac{dz}{1+z^2} = \frac{-3\pi}{4}. $$
+Finally, if we integrate along $\gamma_2$, we will have $$\int_{[0,1]}\frac{dz}{1+z^2} = \arctan(1) - \arctan(0) = \frac{\pi}{4}. $$
+Thus, $$\int_{\gamma+ \gamma_i} \frac{dz}{1+z^2} = \pi(w(\gamma, -i) - w(\gamma, i)) + \begin{cases} \frac{-3\pi}{4} : i=1,3 \\ \frac{\pi}{4} : i=2 \end{cases} $$
+
+\end{document}

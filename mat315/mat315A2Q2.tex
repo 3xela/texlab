@@ -1,0 +1,108 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 315}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent
+Q2a: By Euclid's Algorithm, we compute $gcd(1745,1485)$ as: 
+\begin{align*}
+    1745 & = (1)1485 + 260
+    \\ 1485 & = (5)260+185
+    \\ 260 &= (1)185+75
+    \\ 185 &= (2)75+35
+    \\ 75 &= (2)35+5
+    \\ 35 &= (7)5 
+\end{align*} So we conclude that $gcd(1745,1485)=5$. So working backwards, we see: 
+\begin{align*}
+    5 & = 75-2(35)
+    \\ & = 75-2(185-2\cdot 75)
+    \\ & = 5\cdot (75) -2\cdot(185)
+    \\ & = 5\cdot(260-185)-2\cdot(185)
+    \\ & = 5\cdot(260) -7\cdot(185)
+    \\ & = 5\cdot(260)-7\cdot(1485-5 \cdot 260)
+    \\ & = 40\cdot(260)-7\cdot (1485)
+    \\ & = 40(1745-1485)-7 \cdot(1485)
+    \\ & = -47\cdot(1485) + 40 \cdot (1745)
+\end{align*} We have written $5=gcd(1745,1485) = -47\cdot 1485 + 40 \cdot 1745$
+\newline \\ Q2b: By exercise 1.8, a number $d$ is a divisor of $a$ and $b$ if and only if it is a divisor of $gcd(a,b)$. Therefore the set of all divisors of $a_1,a_2\dots a_k$ and $gcd(a_1,a_2)\dots a_k$ are all the same, hence they share the game $\gcd$.
+\newline \\ Q2c: We will compute $\gcd(1092,1155,2002)$ and $\gcd(910,780,286,195)$ using the 2b. We have $$\gcd(1092,1155,2002) = \gcd(\gcd(1092,1155),2002)$$ 
+So we evaluate 
+\begin{align*}
+    1155 & = 1092+63
+    \\ 1092 &= 17\cdot 63 +21
+    \\ 63 & = 3\cdot 21
+\end{align*} Thus $gcd(1092,1155) = 21$
+Again, we compute $gcd(21,2002)$ 
+\begin{align*}
+    2002 & = 95\cdot 21  + 7
+    \\ 21 & = 3\cdot 7
+\end{align*} Thus $\gcd(1092,1155,2002) = 7$
+Now we will compute $\gcd(910,780,286,195)$. We will iterate through using 2b to find the gcd of these numbers. First; 
+\begin{align*}
+    910 & = 780+130
+    \\ 780 &= 6\cdot 130
+\end{align*} And so $\gcd(910,780)=130$. Now we compute $\gcd(130,286)$. 
+\begin{align*}
+    286 & = 2\cdot 130 + 26
+    \\ 130 & = 5\cdot 26
+\end{align*} Hence we have that $\gcd(130,286) = 26$. Finally we wish to compute $\gcd(26,195)$
+\begin{align*}
+    195 &= 7\cdot 26+ 13
+   \\ 26 & = 2\cdot 13
+\end{align*} 
+So we have that $\gcd(26,195) = 13$ and we conclude by 2b that $\gcd(910,780,286,195) = 13$
+\newline \\ Q2d: We proceed by induction. When $n=2$, we have equality by Bezouts identity. Suppose that the formula holds for $n$. Then, for some $u_1,\dots, u_n$, $gcd(a_1\dots a_n) = a_1 u_1 + \dots + a_n u_n$. 
+Now consider $\gcd(a_1,a_2\dots a_{n+1})$, By 2b, this is equal to $\gcd(\gcd(a_1,a_2),a_3,\dots a_{n+1}))$. Therefore 
+\begin{align*}
+    & \gcd(\gcd(a_1,a_2),a_3 ,\dots a_{n+1})
+    \\ & = \gcd(a_1,a_2) u_1 + \dots u_k a_{k+1}  \tag{by induction hypothesis}
+    \\ & = (v_1a_1+v_2a_2)u_1  + \dots + u_k a_{k+1} \tag{by bezouts identity}
+\end{align*} As desired. We now apply this to $\gcd(1092,1155,2002)=7$. Using our derivation of the gcd, we have 
+\begin{align*}
+    7 &  = 2002 - 95(21)
+    \\ & = 2002-95(1092-17\cdot 63)
+    \\ & = 2002-95\cdot 1092 + (95)(17)\cdot 63
+    \\ & = 2002-95\cdot 1092 + 1617\cdot 63
+    \\ & = 2002-95\cdot 1092 + 1617(1155-1092)
+    \\ & = 2002-95 \cdot 1092 + 161\cdot 1155 - 1617\cdot 1092
+    \\ & = 2002 - 1712\cdot 1092 + 1617 \cdot 1155
+\end{align*}
+
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 315}
+\lhead{Assignment 7}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\Mod}[1]{\ \mathrm{mod}\ (#1)}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q2a: By Lemma 5.1, we have that there will be $\phi(n)$ elements $a$ of $\Z / n\Z$ such that $ord_G(a)=n$, since the $\phi $ function counts how many numbers less than $n$ are coprime with $n$. 
+\newline \\ Q2b: By the Chinese remainder theorem, there exists an isomorphism $\psi$ from $\Z / n \Z \times \Z / m \Z \to \Z / mn \Z$. By similar reasoning as above, there will be $\phi(mn)$ elements of $\Z / mn \Z$ with order $mn$. Since $\psi$ is a isomorphism, there will also be $\phi(mn)$ elements in $\Z / n \Z \times \Z / m \Z$ with order $mn$ given by mapping $a\mapsto \psi^{-1}(a)$
+\newline \\ Q2c: We know from basic results about group theory that $ord_G(a) \leq |G|$. Since $|G |= \phi(n)$, it suffices to show that $ord_G(a)$ is never equal to $\phi(n)$. Suppose that for some element, $a$, $ord_G(a) = \phi(n) = (q-1)(p-1)$. This implies that $$a^{(p-1)(q-1)}\mod{pq} \iff a^{p-1^{q-1}} \equiv \mod{q} \text{ and } a^{q-1^{p-1}}\equiv\mod{q}$$ By CRT + FlT this implies that $a=1$. However the order of $1$ is 1. A contradiction. Thus no element has an order of $\phi(n)$. 
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 354}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q6a: Let $f(z) = \frac{az- b}{cz-d}$ be a fractional linear transformation which maps the upper half plane $H$ to the unit disk. Since $f$ is a homeomorphism, we have that $f(\infty) = \frac{a}{c} \in S^1$, since $\infty \in \R$ when we consider the riemann sphere, and homeomorphisms preserve boundaries. Hence we have that $$\Big| \frac{a}{c} \Big| = 1$$ which implies that $$|a| = |c|$$ Letting $\frac{a}{c} = \eta$, we can rewrite $f$ as $$f(z) = \eta \frac{z-\frac{b}{a}}{z - \frac{d}{c}}$$
+Let $\frac{b}{a} = w$. We claim that $w\in H$. Note that $f: \C \to \C$ is a bijection, no point below the real line can map to the disk. Therefore the unique $z^\prime$ satisfying $0 = f(z^\prime)$ must belong to $H$. By inspecting $f$ we see that $z^\prime = w$. Thus we have that $$f(z) = \eta \frac{z-w}{z- \frac{d}{c}}$$. We finally claim that $\ol{w} = \frac{d}{c}$. We define $\frac{d}{c}=u$. Hence we have that $$f(z) = \eta \frac{z-w}{z-u}$$ 
+Since $f$ is a homeomorphism between $H$ and $D$, the boundary of $H$ gets mapped to $S^1$. Hence we have that for all $z\in \R$, $|f(z)|=1$. We get that 
+$$1 = |f(z)| = |\eta | \Big|\frac{z - w}{z-u} \Big| = \frac{|z-w|}{|z-u|}$$
+Using the properties of the norm, we get that $$1= \frac{(z-w)(\ol{z} - \ol{w})}{(z-u)(\ol{z} - \ol{u})} \implies \frac{z \ol{z} - w\ol{z} - \ol{w}z + w\ol{w}}{\ol{z}z - \ol{u}z - u\ol{z} + u \ol{u}} \implies w\ol{w} - u\ol{u} = z(\ol{w} - \ol{u}) + \ol{z}(w-u)$$
+Since this is true for all $z\in \R$, taking $z=0$ implies that $|w| = |u|$. Next taking $z=1$, we get that $$ 0 = (\ol{w} - \ol{u} + w-u) \implies w+ \ol{w} = u + \ol{u}$$ Hence we have that $Re(w) = Re(u)$. Since their norms are equal, we get that $Im(w) = \pm Im(u)$ We can not have that $Im(w) = Im(u)$ since this function would be constant, thus we conclude that $Im(w) = -Im(u)$. Therefore, $u = \ol{w}$. 
+Hence $f$ can be written as $$f(z) = \eta \frac{z-w}{z-\ol{w}}$$
+Conversely, suppose that $f(z)= \eta \frac{z-a}{z - \ol{a}} $ with $|\eta| =1$, and $Im(a)>0$. We wish to show that on the upper half plane $H$, $f(z)\leq 1$. Suppose for the sake of contradiction that for some $z\in H$, $|f(z)| \geq 1$. We see that 
+$$1 \leq |f(z)| = |\eta| \Big| \frac{z-a}{z- \ol{a}} \Big| \implies |z-\ol{a}| \leq |z-a|$$
+Using the properties of the modulus of a complex number, we get that 
+$$(z-\ol{a})(\ol{z}-a) \leq (z-a)(\ol{z} - \ol{a}) \implies z\ol{z} - \ol{z}a - \ol{z}\ol{a} + \ol{a}a \leq \ol{z}z - z\ol{a} - \ol{z}a + a \ol{a}$$
+Cleaning up this expression, we see that 
+$$0\leq \ol{z} ( a-a) + z(a -\ol{a}) \implies 0\leq z \cdot 2\ci Im(a)$$
+However, we note that from algebraic proprties of $\C$, that this inequality is only met when $Re(z) =0$ and $Im(z)\leq 0$. We obtain a contradiction. 
+\newpage 
+\noindent
+Q6b: Note that since $f$ is a bijection on $\C$, and it maps the upper half plane onto itself we can deduce that it is a bijection on the upper half plane. Similarly by conjugating, we get the equivalent result on the lower half plane. Therefore $f$ is a bijection on the upper half plane, the lower half plane, and on $\C$. Therefore it is a bijection on $\R$. Hence we apply our result from Q5
+
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q7: 
+\\
+"$\implies$"
+\\ Suppose that $C$ is compact. Let $O$ be an open cover of $C$ such that $O$ is closed under union of pairs of its elements. Since $C$ is compact, there exists some finite set of covers $U_1 \dots U_n$ where $C \subset \cup_{i=1}^n U_i$. $O$ is closed under unions,so we have that $\cup_{i=1}^n U_i \in O$. 
+Take $T = \cup_{i=1}^n U_i$ and the result follows. 
+\\ 
+"$\impliedby$"
+\\
+Suppose that $O$ is an open cover of the set $C$. We construct a new open cover $O'$ in the following way. Let $O' = \{ \text{finite unions of } u \in O\}$. $O'$ is closed under pairwise union, since when we take the union of 2 sets, $u_1,u_2 \in O'$, there are some finitely many sets in $O$ which have unions of $u_1$ and $u_2$, and their union will also be a finite union of sets in $O$. By assumption, there is some $T \in O'$ with $C\subset T$. Therefore, $T$ is the finite union of some open sets in $O$. And so for any open cover $O$, we can find a finite subcover which also covers $C$. Thus $C$ is compact. $\qed$
+\end{document}

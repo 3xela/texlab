@@ -1,0 +1,63 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 457}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document}
+\noindent
+Q3a: If we let $A_k = \bigcap _{n\geq k} E_n$ it is clear that $A_1 \subset A_2 \dots$. Hence by measure continuity, we get that 
+$$\mu(\bigcup_{k\geq 1} A_k) = \lim_{k\to \infty} \mu(A_k) = \lim_{k \to \infty} \mu( \bigcap_{n \geq k} E_n)$$
+However from the properties of the measure, namely $A \subset B$ implies that $\mu(A) \leq \mu(B)$, we can deduce that for any $k$, $$\mu(\bigcap_{n \geq k} E_n) \leq \inf_{n\geq k} \mu(E_n)$$
+Since measure continuty holds, by applying limits we see that $$\lim \inf_n E_n = \mu (\bigcap_{k\geq 1} \bigcup_{n\geq k} E_n) = \lim_{k \to \infty} \mu(\bigcap_{n\geq k} E_n) \leq \lim_{k \to \infty} \inf_{n\geq k} \mu(E_n) = \lim \inf_{n} \mu(E_n) \qed$$
+\newline \\ 
+\noindent 
+Q3b: 
+If we define $A_k = \bigcup_{n\geq k}E_k$ we see that $A_1 \supset A_2 \dots$, and $\mu(A_1)< \infty$ as given. Hence we can apply measure continuity to get that 
+$$\mu(\bigcap_{k \geq 1} A_k) = \lim_{k \to \infty} \mu(A_k) = \lim_{k \to \infty} \mu(\bigcup_{n\geq k}E_n)$$
+Similarly to 3a, we can reason that $$\mu(\bigcup_{n\geq k} E_n) \geq \sup_{n\geq k}\mu(E_n)$$
+Since measure continuity holds we can apply limits and conclude that 
+$$\mu(\lim \sup_n E_n) = \mu(\bigcap_{k\geq 1} \bigcup_{n\geq k} E_n) = \lim_{k\to \infty} \mu(\bigcup_{n\geq k} E_n) \geq \lim_{k\to \infty}\sup_{n \geq k} \mu(E_n) = \lim \sup_n \mu(E_n) \qed$$
+If we did not have the hypothesis that $\mu(\bigcup_{n=1}^{\infty}E_n)$ is finite this result would not hold. Consider the collection $\{E_n\}$ with $E_n = (-n, n]$. We see that $\mu(\lim \sup_n E_n) = \mu(E_1) =2$ but $\lim \sup_n \mu(E_n) = \infty$. It is certainly false that $2\geq \infty$. 
+\end{document}

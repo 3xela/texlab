@@ -1,0 +1,57 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 15}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q5a: We compute $d\omega$ as follows: 
+\begin{align*}
+d\omega & = \sum_{i=1}^n dx_i \wedge \frac{\bd \omega}{\bd x_i}
+\\ & = \sum_{i=1}^n dx_i \wedge \frac{\bd}{\bd x_i} \sum_{j=1}^n (-1)^{j-1} \frac{x_j}{|x|^p} dx_1 \wedge \cdots \widehat{dx_j} \cdots \wedge dx_n
+\\ & = \sum_{i=1}^n dx_i \wedge \frac{\bd}{\bd x_i} (-1)^{i-1} \frac{x_i}{|x|^p}dx_1 \wedge \cdots \widehat{dx_j} \cdots \wedge dx_n
+\\ & = \sum_{i=1}^n dx_i \wedge (-1)^{i-1}\frac{|x|^p - px_i^2|x|^{p-2}}{|x|^{2p}}dx_1 \wedge \cdots \widehat{dx_j} \cdots \wedge dx_n
+\\ & = \frac{1}{|x|^{2p}} (\sum_{i=1}^n |x|^p - p |x|^{p-2} \sum_{i=1}^n x_i^2) dx_1 \wedge \dots dx_n 
+\\ & = \frac{1}{|x|^{2p}}(n|x|^p-p|x|^{p-2}\cdot |x|^2) dx_1 \wedge \dots \wedge dx_n 
+\\ & = \frac{n|x|^p-p|x|^p}{|x|^{2p}} dx_1 \wedge \dots \wedge dx_n 
+\end{align*}
+\newline \\ Q5b: We see by taking $p=n$, $d\omega =0$
+\end{document}

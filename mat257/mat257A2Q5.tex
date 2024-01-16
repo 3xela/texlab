@@ -1,0 +1,56 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 2}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q5:
+\\
+We proceed by showing the negation of the definition of continuity is true. Let $\delta >0$. It suffices to find some $x\in A$ such that $x\in B_\delta(0,0)$ but with $x \notin B_\epsilon(f(0,0))$ for some $\epsilon >0$. Let $x=(x_1,x_2)$. Choose $x_1=\frac{\delta}{2}$. For $x_2$, it must satisfy both $\frac{\delta}{4}^2+x_2^2 < \delta^2$ and $0<x_2 < \frac{\delta}{4}^2$. It is sufficent to choose $x_2 = \frac{1}{2} \text{min}\{ \frac{\delta^2}{4} ,\frac{\sqrt{3}\delta}{2} \}$. This choice of $x_2$ will satisfy both inequalities,
+and so $x\in A$ and $x\in B_{\delta}(0,0)$. Taking $\epsilon = 1/2$, we notice that $f(0,0)=0 \in B_{\epsilon}(f(0,0))$ but from our choice of $x$, $f(x)=1 \notin B_{\epsilon}(0)$. The result follows $\qed$. 
+\\ \newline
+To show that $f$ is continuous on every straight line containing $0$, we will consider 2 seperate cases. A straight line through $0$ can either take the form of $y=\alpha x$ for some $\alpha \in \R$ ,which is the usual way to represent a line, or $x=0$, the vertical line. 
+We first consider the case when $x=0$. Note that for every point of the form $(0,y)$ we have that $f(0,y)=0$. Letting $\epsilon >0$ and $C = \{ (x,y) \in \R^2 : x=0\} $ consider the open ball $U=(-\epsilon,\epsilon)$. We claim its preimage under $f$ can be written as follows. $f^{-1}|_{C}(U) = C \cap \R^2$. 
+\newline pf: 
+\newline Suppose that $x\in C\cap \R^2$. Then $x= (0,y)$ for some $y\in \R$. This point will not be in the support of $f$ and so $f(x) \in U$. Now suppose that $x\in f^{-1}|_{C}(U)$. Since this is true for all choices of $\epsilon$, it must be that $f(x)=0$. Therefore $x\in C \subset C \cap \R^2$. Thus we have that for $U$ open, $f^{-1}|_C (U)$ is open in $C$ and so $f|_C$ is continuous.
+\\ \newline Now we turn our attention to the set of all lines with slope, $B= \{(x,y): y= \alpha x \text{ for some } \alpha \in \R\}$. Let $\epsilon >0$ and let $U = (-\epsilon, \epsilon)$. Notice that this open ball is centered about $f(0,0)$. We will check continuity at $(0,0)$ for 2 possible cases, $\alpha \leq 0 \text{ and } \alpha >0$. We proceed first with the simpler case being when $\alpha \leq 0$. 
+Consider $f^{-1}|_{B,\alpha \leq 0}(U)$. We claim that $f^{-1}|_{B,\alpha \leq 0}(U) = B_{\alpha \leq 0} \cap \R^2$. First suppose that some point $y\in B_{\alpha \leq 0} \cap \R^2$. It must be that $y$ takes the form of $(x,\alpha x)$. From our choice of $\alpha$, we will have that $\alpha x \leq 0 \leq x^2 \text{ for } x \geq 0$ or some other inequality for $x < 0$. In either case, the point is not in $A$ and so $f(y) \in U$ for any choice of $\epsilon$. Now suppose that $y \in f^{-1}|_{B,\alpha \leq 0}(U)$. Since our choice of $\epsilon$ is arbitrary, it must be the case that $f(y) = 0$. Thus from the definition of the pre-image, $y\in B_{\alpha \leq 0} \subset B_{\alpha \leq 0} \cap \R^2$. Thus $U$ is open in the set of all lines that have a slope which is not positive. 
+\\ \newline Finally we show that $f|_{B, \alpha >0}$ is continuous at $(0,0)$. Take the same set $U$ as chosen above. We claim that for each $\alpha >0$, $f^{-1}|_{B,\alpha > 0}(U) = B_{\alpha >0} \cap (-\infty , \alpha) \times (-\infty, \alpha^2)$
+We first suppose that $y\in f^{-1}|_{B,\alpha > 0}(U)$. This means that $f(y)=0$ from our arbitrary choice of $\epsilon$. Equivalently, one of the following must hold. If $y=(x,\alpha x)$, then it must be that either $x<0 \text{ and } \alpha x <0$ or $x>0 \text{ and } x^2 < \alpha x$. The second condition for inequality breaks when $x=\alpha$, hence we choose our open set as such. $R = (-\infty, \alpha) \times (-\infty, \alpha^2)$. Since we are choosing to restrict the domain of $f$ to whenever $\alpha >0$, $y\in R \cap B_{\alpha >0}$. Now consider when $y\in R \cap B_{\alpha >0}$. We know that if $y=(x, \alpha x)$, $x\in (-\infty, \alpha)$ and $\alpha x \in (-\infty, \alpha^2)$
+It suffices to show that such a $y$ will not be in $A$ and hence be in the preimage of $U$ for any $\epsilon$. For when $x<0$, the point $y$ will not be in $A$. Now if $x\in (0,\alpha)$, and so $\alpha x \in (0,\alpha^2)$. $\alpha x < x^2 \iff (\alpha <x)$. Since we are taking $0 < x < \alpha$, point $y$ will never fall into $A$ and hence $f(y)=0$. Thus $f^{-1}|_{B,\alpha > 0}(U)$ is open in $B_{\alpha}$. 
+We have shown that $f$ restricted through any straight line containing 0 is continuous as desired. $\qed$
+\end{document}

@@ -1,0 +1,53 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 10}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q3: \\ Define $A = \{ (u,v): 1< u <\sqrt{2} , 1<v<2 \}$. Let $g(u,v) = (\frac{u}{v},vu)$. On the set $A$, $g$ will be 1-1 and onto on $g(A)$. Note that $g(A)=B$ so we can apply the COV theorem to compute $\int_B f$. 
+We have that $g^\prime = \begin{bmatrix} \frac{1}{v} & v \\ \frac{-u}{v^2} & u \end{bmatrix}$. Therefore, $\det g^\prime = \frac{2u}{v}$. This will always be nonzero in our domain, so by the COV theorem 
+\begin{align*}
+    \int_B f & = \int_A f\circ g |\det g^\prime|
+    \\ & = \int_A u^5 v \cdot \frac{2u}{v}
+    \\ & = \int_1^4 \int_1^{\sqrt{2}} 2u^6 \space du dv \tag{by Fubini's Theorem}
+    \\ & = \int_1^4 [\frac{2u^7}{7}]\bigg|_1^{\sqrt{2}} \space dv
+    \\ & = \frac{2}{7}\int_1^2 (8\sqrt2-1) dv
+    \\ & = \frac{2}{7}(8\sqrt{2}-1) 
+\end{align*}
+\end{document}

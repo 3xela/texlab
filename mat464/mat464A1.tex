@@ -1,0 +1,301 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathbb{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\bd}{\partial}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{464}
+\newcommand{\hwNumber}{1}
+
+%preamble
+
+\title{}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+
+
+
+\begin{problem}
+	Q1 Pg. 45
+\end{problem}
+The antipodal mapping is linear, hence $dA_p(v) = Av = -v$. 
+Therefore we compute that $$\inn{dA_p(v) , dA_p(u)}_p = \inn{-v,-u}_p = \inn{u,v}.$$
+This is true for all points in $\R^n$, so it must be true on $S^{n-1}$ since it inherits the riemannian metric of $\R^n$. Thus the antipodal mapping $A$ is an isometry. 
+Now, given the projection $\pi : S^n\to \R P^n$ which identifies $p,-p$, we define the riemannian metric on $\R P^n$ as
+$$\inn{u,v}_{[p]} = \inn{(d\pi_p)^{-1} u, (d\pi_p)^{-1}v}_p. $$
+This is well defined since
+\begin{align*}
+	\inn{d(\pi_p)^{-1} v, (d\pi_p)^{-1}u}_p & = \inn{d(\pi \circ A_{-p})^{-1} u, d(\pi \circ A_{-p})^{-1} v}_p 
+	\\ & = \inn{A^{-1}(d\pi_{-p})u, A^{-1} d(\pi_{-p})v }_{-p} \tag{chain rule }
+	\\ & = \inn{(d\pi_{-p})u, (d\pi_{-p})v }_{-p} \tag{since $A^{-1} = A$, $A$ isometry}
+\end{align*}
+We now claim that $\pi$ is a local isometry. For any $p\in S^n$, take open $U \ni p$ so that $A(U) \cap U = \emptyset$. We have that $\pi: U \to \pi(U)$ is a smooth bijection, and hence is a diffeomorphism. It remains to show that is an isometry on $U$. We evaluate:
+$$\inn{d\pi_p v, d\pi_p u}_{\pi(p)} = \inn{u,v}_p, $$
+since $\pi$ is the identity on our choice of $U$. 
+ \newpage 
+\begin{problem}
+	Q2 Pg. 46
+\end{problem}
+Note that $(d\pi _x)v =\sum_{j=1}^n ie^{ix_j}v_j $. We can define $\inn{.,.}_{\pi(x)}$ as follows: 
+$$\inn{w,z}_{\pi(x)} := \inn{w,z}. $$
+With this choice of riemannian metric, $\pi$ will be a local isometry exactly when $\pi$ is injective, i.e. for any $x\in \R^n$, take open $U$ satisfying $x\in U \subset B  $ where $B$ is a box of width $2\pi$ centered about $x$.
+\newline \\
+We now show that with this choice of metric $\T^n$ is isometric with the flat Torus, $T$. 
+It is clear that $\T^n$ and $T$ are diffeomorphic as manifolds. Let $f$ be the identity map between the sets. We check that $f$ is an isometry at $p$. 
+\begin{align*}
+	\inn{(df)u, (df)v}_{f(p)} & = \sum_{j=1}^n \inn{e^{ix_j}u_j,e^{ix_j} v_j}
+	\\ & = \sum_{j=1}^n \inn{u_j,v_j}
+	\\ & = \inn{u,v}
+\end{align*}
+\newpage 
+\begin{problem}
+\end{problem}
+\penum
+\item Given the parametrization of the cylinder $\phi(\theta, t) = (r\cos \theta , r\sin \theta, t)$, we compute its differential as:  
+	$$d\phi = \bmat{-r \sin \theta & 0 \\ r \cos \theta & 0 \\ 0 & 1 }$$
+	We have that $g_{11} = \inn{\frac{\partial }{\partial \theta}, \frac{\partial }{ \partial \theta}} = r^2, g_{12}= g_{21} = \inn{\frac{\partial}{\partial \theta}, \frac{\partial}{\partial t}} =0, g_{22} = 1$
+Using the formula for the volume of a manifold we compute: 
+$$vol(R) = \int_{R}\sqrt{g_{11} g_{22}}dt d\theta = \int_{0}^{2\pi} \int_{0}^h r^2 dt d\theta = 2\pi r^2h$$
+\item Since $\phi(U)$ is the graph of a function it must be a manifold. We wish to compute the differential $d\phi$, then compute the associated $g_{ij}$. We compute that 
+	$$d\phi = \bmat{ 1 & 0 &  \dots & 0\\
+			0 & 1 & \dots & 0 \\
+			\vdots & \cdots & \cdots & \vdots\\
+			0 & 0 & \cdots & 1\\
+			\frac{\partial g}{\partial u_1} & \frac{\partial g}{\partial u_2}&\cdots& \frac{\partial g}{\partial u_n} } = \bmat{I \\ \grad{g}}.  $$
+Therefore we have 
+$$g_{ij} = \begin{cases} 
+	1+ \left( \frac{\partial g}{\partial u_i}\right)^2 & i=j\\
+	\left(\frac{\partial  g }{\partial u_i}\right) \cdot  \left( \frac{\partial g}{\partial u_j} \right) & i \neq j
+\end{cases}.$$ 
+We can compute that $det(g_{ij})$ as 
+\begin{align*}det(g_{ij}) & =  \sum_{\sigma \in S_n} \left( (-1)^\sigma \prod_{i=1}^n g_{i\sigma(i)}  \right)
+	\\ &= \prod_{i=1}^n \left( 1+ \frac{\partial g}{\partial u_i}^2 \right) + \sum_{\sigma \neq id} (-1)^\sigma \prod_{i=1}^n g_{i \sigma(i)}
+	\\ & = 1+ \sum_{i=1}^n \frac{\partial g}{\partial u_i}^2 - \sum_{\sigma \neq id}(-1)^\sigma \prod_{i=1}^n g_{i \sigma(i)} + \sum_{\sigma \neq id}(-1)^\sigma \prod_{i=1}^n g_{i \sigma(i)}\tag{rewriting the product}
+	\\ & = \left[1 + \sum_{i=1}^n \frac{\partial g}{\partial u_i}^2 \right] \tag{Since the cross terms cancel with eachother}
+\end{align*}
+Therefore volume of $\phi(U)$ must be 
+$$\int_{U} \left(1 + \sum_{i=1} \frac{\partial g}{\partial u_i}^2\right)^{\frac{1}{2}} du_1  \dots du_n$$
+\epenum
+\newpage 
+\begin{problem}
+	Problems 1,2 Page 56 Do Carmo
+\end{problem}
+1) We first claim that $P_{c,t_0, t}$ is a linear mapping. First let $v$ be a vector, $\alpha \in \R$.
+There exists a unique parrellel vector field $X(t)$ so that $X(t_0) = \alpha v$ and $X(t) = P_{c,t_0,t} \alpha v$. 
+We must also have that $\frac{1}{\alpha} X(t_0) = v = \frac{1}{\alpha} P_{c,t_0, t}\alpha v$, and therefore $\frac{1}{\alpha} X(t_0) = P_{c,t_0,t}v$ and thus $P_{c,t_0,t} \alpha v = \alpha P_{c,t_0,t}v$. 
+Similarly, if $X(t_0) = v, Y(t_0) = u$ with parrellel transports $X(t), Y(t)$. If we define $W(t) = X(t)+Y(t)$, we see that 
+$$P_{c,t_0, t}(u+v)  = W(t) = X(t) + Y(t) = P_{c,t_0 , t}u + P_{c,t_0 , t}v$$ by uniqueness. 
+We now claim that $P_{c,t_0, t}$ is an isometry. We compute that:
+$$\frac{d}{dt} \inn{P_{c,t_0 , t}u , P_{c,t_0,t}v } = \frac{d}{dt} \inn{X(t) , Y(t)} =\inn{\frac{DX}{dt} , Y(t) } + \inn{X(t) , \frac{DY}{dt} } = 0 ,$$
+where we use compatability with the metric in the second equality, and the fact that $X,Y$ are parrellel vector fields in the last equality. Therefore $\inn{P_{c,t_0,t} u, P_{c,t_0 , t}v}$ is constant. Furthermore at $t=t_0$ we have that $\inn{P_{c, t_0 , t} u , P_{c,t_0 , t} v} = \inn{u,v}$. Therfore $P_{c,t_0, t}$ is an isometry. Further suppose that $M$ is oriented. We first assume that the image of $c(t)$ is contained in one coordinate chart. 
+Since $P_{c, t_0, t}$ is an isometry we have $\det P_{c,t_0 , t} = \pm 1$. By continuity, it must be constant. taking $t = t_0$ we have that $P_{c, t_0 , t_0} = id$, and so the determinant must always be $1$. Thus $P_{c, t_0, t}$ pushes any ordered $n$ frame into another oriented $n$ frame of the same orientation. If $c(t)$ is covered by two coordinate charts, say $\phi, \psi$, the differential along the curve will be 
+$$d(\phi \circ \psi ^{-1} ) \circ d(P_{c,t_0,t}).$$
+Since $M$ is orientable, the determinant of this will be positive. Hence $P_{c,t_0, t}$ always preserves orientation.
+\\ \newline 2) 
+Since $\nabla_X Y(p)$ is defined locally, we can assume that $c(t)$ is inside a coordinate chart. 
+Take an orthonormal basis at $T_{c(t_0)} M$ of $\left\{ \frac{\partial}{\partial x_i} \right\} =\left\{ X_i \right\} $, and parallel transport this using $P$ to a basis $\left\{ P_i(t) \right\}$. In the coordinate chart we represent $Y(c(t)) = \sum_{i}a_i(t) P_i(t)$, and let $V(t) = P^{-1}_{c,t_0,t}Y(c(t))$. 
+We compute $\frac{d}{dt}V$ as:
+
+\begin{align*} 
+	\frac{d}{dt}V(t) \big|_{t=t_0} & = \frac{d}{dt}\sum_{i} a_i  P^{-1}P_i(t)
+	\\ & = \sum_i a_i^\prime X_i + \sum_{i} a_i (P^{-1} \circ P_i(t))^\prime
+	\\ & = \sum_i a_i^\prime X_i + \sum_i a_i \frac{DX_i}{dt} \tag{since $P^{-1} \circ P_i = c_i(t) = X_i$ }
+	\\ & = \frac{DV}{dt} \tag{by proof of prop. 2.2 Do Carmo}
+	\\ & = \nabla_X Y(p) \tag{by prop 2.2}
+\end{align*} 
+\newpage 
+\begin{problem}
+\end{problem}
+We first parametrize the sphere using spherical coordinates: $$f: [0, \pi]\times [0, 2\pi ]\to S^2 : f(\varphi , \theta ) = (\sin \varphi \cos \theta , \sin \varphi \sin \theta, \cos \varphi ).$$
+The differential of this is $$Df = \bmat{\cos \varphi \cos \theta & -\sin \varphi \sin \theta \\ 
+\cos \varphi \sin \theta & -\sin \varphi \cos \theta \\
+-\sin \varphi & 0 },$$ and so the matrix $g$ is equal to $$\bmat{1 & 0 \\ 0 &\sin^2 \varphi }.$$
+It's inverse is given by $$g^{-1} = \bmat{1 & 0 \\ 0 & \frac{1}{\sin^2 \varphi}}.$$
+We parametrize the latitude in spherical coordinates as $c(t) = (\varphi_0, t)$ for $t\in [0,2\pi]$,
+and define the vector field $V(t) = (a(t,b(t))$ along the curve $c(t)$ so that $V(0) = (0,1)$. 
+To find $V(t)$, we set $\frac{DV}{dt}=0$ to get: 
+$$\begin{cases} 
+	a^\prime + a \left(\Gamma_{11}^1 u^\prime + \Gamma_{12}^1 v^\prime  \right) + b \left(\Gamma_{21}^1 u^\prime + \Gamma_{22}^1 v^\prime  \right) = 0\\
+	b^\prime + a\left(\Gamma_{11}^2 u^\prime + \Gamma_{12}^2 v^\prime  \right) + b\left( \Gamma_{21}^2 u^\prime + \Gamma_{22}^2 v^\prime \right)  = 0
+\end{cases}.$$
+Computing the Christoffel symbols with $g,g^{-1}$, and noting that $u^\prime =0$, we get the initial value problem: 
+$$\begin{cases}
+	a^\prime = \sin \varphi_0 \cos \varphi_0 b(t) & a(0) = 0\\
+	b^\prime = -\cot \varphi_0 a(t) & b(0) = 1
+\end{cases}$$
+We know from ODE theory that this is solved by $$V(t) = (\sin \varphi_0 \sin \left(\cos \varphi_0 t \right), \cos\left( \cos \varphi_0 t\right) ) .$$
+Now by taking a cone tangent to $c(t)$, we have that the tangent space along $c(t)$ is equal for both manifolds, hence parallel transport of the same initial value is equivalent. This transport looks like fixing the direction of the vector and moving it along the cone. 
+$$\includegraphics[width = 0.5\textwidth]{"mat464A1image1.jpg"}$$
+\newpage 
+\begin{problem}
+\end{problem}
+\penum
+\item We claim that a Pseudo Levi-Civita connection exists on any pseudo riemannian manifold. 
+Note that the proof of the existence of a Levi-Civita connection does not depend on positive definiteness of the metric, so we can define a Pseudo riemannian connection in the same way, 
+$$\inn{Z, \nabla_Y X } = \frac{1}{2} \left[ X\inn{Y,Z} + Y \inn{Z,X} - Z\inn{X,Y} -  \inn{[X,Z], Y} - \inn{[Y,Z], X} - \inn{[X,Y], Z}\right].$$
+This is well defined and satisfies all the properties that we desire since the riemmanian conection does as well. 
+\item Given the quadratic form $Q(x) = -x_0^2 + x_1^2 +  \dots + x_n^2$, we note that it can be written in the form: 
+	$$Q(x) = x^\perp A x = x^T \bmat{-1 & 0 \\ 0 & I_n} x.$$
+	Therefore the pseudo-riemannian metric is of the form : $$g(x,y) = x^T \bmat{-1 & 0 \\ 0 & I_n} y.$$
+The matrix that corresponds to the metric has constant entries, so we know that the christoffel symbols $\Gamma_{ij}^k =0$ for all $i,j,k$. Since the Christoffel symbols are the same as in $\R^{n+1}$ we have that the parrellel transports of any vector along a given curve must be the same in both metrics, since they satisfy the same ODE. 
+\epenum
+\end{document}

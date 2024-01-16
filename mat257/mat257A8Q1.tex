@@ -1,0 +1,62 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 8}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+Q1:\\ 
+Since $A$ is Jordan measurable, $\partial A$ has measure 0. $A$ is bounded, so $\partial A$ must be as well. Since the boundary of a set is a closed set, it follows that
+$\partial A$ is compact by Heine Borel Theorem. Since $\partial A$ is of measure 0 for all $\varepsilon>0$ there is some collection of open rectangles $\{ U_\alpha\}$ which cover $\partial A$ and $\sum_\alpha U_\alpha<\varepsilon$. 
+Any compact set of measure 0 is also content 0 by Spivak Theorem 3-6. Therefore for any $\varepsilon>0$, it suffices to choose a finite collection of rectangles $\{U_i\}_{i=1}^m$ with $\sum_{i=1}^m vol(U_i)< \varepsilon$. 
+We define our set $C$ as follows. $$C= A\setminus ((\bigcup_{i=1}^m U_i )\cap int A)$$ Since $C\subset A$ it is bounded, and is the compliment of an open set it must be closed. Hence $C$ is compact by the Heine Borel Theorem. 
+\par It remains to prove that the boundary of $C$ will be of measure 0. We will find the boundary of $C$ by determining the contents of $\ol C \setminus intC$. We note that 
+\begin{align*}
+    \ol C \setminus int C  & = C \setminus (A \setminus (\bigcup_{i=1}^m \ol U_i)\cap \ol A )
+    \\ & = A\setminus ((\bigcup_{i=1}^m U_i )\cap int A) \setminus (A \setminus (\bigcup_{i=1}^m \ol U_i)\cap \ol A
+    \\ & = \bigcup_{i=1}^m \partial U_i \cap C
+\end{align*}
+Now, notice that $\bigcup_{i=1}^m \partial U_i \cap C \subset \bigcup_{i=1}^m \partial U_i$. Since each $U_i$ is a rectangle, the boundary of each will be of measure 0. Hence the finite union over every boundary of the $U_i$'s will also be measure 0. The subset of any measure 0 set is measure 0 so $\bigcup_{i=1}^m \partial U_i \cap C = \partial C$ is of measure 0
+Moreover, it follows that $A\setminus C$ is bounded, since $A$ boundned and $A\supset C$. Notice as well that $\partial A\setminus C = \partial A \cup \partial C$, which will be measure 0. Therefore, $\chi_{A\setminus C}$ is integrable.  We now claim that $\int_{A\setminus C} \chi_{A\setminus C} < \varepsilon$. Since $A$ is bounded, take a sufficiently large rectangle $D\supset A\setminus C$. We compute 
+\begin{align*}
+    & \int_{A\setminus C} \chi_{A\setminus C}
+    \\ & = \int_{(\bigcup_{i=1}^m U_i )\cap int A} \chi_{(\bigcup_{i=1}^m U_i )\cap int A} \tag{using the definition of C}
+    \\ & \leq \int_{\bigcup_{i=1}^m U_i} \chi_{\bigcup_{i=1}^m U_i} \tag{by A7Q3}
+    \\ & = \sum_{i=1}^m vol(U_i) \tag{by defintion of volume}
+    \\ & < \varepsilon
+\end{align*}
+\end{document}

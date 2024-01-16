@@ -1,0 +1,50 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 454}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\Qu}{\mathcal{Q}_8}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\newcommand{\ci}{i}
+\begin{document} \noindent Q6: It is sufficient to compute $\frac{1}{2\pi i}\int_\gamma \frac{zf^\prime(z)}{f(z)-a}dz$ in a neighbourhood of a pole, and of a root. Then extend to all of the domain of integration by linearity. Furthermore, it is enough to check when $a=0$, since we can always translate our closed curve $\gamma$. 
+Taking a path $\gamma$ enclosing some zero $z_i$ with order $k$, we can write $f$ locally as $f(z) = (z-z_i)^k g(z)$ for some holomorphic $g(z)$. We compute that $$\frac{zf^\prime(z)}{f(z)-a} = \frac{zk(z-z_i)^{k-1}g(z) + z(z-z_i)^kg^\prime(z)}{(z-z_i)^kg(z)} = \frac{zkg(z) + z(z-z_i)g^\prime(z)}{(z-z_i)g(z)}.$$
+The residue theorem tells us that this integral over $\gamma$ will be $z_ik$. Similarly, if we evaluate this at a pole, we will get $-mp_j$ where $m$ is the order of the pole. Therefore, the entire integral will give us the sum of the poles and zeros counted with multiplicity.
+\end{document}

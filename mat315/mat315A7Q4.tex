@@ -1,0 +1,63 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 315}
+\lhead{Assignment 7}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\Mod}[1]{\ \mathrm{mod}\ (#1)}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q4a: We proceed by strong induction. For the case when $n=1$ we have that $$x-1 = \Phi_1(x) = \Phi_1(x)\cdot \Pi_{d1,a\leq d<1} = \Phi_1(x)$$
+Now suppose the statement is true for all $k< n$. Since $$x^k-1 = \Phi_k(x) \Pi_{d|k,1\leq d <k} \Phi_d(x)$$ It is clear that $\Phi_k(x)| x^{k}-1$. By the given fact, for each $d\in \N$ where $d|n$, we know that $\gcd(x^n-1,x^d-1) = x^d-1$ which implies that $x^d-1 | x^n-1$. Hence $\Phi_d(x)|x^n-1$. We know that $\Phi_{d_1}(x)$ is coprime to $\Phi_{d_2}(x)$ for all $d_1,d_2|n$, we have that $\Pi_{d|n,1\leq d <n} \Phi_{d}(x)|x^{n}-1$.  We now define $\Phi_n(x) = \frac{x^n-1}{\Pi_{d|n,1\leq d >n}}$. We will verify that indeed $\Phi_n(x)$ is monic, primitive and $deg(\Phi_n)=\phi(n)$. We see that 
+\begin{align*}
+   n= deg(x^n-1)  & = deg(\Phi_n(x)) + \sum_{d|n,1\leq d<n} deg(\Phi_d(x))
+   \\ & = deg(\Phi_n(x)) + \sum_{d|n,1 \leq d <n} \phi(d)
+   \\ & = deg(\Phi_n(x)) + \sum_{d|n}\phi_d(x) -\phi(n)
+   \\ & = deg(\Phi_n(x)) + n - \phi(n)
+\end{align*}
+Which implies that $deg(\Phi_n)=\phi(n)$. Next note that for some $a_{\phi(n)}$ we can write $$x^{n}-1 = \Phi_n(x) \cdot \Pi_{d|n,1\leq d< n} \Phi_d(x) = (a_{\phi(n)}x^{\phi(n)} + \dots) \cdot (x^{n-\phi(n)} + \dots)$$
+We see that the coffiecient on $x^n$ must be 1. Hence $\Phi_n(x)$ is monic. Finally, we see that $\Phi_n(x)$ is primitive since it has at least one coefficient equal to 1, hence the gcd over all of its coefficients is 1. 
+\\ \newline Q4b: Using the definition of $\Phi_n(x)$$$\Phi_3(x) = x^2+x+1$$ 
+$$\Phi_4(x) = \frac{x^4-1}{(x-1)(x+1)} = x^2+1$$
+$$\Phi_6(x) = \frac{x^6-1}{(x-1)(x+1)(x^2+x+1)} = x^2-x+1$$
+$$\Phi_8(x) = \frac{x^8-1}{(x-1)(x+1)(x^1+1)} = x^4+1$$
+$$\Phi_10(x) = \frac{x^{10}-1}{(x-1)(x+1)(x^4+x^3+x^2+x+1)} = x^4-x^3+x^2-x+1$$
+\\ \newline 4c: We see that the roots to $\Phi_3(x)$ take the form of $x = \frac{-1 \pm \sqrt{1-4}}{2}$. This is not in $\Z$. Similarly, for $\Phi_4(x)$ the roots must be of the form $x = \frac{\pm \sqrt{-4}}{2}\notin \Z$. Finally the roots of $\Phi_6(x)$ must be of the form $\frac{1\pm \sqrt{1-4}}{2}$. Once again this is not in $\Z$. We conclude that these polynomials are irreducible.  
+\end{document}

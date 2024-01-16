@@ -1,0 +1,54 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 315}
+\lhead{Assignment 1}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q4a: \\ 
+We define the set $A = \{a(x)-n(x)b(x) : n(x)\in \R[x]  \}$, and $S = \{deg (s) : s\in S \}$. Note that both $A$ and $S$ are nonempty by construction. The set $S$ admits $2$ cases. Either $-\infty \in S$ or $-\infty \notin S$ . 
+In the first case, if $\infty \in S$ then there exists some $q(x)\in \R[x]$ with $a(x)-q(x)b(x)=0$. We take $r=0$, with $-\infty = deg(r(x)) < deg(b(x))$. 
+We now consider $-\infty \notin S$. We have that $S \subset \N \cup \{0\}$. By the well ordering principle, there exists some minimum element, $z$ of $S$. There must exist some $q\in \R[x]$ where $deg(a(x)-q(x)b(x)) = z$.  
+Take $r(x)= a(x)-q(x)b(x) \iff a(x) = q(x)b(x) +r(x)$. We now claim that $deg(r(x)) < deg(b(x))$. Suppose not, that is assume that $deg(r(x)) \geq deg(b(x))$. Let $r(x)$ and $b(x)$ have the following form; $r(x) = \sum_{i=0}^n r_ix^i$ and $b(x) = \sum_{i=0}^m b_i x^i$, for $n\geq m$. 
+We can rewrite $r(x)$ in the following way: $$r(x) = \frac{r_n}{b_m}x^{n-m}(b_n x^m + \dots \frac{b_{n-m}}{r_n}) + \dots r_0$$
+Now get that $$a(x) = q(x)b(x)+r(x) = (q(x)+\frac{r_n}{b_n}x^{n-m})b(x) + r^\prime(x)$$ for some $r^\prime(x)$. 
+This implies $$a(x) = (q(x)+\frac{r_n}{b_m}x^{n-m})b(x) + [r(x)-\frac{r_n}{b_m}x^{n-m}b(x)]$$
+The remainder term will have degree less than $r(x)$, contradicting that $r(x)$ has minimal degree. Thus $deg(r(x))< deg(b(x))$
+\newline Q4b: \\ Suppose that $$a(x)= b(x)q_1(x)+r_1(x)= b(x)q_2(x)+r_2(x)$$ Rewrite this as $$b(x)(q_1(x)-q_2(x)) = (r_2(x)-r_1(x))$$ If $q_1(x)\neq q_2(x)$, then $deg(q_1(x)-q_2(x)) \geq 0$ and $deg(b(x)(q_1(x)-q_2(x))) \geq deg(b(x))$. Conversely, $deg(r_2(x)-r_1(x))<  deg(b(x))$, by 4a. We obtain a contradiction, since no number satisfies $x\geq deg(b(x))$ and $x< deg(b(x))$. 
+Therefore, we have that $q_1(x)=q_2(x)$, which implies that $r_1(x)=r_2(x)$. 
+\end{document}

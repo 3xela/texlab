@@ -1,0 +1,68 @@
+\documentclass[letterpaper]{article}
+\usepackage[letterpaper,margin=1in,footskip=0.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb, pifont}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MAT 257}
+\lhead{Assignment 18}
+\rfoot{Page \thepage}
+
+\setlength\parindent{24pt}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\DeclareMathOperator{\s}{\mathcal{S}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\Prt}{\mathbb{P}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\ep}{\varepsilon}
+\DeclareMathOperator{\identity}{\mathbf{0}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\suchthat}{;\ifnum\currentgrouptype=16 \middle\fi|;}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\bd}{\partial}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\ol}{\overline}
+\begin{document}
+\noindent Q1a: We compute that $$|Ax|^2 = \inn{Ax,Ax} = \inn{A^\intercal Ax,x} = \inn{x,x} = |x|^2$$
+Hence $A$ preserves norms, and so the image of $\s^2$ under $A$ is $\s^2$
+\newline \\ Q1b: Letting $A = \begin{bmatrix}
+    a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3
+\end{bmatrix}$, we can verify through a very long and strenuous computation that 
+\begin{align*}
+    A^\ast\omega & =A^\ast (x dy \wedge dz + y dz \wedge dx + z dx \wedge dy)
+    \\ & = (x\circ A) d( y \circ A) \wedge d( z \circ A) + (y\circ A) d(z\circ A )\wedge d(x\circ A) + (z\circ A) d(x\circ A)\wedge d(y\circ A)
+    \\ & = (xA)[da_2 x +db_2 y + dc_2 z]\wedge [da_3x + db_3y + dc_3z] + yA[da_3x + db_3y+dc_3z]\wedge [da_1x + db_1y+dc_2z] 
+    \\ & + (zA)[da_1x+db_1y+dc_1z]\wedge[da_2x+db_2y+dc_2z]
+    \\ & = [xA(b_2c_3-b_3c_2) + yA(b_3c_1-b_1c_3) + zA(b_1c_2-b_2c_1)](dy\wedge dz) 
+    \\ & + [xA(a_3c_2-a_2c_3) + yA(a_1c_3-a_3c_1) + zA(a_2c_1-a_1c_2)](dz\wedge dx)
+    \\ & + [xA (a_2b_3-a_3b_2) + yA(a_3b_1 - a_1b_3) + zA(a_1b_2-a_2b_1)](dx\wedge dy) 
+\end{align*} For the sake of simplicity and readibility, we will manage only the term containing $dy\wedge dz$. The other terms will admit almost identical manipulations and hence will be omitted. 
+\begin{align*}
+    & = [xA(b_2c_3-b_3c_2) + yA(b_3c_1-b_1c_3) + zA(b_1c_2-b_2c_1)](dy\wedge dz) 
+    \\ & =  [(a_1x+b_1y+c_1z)(b_2c_3-b_3c_2) + (a_2x+b_2y+c_2z)(b_3c_1-b_1c_2) + (a_3x+b_3y+c_3z)(b_1c_2-b_2c_1)](dy\wedge dz)
+    \\ & = (a_1b_2c_3z x-a_1b_3c_2x+a_2b_3c_1x-a_2b_1c_3x+a_3b_!c_2x-a_3b_2c_1x)(dy\wedge dz)
+    \\ & = \det(A)x dy\wedge dz
+\end{align*} Therefore, $$A^\ast \omega = \det(A)x  dy\wedge dz + \det(A)y dz\wedge dy + \det(A)z dx\wedge dy = \det(A)\omega$$
+\newline \\ Q1c: Since $A\in O(3)$, we have that $1 = \det(I)= \det(A) \det(A^{\intercal})= \det(A)^2$ so $\det(A) = \pm 1$. Hence $SO(3)\subset O(3)$ Thus by 1b, for any $B\in SO(3)$, we have that $$B^\ast \omega = \omega$$ Since $\omega$ is a nowhere vanishing top form on $\s^2$, and pulling back by $B$ amounts to scaling by a positive number, we conclude that $B$ is an orientation preserving map of $\s^2$. 
+\end{document}
