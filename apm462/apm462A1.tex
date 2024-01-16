@@ -176,15 +176,53 @@ bmargin=0.5in]{geometry}
 
 \begin{problem}
 \end{problem}
+Suppose that $f$ continuous at $a$ and $g$ continuous at $f(a)$. Recall that for every $\ep_f$ there is a $\delta_f$ so that 
+$\norm{x-a}< \delta_f$ implies that $\norm{f(a) - f(x)}<\epsilon_f$. Similarly for any $\ep_g>0$ we have a $\delta_g>0$ so that $\norm{f(a) - y} <\delta_g$ implies that $\norm{g(f(a)) - g(y)} < \ep_g$. We wish to show the same is true for $g\circ f$. Given $\ep >0$, we choose $\delta$ in the following way. Select $\delta_g $ for $y = f(x)$ from continuity of $g$. Then take $\ep_f = \delta_g$ and choose $\delta = \delta_f$ satisfying continuity of $f$ at $a$. This indeed works since: 
+$$\norm{a - x} < \delta = \delta_f \implies \norm{f(a) - f(x)}< \ep_f = \delta_g \implies  \norm{g(f(a)) - g(f(x))} < \ep.$$\
+Thus the composition of two continuous functions is continuous.   
 \newpage
 \begin{problem}
 \end{problem}
+Consider the following function:
+$$f(x) = 
+\begin{cases}
+	 \frac{(x-1)(x+1)}{x^2} & x\in \Q \\
+	0 & x\in \R \setminus \Q , x=0
+\end{cases}$$
+We claim that it is continuous at only $-1,1$. First at $x=1$ we have that $f(1) = 0$. We wish to find a $\delta$ so that $|f(x)|<\ep$ whenever $|1-x|<\delta$. Instead consider the function $g(x) = \frac{(x-1)(x+1)}{x^2}$. This is continuous on $\R \setminus\{0\}$ and agrees with $f$ on $\Q$. At $x=1$ for $\ep_g>0$ take $\delta_g$ so that the condition for continuity for $g$ at $x=1$ is satisfied. For $f$ taking $\delta = \delta_g$ for the same choice of $\ep$ will work, since $|f(x)| \leq |g(x)|$. Similarly this holds at $x=-1$. Away from $x=1, x=-1$ we have that $f$ is discontinuous since $|f(x)| >0$ on $\Q$, a dense set, and $f(x) = 0$ on $\R \setminus \{0\}$. 
 \newpage
 \begin{problem}
 \end{problem}
+Let $g: \R \to \R^n$ and $f: \R^n \to \R$ be $C^1$. For simplicity, take $n=2$. We write $g(t) = (x(t), y(t))$.  We wish to compute the derivative of $\phi = f \circ g$. 
+First note that $$\phi(t+h) - \phi(t) = \left[f(x(t+h) , y(t+h)) - f(x(t+h) , y(t)) \right] + \left[f(x(t+h) , y(t)) - f(x(t) , y(t))	\right].$$
+We define $g_1(k) = f(x(t+h) , y(t+k))$ and $g_2 (h) = f(x(t+h) , y(t))$. By the mean value theorem on $\R$, there exists a $\theta_1, \theta_2$ so that:
+$$f(x(t+h) , y(t+h)) - f(x(t+h) , y(t)) = h \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial t}(t+\theta_1 h),$$
+and 
+$$f(x(t+h) , y(t)) - f(x(t) , y(t)) = h \frac{\partial f}{\partial x}\cdot \frac{\partial x}{\partial t}(t + \theta_2 h).$$
+We now compute the derivative of $\phi$ as:
+\begin{align*}
+	\phi^\prime(t)= \lim_{h \to 0}\frac{\phi(t+h) - \phi(t)}{h} & = \lim_{h \to 0} \frac{h \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial t}(t+\theta_1 h)+h \frac{\partial f}{\partial x}\cdot \frac{\partial x}{\partial t}(t + \theta_2 h)}{h} \tag{using above}
+	\\ & = \lim_{h \to 0} \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial t}(t+\theta_1 h) + \frac{\partial f}{\partial x}\cdot \frac{\partial x}{\partial t}(t + \theta_2 h)
+	\\ & = \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial t}(t) + \frac{\partial f}{\partial x}\cdot \frac{\partial x}{\partial t}(t ) \tag{by Continuity of the partials}
+\end{align*}
 \newpage
 \begin{problem}
 \end{problem}
+\penum
+\item We show that $\grad f(x) = A^T b$ satisfies the limit definition of the gradient. 
+\begin{align*}
+	\lim_{h \to 0} \frac{f(x+h) - f(x)- A^Tb \cdot h}{h} & = \lim_{h \to 0} \frac{b \cdot A(x+h) - b \cdot Ax - A^Tb \cdot h}{h}
+	\\ & = \lim_{h \to 0} \frac{b \cdot Ax + b \cdot Ah - b \cdot Ax - b \cdot Ah}{h} \tag{since $A^Tb = b \cdot A$}
+	\\ & = 0
+\end{align*}
+By uniqueness of the gradient we have that $\grad f(x) = b \cdot A^T$. 
+\item We show that $\grad f (x) = (A+A^T)x$ satisfies the limit definition of the gradient. 
+\begin{align*}
+	\lim_{h \to 0} \frac{(x+h) \cdot A (x+h) - x \cdot A x - (A+ A^T)x\cdot h}{h}
+	  &= \lim_{h \to 0}\frac{x \cdot A x + h \cdot Ax + x \cdot Ah + h \cdot A h - x \cdot Ax -(A+ A^T)x\cdot h }{h}
+	  \\ & = \lim_{h \to 0} \frac{h \cdot A x + x \cdot Ah - (A+A^T)x \cdot h}{h}
+\end{align*}
+\epenum 
 \newpage
 \begin{problem}
 \end{problem}
