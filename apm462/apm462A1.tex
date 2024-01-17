@@ -244,12 +244,16 @@ Therefore one of them must be at the minimum distance. We can see that it must b
 \end{problem}
 \penum 
 \item Since we are optimizing on an open set, we have that the necessary condition must be $\grad f_\alpha(x,y) = 0$. We compute the gradient as: 
-$$\grad f_\alpha (x,y) = $$
+$$0 = \grad f_\alpha (x,y) = \bmat{2\alpha^2 x + 5y \\ 4(\alpha+1) y +5x -3}.$$
+This will be solved for $x= \frac{15}{-8(\alpha+1)\alpha^2 + 25}, y= \frac{-6\alpha^2}{-8(\alpha+1)\alpha^2 + 25}$
+\item We compute the hessian of $f$ as 
+$$H(f) = \bmat{2\alpha^2 & 5 \\ 5 & 4(\alpha +1)}.$$
+The necessary condition for local minima is $H(f)\geq 0$. Sylvestors criterion tells us this happens exactly when $4(\alpha+1)\geq 0, 2\alpha^2(\alpha+1) - 25 \geq0$. This is satisfied when $\alpha \geq 1.383$.   
 \epenum
 \newpage
 \begin{problem}
 \end{problem}
-\newpage
-
-
+We compute the first order necessary condition: 
+$$0= \grad f(x) = \bmat{4(x-3) \\ 2(y-5)}.$$
+This is satisfies at $x = 3,y=5$. This is not in the domain however. We check the boundary for a minimum. Let $\gamma(t) = (\cos t, \sin t)$ on $[0,2\pi]$. We wish to minimize $f\circ \gamma$. Note that this will attain a minimum, since it is a compact set. 
 \end{document}
