@@ -221,14 +221,31 @@ By uniqueness of the gradient we have that $\grad f(x) = b \cdot A^T$.
 	\lim_{h \to 0} \frac{(x+h) \cdot A (x+h) - x \cdot A x - (A+ A^T)x\cdot h}{h}
 	  &= \lim_{h \to 0}\frac{x \cdot A x + h \cdot Ax + x \cdot Ah + h \cdot A h - x \cdot Ax -(A+ A^T)x\cdot h }{h}
 	  \\ & = \lim_{h \to 0} \frac{h \cdot A x + x \cdot Ah - (A+A^T)x \cdot h}{h}
+	  \\ & = \lim_{h \to 0 } \frac{h \cdot A^T x + h \cdot Ax +  (A+A^T)x\cdot h}{h}
+	  \\ & = \lim_{h\to 0} \frac{h \cdot(A+A^T)x - h \cdot (A+A^T)x}{h}
+	  \\ & = 0
 \end{align*}
 \epenum 
 \newpage
 \begin{problem}
 \end{problem}
+We parametrize the right half of the cone as $(t,t), t\geq 0$. The distance from the right half of the cone, to the point $p = (3,0)$ is thus
+$$d(t) = (t-3)^2 + t^2.$$
+Necessary first order conditions give us that $$d^\prime(t) v = (4t - 6)v \geq 0$$ for $v$ being a feasible direction of $\R_{t\geq 0}$. 
+If $t>0$ then we imply have that $4t-6 = 0$ so $t =\frac{3}{2}$. At the boundary i.e. when $t=0$ we have that $(4-6)v \geq 0$. Since $v$ is a feasible direction of $0$ in the half line we must have that $v>0$. 
+Therefore this equality cannot be satisfied. Thus our candidate point for the right half is $t = \frac{3}{2}$. On the left half, we parametrize with $(-t,t)$ for $t\geq 0$.  Our distance function is given as 
+$$d(t) = (3+t)^2 + t^2.$$
+First order conditions give us that 
+$$d^\prime(t)v = (4t+6)v \geq 0.$$
+On the interior we have equality with $0$ so $4t+6 = 0 $ so $t = -\frac{3}{2}$. At 0 we have the inequality $6v \geq 0$ for all $v<0$. Therefore $t=0$ is a candidate point. Our 2 candidate points are $(\frac{3}{2}, \frac{3}{2}) , (-\frac{3}{2} , \frac{3}{2})$. Notice that $d^{\prime \prime}(t) =4$ in both cases, so both the necessary and sufficient conditions are satisfied for a local minimum.
+Therefore one of them must be at the minimum distance. We can see that it must be $(\frac{3}{2}, \frac{3}{2})$ since $\norm{(\frac{3}{2}, \frac{3}{2} )- (3,0))} = \frac{3\sqrt{2}}{2}$, and $\norm{(-\frac{3}{2}, \frac{3}{2}) - (3,0)} = \frac{3\sqrt{10}}{2}$. 
 \newpage
 \begin{problem}
 \end{problem}
+\penum 
+\item Since we are optimizing on an open set, we have that the necessary condition must be $\grad f_\alpha(x,y) = 0$. We compute the gradient as: 
+$$\grad f_\alpha (x,y) = $$
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
