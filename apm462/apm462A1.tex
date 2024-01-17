@@ -183,13 +183,9 @@ Thus the composition of two continuous functions is continuous.
 \newpage
 \begin{problem}
 \end{problem}
-Consider the following function:
-$$f(x) = 
-\begin{cases}
-	 \frac{(x-1)(x+1)}{x^2} & x\in \Q \\
-	0 & x\in \R \setminus \Q , x=0
-\end{cases}$$
-We claim that it is continuous at only $-1,1$. First at $x=1$ we have that $f(1) = 0$. We wish to find a $\delta$ so that $|f(x)|<\ep$ whenever $|1-x|<\delta$. Instead consider the function $g(x) = \frac{(x-1)(x+1)}{x^2}$. This is continuous on $\R \setminus\{0\}$ and agrees with $f$ on $\Q$. At $x=1$ for $\ep_g>0$ take $\delta_g$ so that the condition for continuity for $g$ at $x=1$ is satisfied. For $f$ taking $\delta = \delta_g$ for the same choice of $\ep$ will work, since $|f(x)| \leq |g(x)|$. Similarly this holds at $x=-1$. Away from $x=1, x=-1$ we have that $f$ is discontinuous since $|f(x)| >0$ on $\Q$, a dense set, and $f(x) = 0$ on $\R \setminus \{0\}$. 
+Since $K_1,K_2$ are compact they are both closed and bounded. There exists constants $M_1,M_2$ so that $|x|^2\leq M_1$ for $x\in K_1$, and $|y|^2\leq M_2$. For any $(x,y)\in K_1\times K_2$ we have that:
+$$|(x,y)| = \sqrt{|x|^2 + |y|^2} \leq \sqrt{M_1 + M_2}.$$
+Therefore $K_1 \times K_2$ is bounded. It is closed since $K_1,K_2$ are both closed. Therefore $K_1\times K_2$ is closed and bounded and hence compact. 
 \newpage
 \begin{problem}
 \end{problem}
@@ -218,7 +214,7 @@ We now compute the derivative of $\phi$ as:
 By uniqueness of the gradient we have that $\grad f(x) = b \cdot A^T$. 
 \item We show that $\grad f (x) = (A+A^T)x$ satisfies the limit definition of the gradient. 
 \begin{align*}
-	\lim_{h \to 0} \frac{(x+h) \cdot A (x+h) - x \cdot A x - (A+ A^T)x\cdot h}{h}
+	\lim_{h \to 0} \frac{f(x+h) - f(x)- (A+ A^T)x\cdot h}{h}
 	  &= \lim_{h \to 0}\frac{x \cdot A x + h \cdot Ax + x \cdot Ah + h \cdot A h - x \cdot Ax -(A+ A^T)x\cdot h }{h}
 	  \\ & = \lim_{h \to 0} \frac{h \cdot A x + x \cdot Ah - (A+A^T)x \cdot h}{h}
 	  \\ & = \lim_{h \to 0 } \frac{h \cdot A^T x + h \cdot Ax +  (A+A^T)x\cdot h}{h}
@@ -245,15 +241,18 @@ Therefore one of them must be at the minimum distance. We can see that it must b
 \penum 
 \item Since we are optimizing on an open set, we have that the necessary condition must be $\grad f_\alpha(x,y) = 0$. We compute the gradient as: 
 $$0 = \grad f_\alpha (x,y) = \bmat{2\alpha^2 x + 5y \\ 4(\alpha+1) y +5x -3}.$$
-This will be solved for $x= \frac{15}{-8(\alpha+1)\alpha^2 + 25}, y= \frac{-6\alpha^2}{-8(\alpha+1)\alpha^2 + 25}$
+This will be solved for $x= \frac{-15}{8(\alpha+1)\alpha^2 -  25}, y= \frac{6\alpha^2}{8(\alpha+1)\alpha^2 - 25}$
 \item We compute the hessian of $f$ as 
 $$H(f) = \bmat{2\alpha^2 & 5 \\ 5 & 4(\alpha +1)}.$$
-The necessary condition for local minima is $H(f)\geq 0$. Sylvestors criterion tells us this happens exactly when $4(\alpha+1)\geq 0, 2\alpha^2(\alpha+1) - 25 \geq0$. This is satisfied when $\alpha \geq 1.383$.   
+The necessary condition for local minima is $H(f_\alpha)\geq 0$. Sylvestors criterion tells us this happens exactly when $4(\alpha+1)\geq 0, 8\alpha^2(\alpha+1) - 25 \geq0$. This is satisfied when $\alpha \geq 1.194$. 
+\item The matrix $H(f)$ will be positive definite when $\alpha> 1.194$. 
+\item We require that $\alpha > 1.194$. As above set $Q = Hess(f_\alpha)$. We have that $\grad f_\alpha(x)  = Qx - b$, where $ b = (0,3)$. First note that we can write $$f(x) = \frac{1}{2} (x- x^\ast) \cdot Q (x-x^\ast) - \frac{1}{2} x^\ast \cdot Q x^\ast$$
+for $x^\ast = Q^{-1}b$. Note that $x^\ast =( \frac{-15}{8(\alpha+1)\alpha^2 -  25},  \frac{6\alpha^2}{8(\alpha+1)\alpha^2 - 25} )$ which agrees with the computation done in $a$. We claim that the global minimum is attained at $x^\ast$. Since $Q$ is positive definite, we have that $\frac{1}{2} (x- x^\ast) \cdot Q (x-x^\ast) \geq 0$ for all $x$ with equality being attained exactly when $x = x^\ast$. Thus $$f(x) \geq - \frac{1}{2} x^\ast Q x^\ast = f(x_0). $$ So $x_0$ is the global minimum.
 \epenum
 \newpage
 \begin{problem}
 \end{problem}
 We compute the first order necessary condition: 
 $$0= \grad f(x) = \bmat{4(x-3) \\ 2(y-5)}.$$
-This is satisfies at $x = 3,y=5$. This is not in the domain however. We check the boundary for a minimum. Let $\gamma(t) = (\cos t, \sin t)$ on $[0,2\pi]$. We wish to minimize $f\circ \gamma$. Note that this will attain a minimum, since it is a compact set. 
+This is satisfies at $x = 3,y=5$. This is not in the domain however. Hence the necessary and sufficient conditions for a minimum are not satisfied on the interior. We check the boundary for a minimum. Let $\gamma(t) = (\cos t, \sin t)$ on $[0,2\pi]$. We wish to minimize $f\circ \gamma$. Note that this will attain a minimum, since it is a continuous function on a compact set. 
 \end{document}
