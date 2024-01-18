@@ -254,5 +254,7 @@ for $x^\ast = Q^{-1}b$. Note that $x^\ast =( \frac{-15}{8(\alpha+1)\alpha^2 -  2
 \end{problem}
 We compute the first order necessary condition: 
 $$0= \grad f(x) = \bmat{4(x-3) \\ 2(y-5)}.$$
-This is satisfies at $x = 3,y=5$. This is not in the domain however. Hence the necessary and sufficient conditions for a minimum are not satisfied on the interior. We check the boundary for a minimum. Let $\gamma(t) = (\cos t, \sin t)$ on $[0,2\pi]$. We wish to minimize $f\circ \gamma$. Note that this will attain a minimum, since it is a continuous function on a compact set. 
+This is satisfies at $x = 3,y=5$. This is not in the domain however. Hence the necessary and sufficient conditions for a minimum are not satisfied on the interior. We check the boundary for a minimum. Let $\gamma(t) = (\cos t, \sin t)$ on $[0,2\pi]$. We wish to minimize $f\circ \gamma$. Note that this will attain a minimum, since it is a continuous function on a compact set. It is also periodic with period $2\pi$ so once we determine the global minimum, it will be the minimum of the entire function. We have: 
+$$0= (f\circ \gamma)^\prime (t)= 2\cos t(\sin t -5) - 4\sin t(\cos t - 3) =-2 \sin t \cos t - 10 \cos t + 12 \sin t.$$
+This will be solved by $t = 0.759, t = 3.775$. Note that $f^{\prime \prime}(0.759) >0, f^{\prime \prime}(0.759)<0$. Therefore on the boundary, the minimum is attained at $t = 0.759$. This will be the only minimum on the boundary, by periodicity. Therefore the function attains its minimum at $(x,y) = (0.688,0.725)$ at a value of $28.96$. 
 \end{document}
