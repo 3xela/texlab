@@ -191,10 +191,10 @@ Therefore $K_1 \times K_2$ is bounded. It is closed since $K_1,K_2$ are both clo
 \end{problem}
 Let $g: \R \to \R^n$ and $f: \R^n \to \R$ be $C^1$. For simplicity, take $n=2$. We write $g(t) = (x(t), y(t))$.  We wish to compute the derivative of $\phi = f \circ g$. 
 First note that $$\phi(t+h) - \phi(t) = \left[f(x(t+h) , y(t+h)) - f(x(t+h) , y(t)) \right] + \left[f(x(t+h) , y(t)) - f(x(t) , y(t))	\right].$$
-We define $g_1(k) = f(x(t+h) , y(t+k))$ and $g_2 (h) = f(x(t+h) , y(t))$. By the mean value theorem on $\R$, there exists a $\theta_1, \theta_2$ so that:
-$$f(x(t+h) , y(t+h)) - f(x(t+h) , y(t)) = h \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial t}(t+\theta_1 h),$$
-and 
-$$f(x(t+h) , y(t)) - f(x(t) , y(t)) = h \frac{\partial f}{\partial x}\cdot \frac{\partial x}{\partial t}(t + \theta_2 h).$$
+We define $g (l) = f(x(l) , y(t))$. By the mean value theorem on $\R$, there exists a $\theta_1$ so that:
+$$g(t+h)- g(t) = f(x(t+h), y(t)) - f(x(t), y(t)) = h \frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial t}(t+\theta_1 h).$$
+Similarly, we do the same for the $y$ derivative. We get that for some $\theta_2$,
+$$f(x(t+h), y(t+h)) - f(x(t+h), y(t)) = h \frac{\partial f}{\partial y}\cdot \frac{\partial y}{\partial t} (t+\theta_2 h).$$
 We now compute the derivative of $\phi$ as:
 \begin{align*}
 	\phi^\prime(t)= \lim_{h \to 0}\frac{\phi(t+h) - \phi(t)}{h} & = \lim_{h \to 0} \frac{h \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial t}(t+\theta_1 h)+h \frac{\partial f}{\partial x}\cdot \frac{\partial x}{\partial t}(t + \theta_2 h)}{h} \tag{using above}
@@ -214,26 +214,28 @@ We now compute the derivative of $\phi$ as:
 By uniqueness of the gradient we have that $\grad f(x) = b \cdot A^T$. 
 \item We show that $\grad f (x) = (A+A^T)x$ satisfies the limit definition of the gradient. 
 \begin{align*}
-	\lim_{h \to 0} \frac{f(x+h) - f(x)- (A+ A^T)x\cdot h}{h}
-	  &= \lim_{h \to 0}\frac{x \cdot A x + h \cdot Ax + x \cdot Ah + h \cdot A h - x \cdot Ax -(A+ A^T)x\cdot h }{h}
-	  \\ & = \lim_{h \to 0} \frac{h \cdot A x + x \cdot Ah - (A+A^T)x \cdot h}{h}
-	  \\ & = \lim_{h \to 0 } \frac{h \cdot A^T x + h \cdot Ax +  (A+A^T)x\cdot h}{h}
-	  \\ & = \lim_{h\to 0} \frac{h \cdot(A+A^T)x - h \cdot (A+A^T)x}{h}
-	  \\ & = 0
+	\lim_{h \to 0} \frac{|f(x+h) - f(x)- (A+ A^T)x\cdot h|}{|h|}
+	  &= \lim_{h \to 0}\frac{|x \cdot A x + h \cdot Ax + x \cdot Ah + h \cdot A h - x \cdot Ax -(A+ A^T)x\cdot h| }{|h|}
+	  \\ & = \lim_{h \to 0} \frac{|h \cdot A x + x \cdot Ah - (A+A^T)x \cdot h + h \cdot Ah|}{|h|}
+	  \\ & = \lim_{h \to 0 } \frac{|h \cdot A^T x + h \cdot Ax +  (A+A^T)x\cdot h + h \cdot Ah|}{|h|}
+	  \\ & = \lim_{h\to 0} \frac{|h \cdot(A+A^T)x - h \cdot (A+A^T)x + h \cdot Ah|}{|h|}
+	  \\ & = \lim_{h\to 0 } \frac{|h \cdot Ah|}{|h|}
+	  \\ & \leq \lim_{h\to 0} \frac{|h|}{|h|} |Ah| \tag{By Cauchy-Schwarz}
+	  \\  & = 0 \tag{since linear maps are continuous}
 \end{align*}
 \epenum 
 \newpage
+
 \begin{problem}
 \end{problem}
 We parametrize the right half of the cone as $(t,t), t\geq 0$. The distance from the right half of the cone, to the point $p = (3,0)$ is thus
 $$d(t) = (t-3)^2 + t^2.$$
 Necessary first order conditions give us that $$d^\prime(t) v = (4t - 6)v \geq 0$$ for $v$ being a feasible direction of $\R_{t\geq 0}$. 
-If $t>0$ then we imply have that $4t-6 = 0$ so $t =\frac{3}{2}$. At the boundary i.e. when $t=0$ we have that $(4-6)v \geq 0$. Since $v$ is a feasible direction of $0$ in the half line we must have that $v>0$. 
-Therefore this equality cannot be satisfied. Thus our candidate point for the right half is $t = \frac{3}{2}$. On the left half, we parametrize with $(-t,t)$ for $t\geq 0$.  Our distance function is given as 
+If $t>0$ then we imply have that $4t-6 = 0$ so $t =\frac{3}{2}$. At the boundary i.e. when $t=0$ we have that $-6v \geq 0$. Since $v$ is a feasible direction of $0$ in the half line we must have that $v>0$. 
+Therefore this equality cannot be satisfied. Thus our candidate point for the right half is $t = \frac{3}{2}$. On the left half, we parametrize with $(-t,t)$ for $t>0$.  Our distance function is given as 
 $$d(t) = (3+t)^2 + t^2.$$
-First order conditions give us that 
-$$d^\prime(t)v = (4t+6)v \geq 0.$$
-On the interior we have equality with $0$ so $4t+6 = 0 $ so $t = -\frac{3}{2}$. At 0 we have the inequality $6v \geq 0$ for all $v<0$. Therefore $t=0$ is a candidate point. Our 2 candidate points are $(\frac{3}{2}, \frac{3}{2}) , (-\frac{3}{2} , \frac{3}{2})$. Notice that $d^{\prime \prime}(t) =4$ in both cases, so both the necessary and sufficient conditions are satisfied for a local minimum.
+Since our set is open, the first order condition is $$4t+6 =0$$ 
+This is satisfied by $t =- \frac{3}{2}$. Our 2 candidate points are $(\frac{3}{2}, \frac{3}{2}) , (-\frac{3}{2} , \frac{3}{2})$. Notice that $d^{\prime \prime}(t) =4$ in both cases, so both the necessary and sufficient conditions are satisfied for a local minimum.
 Therefore one of them must be at the minimum distance. We can see that it must be $(\frac{3}{2}, \frac{3}{2})$ since $\norm{(\frac{3}{2}, \frac{3}{2} )- (3,0))} = \frac{3\sqrt{2}}{2}$, and $\norm{(-\frac{3}{2}, \frac{3}{2}) - (3,0)} = \frac{3\sqrt{10}}{2}$. 
 \newpage
 \begin{problem}
@@ -244,17 +246,17 @@ $$0 = \grad f_\alpha (x,y) = \bmat{2\alpha^2 x + 5y \\ 4(\alpha+1) y +5x -3}.$$
 This will be solved for $x= \frac{-15}{8(\alpha+1)\alpha^2 -  25}, y= \frac{6\alpha^2}{8(\alpha+1)\alpha^2 - 25}$
 \item We compute the hessian of $f$ as 
 $$H(f) = \bmat{2\alpha^2 & 5 \\ 5 & 4(\alpha +1)}.$$
-The necessary condition for local minima is $H(f_\alpha)\geq 0$. Sylvestors criterion tells us this happens exactly when $4(\alpha+1)\geq 0, 8\alpha^2(\alpha+1) - 25 \geq0$. This is satisfied when $\alpha \geq 1.194$. 
-\item The matrix $H(f)$ will be positive definite when $\alpha> 1.194$. 
+The necessary condition for local minima is $H(f_\alpha)\geq 0$. Sylvester's criterion tells us this happens exactly when $2\alpha^2\geq 0, 4(\alpha+1)\geq 0, 8\alpha^2(\alpha+1) - 25 \geq0$. This is satisfied when $\alpha \geq 1.194$. 
+\item Sylvester's criterion tells us that $H(f)$ will be positive definite when $2\alpha^2>0$, and when $8\alpha^2(\alpha+1) - 25 >0$. The matrix $H(f)$ will be positive definite when $\alpha> 1.194$. 
 \item We require that $\alpha > 1.194$. As above set $Q = Hess(f_\alpha)$. We have that $\grad f_\alpha(x)  = Qx - b$, where $ b = (0,3)$. First note that we can write $$f(x) = \frac{1}{2} (x- x^\ast) \cdot Q (x-x^\ast) - \frac{1}{2} x^\ast \cdot Q x^\ast$$
-for $x^\ast = Q^{-1}b$. Note that $x^\ast =( \frac{-15}{8(\alpha+1)\alpha^2 -  25},  \frac{6\alpha^2}{8(\alpha+1)\alpha^2 - 25} )$ which agrees with the computation done in $a$. We claim that the global minimum is attained at $x^\ast$. Since $Q$ is positive definite, we have that $\frac{1}{2} (x- x^\ast) \cdot Q (x-x^\ast) \geq 0$ for all $x$ with equality being attained exactly when $x = x^\ast$. Thus $$f(x) \geq - \frac{1}{2} x^\ast Q x^\ast = f(x_0). $$ So $x_0$ is the global minimum.
+for $x^\ast = Q^{-1}b$. Note that $x^\ast =( \frac{-15}{8(\alpha+1)\alpha^2 -  25},  \frac{6\alpha^2}{8(\alpha+1)\alpha^2 - 25} )$ which agrees with the computation done in $a$. We claim that the global minimum is attained at $x^\ast$. Since $Q$ is positive definite, we have that $\frac{1}{2} (x- x^\ast) \cdot Q (x-x^\ast) \geq 0$ for all $x$ with equality being attained exactly when $x = x^\ast$. Thus $$f(x) \geq - \frac{1}{2} x^\ast Q x^\ast = f(x_0). $$ So $x_0$ is the global minimum. 
 \epenum
 \newpage
 \begin{problem}
 \end{problem}
 We compute the first order necessary condition: 
 $$0= \grad f(x) = \bmat{4(x-3) \\ 2(y-5)}.$$
-This is satisfies at $x = 3,y=5$. This is not in the domain however. Hence the necessary and sufficient conditions for a minimum are not satisfied on the interior. We check the boundary for a minimum. Let $\gamma(t) = (\cos t, \sin t)$ on $[0,2\pi]$. We wish to minimize $f\circ \gamma$. Note that this will attain a minimum, since it is a continuous function on a compact set. It is also periodic with period $2\pi$ so once we determine the global minimum, it will be the minimum of the entire function. We have: 
+This is satisfies at $x = 3,y=5$. This is not in the domain however. Hence the necessary and sufficient conditions for a minimum are not satisfied on the interior. We check the boundary for a minimum. Let $\gamma(t) = (\cos t, \sin t)$ on $[0,2\pi]$. We wish to minimize $f\circ \gamma$. Note that this will attain a minimum, since it is a continuous function on a compact set. We have: 
 $$0= (f\circ \gamma)^\prime (t)= 2\cos t(\sin t -5) - 4\sin t(\cos t - 3) =-2 \sin t \cos t - 10 \cos t + 12 \sin t.$$
-This will be solved by $t = 0.759, t = 3.775$. Note that $f^{\prime \prime}(0.759) >0, f^{\prime \prime}(0.759)<0$. Therefore on the boundary, the minimum is attained at $t = 0.759$. This will be the only minimum on the boundary, by periodicity. Therefore the function attains its minimum at $(x,y) = (0.725, 0.688)$ at a value of $28.96$. 
+This will be solved by $t = 0.759, t = 3.775$. Note that $f^{\prime \prime}(0.759) >0, f^{\prime \prime}(3.775)<0$. Therefore on the boundary, the minimum is attained at $t = 0.759$. This will be the only minimum on the boundary. Therefore the function attains its minimum at $(x,y) = (0.725, 0.688)$ at a value of $28.96$.
 \end{document}
