@@ -177,7 +177,7 @@ bmargin=0.5in]{geometry}
 \begin{problem}
 \end{problem}
 Suppose that $f$ continuous at $a$ and $g$ continuous at $f(a)$. Recall that for every $\ep_f$ there is a $\delta_f$ so that 
-$\norm{x-a}< \delta_f$ implies that $\norm{f(a) - f(x)}<\epsilon_f$. Similarly for any $\ep_g>0$ we have a $\delta_g>0$ so that $\norm{f(a) - y} <\delta_g$ implies that $\norm{g(f(a)) - g(y)} < \ep_g$. We wish to show the same is true for $g\circ f$. Given $\ep >0$, we choose $\delta$ in the following way. Select $\delta_g $ for $y = f(x)$ from continuity of $g$. Then take $\ep_f = \delta_g$ and choose $\delta = \delta_f$ satisfying continuity of $f$ at $a$. This indeed works since: 
+$\norm{x-a}< \delta_f$ implies that $\norm{f(a) - f(x)}<\ep_f$. Similarly for any $\ep_g>0$ we have a $\delta_g>0$ so that $\norm{f(a) - y} <\delta_g$ implies that $\norm{g(f(a)) - g(y)} < \ep_g$. We wish to show the same is true for $g\circ f$. Given $\ep >0$, we choose $\delta$ in the following way. Select $\delta_g $ for $y = f(x)$ from continuity of $g$. Then take $\ep_f = \delta_g$ and choose $\delta = \delta_f$ satisfying continuity of $f$ at $a$. This indeed works since: 
 $$\norm{a - x} < \delta = \delta_f \implies \norm{f(a) - f(x)}< \ep_f = \delta_g \implies  \norm{g(f(a)) - g(f(x))} < \ep.$$\
 Thus the composition of two continuous functions is continuous.   
 \newpage
