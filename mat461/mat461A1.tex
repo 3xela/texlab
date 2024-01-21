@@ -156,8 +156,8 @@ bmargin=0.5in]{geometry}
 %====================================================================%
 
 
-\newcommand{\Course}{MAT351}
-\newcommand{\hwNumber}{8}
+\newcommand{\Course}{MAT461}
+\newcommand{\hwNumber}{1}
 
 %preamble
 
@@ -176,59 +176,22 @@ bmargin=0.5in]{geometry}
 
 \begin{problem}
 \end{problem}
-We perform a separation of variables, writing $u(x,t) = X(x)T(t)$. The PDE gives us that
-$$T^\prime (t)X(x) = i X^{\prime\prime}(x)T(t) \implies \frac{T^\prime(t)}{T(t)} = i\frac{X^{\prime \prime}(x)}{X(x)} = -i\lambda^2.$$
-This means that $X(x) = A\sin \lambda x + B \cos \lambda x$. The conditions $X(\pi) = X(-\pi) = 0$ implies that $B=0$, and $\lambda = n$. Therefore $T(t) = Ce^{-in^2 t}$. 
-We can thus write $$u(x,t)= Ce^{-in^2t}\sin nx = Ce^{-in^2}\left( e^{-inx} + e^{inx} \right).$$
-Therefore we can write the fourier series of $u$ as $$u(x,t)  = \sum_{-\infty}^\infty \phi_n e^{-in^2 t}e^{inx}.$$
-The initial conditions give us that $$\phi(x) = u(x,0) = \sum_{-\infty}^\infty\phi_m e^{imx}.$$
-Multiplying by $e^{-in x}$ and integrating, we get $$\int_0^{2\pi} \phi(x)e^{-inx} = \sum_{-\infty}^\infty \phi_m \int_0^{2\pi}e^{i(m-n)x}dx.$$
-Note that for $n\neq m$, $$\int_0^{2\pi} e^{i(n-m)x} dx= \frac{-i}{n-m} e^{i(n-m)x}\Big|_0^{2\pi}= 0.$$
-When $n=m$ we integrate $1$ over $[0,2\pi]$ so we get $2\pi$. Therefore $$2\pi \phi_n = \int_0^{2pi}\phi(x) e^{-inx}dx.$$
 \newpage
 \begin{problem}
 \end{problem}
-The complex fourier coefficients, $C_n^h$ of $h(x)$ are given as:
-\begin{align*}
-	C_n^h &= \frac{1}{2\pi}\int_0^{2\pi} e^{-inx}h(x) dx
-	\\ & = \frac{1}{2\pi}\int_0^{2\pi}e^{-inx}  \int_0^{2\pi}f(x-y)g(y)dy dx
-	\\ & = \frac{1}{2\pi}\int_0^{2\pi} \int_0^{2\pi} e^{-in(x +y-y)} f(x-y)g(y) dy dx \tag{Fubini's Theorem}
-	\\ & = C_n^f \int_0^{2\pi} e^{-iny}g(y) dy 
-	\\ & =2\pi C_n^f C_n^g
-\end{align*}
 \newpage
 \begin{problem}
 \end{problem}
-Recall that $L^2$ is a Hilbert Space. The inner product obeys the polarization identity;
-$$\int_0^{2\pi} f(x)\ol{g(x)}dx = \inn{f,g} = \frac{1}{4} \left[\norm{f+g}^2 - \norm{f-g}^2 + i\norm{f+ig}^2 - i \norm{f-ig}^2\right].$$
-We apply Parseval's Identity to the right-hand side: 
-\begin{align*}
-	\int_0^{2\pi} f(x)\ol{g(x)}dx & = \frac{\pi}{2} \sum_{-\infty}^\infty |f_n+g_n|^2 - |f_n-g_n|^2 + i|f_n+ig_n|^2 - i|f_n-ig_n|^2
-	\\ & = \frac{\pi}{2} \sum_{-\infty}^\infty |f_n|^2 + f_n\ol{g_n} + \ol{f_n}g_n + |g_n|^2- (|f_n|^2 - f_n\ol{g_n} - \ol{f_n}g_n +|g_n|^2) 
-	 \\& + i(|f_n|^2 - i f_n\ol{g_n} + i\ol{f_n}g_n +|g_n|^2) - i(|f_n|^2 + i f_n\ol{g_n} - i\ol{f_n} g_n +|g_n|^2 )
-	 \\ & = \frac{\pi}{2 } \sum_{-\infty}^\infty 4f_n \ol{g_n}
-	 \\ & = 2\pi \sum_{-\infty}^\infty f_n \ol{g_n}
-\end{align*}
 \newpage
 \begin{problem}
 \end{problem}
-By Parseval's Identity, we compute: 
-\begin{align*}
-	\norm{f-\ol{f}}^2 &= 2\pi \sum_{-\infty}^\infty |f_n - \ol{f}_n|^2 
-	\\ & = 2\pi \sum_{-\infty}^\infty \Big|  \int_0^{2\pi } e^{-inx}f(x) dx - \int_0^{2\pi} e^{-inx}\ol{f}dx\Big|^2
-	\\ & = 2\pi \sum_{-\infty}^\infty \Big|\frac{1}{-in} \int_0^{2\pi} e^{-inx}f^\prime(x)dx \Big|^2 \tag{integrating by parts, also constant term is 0}
-	\\ & = 2\pi \sum_{-\infty}^\infty \frac{1}{n^2} \Big| \in_0^{2\pi} e^{-inx}f^\prime(x) dx \Big|
-	\\ & = 2\pi \sum_{-\infty}^\infty \frac{1}{n^2} |f_n^\prime|^2
-	\\ & \leq 2\pi \sum_{-\infty}^\infty |f_n^\prime|^2 \tag{since $\frac{|f^\prime_n}{n}\leq |f_n^\prime|$}
-	\\ & = \norm{f_n^\prime}^2
-\end{align*}
 \newpage
 \begin{problem}
 \end{problem}
-Let $u$ be subharmonic. A point $x_0$ will occur if $\Delta u(x_0) \leq 0$. Since $u$ is subharmonic we must have that $\Delta u (x_0)= 0$. Define $v = u + \ep|x|^2$. We have that $\Delta v = \Delta u + 2\ep n \geq 2\ep n>0$. Our function $v$ can not have a maximum in the interior. 
-So $$\max_{x\in \ol{D}} u(x) \leq\max_{x\in \ol{D}} v(x) \leq \max_{x\in \bd D} v(x).$$
-The max of $v$ is attained at some point $x_0$ in the boundary, so we have that $u(x) \leq u(x_0) + \ep |x_0|^2$. Since
-$\ep$ was arbitrary, we have that $u(x) \leq u(x_0)$ for $x_0\in \bd D$. 
-Note that the minimum may be attained in the interiour. Consider $f(x) = x(x-1)$ on $(0,1)$. We have that $\Delta f = 2 \geq 0$, and the maximum is attained exactly on $\bd D = \{0,1\}$. The minimum is attained on the interiour at $x= \frac{1}{2}$. 
+\newpage
+\begin{problem}
+\end{problem}
+\newpage
+
 
 \end{document}
