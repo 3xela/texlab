@@ -206,6 +206,19 @@ $$\omega_n n(2-n) u(0) = \frac{(2-n)}{r^{n-1}} \oint_{\bd B_r(0)}g(x)d\sigma(x) 
 \newpage
 \begin{problem}
 \end{problem}
+\penum
+\item Define $D_R = \{x:  1 \leq |x| \leq R\}$ and define $u_\ep  = u(x) - \ep \log|x|$.  Since $\log|x|$ is harmonic on $\R^2$, we have that $u_\ep$ is subharmonic. 
+Therefore the sup of $u_\ep$ on $D_R$ is attained on the boundary. We claim that it cannot be attained when $|x| = R$ for a sufficiently large $R$. Since $|x|= 1$ is compact, $u_\ep$ attains some supremum along $|x|=1$. However since $u$ is bounded and $\log |x|$ is increasing as a function of $|x|$, for large enough $R$ we will have that $\sup_{|x| = R} u_\ep  \leq  \sup_{|x| = 1} u_\ep$. Certainly this will hold for all $R^\prime \geq R$. Therefore we have that 
+$$\sup_{|x|\geq 1} u_\ep = \sup_{|x| = 1} u_\ep = \sup_{|x| = 1}u.$$
+The last equality follows from the fact that $\log|x|$ vanishes on $|x|=1$. 
+\item 
+For that for all $\ep >0$, $u(x) = u_\ep + \ep \log |x|$. Using what was shown above, we have that 
+$$u(x) \leq \sup_{|x| = 1} u_\ep + \ep \log |x| = \sup_{|x| = 1} u + \ep \log |x|. $$
+Since this holds for all $\ep>0$ we have that 
+$$u(x) \leq \sup_{|x| = 1} u(x).$$
+The point at which $u(x)$ attains its supremum has norm 1, and thus is in the interiour of the domain of $u$. Therefore $u$ is constant on every compact set containing $S^1$. Since $\R^2$ is connected it follows that $u$ is constant. 
+\item 
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
