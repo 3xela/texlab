@@ -183,12 +183,39 @@ If $u$ is constant then the result is true for $C=1$. Suppose now that $u$ is no
 \newpage
 \begin{problem}
 \end{problem}
+Recall the the product rule for the laplacian: 
+$$\Delta(uv) = v \Delta u + 2\grad u \cdot \grad v + u \Delta v,$$
+And Green's second identity:
+$$\int_{B_r(0)} \grad \psi \cdot \grad \varphi = \oint_{\bd B_r(0)} \psi \grad \varphi - \int_{B_r(0)} \psi \Delta \varphi.$$
+We integrate the product rule for $v= \frac{1}{|x|^{n-2}}$, and apply Green's second identity to get:
+$$\int_{B_r(0)}\Delta \left( \frac{u}{|x|^{n-2}} \right) = \int_{B_r(0)} \frac{\Delta u}{|x|^{n-2}}  + 2 \left( \oint_{\bd B_r(0)} u \cdot \grad \frac{1}{|x|^{n-2}} - \int_{B_r(0)}u \cdot \Delta \frac{1}{|x|^{n-2}}\right) + \int_{B_r(0)} u \cdot \Delta \frac{1}{|x|^{n-2}}.$$
+We apply the Divergence theorem to the lefthand side: 
+$$\int_{B_r(0)}\Delta \left( \frac{u}{|x|^{n-2}} \right) = \oint_{\bd B_r(0)} \grad\left(\frac{u}{|x|^{n-2}}\right) = \oint_{\bd B_r(0)} \frac{1}{|x|^{n-2}} \grad u + \oint_{\bd B_r(0)}u \grad \frac{1}{|x|^{n-2}}.$$
+We have that:
+$$\grad \frac{1}{|x|^{n-2}} = \frac{(2-n)}{|x|^{n}} x.$$
+Therefore we can write the lefthand side as: 
+$$\oint_{\bd B_r(0)} \frac{1}{|x|^{n-2}} \grad u  + \oint_{\bd B_r(0)} g \frac{(2-n)}{|x|^n}x \cdot x d\sigma(x) =\oint_{\bd B_r(0)}\frac{1}{|x|^{n-2}} \grad u + \frac{(2-n)}{|r|^{n-1}} \oint_{\bd B_r(0)} g(x) d\sigma(x).$$
+Now on the righthand side, we have:
+$$\int_{B_r(0)} \frac{f}{|x|^{n-2}} + 2 \frac{(2-n)}{|r|^{n-1}} \oint_{\bd B_r(0)} g(x) d\sigma(x) - \int_{B_r(0)} u \cdot \Delta \frac{1}{|x|^{n-2}}.$$
+Equality of both of these gives us that:
+$$\int_{B_r(0)} u \cdot \Delta \frac{1}{|x|^{n-2}} = \frac{(2-n)}{|r|^{n-1}} \oint_{\bd B_r(0)} g(x) d\sigma(x) + \int_{B_r(0)} \frac{f}{|x|^{n-2}} - \oint_{\bd B_r(0)} \grad u \cdot \frac{1}{|x|^{n-2}}.$$
+By the Divergence theorem we can simplify the last integral as:
+$$\oint_{\bd B_r(0)} \grad u \cdot \frac{1}{|x|^{n-2}} = \oint_{\bd B_r(0)} \frac{\grad u}{r^{n-2}} = \int_{B_r(0)} \frac{f}{|r|^{n-2}} $$
+Since $\Delta \frac{1}{|x|^{n-2}}= \omega_n n(n-2)\delta_0$ we get that:
+$$\omega_n n(n-2) u(0) = \frac{(2-n)}{r^{n-1}} \oint_{\bd B_r(0)}g(x)d\sigma(x) + \int_{B_r(0)} \left( \frac{1}{|x|^{n-2}} - \frac{1}{r^{n-2}}\right) f dx  $$
 \newpage
 \begin{problem}
 \end{problem}
 \newpage
 \begin{problem}
 \end{problem}
+We first claim that $D(\eta u)$ exists. For any $\varphi \in C_c^\infty(\Omega)$, the following is true: 
+$$\int u \cdot D(\varphi \cdot \eta) = - \int \varphi \cdot \eta \cdot Du.$$
+Since on smooth functions, the weak derivative agrees with the usual derivative, we have that $$\int u \cdot D(\varphi \cdot \eta) = \int u \left(\eta D\varphi + \varphi D \eta\right).$$
+Rearranging the first equation we get that 
+$$\int \eta u \cdot D\varphi = - \int\varphi \left( \eta Du + u D \eta \right).$$
+This is exactly the definition of $D(\eta u)$. We now claim that $\eta u \in W^{1,p}(\Omega)$.
+The weak derivative exists by the above computation. It remains to show that it belongs to $L^p(\Omega)$. First we have that $\eta u$ belongs to $L^p(\Omega)$ for all $\eta \in C_c^\infty(\Omega)$, since $\eta$ is bounded above by some constant and $u\in L^p(\Omega)$. We have that $\eta Du, u D\eta\in L^p(\Omega)$ for the same reason. Their sum also belongs to $L^p(\Omega)$, so $D(\eta u)\in L^p(\Omega)$. 
 \newpage
 \begin{problem}
 \end{problem}
