@@ -99,6 +99,7 @@ bmargin=0.5in]{geometry}
 % bracketting shortcuts
 %====================================================================%
 \newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\ssubset}{\subset\joinrel\subset}
 \newcommand{\babs}[1]{\Big|#1\Big|}
 \newcommand{\bound}{\Big|}
 \newcommand{\BB}[1]{\left(#1\right)}
@@ -218,6 +219,9 @@ Since this holds for all $\ep>0$ we have that
 $$u(x) \leq \sup_{|x| = 1} u(x).$$
 The point at which $u(x)$ attains its supremum has norm 1, and thus is in the interiour of the domain of $u$. Therefore $u$ is constant on every compact set containing $S^1$. Since $\R^2$ is connected it follows that $u$ is constant. 
 \item 
+Let $f$ be a smooth function so that $\int_{\R^3} f =1$, $0 \leq f \leq 1$ and $\text{supp } f \subset \subset B_1(0)$. Then we have that $u(x) = \int_{\R^3} \frac{f(y)}{|x-y|} dy$ is subharmonic, since $\Delta u = f$ i.e. since we are convoluting with the fundamental solution of Laplac's equation. We have that $u$ is bounded as well since 
+$$|u(x)| \leq \int_{\R^3} \frac{|f(y)|}{|x-y|} dy \leq \int_{B_1(0)} \frac{1}{|x|} dy \leq C. $$
+The reason this works in $\R^3$ is that the fundamental solution to the laplace equation for $\R^n$ when $n=2$ is logarithm, which has a singularity at $0$ but also tends to infinity as $|x|\to \infty$. For $n=2$ this issue does not happen since the fundamental solutions look like $\frac{1}{|x|^{n-2}}$, which are bounded as $|x| \to \infty$. 
 \epenum
 \newpage
 \begin{problem}
@@ -232,12 +236,28 @@ The weak derivative exists by the above computation. It remains to show that it 
 \newpage
 \begin{problem}
 \end{problem}
+First consider the function $P(x) e^{-x}$. We claim that $\lim_{x\to \infty} P(x)e^{-x} =0 $. It is sufficient to show this is true for $P(x) = x^n$. We proceed by induction. When $n=1$ we have that by L'Hopitals rule, 
+$$\lim_{x\to \infty} xe^{-x} = \lim_{x \to \infty} e^{-x} = 0.$$
+Suppose that this result holds for $n$. Using L'Hopitals rule and induction hypothesis:
+$$\lim_{x \to \infty} x^{n+1}e^{-x} = \lim_{x\to \infty} (n+1)x^n e^{-x} = 0. $$
+We can extend to any polynomial by linearity of limits. 
+Now consider the function $\eta(x)$ as defined. We must show that as $\lim_{|x|\to 1^-} D^{\alpha}e^{\frac{1}{|x|^2-1}} = 0$, for any multi-index $\alpha$. We perform a change of variables within the limit. Set $y = \frac{1}{|x|^2-1}$ so that the limit becomes $\lim_{y \to \infty} D^\alpha e^{-y}$. For any $\alpha$, $D^\alpha e^{-y} = P(y)e^{-y}$ by iterating the product rule for some polynomial $P(y)$. The limit is $0$ by above. 
 \newpage
 \begin{problem}
 \end{problem}
+Define $p(x)$ as in problem $6$, normalized so that $\int_{B_1(0)} p(x) = 1$. 
+For $\ep>0$ define $p_\ep(x) = \frac{1}{\ep^n}p\left(\frac{x}{\ep}\right)$. By change of variables, we have that $\int_{B_\ep(0)} p_\ep(x) = 1$. 
+Given $U \ssubset V$ we can find a set $W$ so that $U \ssubset W \ssubset V$, using topological properties of $\R^n$. Let $\chi_W$ be the indicator function of $W$. Define $\eta(x) = \chi_W \ast p_\ep(x)$ for $\ep < \min \{d(V, \bd W), d(W, \bd U)\}$. This function will be smooth since $p$ is. It remains to show it is $1$ on $V$ and $0$ on $U^c$. For $x\in V$, 
+$$\eta(x) = \int_{\R^n} \chi_W (y) \cdot p_\ep(x-y) dy = \int_{B_\ep(x)} p_\ep (y) dy =1.$$
+Where we use the fact that $\chi_W$ is $1$ on $B_\ep(x)$, and $p_\ep$ vanishes outside of this ball. Our choice of $\ep$ ensures that such ball will be contained in $W$. Now suppose that $x\in U^c$. Then
+$$\eta(x) = \int_{\R^n} \chi_W \cdot p_\ep(x-y) dy = 0$$
+Since the support of $p$ is disjoint from $W$, by our choice of $\ep$. 
 \newpage
 \begin{problem}
 \end{problem}
+We first claim that given an open cover $\{V_i\}_{\{1,2 \dots , n\}}$, we can refine to another open cover $\{V_i^\prime\}$ so that $V_i^\prime \subset V_i$. We define $C_1 = V_1 \setminus \{V_2 \cup V_3 \dots \cup V_n\}$, $C_2 = V_2 \setminus\{C_1 \cup V_3 \dots \cup V_n\}$ and so on. 
+For each $i$ , $C_i \ssubset V_i$ since $C_i$ is closed in $V_i$. We take $V_i^\prime$ to be so that $C_i \ssubset V_i^\prime \ssubset V_i$. We claim that $\{V_i\}$ is an open cover of $U$. For any $x\in U$ there is a maximal $k$ so that $x\in V_k$. By the construction of the $V_i^\prime$'s we have that $x\in V_1^\prime \cup \dots V_k^\prime$.
+Hence they form an open cover. Take $\psi_i$ according to problem 7 so that $\psi_i\equiv 1$ on $V_i^\prime$ and $\psi_i \equiv 0$ on $V_i^c$. 
 \newpage
 \begin{problem}
 \end{problem}
