@@ -181,6 +181,15 @@ If $u$ is constant then the result is true for $C=1$. Suppose now that $u$ is no
 \newpage
 \begin{problem}
 \end{problem}
+Define the coordinate system $y = Ax$. We have that $y_i = \sum_j a_{ij}x_j$ and by orthogonality $x_i = \sum_{j} a_{ji}y_j$. We can write the Laplacian in the $x$ coordinates as: 
+$$\Delta_x u = \sum_{i ,j} \delta_{ij} \partial_{ij}u.$$
+Using the chain rule, we compute that 
+$$\partial_{x_i} u = \sum_k \partial_{y_k}u \frac{\partial y_k}{\partial x_i} = \sum_k \partial_{y_k} a_{ki}u.$$
+We can therefore write the Laplacian as: 
+$$\Delta_x u = \sum_{i,j,k , l} \delta_{ij} a_{ki}a_{lj} \partial_{y_l y_k} u = \sum_{k, l} \partial_{y_l y_k} \left[ \sum_{i,j}\delta_{ij} a_{ki}a_{lj} \right]u.$$
+Since $A$ is an orthogonal matrix, $\sum_{i,j}\delta_{ij} a_{ki}a_{lj}$ must be $\delta_{kl}.$
+We conclude
+$$f(x) = \Delta_x u = \sum_{k,l} \partial_{y_k,y_l}u = \Delta_y u = f(y) = f(Ax).$$
 \newpage
 \begin{problem}
 \end{problem}
@@ -257,7 +266,7 @@ Since the support of $p$ is disjoint from $W$, by our choice of $\ep$.
 \end{problem}
 We first claim that given an open cover $\{V_i\}_{\{1,2 \dots , n\}}$, we can refine to another open cover $\{V_i^\prime\}$ so that $V_i^\prime \subset V_i$. We define $C_1 = V_1 \setminus \{V_2 \cup V_3 \dots \cup V_n\}$, $C_2 = V_2 \setminus\{C_1 \cup V_3 \dots \cup V_n\}$ and so on. 
 For each $i$ , $C_i \ssubset V_i$ since $C_i$ is closed in $V_i$. We take $V_i^\prime$ to be so that $C_i \ssubset V_i^\prime \ssubset V_i$. We claim that $\{V_i\}$ is an open cover of $U$. For any $x\in U$ there is a maximal $k$ so that $x\in V_k$. By the construction of the $V_i^\prime$'s we have that $x\in V_1^\prime \cup \dots V_k^\prime$.
-Hence they form an open cover. Take $\psi_i$ according to problem 7 so that $\psi_i\equiv 1$ on $V_i^\prime$ and $\psi_i \equiv 0$ on $V_i^c$. 
+Hence they form an open cover. Take $\psi_i$ according to problem 7 so that $\psi_i\equiv 1$ on $V_i^\prime$ and $\psi_i \equiv 0$ on $V_i^c$. Since $V_i^\prime$ forms an open cover, at any $x$ at least one $\psi_i$ will be nonzero. We define $\eta_i = \frac{\psi_i(x)}{\sum_{i=1}^n \psi_i(x)}$. This is a quotient of smooth functions, and the denominator is non-vanishing. Therefore it is smooth. Furthermore, $\text{supp } \eta_i \subset V_i$ by construction and $\sum_{i} \eta_i = 1$. 
 \newpage
 \begin{problem}
 \end{problem}
