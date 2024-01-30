@@ -21,7 +21,7 @@ bmargin=0.5in]{geometry}
 %-------- sexy font ------------%
 %\usepackage{libertine}
 %\usepackage{libertinust1math}
-
+ 
 %\usepackage{mlmodern}				% very nice and classic
 %\usepackage[utopia]{mathdesign}
 %\usepackage[T1]{fontenc}
@@ -212,7 +212,11 @@ $$\int_{B_r(0)} u \cdot \Delta \frac{1}{|x|^{n-2}} = \frac{(2-n)}{|r|^{n-1}} \oi
 By the Divergence theorem we can simplify the last integral as:
 $$\oint_{\bd B_r(0)} \grad u \cdot \frac{1}{|x|^{n-2}} = \oint_{\bd B_r(0)} \frac{\grad u}{r^{n-2}} = \int_{B_r(0)} \frac{f}{|r|^{n-2}} $$
 Since $\Delta \frac{1}{|x|^{n-2}}= \omega_n n(2-n)\delta_0$ we get that:
-$$\omega_n n(2-n) u(0) = \frac{(2-n)}{r^{n-1}} \oint_{\bd B_r(0)}g(x)d\sigma(x) + \int_{B_r(0)} \left( \frac{1}{|x|^{n-2}} - \frac{1}{r^{n-2}}\right) f dx  $$
+$$\omega_n n(2-n) u(0) = \frac{(2-n)}{r^{n-1}} \oint_{\bd B_r(0)}g(x)d\sigma(x) + \int_{B_r(0)} \left( \frac{1}{|x|^{n-2}} - \frac{1}{r^{n-2}}\right) f dx.$$
+Dividing gives us: 
+$$u(0) = \frac{1}{n \omega_n r^{n-1}} \oint_{\bd B_r(0)} g(x)d \sigma(x) + \frac{1}{n(n-2)\omega_n} \int_{B_r(0)} \left( \frac{1}{r^{n-2}} - \frac{1}{|x|^{n-2}} \right) f(x)dx.$$
+It remains to show that the application of the divergence theorem is legitimate. 
+We have that $$\int_{B_r(0)} \Delta \left(\frac{u}{|x|^{n-2}}\right)$$
 \newpage
 \begin{problem}
 \end{problem}
