@@ -177,7 +177,11 @@ bmargin=0.5in]{geometry}
 
 \begin{problem}
 \end{problem}
-If $u$ is constant then the result is true for $C=1$. Suppose now that $u$ is not constant. Consider the case where $\Omega  = B_1(0)$ and $\Omega^\prime = B_r(0)$, where $r<1$.  
+Choose $c < d(\Omega^\prime, \bd \Omega)$ so that $B_c(x) \subset \Omega$ for $x\in \Omega^\prime$. For any $x,y \in \Omega^\prime$ with $|x-y|< \frac{c}{2}$ we observe that
+$$u(y) = \frac{1}{c^n \omega_n} \int_{B_c(y)} u(s)ds \geq \frac{1}{c^n \omega_n} \int_{B_{c/2}(x)} u(y)dy = 2^{-n}u(x).$$
+Where the first equality comes from the mean value property, the second is since $|x-y|< \frac{c}{2}$, and the last follows from the triangle inequality. Therefore we have that $u(x) \leq 2^n u(y)$.
+Now take $N> \frac{diam(\Omega^\prime)}{c}$. 
+Any $x,y\in \Omega^\prime $ can be connected by at most $N$ balls where each ball intersects the next. We apply the above estimate repeatedly along each ball and get that $u(x) \leq2^{nN}u(y)$. 
 \newpage
 \begin{problem}
 \end{problem}
@@ -193,30 +197,19 @@ $$f(x) = \Delta_x u = \sum_{k,l} \partial_{y_k,y_l}u = \Delta_y u = f(y) = f(Ax)
 \newpage
 \begin{problem}
 \end{problem}
-Recall the the product rule for the laplacian: 
-$$\Delta(uv) = v \Delta u + 2\grad u \cdot \grad v + u \Delta v,$$
-And Green's first identity:
-$$\int_{B_r(0)} \grad \psi \cdot \grad \varphi = \oint_{\bd B_r(0)} \psi \grad \varphi - \int_{B_r(0)} \psi \Delta \varphi.$$
-We integrate the product rule for $v= \frac{1}{|x|^{n-2}}$, and apply Green's first identity to get:
-$$\int_{B_r(0)}\Delta \left( \frac{u}{|x|^{n-2}} \right) = \int_{B_r(0)} \frac{\Delta u}{|x|^{n-2}}  + 2 \left( \oint_{\bd B_r(0)} u \cdot \grad \frac{1}{|x|^{n-2}} - \int_{B_r(0)}u \cdot \Delta \frac{1}{|x|^{n-2}}\right) + \int_{B_r(0)} u \cdot \Delta \frac{1}{|x|^{n-2}}.$$
-We apply the Divergence theorem to the lefthand side: 
-$$\int_{B_r(0)}\Delta \left( \frac{u}{|x|^{n-2}} \right) = \oint_{\bd B_r(0)} \grad\left(\frac{u}{|x|^{n-2}}\right) = \oint_{\bd B_r(0)} \frac{1}{|x|^{n-2}} \grad u + \oint_{\bd B_r(0)}u \grad \frac{1}{|x|^{n-2}}.$$
-We have that:
-$$\grad \frac{1}{|x|^{n-2}} = \frac{(2-n)}{|x|^{n}} x.$$
-Therefore we can write the lefthand side as: 
-$$\oint_{\bd B_r(0)} \frac{1}{|x|^{n-2}} \grad u  + \oint_{\bd B_r(0)} g(x) \frac{(2-n)}{|x|^n}x \cdot x d\sigma(x) =\oint_{\bd B_r(0)}\frac{1}{|x|^{n-2}} \grad u + \frac{(2-n)}{|r|^{n-1}} \oint_{\bd B_r(0)} g(x) d\sigma(x).$$
-Now on the righthand side, we have:
-$$\int_{B_r(0)} \frac{f}{|x|^{n-2}} + 2 \frac{(2-n)}{|r|^{n-1}} \oint_{\bd B_r(0)} g(x) d\sigma(x) - \int_{B_r(0)} u \cdot \Delta \frac{1}{|x|^{n-2}} .$$
-Equality of both of these gives us that:
-$$\int_{B_r(0)} u \cdot \Delta \frac{1}{|x|^{n-2}} = \frac{(2-n)}{|r|^{n-1}} \oint_{\bd B_r(0)} g(x) d\sigma(x) + \int_{B_r(0)} \frac{f}{|x|^{n-2}} - \oint_{\bd B_r(0)} \grad u \cdot \frac{1}{|x|^{n-2}}.$$
-By the Divergence theorem we can simplify the last integral as:
-$$\oint_{\bd B_r(0)} \grad u \cdot \frac{1}{|x|^{n-2}} = \oint_{\bd B_r(0)} \frac{\grad u}{r^{n-2}} = \int_{B_r(0)} \frac{f}{|r|^{n-2}} $$
-Since $\Delta \frac{1}{|x|^{n-2}}= \omega_n n(2-n)\delta_0$ we get that:
-$$\omega_n n(2-n) u(0) = \frac{(2-n)}{r^{n-1}} \oint_{\bd B_r(0)}g(x)d\sigma(x) + \int_{B_r(0)} \left( \frac{1}{|x|^{n-2}} - \frac{1}{r^{n-2}}\right) f dx.$$
-Dividing gives us: 
-$$u(0) = \frac{1}{n \omega_n r^{n-1}} \oint_{\bd B_r(0)} g(x)d \sigma(x) + \frac{1}{n(n-2)\omega_n} \int_{B_r(0)} \left( \frac{1}{r^{n-2}} - \frac{1}{|x|^{n-2}} \right) f(x)dx.$$
-It remains to show that the application of the divergence theorem is legitimate. 
-We have that $$\int_{B_r(0)} \Delta \left(\frac{u}{|x|^{n-2}}\right)$$
+Define $$\varphi(r) = \frac{1}{n \omega_n r^{n-1}}\int_{\bd B_r(0)} u(x) d\sigma(x) + \frac{1}{n(n-2)\omega_n} \int_{B_r(0)} \left( \frac{1}{r^{n-2}} - \frac{1}{|x|^{n-2}}\right) f dx.$$
+Our goal is to compute $\varphi^\prime(r)$. We first perform a change of variables on the first term so that we are integrating over $B_1(0)$. We rewrite $\varphi(r)$ as: 
+$$\varphi(r) = \frac{1}{n\omega} \int_{\bd B_1(0)}u(rx) d \sigma(x) + \frac{1}{n(n-2)\omega_n} \int_{B_1(0)} r^n\left( \frac{1}{r^{n-2}} - \frac{1}{|x|^{n-2}}\right) f(rx)dx.$$
+The first term gets evaluated to $\frac{1}{n\omega_n}\int_{B_1(0)}f dx$ by an idential computation done in class, with $\Delta u = f$ in place of $u$ being harmonic. For the second term, we rewrite it in the following way: 
+	$$\frac{1}{n(n-2)\omega_n} \int_{B_r(0)} \left( \frac{1}{r^{n-2}} - \frac{1}{|x|^{n-2}}\right) f dx  =\frac{1}{n(n-2)\omega_n} \int_0^r \int_{S_z^{n-1}}  \left( \frac{1}{r^{n-2}} - \frac{1}{|z|^{n-2}}\right)f(z) d\sigma(z) dr.$$
+Differentiating with respect to $r$ , we get
+\begin{align*}
+\frac{d}{dr}\left(\frac{1}{n(n-2)\omega_n} \int_0^r \int_{S_z^{n-1}}  \left( \frac{1}{r^{n-2}} - \frac{1}{|z|^{n-2}}\right)f(x) d\sigma(z) dr \right)
+&= \frac{-1}{n\omega_n} \left(\int_{S_r^{n-1}} \dots  - \lim_{\ep \to 0} \int_{S_\ep^{n-1}} \dots  \right)
+\\ & = \frac{-1}{n\omega_n} \lim_{\ep \to 0} \int_{S_\ep^{n-1}} \left( \frac{1}{r^{n-2}} - \frac{1}{|z|^{n-2}}\right)f(z) d\sigma(z)
+\\ & = \frac{-1}{n\omega_n} \int_{B_1(0)} f(x)dx \tag{FTC}
+\end{align*}
+The sum of these is $0$ therefore $\varphi$ is constant. Note that as $r\to 0$, the second integral goes to $0$ since the measure goes to $0$ and the first goes to $u(0)$ since $u$ is continuous. Therefore $\varphi(r) = u(0)$. 
 \newpage
 \begin{problem}
 \end{problem}
@@ -245,7 +238,15 @@ Since on smooth functions, the weak derivative agrees with the usual derivative,
 Rearranging the first equation we get that 
 $$\int \eta u \cdot D\varphi = - \int\varphi \left( \eta Du + u D \eta \right).$$
 This is exactly the definition of $D(\eta u)$. We now claim that $\eta u \in W^{1,p}(\Omega)$.
-The weak derivative exists by the above computation. It remains to show that it belongs to $L^p(\Omega)$. First we have that $\eta u$ belongs to $L^p(\Omega)$ for all $\eta \in C_c^\infty(\Omega)$, since $\eta$ is bounded above by some constant and $u\in L^p(\Omega)$. We have that $\eta Du, u D\eta\in L^p(\Omega)$ for the same reason. Their sum also belongs to $L^p(\Omega)$, so $D(\eta u)\in L^p(\Omega)$. 
+The weak derivative exists by the above computation. It remains to show that it belongs to $L^p(\Omega)$. First we have that $\eta u$ belongs to $L^p(\Omega)$ for all $\eta \in C_c^\infty(\Omega)$, since $\eta$ is bounded above by some constant and $u\in L^p(\Omega)$. We have that $\eta Du, u D\eta\in L^p(\Omega)$ for the same reason. Their sum also belongs to $L^p(\Omega)$, so $D(\eta u)\in L^p(\Omega)$. This result also holds for $\eta \in W^{1,p}(\Omega)$. Take a sequence $\eta_n$ in $C^\infty_c(\Omega)$ so that $\eta_n \to \eta$. Then for all $n$ we have that 
+$$D(\eta_n u) = \eta_n Du + u D \eta_n.$$
+We have that $\eta_n Du \to \eta Du$. It remains to show that $u D\eta_n \to u D\eta$. For all $\varphi \in C_c^\infty$ we have that
+$$\int \eta_n D\varphi = -\int \varphi D\eta_n$$
+and $$\int \eta D\varphi = -\int f \varphi$$
+ for some $f$. Taking the difference of these we get
+ $$\int (\eta_n - \eta) D\phi = -\int(f- D\eta_n) \varphi.$$
+ Taking the limit as $n\to \infty$ we get that the lefthand side goes to $0$. So $f = D\eta$. 
+ Therefore $$D(\eta u) = \eta Du + u D\eta.$$ 
 \newpage
 \begin{problem}
 \end{problem}
@@ -274,6 +275,15 @@ Hence they form an open cover. Take $\psi_i$ according to problem 7 so that $\ps
 \newpage
 \begin{problem}
 \end{problem}
+\penum
+\item 
+It is sufficient to prove this theorem in the following form:
+$$|u(x+h) - u(x)| \leq |h|^{1 - \frac{1}{p}} \left(\int_{-1}^1 \left|\frac{du}{dx}\right|^p dx\right)^{\frac{1}{p}}.$$
+Using the fundamental theorem of calculus and H\"olders Inequality to see that: 
+$$|u(x+h) - u(x)| = \left|\int_{-1}^1 \frac{d}{dt}u \left(x + \frac{h}{2} + t \frac{h}{2} dt \right) \right| = \left|\int_{-1}^1 \frac{h}{2} u^\prime dt\right| \leq |h|^{\frac{1}{q}} \left|\int_{-1}^1 \left|\frac{du}{dx}\right|^p dx\right|^{\frac{1}{p}}$$
+\item We claim that $f(x) = |x|^{1- \frac{1}{p}}$ is not in $W^{1,p}(-1,1)$. It has a weak derivative of $f^\prime(x) = (1-\frac{1}{p})|x|^{-\frac{1}{p}} $. This has a infinite $L^p$ norm : 
+$$\int_{-1}^1 f^\prime(x)^p dx = \int_{-1}^1 (1-\frac{1}{p})^p|x|^{-1}dx  = \infty.$$
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
