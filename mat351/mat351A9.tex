@@ -176,22 +176,109 @@ bmargin=0.5in]{geometry}
 
 \begin{problem}
 \end{problem}
+Consider a general polynomial $u(x,y) = a(x^2 - y^2)  + bx + cy + dxy$. This will be harmonic since it is the sum of harmonic polynomials. 
+We require that $u$ must satisfy the boundary conditions, so: 
+\begin{align*}
+	u_x(0,y) &= b-dy = -1
+	\\ u_x(1,y) & = 2a+b+dy = 0
+	\\ u_y(x,0) & = c+dx = 2
+	\\ u_y(x,2) & = -4a + c + dx = 0
+\end{align*}
+Since we require all the equations above to hold for each $x,y$ we have that $a = \frac{1}{2}, b = -1 , c = 2, d = 0$. Therefore $$u(x,y) = \frac{1}{2}(x^2-y^2) - x +2y.$$
+We also have the freedom of choosing some constant $e$, since $u(x,y) + e$ will also solve the boundary value problem for the same boundary conditions. 
 \newpage
 \begin{problem}
 \end{problem}
+We wish to solve the following boundary value problem  on $I = [0,1] \times [0,1]$: 
+$$\begin{cases}
+	\Delta u & = 0 \\
+	u(x,0) & = x  \text{ (i)}\\
+	u(x,1) & = 0 \text{ (ii)} \\
+	u_x(0,y) & = 0 \text{ (iii)}\\
+	u_x(1,y) & =y^2 \text{ (iv)}
+\end{cases}$$
+We can solve this by homogenizing all but one of the boundary conditions, and solving the corresponding problem using separation of variables, then adding together the solutions. Let $u_1$ be the harmonic solution with $(ii), (iii), (iv)$ homogenized, $u_2$ be the solution with $(i) , (ii), (iii)$ homogenized. Their sum $u_1 + u_2$ will be harmonic, and satisfy the desired boundary conditions $u$ should satisfy. We first solve for $u_1(x,y)$. 
+We separate variables and apply the PDE. Set $u_1(x,y) = X(x)Y(y)$. 
+$$\Delta u_1 = 0 \implies \frac{X''(x)}{X(x)} = - \frac{Y''(y)}{Y(y)} = -\lambda^2.$$
+The general solution will take the form of $$X(x) = A\sin (\lambda x) + B \cos (\lambda x), \quad Y(y ) = C \sinh (\lambda y) + D \cosh (\lambda y). $$
+We have that $X^\prime(0) = X^\prime(1) = 0$. The first condition tells us that $A=0$. The second condition gives us that $\sin(\lambda) = 0$, so $\lambda = n\pi$ for $n\in \Z$. 
+So $X(x) = B_n \sin(n\pi x)$. We can therefore write 
+$$u_1(x,y) = \left[A_n \sinh (n\pi y) + B_n \cosh(n\pi y)\right] \sin (n\pi x).$$ 
+We wish to determine the coefficients $A_n,B_n$.
+We write $$u_1(x,y) = \sum_{n=1}^\infty \left[A_n \sinh (n\pi y) + B_n \cosh(n\pi y)\right] \sin (n\pi x).$$ 
+At $y=0$ we impose that 
+$$x = u_1(x,0) = \sum_{n=1}^\infty B_n \cosh(n\pi y) \sin (n\pi x).$$
+The usual orthogonality argument tells us that 
+$$B_n = 2 \int_0^1 x \sin n\pi x dx = \frac{(-1)^n}{\pi n}. $$
+Finally, since $Y(1) = 0 $ we have that $$A_n = - B_n \frac{\cosh n\pi}{\sinh n\pi }.$$
+Therefore $$u_1(x,y) = \sum_{n=1}^\infty \frac{(-1)^n}{\pi n} \left[ \frac{\cosh n\pi}{\sinh n \pi } \sinh n\pi y + \cosh n\pi y\right] \sin n\pi x.$$
+We now solve for $u_2(x,y)$. With a similar setup, harmonicity gives us:
+$$\frac{X''(x)}{X(x)} = - \frac{Y''(y)}{Y(y)} = \lambda^2.$$
+The general solutions will be of the form $$X(x) = A \sinh \lambda x + B \cosh \lambda x, \quad Y(y)= C \sin \lambda y + D \cos \lambda y. $$
+Boundary conditions on $Y$ give us that $Y(1)=Y(0) = 0$. Therefore $D = 0$, and $\lambda= n\pi$. The conditions on $X$ give us that $X^\prime(0) =0$, so $A = 0$. The final boundary condition gives us that 
+$$y^2 = u_x(1,y) = \sum_{n=1}^\infty n\pi B_n \sinh n\pi  \sin n\pi y.$$
+By orthogonality, we can write $$B_n = \frac{2}{n\pi \sinh n \pi } \int_0^1 y^2 \sin(n\pi y) dy.$$
+Computing this integral, we get that $$B_n = \frac{1}{n\pi \sinh n\pi} \left( \frac{2(-1)^n - 2}{\pi^3 n^3} - \frac{(-1)^n}{\pi n }\right).$$
+Therefore $$u_2(x,y) = \sum_{i=1}^n \frac{1}{n\pi \sinh n\pi} \left( \frac{2(-1)^n - 2}{\pi^3 n^3} - \frac{(-1)^n}{\pi n }\right) \cosh n\pi x \sin n\pi y.$$
+The superposition of $u_1,u_2$ will solve the desired problem by linearity. So $u(x,y)= u_1(x,y) + u_2(x,y)$ is our solution. 
 \newpage
 \begin{problem}
 \end{problem}
+\penum
+\item Since $u$ is harmonic its maximum will be attained on the boundary i.e. when $r = 2$. Since $$u|_{\bd D} = 3 \sin 2\theta +1,$$ and sin attains a maximum of $1$ at $\theta = \frac{\pi}{2} $, $u|_{\bd D}$ attains its maximum at $\theta = \frac{\pi}{4}$. The maximum value will thus be $4$. 
+\item $u$ is harmonic so we apply the mean value property along $\bd D$. 
+$$u(0) = \frac{1}{4\pi} \int_{|x| = 2} 3\sin 2\theta + 1 ds = \frac{1}{4\pi}\left(\theta -\frac{3}{2} \cos (2\theta) \right)\Big|_0^{2\pi} = \frac{1}{2}.$$
+Thus $u(0) = \frac{1}{2}$. 
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
-\newpage
-\begin{problem}
-\end{problem}
-\newpage
-\begin{problem}
-\end{problem}
-\newpage
+We wish to solve 
+$$\begin{cases}
+	\Delta u & = 0\\
+	u|_{\bd d} &= \sin^3 \theta
+\end{cases}$$
+On the disk of radius $a$. Note that we can rewrite the boundary condition in the following way: 
+\begin{align*}\sin(3\theta) &= \sin(\theta + 2\theta) 
+	 \\& = \sin \theta \cos 2\theta + \cos \theta + \sin 2\theta \tag{angle duplication identity}
+	 \\ & = \sin \theta \left(\cos^2  \theta - \sin^2 \theta \right) + \cos \theta \cdot 2 \sin \theta \cos \theta
+	 \\ & = \sin \theta - 2\sin^3 \theta + 2\sin \theta - 2\sin^3 \theta \tag{pythagoras'   theorem}
+	 \\ & = 3\sin \theta - 4 \sin^3 \theta
+\end{align*}
+Thus we can rewrite the boundary condition as $$\sin^3 \theta = \frac{3}{4}\sin \theta - \frac{1}{4} \sin 3 \theta.$$
+Recall that the (bounded) harmonic functions on the disk take the form of
+$$h(r, \theta) = \sum_{n=1}^\infty  r^n \left(A_n \cos n\theta + B_n \sin n\theta \right).$$
+For boundary conditions to agree, we need that $u(a,\theta) = \frac{3}{4}\sin \theta - \frac{1}{4} \sin 3 \theta= h(a, \theta)$. Since $\sin n\theta, \cos n\theta$ form a basis, we must have that $A_n = 0$ for all $n$ and $B_n$ is nonzero only at $n=1,3$. Matching coefficients, we see that 
+$$a B_1 \sin \theta = \frac{3}{4} \sin \theta, \quad  a^3 B_3 \sin 3\theta = -\frac{1}{4} \sin 3\theta.$$
+Therefore $B_1= \frac{3}{4a}, B_3 = \frac{-1}{4a^3}$. 
 
-
+\newpage
+\begin{problem}
+\end{problem}
+\penum
+\item Say that $D = \{x: |x|<R\}$. Given any smooth solution $u$ to the Poisson problem on $\R^2 \setminus D$, we can construct a family of solution as follows: Define $$u_C(x,y) = u(x) + C(\log|(x,y)|- \log|R|).$$
+By construction, the logarithm terms will vanish on the boundary i.e. when $|x| = R$, and $u_C = u = g$ on this set. Furthermore, $\log$ is harmonic away from $0$ so $\Delta u = \Delta u_C$. We can choose any $C$ and this will hold. Therefore solutions to the Poisson equation are not unique on this domain. This does not violate the maximum principle, since it assumes the domain is compact. The domain in this question is not compact. 
+\item Define the domain $D_R = \Omega \cap B_R(0)$, for $R$ at least large enough so that $D_R$ is nonempty. Then by the maximum principle, $u$ is bounded by its values on the boundary: 
+$$\sup_{D_R}u \leq \max \{\sup_{\bd \Omega} u , \sup_{|x| = R} u\}.$$
+This is true for all sufficiently large $R$. Note that as we let $R\to \infty$, $\sup_{|x| = R} u \to 0$ and $D_R \to \Omega$. So we have that $$\sup_{\Omega} \leq \sup_{\bd \Omega} u \leq 0.$$
+So $u\leq 0$ on $\Omega$. 
+\item 
+Suppose we have $u_1,u_2$ satisfying:
+$$\begin{cases}
+\Delta u_i = f & \text{ on int $\Omega$}
+\\ u_i|_{\bd \Omega} = g 
+\\ u_i(x) \to u_\infty & \text{ as $|x|\to \infty$} 
+\end{cases}$$
+It follows that their difference $u_1 - u_2$ is harmonic on $\Omega$, $u_1 - u_2 \leq0$ on $\bd \Omega$, and $u_1 - u_2 \to 0$ as $|x| \to \infty$. Therefore $u_1- u_2 \leq 0$ on $\Omega$. We apply the exact same argument to $u_2 - u_1$ and conclude that $u_2 - u_1 \leq 0$. Therefore $u_1 = u_2$ on $\Omega$. 
+\epenum
+\newpage
+\begin{problem}
+\end{problem}
+Recall the mean value of harmonic functions: 
+$$u(x) = \frac{1}{\pi r^2} \int_{B_r(x)} u(z)dz.$$
+Suppose that $u$ is a non constant harmonic function in $L^2(\R^2)$. Then on any ball of radius $r$, by Cauchy-Schwartz applied to $f= u(z), g = 1$
+$$\frac{1}{\pi r^2}\left( \int_{B_r(x)} u(z)dz\right)^2 \leq \int_{B_r(x)} u^2(z)dz.$$
+By the mean value property, $\left( \int_{B_r(x)} u(z)dz\right)^2 = \pi^2 r^4 u^2(x).$ Thus
+$$\pi r^2 u(x)^2 \leq \int_{B_r(x)} u^2(z)dz.$$
+Taking the limit as $r\to \infty$, the right hand side goes to $\norm{u}^2_{L^2}$, and the left hand side becomes unbounded. Thus $u$ cannot be in $L^2$ unless $u$ is identically $0$. 
 \end{document}
