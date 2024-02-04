@@ -176,28 +176,146 @@ bmargin=0.5in]{geometry}
 
 \begin{problem}
 \end{problem}
+Using the second order mean value theorem for any feasible direction $v$ and for some $\theta \in(0,1)$ we have that 
+$$f(x_0 + v ) = f(x_0) + \grad f(x_0)\cdot v + \frac{1}{2} v \cdot \grad^2 f(x_0 + \theta v)\cdot v.$$
+Since $f$ and the domain are convex, we have that $ \grad^2 f(x_0 + \theta v )$ is positive definite. Thus $\grad^2 f(x_0 + \theta v)\cdot v \geq 0$. By assumption we have that $\grad f(x_0)\cdot v \geq 0$. Therefore $f(x_0 + v) \geq f(x_0)$ in any feasible direction $v$. Since $C$ is convex we can write any $y\in C$ as $x+v$ for some feasible direction $v$.  
 \newpage
 \begin{problem}
 \end{problem}
+\penum 
+\item We rewrite $f$ as :$$f(x) = \frac{1}{2} \norm{Ax - b}^2 =  \frac{1}{2} \inn{Ax - b, Ax - b}= \frac{1}{2} \left(x \cdot A^T A\cdot  x - 2x \cdot A^T b + \norm{b}^2 	\right).$$
+By $A1Q4$, we know that the gradient must be: 
+$$\grad f(x) = \frac{1}{2} \left( (A^TA + (A^TA)^T)x - A^Tb \right) = A^TAx - A^Tb.$$
+We now compute the Hessian, $H(f)$. We compute the $ij'th$ entry as: 
+$$\frac{\partial}{\partial x_j}\grad f(x)_i = \frac{\partial}{\partial x_j }(A^T Ax)_i = (A^TA)_{ij}.$$
+Where we use linearity of $A^TA$ in the final step. The entries of $H(f) $ are $(A^TA)_{ij}$, so $H(f) = A^TA$. 
+\item 
+Since $A$ is of rank $n$, we have that $A^TA$ is $n \times n$ and of rank $n$ hence invertible. We verify that it is positive definite: 
+$$x \cdot A^T A x = (Ax)^T(Ax) = \norm{Ax}^2 \geq 0.$$
+Equality holds if and only if $x= 0$. 
+\item First order condition tells us that such a minimum must satisfy $$\grad f(x_0) = A^T A x_0  - A^T b = 0,$$
+since we are minimizing on an open set. Therefore the candiate minimizer must be $$x_0 = (A^T A)^{-1}A^T b.$$
+This will be unique, since $A^TA$ is rank $n$. 
+\item 
+We claim that $x_0$ as above is the unique global minimizer. By $b)$ we have that $f(x)$ is convex since $H(f)$ is strictly positive definite. Therefore $x_0$ satisfies the necessary and sufficient conditions of being a local minimum. We have that $\{x: f(x) = \min f\}$ is nonempty. Therefore $x_0$ is a global minimum. 
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
+Let $A,B \in Sym(\R^{n \times n})$. The following computation verifies that $\lambda_1$ is a concave function: 
+\begin{align*}
+\lambda_1(s A + (1-s) B) & = \min_{\norm{x} = 1} \{x^T (sA + (1-s) B)x\}
+\\ & = \min_{\norm{x} = 1}\{s x Ax + (1-s) xBx\}
+\\ & \geq \min_{\norm{x} = 1} \{s xA^Tx\} + \min_{\norm{x} = 1} \{(1-s) xBx\} \tag{since min of sum of sets is greater than sum of mins }
+\\ & = s\min_{\norm{x} = 1} \{ xA^Tx\} + (1-s)\min_{\norm{x} = 1} \{ xBx\} \tag{since $s,1-s >0$}
+\\ & = s \lambda_1(A) + (1-s)\lambda_1(B)
+\end{align*} 
+Therefore $\lambda_1$ is concave. For $\lambda_n$ we perform the exact same computation, except we use the fact that $\max{A+B} \leq \max {A} + \max{B}$ to obtain the convexity inequality. 
 \newpage
 \begin{problem}
 \end{problem}
+\penum 
+\item First suppose that $Q$ is of the form 
+$$Q = \bmat{a & 0 & 0 \\ 0 & b & 0 \\ 0 & 0 & c}$$ for $a,b,c>0$. We complete the square to write $g$ as:
+$$g(x)= (x-x^\ast) Q (x- x^\ast)  + \frac{1}{2}x^\ast Q x^\ast. $$
+It follows that the level sets of $g$ look like: 
+$$ (x-x^\ast) Q (x- x^\ast)  = C - \frac{1}{2}x^\ast Q x^\ast = K.$$
+We have that $K$ must be positive, since $C$ must be at least the minimum value of $g$ i.e. $c\geq \frac{1}{2}x^\ast Q x^\ast$. Since $Q$ is diagonal, the lefthand side can be computed as:
+$$a(x_1 - x^\ast_1)^2 + b(x_2 - x_2^\ast)^2 + c(x_3- x_3^\ast)^2 = K.$$
+Dividing both sides by $K$ yields: 
+$$\frac{a(x_1 - x^\ast_1)^2}{K} + \frac{b(x_2 - x_2^\ast)^2}{K} + \frac{c(x_3- x_3^\ast)^2}{K} = 1.$$
+This is exactly the formula for an ellipsoid. 
+\item 
+Define the function $h(s) = g(x_0 + sv)$. Then we have that $h^\prime(0) = \grad g(x_0) \cdot v$. By definition, we have that $$h^\prime ( 0 ) = \lim_{s\to 0^+} \frac{h(s) - h(0)}{s}.$$
+Since $h(0) =0$, for sufficiently small $s$ we have that $h(s) \leq 0$ since $v$ is feasible. Therefore $h^\prime(0) \leq 0$. 
+\item If $\grad g(x_0) <0$, we use the same argument as above. We obtain the bound 
+$$0> h^\prime(0)  = \lim_{s \to 0^+} \frac{h(s)}{s}.$$
+So for some sufficiently small $s$ we have that $h(s) \leq 0$ i.e. $v$ feasible. 
+\item 
+We cannot have that $\grad g(x_0)\cdot v = 0$ for $v$ feasible. If so, then by the second order mean value theorem: 
+$$g(x_0 + v) = g(x_0) + \grad g(x_0)\cdot v  + \frac{1}{2} v \cdot \grad^2 g(x_0 + \theta v) v=\frac{1}{2} v \cdot \grad^2 g(x_0 + \theta v) v >0,$$
+for some $\theta$. Since $\grad^2 g$ is strictly positive definite we get the above strict inequality. Thus $v$ cannot be feasible. 
+\item 
+We have shown above that the feasible directions at $x$ are exactly the vectors $v$ so that $\inn{\grad g(x) , v} <0$. We compute $\grad g(x_0) = \bmat{2x_1 &  2x_2 & 2x_3}$. We have that $\inn{x, v}<0$ when $x+v \in B_1(0)$. This is since 
+$$\inn{x+v,x+v} \leq 1 \implies 2 + 2\inn{x,v} \leq 1 \implies \inn{x,v} < 0.$$
+The other direction holds because of convexity of $g$. 
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
+\penum 
+\item let $x,y \in \R^n$. By convexity of $g$, we have that for any $s\in (0,1)$, 
+$$g(s x + (1-s)y) \leq sg(x) + (1-s)g(y). $$
+Since $f$ is increasing, we have
+$$f(g(s x + (1-s)y)) \leq f(sg(x) + (1-s)g(y)). $$
+By linearity of $f$, 
+$$f(sg(x) + (1-s)g(y)) = sf(g(x)) + (1-s)f(g(y)).$$
+Therefore $$f\circ g(sx + (1-s)y) s\leq f\circ g(x) + (1-s) f \circ g (y).$$
+So $f \circ g$ is convex. 
+\item Since $f$ is linear, and increasing it must take the form of $f(x) = rx$ for $r\geq 0$ i.e. multiplication by a positive scalar. We compute the entries of $H(F)$. 
+$$(H(F))_{ij} = \frac{\partial F}{\partial x_i \partial x_j } = \frac{\partial (r \cdot g)}{\partial x_i \partial x_j} = r \frac{\partial g}{\partial x_i \partial x_j}. $$
+Therefore the entries of $H(f)$ are given by $H(F)_{ij} = f(H(g)_{ij})$. We claim that $H(F)$ is positive definite. For any $v\in \R^n$ we have that 
+$$v \cdot H(F) \cdot v = v \cdot r H(g)\cdot v = r(v \cdot H(g) \cdot v) \geq 0,$$
+Where the last inequality follows from the fact that $g$ is convex and $C^2$, so it's Hessian must be positive definite and $r \geq 0$. 
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
+We have that $d(x,y) = \min_{(a,b) \in \bd S} \norm{(a,b) - (x,y)}$. Note that this does not depend on $x$. So we can write 
+$$d(x,y) = h(y) = \min_{y\in [3,6]} \{\sqrt{(y-6)^2} , \sqrt{(y-3)^2 }\} = \begin{cases}
+	y-3  & y\in[3,4.5]
+	\\ 6-y & y\in [4.5,6]
+\end{cases}.$$
+We claim that $h(y)$ is convex. Note that it is concave on both $[3,4.5]$ and $[4.5,6]$ since it is a linear function on these intervals. Therefore it is enough to show that 
+$$h(s a + (1-s)b) \geq s h(a)+  (1-s)h(b)$$ 
+when $a\in [3,4.5]$ and $b\in [4.5,6]$. We now have two cases. Either $s$ is such that $s a + (1-s)b \in [3,4.5]$ or $s a + (1-s)b \in [4.5,6]$. First suppose that $s a + (1-s)b \in [3,4.5]$. Then, 
+\begin{alignat*}{2}
+	& \quad & h(s a + (1-s)b) &\geq s h(a)+  (1-s)h(b)\\
+	\iff && (s a + (1-s)b)-3 &\geq s (a-3) + (1-s)(6-b)\\
+	\iff &&  sa -b + sb - 3 & \geq sa - 3s + 6 - b - 6s + sb\\
+	\iff && -2as &\geq -9 s\\ 
+	\iff && a \leq 4.5
+\end{alignat*}
+Now if $s$ is so that $s a + (1-s)b \in [4.5,6]$, we have that 
+\begin{alignat*}{2}
+	& \quad & h(s a + (1-s)b) &\geq s h(a)+  (1-s)h(b)\\
+	\iff && 6 - (s a + (1-s)b)-3 &\geq s (a-3) + (1-s)(6-b)\\
+	\iff && 6 - sa - b + sb & \geq sa - 3s + 6 - b - 6s + sb\\
+	\iff &&  2b - bs + 9s \geq 9
+\end{alignat*}
+Note however that $2b - bs + 9s \geq 9$ is always true for $s\in[0,1]$. Therefore both inequalities always hold and we conclude that $h$  and thus $d(x,y)$ is indeed concave.
 \newpage
 \begin{problem}
 \end{problem}
+Our domain $C$ will be given by the $l^1$ unit ball. Every ball is convex therefore $C$ is convex. We compute the gradient of $f$ as 
+$$\grad f(x) = \bmat{2(x-2)^3 & 4(y-3)^3}.$$
+This will be $0$ precisely when $(x,y) = (2,3)$. This is not in $C$ however. Therefore a global minimum of $f$ will occur on the boundary. We first evaluate $f$ on the points $(0,1), (0,-1), (1,0), (-1,0)$. 
+$$f(1,0) = 81.5, \quad f(-1,0) = 121.5, \quad f(0,1) = 24, \quad f(0,-1) = 264.$$
+We now paramatrize the $4$ $C^1$ components of the boundary in the following way: 
+$$\begin{cases}
+	g_1(t) = (t,1-t) & t\in(0,1)\\
+	g_2(t) = (-t, t-1) & t\in (0,1)\\
+	g_3(t) = (t,t-1) & t\in (0,1)\\ 
+	g_4(t) = (-t,-t+1) & t\in (0,1)
+\end{cases}.$$
+We will determine the local minima of $f$ over each of these paremetrizations. 
+First we have that along $g_1$, $f(x(t), y(t)) = \frac{1}{2}(t-2)^4 + (1-t-3)^4$ does not attain a local min since the gradient does not vanish on $(0,1)$. For $g_2$, we have that $f(x(t), y(t)) = \frac{1}{2}(-t-2)^4 + (t-1-3)^4$. The gradient of this once again does not vanish on $(0,1)$. The same is true for $g_3,g_4$. Therefore $f$ attains a minimum on the corners. We have that the hessian of $f$ is 
+$$H(f) = \bmat{6(x-2)^2 & 0 \\ 0 & 12(y-3)^2}.$$
+This is positive definite on $C$, so $f$ is convex on $C$. Therefore $f(0,1)$ is the local minimum on $C$. Furthermore it must be a global minimum. 
 \newpage
 \begin{problem}
 \end{problem}
-\newpage
+\penum 
+\item We show that $v$ feasible implies $\grad g(x_0) \cdot v<0$ by showing the contrapositive holds i.e. $\grad g(x_0)\cdot v \geq 0$ implies that $v$ is not feasible. We have by the second order mean value theorem that 
+$$g(x_0 + v ) = g(x_0)  + \grad g(x_0) + \frac{1}{2} v \grad^2 g(x_0 + \theta v)v $$
+ for some $\theta \in [0,1]$. Since $g$ is $C^2$ and convex we have that $\grad^2 g(x_0 + \theta v)$ is positive definite. Therefore $\frac{1}{2}v \grad^2 g(x_0 + \theta v) v >0$ and so 
+ $$ g(x_0 + v ) > g(x_0) = 0.$$
+ Therefore $v$ is not feasible. Conversely, suppose that $\grad g(x_0) \cdot v<0$. By the definition of the gradient, we have that 
+ $$ 0 = \lim_{\ep \to 0^+} \frac{g(x_0 + \ep v)  - \grad g(x_0) \cdot \ep v}{\ep} \implies \lim_{\ep \to 0^+} \frac{g(x_0 + \ep v)}{\ep} = \grad g (x_0) \cdot v <0.$$
+ Thus for some sufficiently small choice of $\ep>0$ we will have that $g(x + \ep v) \leq 0$. Thus $v$ is a feasible direction. 
+ \item If $x_0$ is an interiour point, then $\grad f(x_0) = 0$ so we take $\lambda = 0$. Therefore we can assume that $\grad f(x_0)$ is nonzero and $x_0 \in \bd C$. Using the first order boundary conditions, we define the sets $A : = \{v: \grad g(x_0) \cdot v <0\}$ and $B:= \{v: -\grad f(x) \cdot v \leq 0\}$. Since $A$ is open we must have that $A \subset B$. Taking compliments, we also obtain $B^c \subset A^c$. Furthermore from toplogy we know that it must be true that $int (B^c) \subset int(A^c)$, or $\{v : - \grad f(x_0) \cdot v >0\} \subset \{ v: \grad g(x_0) \cdot v >0\}$. This is the same as saying that if $v$ is such that $- \grad f(x_0) \cdot v >0$ then $\grad g(x_0) \cdot v >0$. If we substitute $v$ for $-v$ we get that $\grad f(x_0) \cdot v >0$ implies $\grad g(x_0) \cdot v <0$. So we have that $A= B$ as sets. We do the same trick with $A$ and $B$ to get that $int(A^c) = int(B^c)$. Thus as sets we have $\{v: \grad f(x_0) \cdot v = 0\} = \{v : \grad g(x_0) = 0\}$. It follows from linear algebra that $\grad f(x_0)$ is in the span of $\grad g(x_0)$. So $\grad f(x_0) = \lambda \grad g(x_0)$ for some $\lambda$.  
+ \item Since $f$ is convex, we have that $\grad^2 f(x_0)$ is positive definite as long as $f\in C^2$. 
+\epenum
 
 
 \end{document}
