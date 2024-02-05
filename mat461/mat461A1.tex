@@ -178,14 +178,14 @@ bmargin=0.5in]{geometry}
 \end{problem}
 A Galilean Transformation must be affine linear (Arnold pg 6), so $g$ must have the following form : 
 $$g(x,t) = \bmat{A_{11} & A_{12} \\ A_{21}  & A_{22}} \bmat{x \\ t} + \bmat{b\\c }.$$ 
-Since $g$ is Galilean, it must preserve the time interval. Suppose that we have two spacetimes points $(y,t_1), (y,t_2)$ so that $t( (x,t_1) -(y,t_2)  ) = t_1 - t_2$. We must also have that $t(g(x,t_1) - g(y, t_2)) = t_1 - t_2$. It follows that:
+Since $g$ is Galilean, it must preserve the time interval. Suppose that we have two spacetime points $(y,t_1), (y,t_2)$ so that $t( (x,t_1) -(y,t_2)  ) = t_1 - t_2$. We must also have that $t(g(x,t_1) - g(y, t_2)) = t_1 - t_2$. It follows that:
 \begin{align*}t_1 - t_2 & = t \left( \bmat{A_{11} & A_{12} \\ A_{21}  & A_{22}} \bmat{x \\ t_1 } + \bmat{b\\c }  - \bmat{A_{11} & A_{12} \\ A_{21}  & A_{22}} \bmat{y \\ t_2} - \bmat{b\\c }\right)
 	\\ & = t\left( \bmat{A_{11} x + t_1 A_{12} \\ A_{21} \cdot x + A_{22} t_1} - \bmat{A_{11} y + t_2 A_{12} \\ A_{21} \cdot y + A_{22} t_2} \right) 
 	\\ & =A_{21} \cdot x + A_{22} t_1 - A_{21} y- A_{22} t_2.
 \end{align*}
 We wish for this to hold for all $x,y$  so we must have that $A_{21} = 0$ and $A_{22} = 1$. Fix a time $t$. Since $g$ preserves norms on simultaneous events, we must have that for any $(x,t), (y,t)$:
 $$\norm{x- y} = \norm{g(x,t) - g(y,t)} = \norm{A_{11}x - A_{11} y}.$$
-Therefore $A_{11}$ must be an orthogonal matrix possibly depending on $t$. Relabelling we have that 
+Therefore $A_{11}$ must be an orthogonal matrix possibly depending on $t$. Relabeling we have that 
 $$g(x,t) = \bmat{G_t & v \\ 0 & 1 } \bmat{x\\t} + \bmat{ \tilde{s} + vs \\ s}. $$ 
 Where $\tilde{s}$ is chosen such that $\tilde{s} = b - vs$. Next we claim that for all $t$, $G_t = G$ for some $G\in O(3)$. 
 \newpage
