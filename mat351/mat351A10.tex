@@ -183,9 +183,38 @@ with $R(1) = R(2) = 0$. This ODE wil be solved by $R(r) = A + B \log r + \frac{r
 \begin{problem}
 \end{problem}
 \penum
+\item Setting $v(x,y) = u(y,x)$ we have that $v$ is harmonic since 
+$$\Delta v(x,y) = \Delta u(y,x) =u_{yy} + u_{xx} = 0.$$
+Therefore $v$ must satisfy:
+$$\begin{cases}
+	v(0,y) = u(y,0) = 0 & y\in[0,1].
+	\\v(x,0) = u(0,x) = 0 & x\in [0,1].
+	\\ v(1,y) = u(y,1) = g(y) & y\in [0,1].
+	\\ v(x,y) = u(1,x) = f(y) & x\in[0,1].	
+\end{cases}$$
 \item 
-\item 
+If $u$ is a solution of (squareLE) with $f = -h$ and $g = h$, then by linearity we have that $-u$ will solve with boundary conditions $f = h$ and $g = -h$. By uniqueness, this solution will be equal to $u(y,x)$ by part $a$. We must have that $u(x,y) = -u(y,x)$ and so $u(x,x) = -u(x,x)$ . Therefore $u(x,x) = 0$. 
 \item
+We wish to solve 
+$$\begin{cases}
+	\Delta u &= 0
+	\\ u(0,y) &= 0
+	\\ u(1,y) &= 0
+	\\ u(x,1)& = -h(x)
+	\\ u(1,y) &= h(y)
+\end{cases} $$
+By part $b$ this will be $0$ on the diagonal, and when restricted to the triangle will satisfy the desired boundary conditions and hence be unique. We first set the condition $u(x,1 ) = -h(x)$ to $0$ and solve by separation of variables. We get that 
+$$u(x,y) = X(x)Y(y), \Delta u = 0 \implies \frac{X''}{X} = -\frac{Y''}{Y} = \lambda^2.$$
+Therefore $X(x ) = A \sinh \lambda x + B \cosh \lambda x$, $Y(y) = C\sin \lambda y + D \cos \lambda x $. Boundary conditions on $Y$ are $Y(0) = Y(1) = 0$. Therefore $D = 0, \lambda = n\pi$ for $n\in \N$. We also have that $X(0) = 0$ so $B =0$. Therefore we can write
+$$u(x,y) = \sum_{n\geq 1}^\infty  A_n \sinh n\pi y \sin n\pi x. $$
+Since $u(1,y) = h(y)$, we have that 
+$$h(y ) = \sum_{n\geq 1}^\infty A_n \sinh n\pi \sin n \pi x \implies A_n = \frac{2}{n\pi \sinh n\pi }\int_{0}^1 h(y) \sin n\pi x dx.$$
+Now to solve with $u(1,y) = 0$, $u(x,1) = -h(x)$. We separate and get that 
+$$\frac{X''}{X}  = - \frac{Y''}{Y} = -\lambda^2.$$
+So we have that $X(x) = A\sin \lambda x + B \cos \lambda x, Y(y) = C \sinh \lambda y + D \cosh \lambda y$. The same process as above except interchanging the roles of $X,Y$ gives us that 
+$$u(x,y) = \sum_{n\geq 1}^\infty A_n \sinh n\pi x \sin \pi y, \quad A_n = -\frac{2}{n\pi \sinh n\pi} \int_0^1 h(y) \sin n\pi x dx.$$
+Therefore the solution on the triangle will be given by:
+$$u = \sum_{n\geq 1}^\infty A_n \left[\sinh n\pi x \sin n\pi y - \sinh n\pi y \sin n\pi x\right]$$
 \epenum
 \newpage
 \begin{problem}
