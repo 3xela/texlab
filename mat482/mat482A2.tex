@@ -176,7 +176,26 @@ bmargin=0.5in]{geometry}
 
 \begin{problem}
 \end{problem}
-test
+\penum
+\item Define the map $\varphi : \Omega \to \Gamma_u$ as $\varphi(x) = (x,u(x))$. Consider $\Gamma_u$ as a submanifold of $\R^{n+1}$. Since $\Gamma_u$ has codimension 1, Given any top form on $\R^{n+1}$, $\omega$ we can induce a top form on $\Gamma$ as follows: 
+$$\omega(x)_{\Gamma_u} (v_1, \dots , v_n) = \omega(x)(N(x) , v_1 , \dots , v_n)$$
+where $N(x)$ is a unit normal to $\Gamma_u$. If $\{e_i\}$ is the standard basis for $\R^n \subset\R^{n+1}$, we need $ \inn{\varphi^\ast e_i. N(x) } = 0$. Since $\varphi^\ast e_i = \left(e_i, \frac{\partial u}{\partial x_i} \right)$, take $N(x) = (\grad u(x), -1)$.
+If we take $\omega$ to be $dx_1 \wedge \dots \wedge dx_{n}$, then the volume of $\Gamma_u$ will be given as: 
+\begin{align*}
+Vol(\Gamma_u) &= \int_{\Gamma_u} \omega_{\Gamma_u}(x) dx_{I} 
+\\ &= \int_{\Gamma_u} \omega(x)dx_I 
+\\ &= \int_\Omega \omega(\varphi(x))d \varphi^\ast x_I  
+\\& = \int_\Omega \frac{1}{\norm{(\grad u(x) , -1)}} \det ( \varphi_i \cdot \varphi_j ) dy_1 \wedge \dots  \wedge dy_n 
+\\ & = \int_\Omega \norm{(\grad u(x), -1)} dy
+\\ & = \int_\Omega \sqrt{|\grad u (x) |^2 + 1} dy
+\end{align*} 
+Where $\det ( \varphi_i \cdot \varphi_j ) = \norm{\grad u(x), 1}^2$ since 
+$$\det ( \varphi_i \cdot \varphi_j ) = 1 + \sum_i^n u_i^2 + \sum_{\sigma \neq id} (-1)^\sigma \prod_{i}^{n} u_{\sigma(i)} - \sum_{\sigma \neq id} (-1)^\sigma \prod_{i}^{n} u_{\sigma(i)} = \norm{1+ |\grad u(x)|}^2 $$
+\item
+\item 
+\item 
+\item 
+\epenum
 
 \newpage
 \begin{problem}
