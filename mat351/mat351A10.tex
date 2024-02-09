@@ -176,9 +176,17 @@ bmargin=0.5in]{geometry}
 
 \begin{problem}
 \end{problem}
+We will solve for a radial solution of this PDE. If $u(r,\theta) = R(r)$. Taking the polar coordinate laplacian tells us that $R$ must satisfy 
+$$R'' + \frac{1}{r}R  = 1,$$
+with $R(1) = R(2) = 0$. This ODE wil be solved by $R(r) = A + B \log r + \frac{r^2}{4}$. To satisfy the boundary values, we must have that $0 = R(1) = A + \frac{1}{2}$ and $ 0 = R(2) = A + B \log 2 + 1$. Therefore $A = - \frac{1}{2}$, $B = -\frac{1}{2\log 2}$. 
 \newpage
 \begin{problem}
 \end{problem}
+\penum
+\item 
+\item 
+\item
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
