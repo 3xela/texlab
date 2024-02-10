@@ -197,9 +197,22 @@ Where $\tilde{s}$ is chosen such that $\tilde{s} = b - vs$. Next we claim that f
 \newpage
 \begin{problem}
 \end{problem}
+Choose $x_1,x_2$ so that $y_1=y_2 = 0$. By Q5 the time it takes to get from $x_1$ to $x_2$ is $\int_{x_1}^{x_2} \frac{dx}{\sqrt{2(E-U(x))}}$. By symmetry a full period is $\int_{x_1}^{x_2} \frac{2}{\sqrt{2(E-U(x))}}dx =T$. 
+We also have that 
+$$T = \int_{x_1}^{x_2} \frac{2}{\sqrt{2(E-U(x))}}dx = \frac{d}{dE} 2\int_{x_1}^{x_2} \sqrt{2(E-U(x)}$$
 \newpage
 \begin{problem}
 \end{problem}
+We compute the integral $\int_{x_1}^{x_2} \frac{dx}{\sqrt{2(E-U(x))}}$. 
+\begin{align*}
+\int_{x_1}^{x_2} \frac{dx}{\sqrt{2(E-U(x))}}  & = \int_{x_1}^{x_2} \frac{dx}{\sqrt{2T}} \tag{Since $E = U(x) +T$ }
+\\ & = \int_{x_1}^{x_2} \frac{dx}{\dot{x}} \tag{$T = \frac{1}{2}\dot{x}$}
+\\ & = \int_{x_1}^{x_2} \frac{1}{\frac{dx}{dt}} dx
+\\ & = \int_{x_1}^{x_2} \frac{dt}{dx} dx \tag{by inverse function theorem}
+\\ & = t (x_2) - t(x_1) \tag{FTC}
+\\ & = t_2-t_1
+\end{align*}
+The above formula is valid for any $x_1,x_2$ where $y_1,y_2$ both positive or both negative, so that we can apply the inverse function theorem. If 
 \newpage
 \begin{problem}
 \end{problem}
