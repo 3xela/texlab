@@ -219,10 +219,33 @@ $$u = \sum_{n\geq 1}^\infty A_n \left[\sinh n\pi x \sin n\pi y - \sinh n\pi y \s
 \newpage
 \begin{problem}
 \end{problem}
+\penum
+\item 
+Without loss of generality translate so that $x=0$. We compute:
+\begin{align*}
+	\frac{1}{\pi r^2} \int_{B_r(0)} u(s, \theta) ds d\theta  & = \frac{1}{\pi r^2} \int_0^r \int_{C_s(0)} s\cdot  u(s, \theta ) d\theta ds \tag{Fubinis Theorem}
+	\\ & = \frac{1}{\pi r^2} \int_0^r 2\pi s  \cdot u(0) ds \tag{change of variables + mean value property}
+	\\ & = \frac{2u(0)}{r^2} \int_0^r s ds
+	\\ & = u(0) \tag{integrating}
+\end{align*}
+Therefore if $u$ satisfies the mean value property on circles it satisfies it on balls as well. 
+\item If $u(x) =0$ and $u \geq 0$ and satisfies mean value property, then for any $r$ so that $B_r(x) \subset \Omega$ We have that 
+$$0 = u(x) = \frac{1}{\pi r^2} \int_{B_r(x)}u(x) dv.$$
+Since $u$ is nonnegative it must be in fact $0$ on $B_r(x)$. Let $L = \{x: u(x) = 0 \}$. By the previous argument we have that $L$ is an open set. It is also nonempty by assumption. If $x\in \bd L$, take a ball $B_\ep(y)$ for some $y$ inside $L$ so that $x\in \bd B_\ep(y)$. By the mean value theorem for circles, we have that $u$ is $0$ on $\bd \bd B_\ep(y) $. So $x\in L$. The set $L$ is open and closed, and nonempty therefore it must be all of $\Omega$ since $\Omega$ is connected. 
+\item Let $v$ be the harmonic function so that $v|_{\bd D} = u$. Suppose that $\Delta u \neq 0$. At some point $x$ we must have that $\Delta u(y) >0$ for $y\in B_\ep(x)$ for sufficiently small $\ep$. Then by linearity of integration we have that $u-v$ has mean value property. Furthermore, $u(0)-v(0)=0$, and $u-v$ is $0$ on $\bd D$. Now suppose that $u-v$ attains a minimum, $m$ on $D$. Then $u-v+m$ also satisfies the mean value property, vanishes at a point so it must be 0 on $D$ by part $b)$. Thus $u-v = m$. Since $u(0)-v(0)= 0$ we have that $m= 0$ and hence $u = v$. 
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
-\newpage
+\penum
+\item Changing to spherical coordinates, we have that $v(r,\theta) = u(1/r, \theta)$. It follows from the chain rule that 
+	$$\Delta v = v_{rr} + \frac{1}{r} v_r + \frac{1}{r^2}v_{\theta \theta} = (u(1/r, \theta))_{rr} + \frac{1}{r}(u(1/r), \theta)_{r}  + \frac{1}{r^2}(u(1/r, \theta))_{\theta \theta} = \frac{1}{r^2}u_{rr} + \frac{1}{r^3}u_r + \frac{1}{r^4}u_{\theta \theta}. $$
+Therefore we have that $\Delta v = \frac{1}{r^2}\Delta u$. 
+\item If we have that $\Delta u =0$, by above then $\Delta v = 0$. 
+\item We can write 
+$$u(r, \theta) = \frac{1}{2\pi}\int_0^{2\pi} h(\phi ) \frac{1- r^2}{1+r^2- 2r \cos \theta - \phi}$$
+\item 
+\epenum
 
 
 \end{document}
