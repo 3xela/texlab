@@ -193,10 +193,14 @@ $$g(x,t_1) - g(y,t_2) = L \left((x,t_1) - (y,t_2) \right).$$
 We apply this fact at $(x,t)$ and $(x,0)$:
 $$L(0,t) = g(x,t) - g(x,0) = (y_t + tv , t).$$
 Since the lefthand side is linear in $t$, the righthand side must be as well. Thus $y_t = ty$ for some $y$. We can write $$G_tx = G_0 x + ty.$$
-Since $G_t,G_t$ preserve norms, both sides must have norms of $\norm{x}$. So 
-$$\norm{x} = \norm{G_t x} = \norm{G_0 + yt} = \norm{G_0x}.$$
+Since $G_t,G_0$ preserve norms, both sides must have norms of $\norm{x}$. So 
+$$\norm{x} = \norm{G_t x} = \norm{G_0 x + yt} = \norm{G_0x}.$$
 The only way for this to hold for all $x,t$ is that $y=0$. So $G_t = G_0=G$. Therefore $$g(x,t) = \bmat{G & v \\ 0 & 1} \bmat{x \\ t} +  \bmat{\tilde{s} + vs \\ s}.$$
-Note that the way $g(x,t)$ is written, it is the composition of 
+Note that the way $g(x,t)$ is written, it is the composition of a time translation, uniform motion, and a rigid motion. So $g = g_1\circ g_2 \circ g_3$. Suppose that there existed some other such transformations so that $g = h_1 \circ h_2 \circ h_3$. In coordinates, we have that
+$$(t+s, Gx + \tilde{s} + v(t+s)) = (t + s^\prime , Hx + \tilde{s^\prime } + v^\prime (t+s^\prime)). \quad \quad (*)$$
+It immediately follows that $s = s^\prime$. Taking $x=0$ gives us that 
+$$\tilde{s} + v(t+s) = \tilde{s^\prime } + v^\prime(t+s).$$
+Taking $t = -s$ gives us that $\tilde{s} = \tilde{s^\prime}$, and at $t = 0$ we have that $v= v^\prime$. It follows that $G = H$ since $(*)$ holds for all $x,t$. 
 \newpage
 \begin{problem}
 \end{problem}
@@ -207,7 +211,7 @@ The process to obtain the sketch is as follows:
 	\item Compute $f(x) = -\grad U(x)$:
 	$$-\grad U(x) = x^2(5x^2-24x+24).$$
 	\item Along the x-axis, at evenly spaced $x_i$ plot an vector of the form $(0, f(x_i))$. 
-	\item As $y$ varies for fixed $x_i$, so that the $x$ component of our vector field changes. 
+	\item Vary $y$ for fixed $x_i$, so that the $x$ component of our vector field changes. as we increase or decrease $y$. 
 \end{enumerate}
 Some observations of the system by glancing at the phase portrait
 \begin{enumerate}
@@ -286,35 +290,35 @@ The code used to generate these graphics is:
 	plt.savefig(title)
 	plt.show()
 \end{python}
-
+Some issues encountered were with the range of points being generated. for points with $x$ component less than $-1$, they would diverge off to infinity very quickly. To make sure that the points in the given region did not diverge, a small time increment was chosen. To expand the region where points are generated, one could normalize the potential function with some constant so it diverges less quickly
 
 \newpage
 \begin{problem}
 \end{problem}
-Choose $x_1,x_2$ so that $y_1=y_2 = 0$. By Q5 the time it takes to get from $x_1$ to $x_2$ is $\int_{x_1}^{x_2} \frac{dx}{\sqrt{2(E-U(x))}}$. By symmetry a full period is $\int_{x_1}^{x_2} \frac{2}{\sqrt{2(E-U(x))}}dx =T$. 
+Choose $x_1,x_2$ so that the time it takes to travel from $x_1$ to $x_2$ is half a period and corresponding $y$ values are $0$.  By Q5 the time it takes to get from $x_1$ to $x_2$ is $\int_{x_1}^{x_2} \frac{dx}{\sqrt{2(E-U(x))}}$. By symmetry a full period is $\int_{x_1}^{x_2} \frac{2}{\sqrt{2(E-U(x))}}dx =T$. 
 We also have that 
 $$T = \int_{x_1}^{x_2} \frac{2}{\sqrt{2(E-U(x))}}dx = \frac{d}{dE} 2\int_{x_1}^{x_2} \sqrt{2(E-U(x)}dx= \frac{d}{dE} 2\int_{x_1}^{x_2} ydx.$$
 Since $2\int_{x_1}^{x_2} y dx$ is the area enclosed by $E$, we have that $\frac{dS(E)}{dE} = T$. 
 \newpage
 \begin{problem}
 \end{problem}
-We compute the integral $\int_{x_1}^{x_2} \frac{dx}{\sqrt{2(E-U(x))}}$. 
+We compute the integral $\int_{x_1}^{x_2} \frac{dx}{\sqrt{2(E-U(x))}}$ for $x_1 < x_2$. 
 \begin{align*}
 \int_{x_1}^{x_2} \frac{dx}{\sqrt{2(E-U(x))}}  & = \int_{x_1}^{x_2} \frac{dx}{\sqrt{2T}} \tag{Since $E = U(x) +T$ }
-\\ & = \int_{x_1}^{x_2} \frac{dx}{\dot{x}} \tag{$T = \frac{1}{2}\dot{x}$}
+\\ & = \int_{x_1}^{x_2} \frac{dx}{\dot{x}} \tag{$T = \frac{1}{2}\dot{x}^2$}
 \\ & = \int_{x_1}^{x_2} \frac{1}{\frac{dx}{dt}} dx
 \\ & = \int_{x_1}^{x_2} \frac{dt}{dx} dx \tag{by inverse function theorem}
 \\ & = t (x_2) - t(x_1) \tag{FTC}
 \\ & = t_2-t_1
 \end{align*}
-The above formula is valid for any $x_1,x_2$ where $y_1,y_2$ both positive or both negative, so that we can apply the inverse function theorem. 
+The above formula is valid for any $x_1,x_2$ where $y_1,y_2$ both positive or both negative, so that we can apply the inverse function theorem. If $x_1>x_2$ choose the negative branch of the square root to get the same result. 
 \newpage
 \begin{problem}
 \end{problem}
 On $\Omega = \R^2 \setminus \{x>0, y \neq 0\}$, consider the potential $U(x,y) = \arctan \left(\frac{y}{x}\right)$. This is smooth on $\Omega$, so it makes sense to define it as a potential. We compute the gradient as 
 $$-\grad U(x,y) = \bmat{-\frac{\partial U}{\partial x} & -\frac{\partial U}{ \partial y}} = \bmat{\frac{y}{x^2+y^2}  & -\frac{x}{x^2+y^2}}. $$
-However on $\R^2 \setminus\{0\}$ this is not the case. $F$ being a conservative vector field is equivalent to the differential 1-form $\omega = \frac{y}{x^2+y^2} dx - \frac{x}{x^2+y^2}dy $ being exact on  $\R^2 \setminus \{0\}$. We show that this is not so by integrating along the $1-$chain $c:[0,2\pi] \to \R^2 \setminus\{0\}$ defined as $c(t) = (r\cos t, r \sin  t)$. We integrate in the usual way: 
-$$\int_c \omega = \int_{[0.2\pi]} \frac{r\sin \theta}{r^2} \cdot -r\sin \theta d\theta - \frac{r\cos \theta}{r^2}\cdot r \cos \theta d\theta = \int_{[0,2\pi]} -1 d \theta  = -2\pi. $$
+However on $\R^2 \setminus\{0\}$ this is not the case. $F$ being a conservative vector field is equivalent to the differential 1-form $\omega = \frac{y}{x^2+y^2} dx - \frac{x}{x^2+y^2}dy $ being exact on  $\R^2 \setminus \{0\}$. We show that this is not so by integrating along the closed $1-$chain $c:[0,2\pi] \to \R^2 \setminus\{0\}$ defined as $c(t) = (r\cos t, r \sin  t)$. We integrate in the usual way: 
+$$\int_c \omega = \int_{[0,2\pi]} \frac{r\sin \theta}{r^2} \cdot -r\sin \theta d\theta - \frac{r\cos \theta}{r^2}\cdot r \cos \theta d\theta = \int_{[0,2\pi]} -1 d \theta  = -2\pi. $$
 Therefore this form is not exact, and hence the vector field $F$ is not conservative. 
 
 \end{document}
