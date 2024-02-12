@@ -161,8 +161,8 @@ bmargin=0.5in]{geometry}
 
 %preamble
 
-\title{}
-\author{A.N.}
+\title{MAT482 A2}
+\author{Alexander Neagoe}
 \date{\today}
 \lhead{\Course A\hwNumber}
 \rhead{\thepage}
@@ -172,7 +172,7 @@ bmargin=0.5in]{geometry}
 %====================================================================%
 \begin{document}
 
-
+\maketitle
 
 \begin{problem}
 \end{problem}
@@ -203,7 +203,22 @@ $$\det ( \varphi_i \cdot \varphi_j ) = 1 + \sum_i^n u_i^2 + \sum_{\sigma \neq id
 \newpage
 \begin{problem}
 \end{problem}
-\newpage
-
+\penum
+\item 
+Since $$|a_\xi e^{i \xi \cdot x}| = |a_\xi|,$$
+by the Weierstrass M-test, we have that $\sum_{\xi \in \Z^n } a_\xi e^{i \xi \cdot x}$ converges absolutely and uniformly. Defining $f= \sum_{\xi \in \Z^n} a_\xi e^{i \xi \cdot x}$, 
+we have that $$\sup_{ \T^n } |f| = \sup_{\T^n}  \left| \sum_{\xi \in \Z^n} a_\xi e^{i \xi \cdot x} \right| \leq \sup_{\T^n } \sum_{\xi \in \Z^n } \left|a_\xi e^{i \xi \cdot x} \right| = \sum_{\xi \in \Z^n} |a_\xi|.$$
+\item We first claim the integration by parts holds for $C^\infty$ functions. If $u,v \in C^\infty$, then 
+$$\int_{[-\pi, \pi]^n } (D_i u )v = \int_{[-\pi , \pi]^{n-1}} \int_{[-\pi , \pi]}(D_i u)v = \int_{[-\pi, \pi]^{n-1}}  \left((uv)\Big|_{-\pi}^\pi - \int_{[-\pi , \pi]} u (D_i v) \right)  = - \int_{[-\pi, \pi]^n } u (D_iv).$$ 
+Now suppose that $u \in W^{1,2} (\T^n)$. Take a sequence $\{u_n\} \subset C^\infty(\T^n)$ converging to $u$. We must have that 
+$$\int_{[-\pi, \pi]^n } (D_i u_n)v  = - \int_{[-\pi, \pi]^n } u_n (D_i v).$$
+The righthand side converges to $\int_{[-\pi, \pi]^n } u (D_i v)$. By definition this is equal to $\int_{[-\pi, \pi]^n } (D_i u)v$. Therefore $(D_i u_n) \to (D_i u)$ by uniqueness of the derivative. We apply the same reasoning for $v\in W^{1,2}(\T^n)$ to get that $$\int_{[-\pi, \pi]^n } (D_iv)u = \int_{[-\pi, \pi]^n }v(D_i u)$$
+\item Since $u$ and its $k$'th derivatives are in $L^2$ we have that the Fourier series is defined. We compute the fourier coefficients using $b)$ as: 
+$$\widehat{D^\alpha u}(\xi) = \int_{\T^n} D^\alpha u e^{-i x\cdot \xi } dx = (-1)^{|\alpha|}\int_{\T^n} u D^\alpha ( e^{-ix \cdot \xi}) dx = (i \xi)^\alpha \hat{u}(\xi) $$
+\item 
+\item 
+\item 
+\item 
+\epenum
 
 \end{document}
