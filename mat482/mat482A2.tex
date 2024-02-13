@@ -214,7 +214,22 @@ Now suppose that $u \in W^{1,2} (\T^n)$. Take a sequence $\{u_n\} \subset C^\inf
 $$\int_{[-\pi, \pi]^n } (D_i u_n)v  = - \int_{[-\pi, \pi]^n } u_n (D_i v).$$
 The righthand side converges to $\int_{[-\pi, \pi]^n } u (D_i v)$. By definition this is equal to $\int_{[-\pi, \pi]^n } (D_i u)v$. Therefore $(D_i u_n) \to (D_i u)$ by uniqueness of the derivative. We apply the same reasoning for $v\in W^{1,2}(\T^n)$ to get that $$\int_{[-\pi, \pi]^n } (D_iv)u = \int_{[-\pi, \pi]^n }v(D_i u)$$
 \item Since $u$ and its $k$'th derivatives are in $L^2$ we have that the Fourier series is defined. We compute the fourier coefficients using $b)$ as: 
-$$\widehat{D^\alpha u}(\xi) = \int_{\T^n} D^\alpha u e^{-i x\cdot \xi } dx = (-1)^{|\alpha|}\int_{\T^n} u D^\alpha ( e^{-ix \cdot \xi}) dx = (i \xi)^\alpha \hat{u}(\xi) $$
+$$\widehat{D^\alpha u}(\xi) = \int_{\T^n} D^\alpha u e^{-i x\cdot \xi } dx = (-1)^{|\alpha|}\int_{\T^n} u D^\alpha ( e^{-ix \cdot \xi}) dx = (i \xi)^\alpha \hat{u}(\xi).$$
+Therefore the Fourier series for $D^\alpha u$ is
+$$D^\alpha u(x)=\sum_{\xi \in \T^n} (i\xi)^\alpha \hat{u}(\xi)e^{i \xi \cdot x}.$$
+We next claim that the following holds for some constants $C_1,C_2$:
+$$C_1 (1+ |\xi|^2)^k \leq \sum_{|\alpha| \leq k} |\xi^\alpha|^2 \leq C_2(1+ |\xi|^2)^k. \quad (*)$$
+We first prove that $C_1 (1+ |\xi|^2)^k \leq \sum_{|\alpha| \leq k} |\xi^\alpha|^2$. Consider the function $\sum_{i=1}^n |x_i^2|^k$. This is strictly positive on $S^n$, and so has a minimum $m$. By homogeneity, $\sum_{i=1}^n |x_i^2|^k \geq m |x^2|^k$. Therefore
+$$(1+|x|^2)^k \leq 2^n \left[ 1+ m^{-1} \sum_{i=1}^n  |x_i^2|^k \right] \leq 2^k m^{-1} \sum_{|\alpha| \leq k} |x^\alpha|^2.$$ Dividing by $\leq 2^k m^{-1}$ gives us the desired bound. A similar argument with the maximum gives us the bound from above. 
+Therefore $(*)$ holds. We can adjust our constants so that $C_1 = C^{-1}, C_2 = C$ for some $C$. 
+Thus we have that 
+$$C^{-1} (1+ |\xi|^2)^k \leq \sum_{|\alpha| \leq k} |\xi^\alpha|^2 \leq C(1+ |\xi|^2)^k.$$
+Multiply both sides by $\hat{u}(\xi)$, and sum over all $\xi$ to get that 
+$$C^{-1} \sum_{\xi \in \Z^n}(1+ |\xi|^2)^k \hat{u}(\xi) \leq \sum_{|\alpha| \leq k} \left( \sum_{\xi \in \Z^n} |\xi^\alpha|^2 |\hat{u} (\xi)|^2\right) \leq C \sum_{\xi \in \Z^n}(1+ |\xi|^2)^k \hat{u}(\xi).$$
+We use Parsevall's identity to make sense of the middle term: 
+$$\sum_{|\alpha| \leq k} \left( \sum_{\xi \in \Z^n} |\xi^\alpha|^2 |\hat{u} (\xi)|^2\right) = \sum_{|\alpha| \leq k} \left( \sum_{\xi \in \Z^n} \left|\widehat{D^\alpha u} (\xi)\right|^2 \right) =\sum_{|\alpha| \leq k} \norm{D^\alpha u}^2_{L^2} = \norm{u}_{W^{k,2}(\T^n)}^2.$$
+We conclude that 
+$$C^{-1} \sum_{\xi \in \Z^n}(1+ |\xi|^2)^k \hat{u}(\xi) \leq \norm{u}_{W^{k,2}(\T^n)}^2 \leq C \sum_{\xi \in \Z^n}(1+ |\xi|^2)^k \hat{u}(\xi).$$ Therefore $\norm{\cdot}_{W^{k,2}(\T^n)}$ is equivalent to the norm given by $\norm{u}_\ast = \sum_{\xi \in \Z^n} (1+|\xi|^2)^k |a_\xi|^2$. This makes sense to define by $a)$. 
 \item 
 \item 
 \item 
