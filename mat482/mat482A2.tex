@@ -235,8 +235,31 @@ By the integral test, this will converge if and only if the integral $\int_{\R^n
 $$\int_{\R^n}\frac{1}{(1+|x|^2)} dx = \omega_n \int_0^\infty \frac{r^{n-1}}{(1+r^2)^\alpha} dr <\infty \iff 2\alpha - n+1>1 \iff \alpha > \frac{n}{2}. $$
 We now claim that $u \in C^p(\T^n)$. In order for this to be true, we must have that 
 $$D^\alpha u = \sum_{\xi \in \Z^n} \widehat{D^\alpha u} e^{i \xi \cdot x} = \sum_{\xi \in \Z^n} (i\xi)^\alpha \hat{u}(\xi) e^{- \xi \cdot x}$$ converges for $|\alpha| \leq p$, since if the derivatives of up to order $p$ did exist, they must be of this form by $b)$. By part $a)$ it is enough to show that $$\sum_{\xi \in \Z^n} |\xi|^\alpha |\hat{u}(\xi)| < \infty.$$
-
-\item 
+Observe: 
+\begin{align*}
+	\sum_{\xi \in \Z^n} |\xi|^\alpha |\hat{u}(\xi)| & \leq \sum_{\xi \in \Z^n } (1+|\xi|^2)^\frac{p}{2} |\hat{u}(\xi)|  \tag{since $|\alpha| \leq p$}
+	\\ & \leq \left(\sum_{\xi \in \Z^n} (1+|\xi|^2)^k| \hat{u}(\xi)|^2 \right)^{1/2} \left( \sum_{\xi \in \Z^n} \frac{1}{(1+|\xi|^2)^{k-p}} \right)^\frac{1}{2} \tag{cauchy -shwartz on $\mathfrak{l}^2$}
+\end{align*}
+The first term of the product is finite by $c)$, the second term is finite because $k-p>\frac{n}{2}$. Thus it makes sense to define $D^\alpha u$ as we did. We now determine a bound on $\norm{u}_{C^p}$. 
+\begin{align*}
+	\norm{u}_{C^p} &= \sum_{|\alpha |\leq p} \sup_{\T^n} |D^\alpha u|
+	\\ & \leq \sum_{|\alpha |\leq p} \sum_{\xi \in \Z^n}|a^\alpha_\xi| \tag{part $a)$}
+	\\ & = \sum_{|\alpha |\leq p} \sum_{\xi \in \Z^n} |\xi^\alpha| |\hat{u}(\xi)|
+	\\ & \leq \sum_{|\alpha |\leq p}\left(\sum_{\xi \in \Z^n} (1+|\xi|^2)^k| \hat{u}(\xi)|^2 \right)^{1/2} \left( \sum_{\xi \in \Z^n} \frac{1}{(1+|\xi|^2)^{k-p}} \right)^\frac{1}{2} \tag{by above}
+	\\ & \leq C \norm{u}_{W^{k,2}(\T^n)} \sum_{|\alpha |\leq p}\left(\sum_{\xi \in \Z^n} (1+|\xi|^2)^k| \hat{u}(\xi)|^2 \right)^{1/2} \tag{by $c)$}
+	\\ & \leq C_{n,p,k} \norm{u}_{W^{k,2}(\T^n)}
+\end{align*} 
+\item For any $u$ in the kernel of $L$ we have that 
+$$0 = Lu = a^{ij}u_{ij} + b^i u_i + cu.$$
+Fourier transforming both sides, we get
+$$0 = \hat{u}(\xi) (-a^{ij}\xi_i \xi_j + ib^i \xi_i + c).$$
+Thus the kernel of $L$ is given exactly by the $u$ satisfying the above. Similarly the kernel of $L^\dagger$ is given by 
+$$0 = \hat{u}(\xi) (-a^{ij}\xi_i \xi_j - ib^i \xi_i + c).$$
+If solutions exist, then they will both be finite dimensional since the solutions are determined by $\xi$, which must satisfy some polynomial in $a^{ij},b^i,c$. They will be empty if $b^i \neq 0$ and if $c < 0$, since 
+$$-a^{ij} \xi_i \xi_j + c < -\lambda |\xi|^2 + c <0.$$
+The kernels will be equal when 
+$$a^{ij}u_{ij} + b^i u_i + cu = -a^{ij}\xi_i \xi_j - ib^i \xi_i + c \implies b^i = 0.$$
+This makes sense just by looking at the definition of $L,L^\dagger$. 
 \item 
 \item 
 \epenum
