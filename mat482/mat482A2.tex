@@ -191,10 +191,17 @@ Vol(\Gamma_u) &= \int_{\Gamma_u} \omega_{\Gamma_u}(x) dx_{I}
 \end{align*} 
 Where $\det ( \varphi_i \cdot \varphi_j ) = \norm{\grad u(x), 1}^2$ since 
 $$\det ( \varphi_i \cdot \varphi_j ) = 1 + \sum_i^n u_i^2 + \sum_{\sigma \neq id} (-1)^\sigma \prod_{i}^{n} u_{\sigma(i)} - \sum_{\sigma \neq id} (-1)^\sigma \prod_{i}^{n} u_{\sigma(i)} = \norm{1+ |\grad u(x)|}^2 $$
-\item
+\item Let $v \in C^1(\Omega) \cap C^0 (\ol{\Omega})$ function so that $v|_{\bd \Omega} = 0$. We compute the variation of $A$ as 
+\begin{align*}
+	\frac{d}{d\ep} A(u + \ep v)\Big|_{\ep = 0} & = \frac{d}{d \ep} \Big|_{\ep = 0} \int_{\Omega} \sqrt{1 + |\grad  u + \ep \grad v|^2} dx
+	\\ & = \int_{\Omega} \frac{\grad v \cdot (\ep \grad v + \grad u)}{\sqrt{1 + |\grad u + \ep \grad v|^2}}dx \Big|_{\ep = 0}
+	\\ & = \int_\Omega \frac{\grad v \cdot \grad u}{\sqrt{1 + |\grad u + \ep \grad v|^2}}dx 
+	\\ & = \sum_{i=1}^n \int_{\Omega} \frac{u_i \cdot v_i}{\sqrt{1 + |\grad u + \ep \grad v|^2}}dx
+\end{align*}
+\item If $u$ is a critical point of $A$, we must have that 
+$$0 = \sum_{i=1}^n \int_{\Omega} \frac{u_i \cdot v_i}{\sqrt{1 + |\grad u + \ep \grad v|^2}}dx$$
 \item 
-\item 
-\item 
+\item We cannot apply Sobolov bootstrap because this PDE is nonlinear
 \epenum
 
 \newpage
