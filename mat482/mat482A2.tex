@@ -213,25 +213,41 @@ $$B = \frac{1}{1+|\grad u|^2} (\grad u) (\grad u)^T.$$
 Since $\grad u ^T$ has codomain $\R$, it must have kernel of dimension $n-1$. Therefore $B$ has kernel of dim $n-1$. Note though that $\grad u$ is an eigenvalue of $B$, since 
 $$B (\grad u) = \frac{|\grad u|^2}{1+|\grad u|^2} \grad u.$$ 
 The remaining eigenvalue is therefore $\frac{|\grad u|^2}{1+|\grad u|^2}$ which is less than $1$.
-\item Say $u$ weakly satisfies $\tilde{a}^{ij}u_{ij}$ and $\sup_{\Omega}|\grad u| <C$. The bound on $\grad u$ tells us that in fact the $\tilde{a}^{ij}$ are bounded, say by $D$ and uniform ellitpicity holds by applying the argument for $c$. Let $V \subset \subset \Omega$, and $W$ so that $V \subset \subset W \subset \subset \Omega$. Let $\phi$ be a smooth cut off function that is $1$ on $V$ and $0$ outside of $W$. Since $u$ is a weak solution, we have that 
+\item Say $u$ weakly satisfies $\tilde{a}^{ij}u_{ij}$ and $\sup_{\Omega}|\grad u| <C$. The bound on $\grad u$ tells us that in fact the $\tilde{a}^{ij}$ are bounded, say by $D$ and uniform ellitpicity holds by applying the argument for $c)$. Let $V \subset \subset \Omega$, and $W$ so that $V \subset \subset W \subset \subset \Omega$. Let $\phi$ be a smooth cut off function that is $1$ on $V$ and $0$ outside of $W$. Since $u$ is a weak solution, we have that 
 $$\int_U \tilde{a}^{ij}u_i v_j dx = 0. \quad (*)$$
 Take $h$ sufficiently small, and take $$v = - D^{-h}_k \left( \phi^2 D^h_k u \right).$$
 Substituting $v$, we can rewrite $(*)$ as: 
 \begin{align*}
 	\int_U \tilde{a}^{ij}u_i v_j dx & =- \int_U \tilde{a}^{ij} u_i \cdot \left[ D^{-h}_k \left( \phi^2 D^h_k u \right)\right]_j dx 
 	\\ & = \int_{U} D^h_k \left(\tilde{a}^{ij} u_i \right) (\phi^2 D^h_k u)_j dx \tag{integration by parts for difference quotients}
-	\\ & = \int_{U} \tilde{a}^{ij} (D_k^h u_i) (\phi^2 D^h_h u)_j + (D^h_k \tilde{a}^{ij})u_i (\phi^2 D_k^h u)_j dx\tag{product rule for difference quotients}
+	\\ & = \int_{U} \tilde{a}^{ij,h} (D_k^h u_i) (\phi^2 D^h_h u)_j + (D^h_k \tilde{a}^{ij})u_i (\phi^2 D_k^h u)_j dx\tag{product rule for difference quotients}
 \end{align*}
 Expanding this out using the product rule, we get:
 \begin{align*}
-	0 & = \int_U \tilde{a}^{ij}D_k^hu_i D_k^h u_j \phi^2 dx + 
+	0 & = \overbrace{\int_U \tilde{a}^{ij}D_k^hu_i D_k^h u_j \phi^2 dx}^{A_1}+\overbrace{ \int_U \tilde{a}^{ij} D_k^h u_iD_k^h u2\phi\phi_j +(D_k^h \tilde{a}^{ij})u_iD^h_ku_j\phi^2 + (D_k^h \tilde{a}^{ij})u_i D_k^h u2\phi \phi_j dx}^{A_2}.
 \end{align*}
-\item We cannot apply Sobolov bootstrap because this PDE is nonlinear and we do not have bounds on higher order derivatives of $u$. 
+By uniform ellipticity, we have the following lower bound on $A_1$: 
+$$A_1 \geq \lambda \int_u \phi^2 |D^h_k Du|^2 dx.$$
+The bound on $ |\grad u|$ tells us: 
+$$|A_2| \leq  D \int_U \phi |D_k^h Du|\cdot |D_k^h u| + \phi |D_k^h Du|\cdot |D_u| + \phi |D_k^h u|\cdot |Du| dx.$$
+By Cauchy Schwartz,
+$$|A_2| \leq \ep \int_U \phi^2 |D_k^hDu|^2 dx + \frac{D}{\ep} \int_W |D_k^h u|^2 + |Du|^2 dx.$$
+Take $\ep = \lambda/2$, and using the fact (proved in lecture) that 
+$$\int_W |D_k^h u|^2 dx \leq D \int_{U} |Du|^2 dx$$
+we see that $$|A_2| \leq \frac{\lambda}{2} \int_U \phi^2 |D_k^hDu|^2 dx + D \int_U |Du|^2 dx.$$
+Putting these estimates together we have that 
+$$0 \geq \frac{\lambda}{2} \int_U \phi^2 |D^h_k Du|^2 dx - D\int_U |Du|^2 dx.$$
+Therefore $u\in W^{2,2}_{loc}$. 
+\item We cannot apply Sobolov bootstrap because this PDE is nonlinear and so we do not have bounds on higher order derivatives of $u$. In the proof above it is crucial that we bound the coefficients $\tilde{a}^{ij}$, which depend on $u$. If higher order derivatives become unbounded we cannot make this estimate. 
 \epenum
 
 \newpage
 \begin{problem}
 \end{problem}
+\penum 
+\item We first show that all partials of $f$, $D^\alpha f$, exist for $|\alpha | \leq 2$. 
+\item  
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
