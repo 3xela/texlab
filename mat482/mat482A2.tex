@@ -198,10 +198,35 @@ $$\det ( \varphi_i \cdot \varphi_j ) = 1 + \sum_i^n u_i^2 + \sum_{\sigma \neq id
 	\\ & = \int_\Omega \frac{\grad v \cdot \grad u}{\sqrt{1 + |\grad u + \ep \grad v|^2}}dx 
 	\\ & = \sum_{i=1}^n \int_{\Omega} \frac{u_i \cdot v_i}{\sqrt{1 + |\grad u + \ep \grad v|^2}}dx
 \end{align*}
-\item If $u$ is a critical point of $A$, we must have that 
-$$0 = \sum_{i=1}^n \int_{\Omega} \frac{u_i \cdot v_i}{\sqrt{1 + |\grad u + \ep \grad v|^2}}dx$$
-\item 
-\item We cannot apply Sobolov bootstrap because this PDE is nonlinear
+\item If $u$ is a critical point of $A$ for all $v$, we must have that 
+$$0 = \sum_{i=1}^n \int_{\Omega} \frac{u_i \cdot v_i}{\sqrt{1 + |\grad u + \ep \grad v|^2}}dx =\sum_{i=1}^n \int_{\Omega} \frac{\partial}{\partial x_i} \left(\frac{u_i}{\sqrt{1+|\grad u}|^2} \right)v dx.$$
+Therefore $u$ satisfies the following "divergence type" equation weakly:
+$$0 = \sum_{i=1}^n \frac{\partial}{\partial x_i} \frac{u_i}{\sqrt{1+ |\grad u|^2}}.$$
+Assuming that $u$ has higher order regularity, we can write the PDE in the form $a^{ij}u_{ij}$ as follows: 
+\begin{align*}0 &= \sum_{i=1}^n \frac{\partial}{\partial x_i} \frac{u_i}{\sqrt{1+ |\grad u|^2}}  
+	\\ & = \sum_{i=1}^n \frac{u_{ii} \sqrt{1+ |\grad u|^2} - u_i \left(\sqrt{1+ |\grad u|^2} \right)_i }{ 1+ |\grad u|^2 } 
+	\\ & = \sum_{i=1}^n \frac{u_{ii} \sqrt{1+ |\grad u|^2}- u_i \cdot (\sqrt{1+ |\grad u|^2})^{-1} \sum_{j=1}^n u_{ji}u_j} {1+|\grad u|^2}
+	\\ & = \sum_{i} \left( u_{ii} -  u_i \frac{1}{1+ |\grad u|^2 } \sum_{j=1}^n u_{ji} u_j  \right)
+\end{align*}
+From this we can read off the $\tilde{a}^{ij}$ as $\tilde{a}^{ij} = \delta_{ij}  - \frac{u_i u_j}{1+|\grad u|^2 }$. We claim that this PDE is elliptic. We can write $\tilde{a}^{ij} =I - B$, where $B_{ij} = \frac{u_i u_j}{1 + |\grad u|^2}$. To show that $\tilde{a}^{ij}$ is positive definite, we show that it has a maxmimum eigenvalue $0<\lambda <1$. It will then immediately follow that $I -B$ has a maximum eigenvalue of $1>1 - \lambda$. We have that 
+$$B = \frac{1}{1+|\grad u|^2} (\grad u) (\grad u)^T.$$
+Since $\grad u ^T$ has codomain $\R$, it must have kernel of dimension $n-1$. Therefore $B$ has kernel of dim $n-1$. Note though that $\grad u$ is an eigenvalue of $B$, since 
+$$B (\grad u) = \frac{|\grad u|^2}{1+|\grad u|^2} \grad u.$$ 
+The remaining eigenvalue is therefore $\frac{|\grad u|^2}{1+|\grad u|^2}$ which is less than $1$.
+\item Say $u$ weakly satisfies $\tilde{a}^{ij}u_{ij}$ and $\sup_{\Omega}|\grad u| <C$. The bound on $\grad u$ tells us that in fact the $\tilde{a}^{ij}$ are bounded, say by $D$ and uniform ellitpicity holds by applying the argument for $c$. Let $V \subset \subset \Omega$, and $W$ so that $V \subset \subset W \subset \subset \Omega$. Let $\phi$ be a smooth cut off function that is $1$ on $V$ and $0$ outside of $W$. Since $u$ is a weak solution, we have that 
+$$\int_U \tilde{a}^{ij}u_i v_j dx = 0. \quad (*)$$
+Take $h$ sufficiently small, and take $$v = - D^{-h}_k \left( \phi^2 D^h_k u \right).$$
+Substituting $v$, we can rewrite $(*)$ as: 
+\begin{align*}
+	\int_U \tilde{a}^{ij}u_i v_j dx & =- \int_U \tilde{a}^{ij} u_i \cdot \left[ D^{-h}_k \left( \phi^2 D^h_k u \right)\right]_j dx 
+	\\ & = \int_{U} D^h_k \left(\tilde{a}^{ij} u_i \right) (\phi^2 D^h_k u)_j dx \tag{integration by parts for difference quotients}
+	\\ & = \int_{U} \tilde{a}^{ij} (D_k^h u_i) (\phi^2 D^h_h u)_j + (D^h_k \tilde{a}^{ij})u_i (\phi^2 D_k^h u)_j dx\tag{product rule for difference quotients}
+\end{align*}
+Expanding this out using the product rule, we get:
+\begin{align*}
+	0 & = \int_U \tilde{a}^{ij}D_k^hu_i D_k^h u_j \phi^2 dx + 
+\end{align*}
+\item We cannot apply Sobolov bootstrap because this PDE is nonlinear and we do not have bounds on higher order derivatives of $u$. 
 \epenum
 
 \newpage
@@ -241,7 +266,7 @@ $$C^{-1} \sum_{\xi \in \Z^n}(1+ |\xi|^2)^k \hat{u}(\xi) \leq \norm{u}_{W^{k,2}(\
 By the integral test, this will converge if and only if the integral $\int_{\R^n}\frac{1}{(1+|x|^2)^\alpha}$ converges. Changing to spherical coordinates, we have that 
 $$\int_{\R^n}\frac{1}{(1+|x|^2)} dx = \omega_n \int_0^\infty \frac{r^{n-1}}{(1+r^2)^\alpha} dr <\infty \iff 2\alpha - n+1>1 \iff \alpha > \frac{n}{2}. $$
 We now claim that $u \in C^p(\T^n)$. In order for this to be true, we must have that 
-$$D^\alpha u = \sum_{\xi \in \Z^n} \widehat{D^\alpha u} e^{i \xi \cdot x} = \sum_{\xi \in \Z^n} (i\xi)^\alpha \hat{u}(\xi) e^{- \xi \cdot x}$$ converges for $|\alpha| \leq p$, since if the derivatives of up to order $p$ did exist, they must be of this form by $b)$. By part $a)$ it is enough to show that $$\sum_{\xi \in \Z^n} |\xi|^\alpha |\hat{u}(\xi)| < \infty.$$
+$$D^\alpha u = \sum_{\xi \in \Z^n} \widehat{D^\alpha u} e^{i \xi \cdot x} = \sum_{\xi \in \Z^n} (i\xi)^\alpha \hat{u}(\xi) e^{- \xi \cdot x}$$ converges for $|\alpha| \leq p$, since if the derivatives of up to order $p$ did exist, they must be of this form by $c)$. By part $a)$ it is enough to show that $$\sum_{\xi \in \Z^n} |\xi|^\alpha |\hat{u}(\xi)| < \infty.$$
 Observe: 
 \begin{align*}
 	\sum_{\xi \in \Z^n} |\xi|^\alpha |\hat{u}(\xi)| & \leq \sum_{\xi \in \Z^n } (1+|\xi|^2)^\frac{p}{2} |\hat{u}(\xi)|  \tag{since $|\alpha| \leq p$}
