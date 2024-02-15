@@ -308,7 +308,18 @@ $$-a^{ij} \xi_i \xi_j + c < -\lambda |\xi|^2 + c <0.$$
 The kernels will be equal when 
 $$a^{ij}u_{ij} + b^i u_i + cu = -a^{ij}\xi_i \xi_j - ib^i \xi_i + c \implies b^i = 0.$$
 This makes sense just by looking at the definition of $L,L^\dagger$. 
-\item 
+\item First if $\phi \in \ker (L^\dagger)$, we have that 
+$$0 = \inn{u, L^\dagger \phi} = \inn{f , \phi}. $$
+So $f$ must be orthogonal to the kernel of $L^\dagger$. We have shown that $u\in W^{2,2}$ if $\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)| < \infty$. We apply the very weak solution condition to $\phi = e^{i \xi \cdot x}$. We compute 
+$$\inn{u, L^\dagger e^{i \xi \cdot x}} = \inn{u, (-a^{ij} \xi_i \xi_j - i b^i \xi_i +c) e^{i \xi \cdot x}} = \inn{f, e^{i \xi \cdot x}}. $$
+We see that $$\hat{u} (\xi ) (-a^{ij} \xi_i \xi_j - i b^i \xi_i +c) = \hat{f}(\xi).$$
+Since $f$ is orthogonal to the kernel of $L^\dagger$, we can divide by the polynomial and get that 
+$$\hat{u} (\xi) = \frac{\hat{f}(\xi)}{-a^{ij} \xi_i \xi_j - i b^i \xi_i +c}.$$ Note that for some sufficiently large $M$, for all $|\xi|\geq M$ we have that $|-a^{ij} \xi_i \xi_j - i b^i \xi_i +c| \geq \frac{\lambda}{2} |\xi |^2$
+Therefore $$\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2  = \sum_{|\xi |< M} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2 + \frac{2}{\lambda }\sum_{|\xi| \geq M} (1+|\xi|^2)^2 \frac{|\hat{f}(\xi)|}{|\xi|^4}.$$
+The first summand is controlled by $\norm{u}_{L^2(\T^n)}$ since it is finite, and the second summand converges and is controlled by $\norm{f}_{L^2(\T^n)}$ by Plancharel's theorem. Thus we have that 
+$$\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2 \leq C \left( \norm{u}_{L^2(\T^n)} + \norm{f}_{L^2(\T^n)}\right) < \infty. $$ Since $\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2$ is controlled by the $W^{2,2}$ norm, we have that 
+$$\norm{u}_{W^{2,2}(\T^n)} \leq C \left( \norm{u}_{L^2(\T^n)} + \norm{f}_{L^2(\T^n)}\right).$$
+If $f$ is additionally orthogonal to the kernel of $L$ 
 \item 
 \epenum
 
