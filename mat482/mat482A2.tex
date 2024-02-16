@@ -238,16 +238,51 @@ we see that $$|A_2| \leq \frac{\lambda}{2} \int_U \phi^2 |D_k^hDu|^2 dx + D \int
 Putting these estimates together we have that 
 $$0 \geq \frac{\lambda}{2} \int_U \phi^2 |D^h_k Du|^2 dx - D\int_U |Du|^2 dx.$$
 Therefore $u\in W^{2,2}_{loc}$. 
-\item We cannot apply Sobolov bootstrap because this PDE is nonlinear and so we do not have bounds on higher order derivatives of $u$. In the proof above it is crucial that we bound the coefficients $\tilde{a}^{ij}$, which depend on $u$. If higher order derivatives become unbounded we cannot make this estimate. 
+\item We cannot apply Sobolev bootstrap because this PDE is nonlinear and so we do not have bounds on higher order derivatives of $u$. In the proof above it is crucial that we bound the coefficients $\tilde{a}^{ij}$, which depend on $u$. If higher order derivatives become unbounded we cannot make this estimate. 
 \epenum
 
 \newpage
 \begin{problem}
 \end{problem}
 \penum 
-\item We first show that all partials of $f$, $D^\alpha f$, exist for $|\alpha | \leq 2$. 
-\item  
+\item First note that we can always recenter our polynomial $P_x(y)$ as 
+ $$P^\prime_x(y) = P_x(x+y) = \frac{1}{2}a_x^{ij}(x_i+y+_i)(x_j+y_j) + b_x^{i}(x_i+y_i) + c_x.$$
+The coefficients $a^{ij}_x, b^i_x,c_x$ are all continuous as functions of $x$, since if we take $|x-y|<r$, $z = \frac{x+y}{2}$ for $w\in B_\frac{r}{2}(z)$
+$$|P_x(w)- P_x(w)| \leq |u(w) - P_x(w)| + |u(w) - P_y(w)| \leq 2 A_1r^{\alpha + 2}.$$
+Therefore the coefficients of $P_x$ are continuous, and so the coefficients of $P^\prime_x$ are continuous as well. We now claim that $P$ is the taylor series of $u$. We translate $P$ to $P^\prime$, and get that for any $r>0$ that
+$$|u(x) - P^\prime_x(0)| = |u(x) - c_x| \leq A_2r^{2+\alpha}.$$
+Taking $r \to 0$ gives us that $u(x) = c_x$. For a basis vector $e_i$ and sufficiently small $h$, we have
+$$|u(x + he_i) - P_x(x+he_i)| = |u(x+he_i)  - u(x) - \frac{1}{2}a^{ii}_x h^2 - b_{x,i}h| \leq A_2 h^{2+\alpha}.$$ 
+Since the coefficients of $P$ are bounded, by the triangle inequality we have that
+$$|u(x+he_i) - u(x) - b^i_{x}h| \leq A_2h^{2+\alpha} + \frac{1}{2}|a^{ii}|h^2.$$
+We get that $u_i(x) = b^i_x$. It remains to show that $u_{ij}(x) = a^{ij}_x $.
+Recall the formula
+$$u_{ii} = \lim_{h\to 0} \frac{u(x+he_i) - 2 u(x) + u(h-he_i)}{h^2}.$$
+We can write that
+$$ |(u(x+he_i ) - P^\prime_x(he_i)) + (u(x-he_i) - P^\prime_x(-he_i))| =|u(x+he_i) - 2u(x) + u(x-h_i) - a^{ii}_x h^2|  \leq 2A_2h^{2+\alpha}.$$
+Once again by taking $h\to 0$ we get that $u_{ii}(x) = a^{ii}_x$. 
+We denote the second derivative of $u$ in the $e_i+e_j$ direction as $u_{i+j,i+j}$. By multilinearity, we have
+$$u_{i+j,i+j}(x) = a^{ii}_x + 2 a^{ij}_x + a^{jj}_x.$$
+Therefore by
+$$u_{ij}(x) = \frac{1}{2} \left[u_{i+j,i+j} (x) - u_{ii}(x) - u_{jj}(x)\right] = a^{ij}_x.$$
+Therefore $u$ is $C^2$. It remains to show that $u\in C^{2,\alpha}$. We need to find a $C$ so that
+$$|u_{ij}(x) - u_{ij}(y)| \leq C |x-y|^\alpha.$$
+Take $x,y$ so that $|x-y|=r$ and $B_r(x), B_r(y) \subset B_1(0)$. 
+We define $P(z) = P_x(y+w) - P_x(z+w)$. Recall from above that $\sup |P|\leq 2A_2r^{2+\alpha}$.
+At $w = 0$ we get that $|c_x| \leq 2A_2r^{2+\alpha}$. Taking $w = re_i/4$ into $|P(w) + P(-w)|$, we get that 
+$$\frac{r^2}{32} |a_x^{ii} - a_y^{ii}| \leq 8 A_2 r^{2+\alpha}$$
+and so $|a_x^{ii} - a_y^{ii}| \leq Cr^{\alpha}$. We can do a similar argument with $w = \frac{r(e_i+e_j)}{2}$ to get a similar bound on $|a^{ij}_x - a^{ij}_y|$. Finally taking $s\in (0,1)$ by above we have that $[u_\beta]_\alpha <C A_2$ for $C$ depending on $s$. Since $|u_\alpha|_{L^\infty}<A_1$ for $\alpha = 2$. Taking the maximum between these constants, 
+$$\norm{u}_{C^{2 , \alpha}} = \sum_{|\alpha| \leq 2}\norm{u_{\alpha}} + \sum_{|\beta| = 2} C(n,s)(A_1+A_2).$$ 
+\item Take $P_x(y)$ to be the 2nd order taylor polynomial of $f$ at $x$. The coefficients of $P$ will be bounded by the $C^2$ norm of $f$. Taking $r>0$ and $y\in B_r(x) \cap B_1(0)$, 
+by Taylor's Theorem, 
+$$|f(x) - P_x(y)  | \leq \Big| |f(y)  - \sum_{\alpha \leq 1} \frac{f_\alpha(x)}{\alpha!}(y-x)^\alpha  - \sum_{|\alpha| = 2} \frac{f_\alpha(x)}{\alpha!}(y-x)^\alpha\Big|.$$
+By the Lagrange form of the remainder, we have some $z$ so that $|z - x| \leq |y-x|$ so that
+$$\Big| |f(y)  - \sum_{\alpha \leq 1} \frac{f_\alpha(x)}{\alpha!}(y-x)^\alpha  - \sum_{|\alpha| = 2} \frac{f_\alpha(x)}{\alpha!}(y-x)^\alpha\Big| = \Big| \sum_{|\alpha | = 2} \frac{f_{\alpha}(z)}{\alpha!}(y-x)^\alpha - \sum_{|\alpha | = 2} \frac{f_{\alpha}(z)}{\alpha!}(y-x)^\alpha \Big|.$$
+This will be controlled by $$\sum_{|\alpha| = 2} \frac{|f_{\beta}(\xi)  - f_\beta(x)|}{\alpha!}|x-y|^{2} \leq \sum_{|\alpha| = 2} C|x-y|^{2+\alpha} =C_n |y-x|^{2+\alpha}.$$
+For $C = \sup \frac{|f_{\alpha}(\xi)  - f_\alpha(x)|}{|x-y|^\alpha}$. 
+We have that $C_n$ is controlled by $C^{2, \alpha}$ norm of $f$ since it will be a part of the sum that defines it. 
 \epenum
+
 \newpage
 \begin{problem}
 \end{problem}
@@ -303,34 +338,48 @@ Fourier transforming both sides, we get
 $$0 = \hat{u}(\xi) (-a^{ij}\xi_i \xi_j + ib^i \xi_i + c).$$
 Thus the kernel of $L$ is given exactly by the $u$ satisfying the above. Similarly the kernel of $L^\dagger$ is given by 
 $$0 = \hat{u}(\xi) (-a^{ij}\xi_i \xi_j - ib^i \xi_i + c).$$
-If solutions exist, then they will both be finite dimensional since the solutions are determined by $\xi$, which must satisfy some polynomial in $a^{ij},b^i,c$. They will be empty if $b^i \neq 0$ and if $c < 0$, since 
+We claim that the kernel will be finite dimensional. Applying $L$ to $e^{i \xi \cdot x}$, we have that $\xi$ must satisfy 
+$$-a^{ij}\xi_i \xi_j + ib^i \xi_i +c = 0.$$
+Since $a,b,c$ real this will only be satisfied if 
+$$a^{ij}\xi_i\xi_j  = c , \quad ib^i\xi_i = 0.$$
+By ellipticity, we have that $$c = a^{ij}\xi_i \xi_j > \lambda |\xi|^2.$$
+Only finitely many $\xi$ can satisfy this. Similarly for $L^\dagger$. 
+They will be empty if $b^i \neq 0$ and if $c < 0$, since 
 $$-a^{ij} \xi_i \xi_j + c < -\lambda |\xi|^2 + c <0.$$
-The kernels will be equal when 
-$$a^{ij}u_{ij} + b^i u_i + cu = -a^{ij}\xi_i \xi_j - ib^i \xi_i + c \implies b^i = 0.$$
-This makes sense just by looking at the definition of $L,L^\dagger$. 
+The kernels will always be equal, since we can always complex conjugate a root of $L$ to get a root of $L^\dagger$. Since the coefficients are real $\xi$ will satisfy
+$$a^{ij}\xi_i \xi_j + ib^i \xi_i +c = 0 \iff a^{ij}\xi_i \xi_j - ib^i \xi_i +c = 0$$
 \item First if $\phi \in \ker (L^\dagger)$, we have that 
 $$0 = \inn{u, L^\dagger \phi} = \inn{f , \phi}. $$
-So $f$ must be orthogonal to the kernel of $L^\dagger$. We have shown that $u\in W^{2,2}$ if $\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)| < \infty$. We apply the very weak solution condition to $\phi = e^{i \xi \cdot x}$. We compute 
+So $f$ must be orthogonal to the kernel of $L^\dagger$. We have shown that $u\in W^{2,2}$ if $\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2 < \infty$. We apply the very weak solution condition to $\phi = e^{i \xi \cdot x}$. We compute 
 $$\inn{u, L^\dagger e^{i \xi \cdot x}} = \inn{u, (-a^{ij} \xi_i \xi_j - i b^i \xi_i +c) e^{i \xi \cdot x}} = \inn{f, e^{i \xi \cdot x}}. $$
 We see that $$\hat{u} (\xi ) (-a^{ij} \xi_i \xi_j - i b^i \xi_i +c) = \hat{f}(\xi).$$
 Since $f$ is orthogonal to the kernel of $L^\dagger$, we can divide by the polynomial and get that 
 $$\hat{u} (\xi) = \frac{\hat{f}(\xi)}{-a^{ij} \xi_i \xi_j - i b^i \xi_i +c}.$$ Note that for some sufficiently large $M$, for all $|\xi|\geq M$ we have that $|-a^{ij} \xi_i \xi_j - i b^i \xi_i +c| \geq \frac{\lambda}{2} |\xi |^2$
 Therefore 
-$$\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2  l\leq  \sum_{|\xi |< M} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2 + \frac{2}{\lambda }\sum_{|\xi| \geq M} (1+|\xi|^2)^2 \frac{|\hat{f}(\xi)|^2}{|\xi|^4}.$$
+$$\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2  \leq  \sum_{|\xi |< M} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2 + \frac{2}{\lambda }\sum_{|\xi| \geq M} (1+|\xi|^2)^2 \frac{|\hat{f}(\xi)|^2}{|\xi|^4}.$$
 The first summand is controlled by $\norm{u}_{L^2(\T^n)}$ since it is finite, and the second summand converges and is controlled by $\norm{f}_{L^2(\T^n)}$ by Plancharel's theorem. Thus we have that 
 $$\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2 \leq C \left( \norm{u}_{L^2(\T^n)} + \norm{f}_{L^2(\T^n)}\right) < \infty. $$ Since $\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2$ is controlled by the $W^{2,2}$ norm, we have that 
+
 $$\norm{u}_{W^{2,2}(\T^n)} \leq C \left( \norm{u}_{L^2(\T^n)} + \norm{f}_{L^2(\T^n)}\right).$$
-If $u$ is additionally orthogonal to the kernel of $L$, we must have that $\inn{u , e^{i \xi \cdot x}} = 0$ whenever $Le^{i \xi \cdot x} = 0$. Recall from part $e)$ that the kernel of $L$ is generated by $\xi \in \Z^n $ solving $-a^{ij} \xi_i \xi_j + i b^i \xi_i + c = 0$. By complex conjugating, this will be the exact same set of $\xi$ that satisfy $-a^{ij} \xi_i \xi_j - i b^i \xi_i + c = 0$ since all the coefficients are real. Therefore we have that $\ker L = \ker L^\dagger$. By $e)$ this implies that $b^i = 0$. We can thus write 
-$$\hat{u} (\xi) = \frac{\hat{f}(\xi)}{-a^{ij}\xi_i \xi_j + c}.$$
-We can find a constant $\lambda$ so that $$|a^{ij}\xi_i \xi_j + c| \geq \lambda |\xi |^2.$$ We repeat the argument as before except we do not use $M$. 
-$$\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2 = \sum_{\xi \in \Z^n} (1+|\xi|^2)^2 \frac{|\hat{f}(\xi)|^2}{|a^{ij} \xi_i \xi_j + c|^2} \leq \lambda \sum_{\xi \in \Z^n} (1+|\xi|^2)^2 \frac{|\hat{f}(\xi)|^2}{|\xi|^4} \leq C \sum_{\xi \in \Z^n} |\hat{f}(\xi)|^2 = C \norm{f}_{L^2}.$$
+If $u$ is additionally orthogonal to the kernel of $L$, we must have that $\inn{u , e^{i \xi \cdot x}} = 0$ whenever $Le^{i \xi \cdot x} = 0$. Recall from part $e)$ that the kernel of $L$ is generated by $\xi \in \Z^n $ solving $-a^{ij} \xi_i \xi_j + i b^i \xi_i + c = 0$. By complex conjugating, this will be the exact same set of $\xi$ that satisfy $-a^{ij} \xi_i \xi_j - i b^i \xi_i + c = 0$ since all the coefficients are real. Therefore we have that $\ker L = \ker L^\dagger$. 
+Similarly as before, we have an $M$ as above. 
+\begin{align*}
+\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2 
+&= \sum_{|\xi | < M} (1+|\xi|^2)^2\frac{|\hat{f}(\xi)|^2}{|(a^{ij} \xi_i\xi_j - i b_i\xi_i + c )|^2} +\sum_{|\xi| \geq M} (1+|\xi|^2)^2 \frac{|\hat{f}(\xi)|^2}{|(a^{ij} \xi_i\xi_j - i b_i\xi_i + c )|^2}
+\\ & = \sum_{|\xi | < M} (1+|\xi|^2)^2\frac{|\hat{f}(\xi)|^2}{|(a^{ij} \xi_i\xi_j - i b_i\xi_i + c )|^2} + \frac{\lambda}{2} \sum_{|\xi| \geq M} (1+|\xi|^2)^2\frac{|\hat{f}(\xi)|^2}{|\xi|^4}
+\\ & \leq C\norm{f}_{L^2(\T^n)}. 
+\end{align*}
 Similarly we can control $\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2$ by $C \norm{u}_{W^{2,2}(\T^n)}$ so we conclude that 
 $$\norm{u}_{W^{2,2}(\T^n)} \leq C \norm{f}_{L^2(\T^n)}. $$
-\item Define $G$ as $$Gv(x) = \sum_{\xi \in \Z^n} \hat{v}(\xi) \cdot (-a^{ij} \xi_i \xi_j - i b^{i} \xi_i + c) e^{i \xi \cdot x}.$$
+\item Define $G$ as $$Gv(x) = \sum_{\xi \in \Z^n} \frac{\hat{v}(\xi)}{(-a^{ij} \xi_i \xi_j - i b^{i} \xi_i + c)} e^{i \xi \cdot x}.$$
+This will be well defined since the coefficients $\hat{v}(\xi)$ for $\xi$ satisfying $(-a^{ij} \xi_i \xi_j - i b^{i} \xi_i + c) =0$ are 0, since $v\in (\ker L^\dagger)^\perp$. 
 Since $\widehat{\alpha f + g}(\xi) = \alpha \hat{f} (\xi)+ \hat{g}(\xi)$ we have that $G$ as defined is linear. We claim $G$ as defined has the desired codomain when defined on $(\ker L^\dagger)^\perp$. Suppose that $\eta \in (\ker L^\dagger)^\perp$. We must have that for whenever $(-a^{ij} \xi^\prime_i \xi^\prime_j - ib^{i}\xi^\prime_i +c ) = 0$, $\inn{\eta, e^{i \xi^\prime \cdot x}} =0$. It follows that for an arbitrary $\xi^\prime$, 
-$$\inn{G\eta, e^{i \xi^\prime \cdot x}} = \inn{\sum_{\xi \in \Z^n}\hat{\eta}(\xi) (-a^{ij}\xi_i \xi_j - i b^{i}\xi_j + c) ,e^{i \xi^\prime \cdot x}}= \inn{\hat{\eta}(\xi^\prime) e^{i \xi^\prime \cdot x}, (-a^{ij}\xi_i \xi_j + i b^{i}\xi_j + c)e^{i \xi^\prime \cdot x}}.$$
-By $f)$ we have that $\inn{G\eta, e^{i \xi^\prime \cdot x} } = 0$ if and only if $(-a^{ij}\xi_i \xi_j + i b^{i}\xi_j + c) = 0$. So if $\eta$ is in $(\ker L^\dagger)^\perp$ then $G\eta$ is in $(\ker L)^\perp$. Furthermore we must have that $G\eta \in W^{2,2}(\T^n)$, since the fourier coefficients of $G\eta$ take the form of $(-a^{ij}\xi_i \xi_j - i b^{i}\xi_j + c)\hat{\eta}(\xi)$. This will satisfy our equivalent formulation of $W^{2,2}(\T^n)$ by running a similar argument as $f)$, by bounding finitely many terms and using ellipticity to bound the remainder. Furthermore, we have that $Gf = u$ since
-$$Gf = \sum_{\xi \in \Z^n}$$
+$$\inn{G\eta, e^{i \xi^\prime \cdot x}} = \inn{\sum_{\xi \in \Z^n} \frac{\hat{\eta}(\xi)}{(-a^{ij}\xi_i \xi_j - i b^{i}\xi_j + c)}e^{i \xi \cdot x},e^{i \xi^\prime \cdot x}}= \inn{\frac{{\eta}(\xi^\prime)}{(-a^{ij}\xi_i \xi_j - i b^{i}\xi_j + c)} e^{i \xi^\prime \cdot x}, e^{i \xi^\prime \cdot x}}.$$
+By $f)$ we have that $\inn{G\eta, e^{i \xi^\prime \cdot x} } = 0$ if and only if $(-a^{ij}\xi_i \xi_j + i b^{i}\xi_j + c) = 0$. Since the kernels are equal by part $f$ we have that $(-a^{ij}\xi_i \xi_j + i b^{i}\xi_j + c)$ is in fact 0. So if $\eta$ is in $(\ker L^\dagger)^\perp$ then $G\eta$ is in $(\ker L)^\perp$. Furthermore we must have that $G\eta \in W^{2,2}(\T^n)$, since the fourier coefficients of $G\eta$ take the form of $\frac{\hat{\eta}(\xi)}{(-a^{ij}\xi_i \xi_j - i b^{i}\xi_j + c)}$. This will satisfy our equivalent formulation of $W^{2,2}(\T^n)$ by running a similar argument as $f)$, by bounding finitely many terms and using ellipticity to bound the remainder. Furthermore, we have that $Gf = u$ since
+$$Gf = \sum_{\xi \in \Z^n} \frac{\hat{f}(\xi)}{(-a^{ij}\xi_i \xi_j - i b^{i}\xi_j + c)} e^{i \xi \cdot x} = \sum_{\xi \in \Z^n} \hat{u}(\xi) e^{i \xi \cdot x} = u.$$
+From this it immediately follows that $$LGf = L(u) = f, \quad GLu = G(f) = u$$
+and $$\norm{Gf}_{W^{2,2}(\T^n)} \leq C \norm{f}_{L^2}$$
+for the same reason as $f)$. Equality of $GLu =u$ is in the weak sense. We can say that $u =  Gf$ is in $C^p$ when $f\in W^{k,2}(\T^n)$ , for $k>p + \frac{n}{2}$ by part $d)$.  
 \epenum
 
 \end{document}
