@@ -286,7 +286,7 @@ $$D^\alpha u = \sum_{\xi \in \Z^n} \widehat{D^\alpha u} e^{i \xi \cdot x} = \sum
 Observe: 
 \begin{align*}
 	\sum_{\xi \in \Z^n} |\xi|^\alpha |\hat{u}(\xi)| & \leq \sum_{\xi \in \Z^n } (1+|\xi|^2)^\frac{p}{2} |\hat{u}(\xi)|  \tag{since $|\alpha| \leq p$}
-	\\ & \leq \left(\sum_{\xi \in \Z^n} (1+|\xi|^2)^k| \hat{u}(\xi)|^2 \right)^{1/2} \left( \sum_{\xi \in \Z^n} \frac{1}{(1+|\xi|^2)^{k-p}} \right)^\frac{1}{2} \tag{cauchy -shwartz on $\mathfrak{l}^2$}
+	\\ & \leq \left(\sum_{\xi \in \Z^n} (1+|\xi|^2)^k| \hat{u}(\xi)|^2 \right)^{1/2} \left( \sum_{\xi \in \Z^n} \frac{1}{(1+|\xi|^2)^{k-p}} \right)^\frac{1}{2} \tag{Cauchy-Schwarz on $\mathfrak{l}^2$}
 \end{align*}
 The first term of the product is finite by $c)$, the second term is finite because $k-p>\frac{n}{2}$. Thus it makes sense to define $D^\alpha u$ as we did. We now determine a bound on $\norm{u}_{C^p}$. 
 \begin{align*}
@@ -326,7 +326,11 @@ We can find a constant $\lambda$ so that $$|a^{ij}\xi_i \xi_j + c| \geq \lambda 
 $$\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2 = \sum_{\xi \in \Z^n} (1+|\xi|^2)^2 \frac{|\hat{f}(\xi)|^2}{|a^{ij} \xi_i \xi_j + c|^2} \leq \lambda \sum_{\xi \in \Z^n} (1+|\xi|^2)^2 \frac{|\hat{f}(\xi)|^2}{|\xi|^4} \leq C \sum_{\xi \in \Z^n} |\hat{f}(\xi)|^2 = C \norm{f}_{L^2}.$$
 Similarly we can control $\sum_{\xi \in \Z^n} (1+|\xi|^2)^2 |\hat{u}(\xi)|^2$ by $C \norm{u}_{W^{2,2}(\T^n)}$ so we conclude that 
 $$\norm{u}_{W^{2,2}(\T^n)} \leq C \norm{f}_{L^2(\T^n)}. $$
-\item 
+\item Define $G$ as $$Gv(x) = \sum_{\xi \in \Z^n} \hat{v}(\xi) \cdot (-a^{ij} \xi_i \xi_j - i b^{i} \xi_i + c) e^{i \xi \cdot x}.$$
+Since $\widehat{\alpha f + g}(\xi) = \alpha \hat{f} (\xi)+ \hat{g}(\xi)$ we have that $G$ as defined is linear. We claim $G$ as defined has the desired codomain when defined on $(\ker L^\dagger)^\perp$. Suppose that $\eta \in (\ker L^\dagger)^\perp$. We must have that for whenever $(-a^{ij} \xi^\prime_i \xi^\prime_j - ib^{i}\xi^\prime_i +c ) = 0$, $\inn{\eta, e^{i \xi^\prime \cdot x}} =0$. It follows that for an arbitrary $\xi^\prime$, 
+$$\inn{G\eta, e^{i \xi^\prime \cdot x}} = \inn{\sum_{\xi \in \Z^n}\hat{\eta}(\xi) (-a^{ij}\xi_i \xi_j - i b^{i}\xi_j + c) ,e^{i \xi^\prime \cdot x}}= \inn{\hat{\eta}(\xi^\prime) e^{i \xi^\prime \cdot x}, (-a^{ij}\xi_i \xi_j + i b^{i}\xi_j + c)e^{i \xi^\prime \cdot x}}.$$
+By $f)$ we have that $\inn{G\eta, e^{i \xi^\prime \cdot x} } = 0$ if and only if $(-a^{ij}\xi_i \xi_j + i b^{i}\xi_j + c) = 0$. So if $\eta$ is in $(\ker L^\dagger)^\perp$ then $G\eta$ is in $(\ker L)^\perp$. Furthermore we must have that $G\eta \in W^{2,2}(\T^n)$, since the fourier coefficients of $G\eta$ take the form of $(-a^{ij}\xi_i \xi_j - i b^{i}\xi_j + c)\hat{\eta}(\xi)$. This will satisfy our equivalent formulation of $W^{2,2}(\T^n)$ by running a similar argument as $f)$, by bounding finitely many terms and using ellipticity to bound the remainder. Furthermore, we have that $Gf = u$ since
+$$Gf = \sum_{\xi \in \Z^n}$$
 \epenum
 
 \end{document}
