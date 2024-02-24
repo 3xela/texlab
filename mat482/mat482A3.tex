@@ -176,6 +176,64 @@ bmargin=0.5in]{geometry}
 
 \begin{problem}
 \end{problem}
+\penum
+\item First we have that: 
+\begin{align*}
+	\frac{|f(x) g(x) - f(y)g(y)|}{|x-y|^\alpha}& = \frac{|f(x)g(x) + f(x)g(y)-f(x)g(y) - f(y)g(y)|}{|x-y|^\alpha}
+	\\ & = \frac{|f(x) \left[  g(x) - g(y) \right]]  + g(y) \left[ f(x) - f(y)\right]|}{|x-y|^\alpha}
+	\\ & \leq |f(x)| \frac{|g(x) - g(y)|}{|x-y|^\alpha} + |g(y)|\frac{|f(x) - f(y)|}{|x-y|^\alpha} \tag{By Triangle Inequality}
+	\\ & \leq M_f \frac{|g(x) - g(y)|}{|x-y|^\alpha} + M_g \frac{|f(x)-f(y)|}{|x-y|^\alpha}\tag{By Continuity of $f,g$}
+	\\ & 
+\end{align*}
+The above quantity is finite for all $x\neq y$ since $f,g\in C^\alpha$. We conclude that $fg\in C^\alpha$.
+\item 
+	Since $\{f_n\}$ is bounded in $C^\alpha$ it must be bounded in $C^0$ as well. Since $\norm{f_n}_{C^\alpha} \leq 1$ we have that for all $n$, $x\neq y\in \Omega$, 
+	$$|f_n(x) - f_n(y)| \leq |x-y|^\alpha\implies |f_n(x) - f_n(y)| \leq M |x-y|,$$
+Since H\"older Continuity implies  uniform continuity. Therefore $\{f_n\}$ is an equicontinuous family in $C^0$. By Arzela-Ascoli's Theorem there exists a subsequence $\{f_{n_k}\}$ so that $f_{n_k} \rightrightarrows f$ to some $f\in C^0$. 
+We claim that $f\in C^\beta$. Since $C^\beta$ is a Banach Space, it is enough to show that $\{f_{n_k}\}$ is cauchy. 
+First relabel the sequence $\{f_{n_k}\}$ as $\{f_n\}$. By definition, we have:
+$$\norm{f_n - f_m}_{C^\beta} = \sup_{\Omega} |f_m - f_n| + \sup_{x\neq y} \frac{|(f_n-f_m)(x) - (f_n-f_m)(y)|}{|x-y|^\beta}.$$
+The first term can clearly be made less than $\ep$ just by uniform convergence. It remains to show the same is true for the second term. We compute:
+\begin{align*}
+	\sup_{x\neq y} \frac{|(f_n-f_m)(x) - (f_n-f_m)(y)|}{|x-y|^\beta} & = \left(\sup_{x\neq y} \frac{|(f_n-f_m)(x) - (f_n-f_m)(y)|}{|x-y|^\alpha} \right)^{\frac{\beta}{\alpha}} |(f_n-f_m)(x)-(f_n-f_m)(y)|^{1 - \frac{\beta}{\alpha}}
+	\\ & \leq 2\left[f_n - f_m \right]^\frac{\beta}{\alpha}_{C^\alpha} \cdot \sup_{\Omega} |f_n-f_m|^{1 - \frac{\beta}{\alpha}}
+	\\ & \leq 2^{1+ \frac{\beta}{\alpha}} \sup_\Omega |f_n - f_m|^{1 - \frac{\beta}{\alpha}} .\tag{By Triangle Inequality}
+\end{align*}
+We can also make the above quantity small than $\ep$ for sufficiently large $n,m$. The sequence is cauchy and thus converges in $C^\beta$. 
+\epenum
+\newpage
+\begin{problem}
+\end{problem}
+\penum 
+\item  
+\begin{enumerate}[label = \roman*)]
+	\item Since $\tilde{u}$ is a rescaled and translated $u$, we must have that $\tilde{u}$ is defined on $B_{1}(0)$ if and only if $u$ is defined on $B_{d_p}(p)$. Our selection of $d_p$ makes it so that $B_{d_p}(p) \subset \Omega$. So our function $\tilde{u}$ makes sense. 
+\item Since $\tilde{u}|_{B_{1/2}(0)} = u|_{B_{d_p/2}(0)}$, we compute that 
+$$\norm{\tilde{u}}_{C^2(B_{1/2}(0)} = \sum_{|\beta|\leq 2} \sup_{B_{1/2}(0)}|D^\beta \tilde{u} | = \sum_{|\beta|\leq 2} \sup_{B_{1/2}(0)} d_p^2 |D^\beta u| \leq C$$
+In a similar fashion we compute :
+		$$|D^2 \tilde{u}(x)| = |D^2 M^{-1} u(p+d_p x))| = M^{-1} d_p^2 |D^2u(p+d_p x)|.$$
+At $x = 0$ we have that 
+		$$|D^2\tilde{u}(0)| = M^{-1}d_p^2 |D^2u(p)| = 1.$$
+	\item Using the chain rule we compute $a^{ij}\tilde{u}_{ij}$. 
+		$$a^{ij}\tilde{u}_{ij} = M^{-1} a^{ij} (u(p+d_px))_{ij} = M^{-1}d_p^2 a^{ij}\tilde{u}_{ij} = M^{-1}d^2_p f(p + d_p x).$$
+\item Since $|u|\leq 1$, 
+	$$|\tilde{u}| = |M^{-1}u(p + dp_m x)|\leq M^{-1}. $$
+\end{enumerate}
+\item Suppose the result of Lemma 0.2 does not hold, that is there is a sequence of equations $a_m^{ij} \partial_i \partial_j u_m = f_m$ so that $|a_m^{ij}|_{C^\alpha(\Omega)}\leq K, \norm{f_m}_{C^\alpha(\Omega)} +\norm{u}_{C^0(\Omega)} \leq 1 $ but $ \sup_{\Omega} d^2x|D^2u_m(x)|= M$, achieved at some $p_m$. We define 
+	$$\tilde{u}_m(x) =M^{-1}u(p_m + d_{p_m}x). $$
+\epenum
+\newpage
+\begin{problem}
+\end{problem}
+Since $\ol{u}$ agrees with a harmonic function on the upper and lower half planes, it is enough to show that it is harmonic along $x_n= 0$. Since $\ol{u}$ is continuous, we check that it has mean value property for $x_n = 0$. Take a point $x = (x_1, \dots , x_{n-1} , 0)$. We compute: 
+\begin{align*}
+	\frac{1}{\omega_n r^n} \int_{B_r(x)} \ol{u}(y) dy & = \frac{1}{\omega_n r^n} \left[\int_{B_r(x)\cap \{x_n >0\}} \ol{u}(y) dy + \int_{B_r\cap\{ x_n <0\}} \ol{u}(y) dy \right]
+	\\ & = \frac{1}{\omega_n r^n} \left[ \int_{B_r\cap \{x>0\}} u(y)dy + \int_{B_r(x) \cap \{x_n<0\}} -u(y_1, \dots , -y_n)dy \right]
+	\\ & = \frac{1}{\omega_n r^n} \left[ \int_{B_r\cap \{x>0\}} u(y)dy + \int_{B_r(x) \cap \{x_n >0\}} -u(y) dy  \right] \tag{Change of Variables}
+	\\ & = 0 
+	\\ & = u(x)
+\end{align*}
+So $u$ is continiuous, has mean value proprty, and agrees everywhere with a harmonic function. We conclude $u$ is harmonic. 
 \newpage
 \begin{problem}
 \end{problem}
@@ -183,12 +241,4 @@ bmargin=0.5in]{geometry}
 \begin{problem}
 \end{problem}
 \newpage
-\begin{problem}
-\end{problem}
-\newpage
-\begin{problem}
-\end{problem}
-\newpage
-
-
 \end{document}
