@@ -235,7 +235,11 @@ By hypothesis, we must have that $M_m \to \infty$ as $m \to \infty$. Define $\ti
 $$(\min\{d_x, d_y\} )^\alpha \frac{\left|D^2 \tilde{u}_m(x) - D^2\tilde{u}_mu(y) \right|}{|x-y|^\alpha}\leq C\left(\norm{f_m}_{C^\alpha(\Omega^\prime)} + \norm{\tilde{u}_m}_{C^2(\Omega^\prime)} \right).$$
 By taking the $\sup$ over $x,y\in B_{1/2}(0)$, we get that 
 $$\sup_{x\neq y}\frac{\left|D^2\tilde{u}_m(x) - D^2 \tilde{u}_m(y) \right|}{|x-y|^\alpha}\leq C_1.$$
-Since the $\tilde{u}_m$ are uniformly bounded in $C^2$, and have holder constant $C_1$ they must be in $C^{2,\alpha}$. Therefore $\{u_m\}$ is bounded. 
+Since the $\tilde{u}_m$ are uniformly bounded in $C^2$, and have holder constant $C_1$ they must be in $C^{2,\alpha}$. Therefore $\{\tilde{u}_m\}$ is bounded. By Arzela-Ascoli, we can find a convergent subsequence, $\{\tilde{u}_{m_k}\}$ with limit $\tilde{u}_\infty$. We have that 
+$$\norm{\tilde{u}_\infty}_{C^0} = \lim_{m_k \to \infty}\norm{\tilde{u}_{m_k}}_{C^0} \leq \lim_{m_k \to \infty} M_{m_k}^{-1} = 0.$$
+However,
+$$|D^2\tilde{u}_\infty(0)| = \lim_{m_k \to \infty} |D^2\tilde{u}_{m_k}(0)| = 1.$$
+This is a contradiction. 
 \epenum
 \newpage
 \begin{problem}
