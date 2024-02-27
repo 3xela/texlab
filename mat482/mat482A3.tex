@@ -256,6 +256,27 @@ So $u$ is continiuous, has mean value proprty, and agrees everywhere with a harm
 \newpage
 \begin{problem}
 \end{problem}
+\penum
+\item Since $\norm{f}_{C^\alpha} + \norm{u}_{C^2} + \norm{\phi}_{C^\alpha,2}$ we must have that $\norm{f}_{C^\alpha} + \norm{u}_{C^2} \leq 1$. By theorem 0.1 we have that 
+	$$\left( \min \{d_{p_m} ,d_{q_m} \}\right)^\alpha \frac{|D^2u(p_m) - D^2u(q_m)| }{|p_m-q_m|^\alpha} \leq C \implies d_{p_m}^\alpha M \leq C \implies d_{p_m}^\alpha \leq CM^{-1}.$$
+Since $\norm{u}_{C^2} \leq 1$, we must have that by triangle inequality:
+$$|D^2u(p_m) - D^2u(q_m)|\leq 2.$$
+Multiplying both sides by $\frac{r_m^\alpha}{r_m^\alpha}$, we get that:
+$$r^\alpha_m \frac{|D^2u(p_m) - D^2u(q_m)|}{r_m^\alpha}\leq 2 \implies r_m^\alpha M \leq 2 \implies r_m^\alpha \leq 2M^{-1}.$$
+Since $M \geq m$, as $m \to infty$ we have that $d_{p_m}^\alpha, r_m^\alpha \to 0$. 
+\item 
+\begin{enumerate}[label = \roman*) ]
+	\item Note that $\tilde{v}_m$ is a sum of $\tilde{u}_m$ and a polynomial in $x$ along with some constant terms. Therefore it will be defined exactly where $\tilde{u}_m$ is defined. Since $u_m$ is defined on $B_1(e_n)$, we must have that $\tilde{v}_m$ is defined on the ball of radius $1/r_m$ centered about $e_n$. Thus we wish to show that if $x\in \Gamma_m$, then $(r_mx_n - 1)^2 + \sum_{i}^{n-1}(r_mx_i)^2 \leq 1$. 
+We have that 
+		$$-1 + \sum_{i}^{n-1} (r_mx_i)^2 \leq r_mx_n - 1 \leq 0.$$
+Squaring and flipping the directions of the inequalities, we have that 
+$$ \left(-1 + \sum_{i}^{n-1} (r_mx_i)^2  \right)^2 \geq (r_m x_n- 1)^2 \geq 0. $$
+Adding $\sum_{i}^{n-1} (r_m x_i)^2$ to both sides we get that:
+		$$1 - \sum_{i}^{n-1} (r_mx_i)^2  + \left(\sum_{i}^{n-1} (r_mx_i)^2 \right)^2 \geq (r_mx_n-1)^2 + \sum_{i}^{n-1}(r_mx_i)^2.$$
+Since $\sum_{i}^{n-1} (r_mx_i)^2 \leq 1/2$, the lefthand side is less than 1. 
+\item 
+\end{enumerate}
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
