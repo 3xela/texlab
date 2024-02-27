@@ -279,9 +279,16 @@ It is easy to see that
 $$v_m(0) = \tilde{u}_m(0) - \tilde{u}_m(0) = 0.$$
 As well as
 $$Dv_m(0) = D\tilde{u}_m(0) - D\tilde{u}_m(0) =0 ,$$
-since the degree 2 polynomial just evaluates to $0$. 
+since the degree 2 polynomial just evaluates to $0$, and the linear term has a gradient of $D\tilde{u}_m(0)$.  
 Finally we have that 
 $$D^2 v_m(0) = D^2\tilde{u}_m(0) - D^2 \tilde{u}_m(0). $$
+This is since the constant and linear terms vanish and the hessian of the quadratic term is excactly $D^2\tilde{u}_m(0)$. Furthermore for $x,y\in \Gamma_m$, we have:
+\begin{align*}
+ |D^2 v_m(x) - D^2v_m(y)| & = |D^2\tilde{u}_m(x) - D^2\tilde{u}_m(y)|
+ \\ & = |D^2(M^{-1}r_m^{-2-\alpha}u(r_m x)) - D^2(M^{-1}r_m^{-2-\alpha}u(r_m y))|
+ \\ & = M^{-1}r_m^{-\alpha}|D^2u_m(r_mx) - D^2u_m(r_my)|
+ \\ & \leq |x-y|^\alpha \tag{by assumption at points $r_mx,r_my$}
+\end{align*}
 \end{enumerate}
 \epenum
 \newpage
