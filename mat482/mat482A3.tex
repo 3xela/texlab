@@ -274,7 +274,14 @@ $$ \left(-1 + \sum_{i}^{n-1} (r_mx_i)^2  \right)^2 \geq (r_m x_n- 1)^2 \geq 0. $
 Adding $\sum_{i}^{n-1} (r_m x_i)^2$ to both sides we get that:
 		$$1 - \sum_{i}^{n-1} (r_mx_i)^2  + \left(\sum_{i}^{n-1} (r_mx_i)^2 \right)^2 \geq (r_mx_n-1)^2 + \sum_{i}^{n-1}(r_mx_i)^2.$$
 Since $\sum_{i}^{n-1} (r_mx_i)^2 \leq 1/2$, the lefthand side is less than 1. 
-\item 
+\item We have $v_m(x) =  \tilde{u}_m(x) - \tilde{u}_m(0) + - \sum_i x_i \frac{\tilde{u}_m(0)}{\partial x_i}  - \frac{1}{2} \sum_{i,j} \frac{\partial^2\tilde{u}_m}{\partial x_i \partial x_j}(0) x_ix_j.$
+It is easy to see that 
+$$v_m(0) = \tilde{u}_m(0) - \tilde{u}_m(0) = 0.$$
+As well as
+$$Dv_m(0) = D\tilde{u}_m(0) - D\tilde{u}_m(0) =0 ,$$
+since the degree 2 polynomial just evaluates to $0$. 
+Finally we have that 
+$$D^2 v_m(0) = D^2\tilde{u}_m(0) - D^2 \tilde{u}_m(0). $$
 \end{enumerate}
 \epenum
 \newpage
