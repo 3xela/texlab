@@ -208,14 +208,10 @@ We can also make the above quantity small than $\ep$ for sufficiently large $n,m
 \item  
 \begin{enumerate}[label = \roman*)]
 	\item Since $\tilde{u}$ is a rescaled and translated $u$, we must have that $\tilde{u}$ is defined on $B_{1}(0)$ if and only if $u$ is defined on $B_{d_p}(p)$. Our selection of $d_p$ makes it so that $B_{d_p}(p) \subset \Omega$. So our function $\tilde{u}$ makes sense. 
-\item Since $\tilde{u}|_{B_{1/2}(0)} = u|_{B_{d_p/2}(p)}$, we compute that 
-\begin{align*}
-	\norm{\tilde{u}}_{C^2(B_{1/2}(0))}& = \sum_{|\alpha| \leq 2} \sup_{B_{1/2}(0)} |D^\alpha \tilde{u}|
-	\\ & =\sum_{|\alpha|\leq 2} \frac{dp^{\alpha}}{M} \sup_{B_{d_p/2}(p)} |D^\alpha u(x)|
-	\\ & = \sum_{|\alpha| = 0} \frac{1}{M} \sup_{B_{d_p/2}(p)} |u(x)| + \sum_{|\alpha| = 1} \frac{d_p}{M} \sup_{B_{d_p/2}(p)} |D^\alpha u(x)| + \sum_{|\alpha |=2} \frac{d_p^2}{M} \sup_{B_{d_p/2}(p)} |D^\alpha u(x)|
-	\\ & \leq \frac{1}{M} + \sum_{|\alpha| = 1} \frac{d_p}{M} \sup_{B_{d_p/2}(p)} \left| \int_{B_{dp/2}(p)} D^{\alpha+1} u(x) dx\right|  + C(n) \tag{since $|u|\leq 1$, $\sup d_p^2|D^2u(p)| =M $}
-	\\ & = \frac{1}{M} + C_1(n) + C_2(n) \tag{since $d^2_p|D^\alpha+2| \leq M$}
-\end{align*}
+	\item We compute a uniform bound on $\norm{\tilde{u}}_{C^2(B_{1/2}(0))}$. If $|x| < \frac{1}{2}$, we have that $d(p+d_p, \bd \Omega)>\frac{1}{2} d_p$. Thus we have
+$$|D^2\tilde{u}| = M^{-1}d_p^2|D^2(p+d_p x)|\leq M^{-1} d_p^2 4 Md_p^{-2} = 4.$$
+Where we use the fact that 
+		$$|D^2u(p+d_p x)|\leq \frac{M}{d^2_{p+d_p x}}$$
 In a similar fashion we compute :
 		$$|D^2 \tilde{u}(x)| = |D^2 M^{-1} u(p+d_p x))| = M^{-1} d_p^2 |D^2u(p+d_p x)|.$$
 At $x = 0$ we have that 
@@ -263,7 +259,7 @@ Since $\norm{u}_{C^2} \leq 1$, we must have that by triangle inequality:
 $$|D^2u(p_m) - D^2u(q_m)|\leq 2.$$
 Multiplying both sides by $\frac{r_m^\alpha}{r_m^\alpha}$, we get that:
 $$r^\alpha_m \frac{|D^2u(p_m) - D^2u(q_m)|}{r_m^\alpha}\leq 2 \implies r_m^\alpha M \leq 2 \implies r_m^\alpha \leq 2M^{-1}.$$
-Since $M \geq m$, as $m \to infty$ we have that $d_{p_m}^\alpha, r_m^\alpha \to 0$. 
+Since $M \geq m$, as $m \to \infty$ we have that $d_{p_m}^\alpha, r_m^\alpha \to 0$. 
 \item 
 \begin{enumerate}[label = \roman*) ]
 	\item Note that $\tilde{v}_m$ is a sum of $\tilde{u}_m$ and a polynomial in $x$ along with some constant terms. Therefore it will be defined exactly where $\tilde{u}_m$ is defined. Since $u_m$ is defined on $B_1(e_n)$, we must have that $\tilde{v}_m$ is defined on the ball of radius $1/r_m$ centered about $e_n$. Thus we wish to show that if $x\in \Gamma_m$, then $(r_mx_n - 1)^2 + \sum_{i}^{n-1}(r_mx_i)^2 \leq 1$. 
@@ -289,10 +285,46 @@ This is since the constant and linear terms vanish and the hessian of the quadra
  \\ & = M^{-1}r_m^{-\alpha}|D^2u_m(r_mx) - D^2u_m(r_my)|
  \\ & \leq |x-y|^\alpha \tag{by assumption at points $r_mx,r_my$}
 \end{align*}
+\item We first claim that $\frac{p_m}{r_m},\frac{q_m}{r_m}\in B_{\frac{dp_m}{r_m}+1}(0)$.
+	Since we have rotated the sphere so that $p_m = (0, \dots , 0, dp_m)$, so $\frac{p_m}{r_m}$ belongs to the ball. Furthermore since $|p_m - q_m| = r_m$ we have that $\left|\frac{p_m}{r_m} - \frac{p_m}{r_m} \right| = 1,$ so by triangle inequality $\frac{q_m}{r_m}$ belongs to the ball as well.
+We see that 
+		$$\left|D^2v_m(x_m) - D^2 v_m(y_m) \right| = M^{-1}r_m^{-\alpha}\left|D^2u_m(p_m) - D^2u_m(y_m) \right| = 1.$$
+	\item For $x,y\in\bd \Omega_m$  compute that: 
+\begin{align*}
+	\frac{\left|D_{T_i}D_{T_j}v_m(x) - D_{T_i} D_{T_j}v_m(y) \right|}{|x-y|^\alpha}  & = M^{-1}\frac{|D_{T_i} D_{T_j}u_m(x) - D_{T_i} D_{T_j} u(y)  |}{|x-y|^\alpha} \tag{By definition of $v_m$}
+	\\ & = M^{-1} \frac{|D_{T_i}D_{T_j} \phi_m(x) - D_{T_i} D_{T_j} \phi_m(y) |}{|x-y|^\alpha} \tag{since $x,y\in \bd \Omega$}
+	\\ & \leq M^{-1} \tag{By assumption}
+\end{align*}
+\item We first determine second order derivatives of $v_m$. 
+$${v_m(x)}_{ij} =M^{-1}r_m^{-\alpha} \left(u_{ij}(r_mx) - u_m(0) \right). $$
+It follows that $$a^{ij} \partial_i \partial_j v_m(x) = M^{-1}r_m^{-\alpha} \left(f_m(r_mx) - a^{ij}_m ({u_m})_{ij}(0) \right).$$
+On the boundary, we have that
+		$$v_m |_{\bd \Omega}(x) = M^{-1} r_m^{-2-\alpha} \left( \phi_m(r_m x) - \phi_m(0)\right)  -M^{-1}r_m^{-1-\alpha} \sum_{i}^{n} x_i (u_m )_i(0) -\frac{M^{-1} r_m^{-\alpha}}{2} \sum_{i,j} (u_m)_{ij}(0) x_i x_j$$
 \end{enumerate}
+\item By $iib)$ we have a uniform $C^{2,\alpha}$ bound on the sequence $\{u_m\}$. We can therefore pass to a uniformly convergent subsequence, and relable it as $\{u_m\}$. Since $M^{-1} \to 0$ by $iiv)$, we have that $a^{ij}(v_m(x))_{ij} \to 0$. Therefore the limit function $v_\infty$ is harmonic.
+	Furthermore as $M^{-1} \to 0$ we have that $v_\infty(x) = 0$  when $x_n =0$ by looking at the boundary. Finally note that the this locally looks like the half plane, since we can zoom in sufficiently close on the boundary of the ball. Therefore we can apply the Schwartz reflection principle and get a harmonic which is $0$ on $x_n =0$. But by part $iic)$ we have that 
+$$|D^2 v_\infty(x) - D^2v_\infty(y)| = 1$$
+at some $x,y$ which lie in the ball. This is a contradiction. 
 \epenum
 \newpage
 \begin{problem}
 \end{problem}
-\newpage
+\penum
+\item We proceed by induction. For $k=0$, since $f\in C^\alpha(\ol{B})$, we have that $u\in C^{2, \alpha}(\ol{B})$. By theorem 0.4 we have that
+	$$\norm{u_0}_{C^{2, \alpha}} \leq C \left( \norm{f}_{C^{\alpha}(\ol{B})} + \norm{u_0}_{C^0 (\ol{B}} \right). $$
+Since $a^{ij} = \delta_{ij}$, and $\lambda = 1$ we have that $C$ only depends on $n$. We have proven in class that the following bound holds: 
+$$\norm{u_0}_{C^0(B)} \leq \norm{u|_{\bd B}}_{\bd B} + C \norm{f}_{C^0(B)}.$$
+Since $u_0$ vanishes along the boundary, we have that 
+$$\norm{u_0}_{C^0(\ol{B})}\leq C \norm{f}_{C^0(B)} \leq C\norm{f}_{C^\alpha(\ol{B})}.$$
+Note that $C$ must only depend on $n$ since once again we are dealing with the laplace equation. 
+Therefore we must have that 
+$$\norm{u_0}_{C^{2,\alpha} (\ol{B})} \leq C (1+ \Lambda)\norm{f}_{C^\alpha(\ol{B})}$$
+where $\Lambda$ is the ellipticity constant satisfying $\lambda |\xi|^2 \leq (\delta_{ij} - a^{ij})\xi_i \xi_j \leq \Lambda |\xi^2|$ for $L$. 
+Now suppose that the result holds for $0, \dots , k$. Then we must have that $f - \sum_{i=0}^k Lu_i \in C^\alpha(\ol{B}))$ and $\Delta u_{k+1} = (\Delta - L)u_k = f - \sum_{i=0}^k Lu_i$. Therefore $u_{k+1} \in C^{2,\alpha}(\ol{B})$. By base case we have that 
+$$\norm{u_{k+1}}_{C^{2,\alpha}(\ol{B})}\leq C(1+\Lambda)\norm{u_k}_{C^{2,\alpha}(\ol{B})}\leq C^{k+1}(1+\Lambda)^{k+1}\norm{f}_{C^{\alpha}(B)}.$$
+\item We can write: 
+$$L_t v_k = $$
+\item 
+\item 
+\epenum
 \end{document}
