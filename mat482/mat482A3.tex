@@ -162,7 +162,7 @@ bmargin=0.5in]{geometry}
 %preamble
 
 \title{MAT482 HW3}
-\author{A.N.}
+\author{Alexander Neagoe}
 \date{\today}
 \lhead{\Course A\hwNumber}
 \rhead{\thepage}
@@ -190,7 +190,7 @@ The above quantity is finite for all $x\neq y$ since $f,g\in C^\alpha$. We concl
 	Since $\{f_n\}$ is bounded in $C^\alpha$ it must be bounded in $C^0$ as well. Since $\norm{f_n}_{C^\alpha} \leq 1$ we have that for all $n$, $x\neq y\in \Omega$, 
 	$$|f_n(x) - f_n(y)| \leq |x-y|^\alpha\implies |f_n(x) - f_n(y)| \leq M |x-y|,$$
 Since H\"older Continuity implies  uniform continuity. Therefore $\{f_n\}$ is an equicontinuous family in $C^0$. By Arzela-Ascoli's Theorem there exists a subsequence $\{f_{n_k}\}$ so that $f_{n_k} \rightrightarrows f$ to some $f\in C^0$. 
-We claim that $f\in C^\beta$. Since $C^\beta$ is a Banach Space, it is enough to show that $\{f_{n_k}\}$ is cauchy. 
+We claim that $f\in C^\beta$. Since $C^\beta$ is a Banach Space, it is enough to show that $\{f_{n_k}\}$ is Cauchy. 
 First relabel the sequence $\{f_{n_k}\}$ as $\{f_n\}$. By definition, we have:
 $$\norm{f_n - f_m}_{C^\beta} = \sup_{\Omega} |f_m - f_n| + \sup_{x\neq y} \frac{|(f_n-f_m)(x) - (f_n-f_m)(y)|}{|x-y|^\beta}.$$
 The first term can clearly be made less than $\ep$ just by uniform convergence. It remains to show the same is true for the second term. We compute:
@@ -248,7 +248,7 @@ Since $\ol{u}$ agrees with a harmonic function on the upper and lower half plane
 	\\ & = 0 
 	\\ & = u(x)
 \end{align*}
-So $u$ is continiuous, has mean value proprty, and agrees everywhere with a harmonic function. We conclude $u$ is harmonic. 
+So $u$ is continuous, has mean value property, and agrees everywhere with a harmonic function. We conclude $u$ is harmonic. 
 \newpage
 \begin{problem}
 \end{problem}
@@ -278,7 +278,7 @@ $$Dv_m(0) = D\tilde{u}_m(0) - D\tilde{u}_m(0) =0 ,$$
 since the degree 2 polynomial just evaluates to $0$, and the linear term has a gradient of $D\tilde{u}_m(0)$.  
 Finally we have that 
 $$D^2 v_m(0) = D^2\tilde{u}_m(0) - D^2 \tilde{u}_m(0). $$
-This is since the constant and linear terms vanish and the hessian of the quadratic term is excactly $D^2\tilde{u}_m(0)$. Furthermore for $x,y\in \Gamma_m$, we have:
+This is since the constant and linear terms vanish and the hessian of the quadratic term is exactly $D^2\tilde{u}_m(0)$. Furthermore for $x,y\in \Gamma_m$, we have:
 \begin{align*}
  |D^2 v_m(x) - D^2v_m(y)| & = |D^2\tilde{u}_m(x) - D^2\tilde{u}_m(y)|
  \\ & = |D^2(M^{-1}r_m^{-2-\alpha}u(r_m x)) - D^2(M^{-1}r_m^{-2-\alpha}u(r_m y))|
@@ -288,7 +288,7 @@ This is since the constant and linear terms vanish and the hessian of the quadra
 \item We first claim that $\frac{p_m}{r_m},\frac{q_m}{r_m}\in B_{\frac{dp_m}{r_m}+1}(0)$.
 	Since we have rotated the sphere so that $p_m = (0, \dots , 0, dp_m)$, so $\frac{p_m}{r_m}$ belongs to the ball. Furthermore since $|p_m - q_m| = r_m$ we have that $\left|\frac{p_m}{r_m} - \frac{p_m}{r_m} \right| = 1,$ so by triangle inequality $\frac{q_m}{r_m}$ belongs to the ball as well.
 We see that 
-		$$\left|D^2v_m(x_m) - D^2 v_m(y_m) \right| = M^{-1}r_m^{-\alpha}\left|D^2u_m(p_m) - D^2u_m(y_m) \right| = 1.$$
+		$$\left|D^2v_m(x_m) - D^2 v_m(y_m) \right| = M^{-1}r_m^{-\alpha}\left|D^2u_m(p_m) - D^2u_m(q_m) \right| = 1.$$
 	\item For $x,y\in\bd \Omega_m$  compute that: 
 \begin{align*}
 	\frac{\left|D_{T_i}D_{T_j}v_m(x) - D_{T_i} D_{T_j}v_m(y) \right|}{|x-y|^\alpha}  & = M^{-1}\frac{|D_{T_i} D_{T_j}u_m(x) - D_{T_i} D_{T_j} u(y)  |}{|x-y|^\alpha} \tag{By definition of $v_m$}
@@ -301,8 +301,8 @@ It follows that $$a^{ij} \partial_i \partial_j v_m(x) = M^{-1}r_m^{-\alpha} \lef
 On the boundary, we have that
 		$$v_m |_{\bd \Omega}(x) = M^{-1} r_m^{-2-\alpha} \left( \phi_m(r_m x) - \phi_m(0)\right)  -M^{-1}r_m^{-1-\alpha} \sum_{i}^{n} x_i (u_m )_i(0) -\frac{M^{-1} r_m^{-\alpha}}{2} \sum_{i,j} (u_m)_{ij}(0) x_i x_j$$
 \end{enumerate}
-\item By $iib)$ we have a uniform $C^{2,\alpha}$ bound on the sequence $\{u_m\}$. We can therefore pass to a uniformly convergent subsequence, and relable it as $\{u_m\}$. Since $M^{-1} \to 0$ by $iiv)$, we have that $a^{ij}(v_m(x))_{ij} \to 0$. Therefore the limit function $v_\infty$ is harmonic.
-	Furthermore as $M^{-1} \to 0$ we have that $v_\infty(x) = 0$  when $x_n =0$ by looking at the boundary. Finally note that the this locally looks like the half plane, since we can zoom in sufficiently close on the boundary of the ball. Therefore we can apply the Schwartz reflection principle and get a harmonic which is $0$ on $x_n =0$. But by part $iic)$ we have that 
+\item By $1b)$ we have a uniform $C^{2,\alpha}$ bound on the sequence $\{v_m\}$. We can therefore pass to a uniformly convergent subsequence, and relabel it as $\{v_m\}$. Since $M^{-1} \to 0$, by $ii)$ we have that $a^{ij}(v_m(x))_{ij} \to 0$. Therefore the limit function $v_\infty$ is harmonic up to a change of variables.
+Furthermore as $M^{-1} \to 0$ we have that $v_\infty(x) = 0$  when $x_n =0$ since $v_m$ is uniformly bounded on the boundary. Finally note that the this locally looks like the half plane, since we can zoom in sufficiently close on the boundary of the ball. Therefore we can apply the Schwartz reflection principle and get a harmonic function which is $0$ on $x_n =0$. But by part $iii)$ we have that 
 $$|D^2 v_\infty(x) - D^2v_\infty(y)| = 1$$
 at some $x,y$ which lie in the ball. This is a contradiction. 
 \epenum
@@ -310,21 +310,53 @@ at some $x,y$ which lie in the ball. This is a contradiction.
 \begin{problem}
 \end{problem}
 \penum
-\item We proceed by induction. For $k=0$, since $f\in C^\alpha(\ol{B})$, we have that $u\in C^{2, \alpha}(\ol{B})$. By theorem 0.4 we have that
-	$$\norm{u_0}_{C^{2, \alpha}} \leq C \left( \norm{f}_{C^{\alpha}(\ol{B})} + \norm{u_0}_{C^0 (\ol{B}} \right). $$
-Since $a^{ij} = \delta_{ij}$, and $\lambda = 1$ we have that $C$ only depends on $n$. We have proven in class that the following bound holds: 
-$$\norm{u_0}_{C^0(B)} \leq \norm{u|_{\bd B}}_{\bd B} + C \norm{f}_{C^0(B)}.$$
+\item First note that for $L_t$ will have coefficients of $(1-t)\delta_{ij} + ta^{ij}$ which are uniformly bounded in $C^{\alpha}$ by a constant depending on $n,\lambda, \norm{a^{ij}}_{C^\alpha}$.
+Therefore $\norm{L_tu}_{C^\alpha} \leq C_1 \norm{u}_{C^\alpha}$. 
+Next note that by theorem 0.4, we have a constant $C_{L_t}$  depending on $\lambda, n,\Omega$ and $\norm{a^{ij}}_{C^\alpha(\ol{B})}$ for each $L_t$. The ellipticity constants for each $L_t$ will be bounded below by $\min\{1,\lambda\}$ and bounded above by $\max\{1,\Lambda\}$. Thus $C_t$ will be bounded above by some $C_2$ depending on $\lambda,\Lambda, n, B$. We proceed by induction. For $k=0$, since $f\in C^\alpha(\ol{B})$, we have that $u\in C^{2, \alpha}(\ol{B})$. We have that
+	$$\norm{u_0}_{C^{2, \alpha}} \leq C_2 \left( \norm{f}_{C^{\alpha}(\ol{B})} + \norm{u_0}_{C^0 (\ol{B}} \right) \leq C_2(1+C_1)\left( \norm{f}_{C^{\alpha}(\ol{B})} + \norm{u_0}_{C^0 (\ol{B}} \right). $$
+ We have proven in class that the following bound holds: 
+$$\norm{u_0}_{C^0(B)} \leq \norm{u|_{\bd B}}_{\bd B} + C_t \norm{f}_{C^0(B)}.$$
 Since $u_0$ vanishes along the boundary, we have that 
-$$\norm{u_0}_{C^0(\ol{B})}\leq C \norm{f}_{C^0(B)} \leq C\norm{f}_{C^\alpha(\ol{B})}.$$
-Note that $C$ must only depend on $n$ since once again we are dealing with the laplace equation. 
-Therefore we must have that 
-$$\norm{u_0}_{C^{2,\alpha} (\ol{B})} \leq C (1+ \Lambda)\norm{f}_{C^\alpha(\ol{B})}$$
-where $\Lambda$ is the ellipticity constant satisfying $\lambda |\xi|^2 \leq (\delta_{ij} - a^{ij})\xi_i \xi_j \leq \Lambda |\xi^2|$ for $L$. 
+$$\norm{u_0}_{C^0(\ol{B})}\leq C_t\norm{f}_{C^0(B)} \leq C_t\norm{f}_{C^\alpha(\ol{B})}.$$ 
+For some constant $C_t$ depending on $n , \lambda , \norm{(1-t)\delta_{ij} - t a^{ij}}_{C^\alpha}, B$. A similar argument as above shows that we can take a $C_3$ uniformly bounding $C_t$. Therefore we must have that 
+$$\norm{u_0}_{C^{2,\alpha} (\ol{B})} \leq C_2(1+C_1)(1+C_3)\norm{f}_{C^\alpha(\ol{B})} = C\norm{f}_{C^\alpha}$$ 
 Now suppose that the result holds for $0, \dots , k$. Then we must have that $f - \sum_{i=0}^k Lu_i \in C^\alpha(\ol{B}))$ and $\Delta u_{k+1} = (\Delta - L)u_k = f - \sum_{i=0}^k Lu_i$. Therefore $u_{k+1} \in C^{2,\alpha}(\ol{B})$. By base case we have that 
-$$\norm{u_{k+1}}_{C^{2,\alpha}(\ol{B})}\leq C(1+\Lambda)\norm{u_k}_{C^{2,\alpha}(\ol{B})}\leq C^{k+1}(1+\Lambda)^{k+1}\norm{f}_{C^{\alpha}(B)}.$$
+$$\norm{u_{k+1}}_{C^{2,\alpha}(\ol{B})}\leq C\norm{u_k}_{C^{2,\alpha}(\ol{B})}\leq C^{k+1}\norm{f}_{C^{\alpha}(B)}.$$
 \item We can write: 
-$$L_t v_k = $$
-\item 
-\item 
+\begin{align*}L_t v_k &= (1-t)\Delta v_k + t Lv_k 
+	\\ & = \sum_{j=0}^k t^j ((1-t)\Delta + t L)u_j
+	\\ & = \sum_{j=0}^k t^j \Delta u_j - t^{j+1} (\Delta - L) u_j
+	\\ & = \sum_{j=0}^k t^j \Delta u_j - t^{j+1} \Delta u_{j+1} \tag{By definition}
+	\\ & = \Delta u_0 - t^{k+1}\Delta u_{k+1} \tag{Telescoping the sum}
+	\\ & = f - t^{k+1}(\Delta - L)u_k
+\end{align*}
+\item For $n>m$, by $a)$ we have 
+$$\norm{v_n(t) - v_m(t)}_{C^2,\alpha} \leq \sum_{j = m+1} t^j \norm{u_j}_{C^{2, \alpha}}\leq \norm{f}_{C^\alpha} \sum_{m+1}^k (tC)^j = \norm{f}_{C^\alpha} \frac{tC\left(t^kC^k - t^mC^m\right)}{tC- 1}.$$
+Taking $t_0 = \frac{1}{2C}$ for $ t \leq t_0$ the above becomes arbitrarily small as $m,n \to \infty$. Therefore the sequence $\{v_n(t)\}$ is Cauchy and converges in $C^{2,\alpha}$ when $t \leq t_0$. Now let $v_{\infty,t}$ be the limit of the sequence at $t$.
+It remains to show that $v_\infty(t)$ solves
+$$\begin{cases}
+L_t v_{\infty, t} &= f \text{ in $B$}
+\\ v_{\infty,t}|_{\bd B} &= 0.
+\end{cases}$$ 
+Since each $v_n(t)$ is $0$ on $\bd B$ we have that $v_{\infty, t}$ is 0 on the boundary of $B$ as well. By $b)$, we have
+$$\norm{L_t v_{\infty, t} - f}_{C^\alpha} \leq \norm{L_t v_{\infty , t} - L_t v_n}_{C^\alpha} + \norm{L_t v_n - f}_{C^\alpha} = \norm{L_t v_{\infty , t} - L_t v_n}_{C^\alpha}  + t^{k+1} \norm{(L-\Delta) u_n}_{C^\alpha}.$$
+The $a^{ij}$ belong to $C^\alpha$ so we can find constants $C_1,C_2$ so that 
+$$C_1\norm{L_t v_{\infty , t} - L_t v_n}_{C^\alpha}  +C_2 t^{k+1} \norm{(L-\Delta) u_n}_{C^\alpha}\leq C_1 \norm{v_{\infty, t} - v_n(t)}_{C^{2,\alpha}} + (tC)^{k+1}C_2 \norm{f}_{C^\alpha}.$$
+This quantity will go to $0$ as $n\to \infty$ so we have that $L_t v_{\infty,t} = f$. 
+\item By part $c)$, the equation 
+$$\begin{cases}
+	L_t vu_{t_0} &= f \text{ in $B$}
+	\\ u|_{\bd B} &= 0.
+\end{cases}$$ has a solution in $C^{2,\alpha}$ for any $f\in C^\alpha$. We can inductively define:
+$$\begin{cases}
+	L_{t_0} u_k&= (\Delta - L)u_{k-1} \text{ in $B$}
+	\\ u_k|_{\bd B} &= 0.
+\end{cases}$$ 
+so that we can get the same result as in  $a)$ with the same $C$. Therefore we can repeat the arguments of $b),C)$ and get that $v_k$ converges to a solution of 
+$$\begin{cases}
+	L_t v_{\infty, t} &= f \text{ in $B$}
+	\\ v_{\infty,t}|_{\bd B} &= 0.
+\end{cases}$$ 
+as long as $t-t_0 \leq t_0$. Thus we can solve when $t\leq 2t_0$, and iterating finitely many times will solve $(*)$. 
 \epenum
 \end{document}
