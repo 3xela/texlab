@@ -160,9 +160,7 @@ bmargin=0.5in]{geometry}
 \newcommand{\hwNumber}{11}
 
 %preamble
-
-\title{}
-\author{A.N.}
+\title{} \author{A.N.}
 \date{\today}
 \lhead{\Course A\hwNumber}
 \rhead{\thepage}
@@ -176,19 +174,143 @@ bmargin=0.5in]{geometry}
 
 \begin{problem}
 \end{problem}
+Assume $G_1,G_2$ are both greens functions on domain $D$. Then at any point $y$, we have that the follwing must be harmonic: 
+$$H_i(x,y) =G_i(x,y) + \frac{1}{4\pi |x-y|}. $$
+Since harmonic functions form a vector space it follows that their difference is harmonic as well:
+$$H_1 - H_2 = G_1 - G_2. $$
+By Green's First identity for Harmonic functions, we have that 
+$$\int_{\bd D} (G_1 - G_2)(x,y) \frac{\partial ( G_1 - G_2)}{\partial n}(x,y) dx = \int_D |\grad(G_1 - G_2)(x,y)|^2dx.$$
+Since $G_1,G_2$ vanish on the boundary, the above is equal to 0 for all $y$. It follows that $G_1(x,y)$ and $G_2(x,y)$ differ by a constant. Since they are both $0$ on the boundary that constant must be 0. 
 \newpage
 \begin{problem}
 \end{problem}
+First note that we can decompose $u(x)$ in the following way. We write $u(x) = u_1(x) + u_2(x)$ where 
+$$\begin{cases} \Delta u_2& = f \text{ in D}
+	\\ u_2& = 0 \text{ on $\bd D$}
+\end{cases} \quad,
+\begin{cases}
+	\Delta u_1 &= 0 \text{ in D}
+	\\ u_1& = h \text{ on $\bd D$} 
+\end{cases}.$$
+It was proven in Strauss that 
+$$u_1(x) = \int_{\bd D} h(y) \frac{\partial G}{\partial n} (x,y) dy.$$
+It remains to show that 
+$$u_2(x) = \int_D f(y) G(x,y) dy.$$
+Consider the harmonic function $H(x,y) = G(x,y) + \frac{1}{4\pi |x-y|}$. By Greens second identity, 
+$$\int_D u_2 \Delta H - \Delta u_2 dy = \int_{\bd D} u_2 \frac{\partial H}{\partial n} - H \frac{\partial u_2}{\partial n} dS(y).$$
+By the Harmonicity of $H$ and boundary values of $u_2$ this reduces to 
+$$\int_D f(y) H(x,y) dy = \int_{\bd D} \frac{1}{4\pi |y-x|}\frac{\partial u_2}{\partial n}(y) dS_y.$$
+We can rewrite this as: 
+$$\int_D f(y)G (x,y) dy = \int_{\bd D} \frac{1}{4\pi |y-x|} \frac{\partial u_2}{\partial n} (y) dS_y - \int_{D} \Delta u_2(y) \frac{1}{4\pi |y-x|} dy.$$
+For $x\in int D$ take $\ep>0$ and define $D_\ep = D \setminus B_\ep(x)$. Split up the righthandside in the following way: 
+$$\int_{\bd D } \frac{1}{4\pi |x-y|} \frac{\partial u_2}{\partial n} (y) dy - \left(\int_{D_\ep} \Delta u_2(y) \frac{1}{4\pi |y-x|} dy + \int_{B_\ep(x)}\Delta u_2(y) \frac{4\pi |y-x|} d(y) \right).$$
+Since the the function is smooth on $D_\ep$  and harmonic we apply Greens second identity to get: 
+$$  \left( \int_{\partial B_\ep (x) } \frac{1}{4\pi|x-y|} \frac{\partial u_2}{\partial n}(y)  + \int_{\bd B_\ep(x) }\grad \frac{1}{4\pi |x-y|} \grad u_2  \right) - \int_{B_\ep(x)} \frac{f(x)}{4\pi |x-y|} dy.$$
+Changing to Spherical coordinates, we get
+$$\int_{\bd B_\ep(x)} \frac{1}{4\pi r} \frac{\partial u_2}{\partial r} dS_r + \int_{\bd B_\ep(x)} \grad\frac{1}{4\pi r}  \cdot \grad {u_2} dV - \int_{B_\ep(x)} \frac{f(r)}{4\pi r} dV.$$
+This is equal to 
+$$ \ep^2 \ol{u} + \ol{u} + \ep^2\ol{f}.$$
+Where the overline indicates we are averaging over the ball of radius $\ep$. Note that as we take $\ep \to 0$, the $\ep$ terms go to $0$, and since $u $ is continuous, we have that $\ol{u} = u_2(x)$.
+Therefore, $$\int_{D} f(y) G(x,y) dy = u_2(x),$$
+and so $$u(x) = \int_{\bd D} h(y) G(x,y) dS_y + \int_{D} f(y) G(x,y) dy. $$
 \newpage
 \begin{problem}
 \end{problem}
+\penum
+\item Let $v$ be a smooth function so that $v|_{\bd U} = 0$. Then for any $u\in \mathcal{A}$, $u+ \ep v\in \mathcal{A}$. Then
+	$$I[u + \ep v] = \frac{1}{2} \int_U \left|\grad u  +\ep \grad v  \right|^2 dx-  \frac{1}{4} \int_U (u + \ep v)^4 dx.$$
+	Expanding this out we get:
+	$$I[u+ \ep v] = \frac{1}{2} \int_U |\grad u|^2 + 2 \ep \grad u \cdot \grad v + \ep^2 |\grad v^2| dx -  \frac{1}{4} \int_U (u + \ep v)^4 dx.$$
+A minimizer will satisfy $\frac{d}{d \ep }\Big|_{\ep = 0} I[u + \ep v]$. Applying this we get that
+$$\frac{d}{d\ep} \Big|_{\ep = 0} I[u + \ep v] = \int_U \grad u \cdot \grad v - \int_U  u^3 v dx = 0.$$
+Applying Greens First identity to the first summand, we get that 
+$$0 = \int_U \grad u \cdot \grad v - \int_U u^3 v dx = \int_U  -v \Delta udx - \int_U v u^3 dx = \int_U v \left( u^3+  \Delta u \right) dx,$$
+Since $v$ vanishes near the boundary of $U$. Furthermore, for any $U^\prime \subset \subset V \subset \subset U$, we can take $v$ so that $v \equiv 1$ on $U^\prime$ and $v \equiv 0$ on $V^c$. 
+This means that 
+$$0= \int_{U^\prime} (u^3+ \Delta u)dx $$
+For any $U^\prime \subset \subset U$. It follows that $\Delta u = -u^3$. 
+\item Taking $v \in C^\infty_c([0,T] \times U)$, we have
+$$\eL [u + \ep v] = \frac{1}{2} \int_0^T \int_U (u + \ep v)_t^2 - |\grad u + \ep \grad v|^2 dx dt.$$
+Taking the functional derivative, we compute:
+\begin{align*}
+	\frac{d}{d\ep} \Big|_{\ep = 0} \eL [u + \ep v]  & =\int_0^T\int_U u_t v_t - \grad u \cdot \grad v dx dt
+\\ & = \int_U \int_0^T u_t v_T dt dx- \int_0^T \int_U \grad u \cdot \grad v dx dt
+	\\ & = \int_U \int_0^T  - v u_{tt} dt dx + \int_0^T \int_U v \Delta u dx dt
+	\\ & = \int_0^T \int_U v \left( \Delta u - u_{tt}\right) dx dt. 
+\end{align*}
+Once again, we can take $v$ so that it is compactly supported and identically equal to $1$ on a comapct set and get that
+$$\int_0^{T^\prime}\int_{U^\prime}\Delta u - u_{tt} dx dt = 0.$$
+Therefore the energy minimizing functions will satisfy $\Delta u = u_{tt}$ i.e. solutions to the $n-$dimensional wave equation. 
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
+\penum
+\item Let $w\in C^2(\Omega)$ satisfying the same boundary conditions as $u$, say $u|_{\bd \Omega} = w|_{\bd \Omega} = h$. Let $v = u-w$. Then
+\begin{align*} 
+	J[w] & = \frac{1}{2} \int_\Omega |\grad w|^2 dx- \int_\Omega fwdx\tag{By Definition}
+	\\ & = \frac{1}{2} \int_\Omega |\grad u - \grad v|^2 dx - \int_\Omega f(u-v) dx \tag{Definition of $v$}
+	\\ & =\frac{1}{2} \int_\Omega |\grad u|^2 - 2 \grad u \cdot \grad v + |\grad v|^2 dx - \int_\Omega ufdx + \int_{\Omega} vfdx \tag{Expanding out}
+	\\ & = \left( \frac{1}{2} \int_\Omega |\grad u|^2dx - \int_{\Omega} ufdx \right) + \frac{1}{2} \int_{\Omega} |\grad v|^2 - 2 \grad u \cdot \grad vdx  + \int_{\Omega} vfdx \tag{Rearranging Summands}
+	\\ & = J[u] + \left( \frac{1}{2} \int_\Omega |\grad v|^2 - 2 \grad u \cdot \grad vdx  - \int_\Omega v\Delta u dx \right)
+	\\ & = J[u] + \frac{1}{2} \int_{\Omega} |\grad v|^2 dx  - \int_{\bd \Omega} v \frac{\partial u}{\partial n} dx \tag{Greens First Identity}
+	\\ & = J[u] + \frac{1}{2}\int_\Omega |\grad v|^2 dx \tag{Since $v = 0$ on $\partial \Omega$}
+\end{align*}
+Since$ |\grad v|^2 \geq 0$ we have that $J[w] \geq J[u]$. Equality holds if and only of $|\grad v|^2 = 0$ i.e. if $w = v$. 
+\item Consider the following Dirichlet Problem : 
+	$$\begin{cases}
+		\Delta u & = -1 \text{ in D}
+		\\	u &= 0 \text{ on $\bd D$}
+	\end{cases}.$$
+	The solution to this will be the minimizer of the functional $$J[u] = \frac{1}{2} \int_{D} |\grad u|^2 dx dy - \int_{D} u dxdy$$
+over the class of $C^2$ functions on the disk with boundary value 0 i.e. for all $w$ with $w|_{\bd D } = 0$
+$$J[w] \geq \frac{1}{2}\int_{D} |\grad u|^2 - \int_{D} u.  $$
+Where $u$ solves the above dirichlet problem. This will be solved in polar coordinates by $u(r,\theta) = \frac{1}{4} (1 - r^2).$ We compute the integral in polar coordinates as: 
+\begin{align*}
+	\frac{1}{2} \int_D |\grad u|^2 - \int_D u& = \frac{1}{2} \int_0^{2\pi} \int_0^1 \frac{r^2}{4}r dr d\theta  - \int_0^{2\pi} \int_0^2 \frac{1}{4} (1-r^2) r dr \theta \tag{By definition of Grad in polar coordiantes}
+	\\ & = \frac{\pi}{16} - \frac{\pi}{8}
+	\\ & = -\frac{\pi}{16}
+\end{align*}
+Therefore by part $a$ any function $u$ satistfying $u|_{\bd D} = 0$ must satisfy 
+$$J[u] \geq - \frac{\pi}{16}.$$
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
-\newpage
-
+\penum 
+\item We write $(x,y,z,t) = (x,t) $. Consider the change of coordinates $(x,t) \mapsto \lambda (x,t)$. Then: 
+	$$\Delta u(\lambda x,  \lambda t) = \lambda^2 \Delta u( x,  t) = \lambda^2 u_{tt}(x,t) = (u(\lambda x, \lambda t))_{tt}. $$
+It follows that as a function of $\lambda$,
+$$\square (u(\lambda x, \lambda t)) = 0.$$
+Taking the derivative with respect to lambda, we compute:
+$$0 = \frac{d}{d\lambda} \square u(\lambda x, \lambda t) = \square \left(\frac{d}{d\lambda} u(\lambda, \lambda t) \right) = \square \left( x u_x  +  y u_y + z u_z + t u_t   \right)(\lambda x, \lambda t). $$
+At $\lambda =1$ we have that 
+$$\square\left( (x\partial_x + y \partial_y + z \partial_z + t \partial_t)u\right) = 0$$
+So this function also satisfies the wave equation.
+\item It has been shown that any Lorentz transformation preserves the solutions to the wave equation. Consider the transformation parametrized as:
+	$$L(x,y,z,t) = (\gamma(x - vt), y,z,\gamma(t - vx)).$$
+Therefore we have that $$\square u(L(x,t)) =u(\gamma(x- vt) , y,z,\gamma(t-vx)) =  0.$$
+Taking the derivative with respect to $v$, we have that 
+$$\frac{d}{dv} \square u(L(x,t)) = \square \frac{d}{dv} u(L(x,t)) =\square (-\gamma t u_x -\gamma x u_t ) = 0.$$
+Recall that when $v = 0$, $\gamma =1$ so at $v = 0$ we have that 
+$$\square((t \partial_x + x \partial_ t)u) = 0$$
+So this solve the wave equation. 
+\item Applying $\square$ to $xu_y - yu_x$ we see:
+\begin{align*}
+	\square( xu_y - yu_x) & =  \square (xu_y) - \square(yu_x)
+	\\ & = \left(u_{yx} + u_{yx}+ xu_{yxx} + xu_{yyy} + xu_{yzz}  - xu_{ytt} \right) - \left(yu_{xxx} + u_{xy} + u_{xy} + y_{xyy}   + yu_{zzx} - yu_{xtt} \right).
+	\\ & = x (u_{xx} + u_{yy} + u_{zz} - u_{tt})_y + y(u_{xx} + u_{yy} + u_{zz} - u_{tt} )_x
+	\\ & = 0 \tag{since $\square u = 0$}
+\end{align*}
+\item This is not invariant under scaling. Observe that if $(x,t) \mapsto (\lambda x, \lambda t)$ and $u$ is a solution,
+	$$u_{tt} (\lambda x, \lambda t) - \Delta u(\lambda x,\lambda t) + \mu u(\lambda x, \lambda t) = \lambda^2 u_{tt} - \lambda^2 \Delta u + \mu u.$$
+This will not automatically be 0 when $\lambda \neq \pm 1$.
+Suppose now that $u$ solves the Klein-Gordon Equation. Applying $\square + \mu$ to $xu_y - yu_x$ we see:
+\begin{align*}
+	(\square + \mu I ) \left( xu_y - yu_x\right) & =  \square( xu_y - yu_x) + \mu (xu_y  - yu_x)
+	\\ & = ( xu_{tt} - x\Delta u + x\mu u)_y + (yu_{tt} - y \Delta u+ y \mu u)_{x}
+\end{align*}
+This will be 0. 
+\epenum
 
 \end{document}
