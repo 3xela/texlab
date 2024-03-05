@@ -161,7 +161,7 @@ bmargin=0.5in]{geometry}
 
 %preamble
 
-\title{}
+\title{MAT461 A2}
 \author{A.N.}
 \date{\today}
 \lhead{\Course A\hwNumber}
@@ -171,11 +171,67 @@ bmargin=0.5in]{geometry}
 
 %====================================================================%
 \begin{document}
-
+\maketitle{}
 
 
 \begin{problem}
 \end{problem}
+\penum
+\item We compute the fiber derivatives of each of the given maps. 
+	\begin{enumerate}[label = \roman*)]
+		\item $\eL  (x , \dot{x}) = \pi^\ast V(x,\dot{x})$. Since $\pi^\ast V$ is constant in $\dot{x}$ we compute: 
+			$$F \eL(x,\dot{x}) =\left(x, \frac{\partial \pi^\ast V}{\partial \dot{x}}\right) = (x,0).$$
+		\item $\eL (x,\dot{x}) = A_i\dot{x}^i$. This is linear in $\dot{x}$ so 
+			$$F \eL(x,\dot{x}) = \left( x, \frac{\partial A_i \dot{x}^i}{\partial \dot{x}}\right) = (x, A_1, \dots , A_n).$$
+		\item $\eL(x,\dot{x}) =  \frac{1}{2}g_{ij}(x) \dot{x}^i \dot{x}^j.$
+			$$F \eL(x,\dot{x}) =\left(x,\frac{1}{2} \frac{\partial g_{ij}\dot{x}^i \dot{x}^j}{\partial \dot{x} }\right)  = (x,g_{1j}(x) \dot{x}^j, \dots , g_{nj}\dot{x}^j ) = (x, g(x) \dot{x}).$$
+		\item $\eL(x, \dot{x}) =\frac{1}{k!} K_{i_1, \dots , i_k}\dot{x}^{i_1} \cdot \dots \cdot \dot{x}^{i_k}.$ We first compute the partial derivatives of $f_K$ with respect to $\dot{x}^m$.
+			$$\frac{\partial \dot{x}^{i_1} \dots  \dot{x}^{i_k}}{\partial \dot{x}^m} =\begin{cases}  0 & \text{ $i_j\neq m$ for all $j$}
+			\\  \frac{\dot{x}^{i_1} \dots \dot{x}^{i_j}}{\dot{x}^m}& \text{if $i_j = m$ at some $j$. }\end{cases}	$$
+	Therefore the fiber derivative of $f_K$ is:
+			$$F \eL(x,\dot{x}) = \left(x, \frac{1}{k!} K_{i_1, \dots , i_k} \frac{x^{i_1} \dots x^{i_k}}{\dot{x}^1}, \dots , \frac{1}{k!}   K_{i_1, \dots , i_k} \frac{\dot{x}^{i_1} \cdots \dot{x}^{i_k}}{\dot{x}^n}\right)$$
+Where it is understood that the coefficients that do not have an $\dot{x}^m$ dependance are 0. 
+	\end{enumerate}
+\item First note that $\eL$ will have the following fiber derivative: 
+	$$F\eL(x, \dot{x}) = (x, g(x)\cdot \dot{x} + A(x)).$$
+This is a smooth mapping since $g,A$ both are. Furthermore, since $g$ is nondegenerate it has a smooth inverse given as follows: 
+$$H(x,y) = (x, g^{-1}(x) \cdot(y - A(x))).$$
+This will be smooth since it is composed of smooth functions. It remains to verify that it is in fact the inverse of $g$:
+$$H\circ F \eL(x,y) = H ( x, g(x) + A(x)) =(x , g^{-1}(x) \left(g(x) \cdot \dot{x} + A(x) - A(x) \right))  = (x, \dot{x}).$$
+The composition $F \eL \circ H$ is comptuted similarly. Therefore $F \eL$ is a diffeomorphism. 
+\item We compute the Euler Lagrange equations for our system: 
+	$$\frac{d}{dt} \left( \frac{\partial \eL}{\partial \dot{x}} \right) = \frac{\partial \eL}{\partial x}.$$
+	We already have computed $\frac{\partial \eL}{\partial \dot{x}^i}$ as
+	$$g_{ij} \dot{x}^j + A_i(x).$$
+Taking the time derivative along a path $x$, we get that 
+$$\frac{d}{dt} \left(\frac{\partial \eL}{\partial \dot{x}^i} \right) =\partial_kg_{ij}\dot{x}^k \dot{x}^j +g^{ij}\ddot{x}^{i} + \partial_j A_i \dot{x}^j.$$
+Similarly we compute: 
+$$\frac{\partial \eL}{\partial x^i} = \partial_i g_{pq} \dot{x}^p \dot{x}^q +\partial_i A_j \dot{x}^j + \partial_i V.$$
+Setting these equal to eachother we obtain the equations of motion. 
+$$ \partial_k g_{ij} \dot{x}^k \dot{x}^j + g_{ij} \ddot{x}^i + \partial_j A_i \dot{x}^j = \partial_i g_{pq} \dot{x}^p \dot{x}^q + \partial_i A_j \dot{x}^j + \partial_i V. $$
+\item The following equivalences hold: 
+\begin{align*}
+	  \text{L regular} & \iff \left(x, \frac{\partial \eL}{\partial \dot{x}}  \right)\text{ is a local diffeomorphism.}
+	 \\ & \iff \pmat{I & 0 \\ * & \frac{\partial^2 \eL}{\partial \dot{x}^i \partial \dot{x}^j}}
+	 \text{ is a linear isomorphism, by the inverse function theorem.}
+	 \\ & \iff \pmat{\frac{\partial^2 \eL}{\partial {x}^i \partial {x}^j}} \text{ is non degenerate.}
+\end{align*}
+\item For $\eL = T_g + f_A - \pi^\ast V$, we compute the energy as:
+	$$E = \inn{(x, \dot{x}), (x, F \eL(x, \dot{x})} - L(x, \dot{x})=\inn{\dot{x}, g_{ij}(x) \cdot \dot{x} + A(x)} - T_g - F_A + \pi^\ast V = V(x). $$
+	Since $V(x)$ is independant of time, this will be conserved along any solution curve. 
+\epenum
+\newpage
+\begin{problem}
+\end{problem}
+\penum
+\item 
+\item 
+\item 
+\item 
+\item 
+\item
+\item 
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
@@ -183,9 +239,5 @@ bmargin=0.5in]{geometry}
 \begin{problem}
 \end{problem}
 \newpage
-\begin{problem}
-\end{problem}
-\newpage
-
 
 \end{document}
