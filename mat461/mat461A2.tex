@@ -245,9 +245,31 @@ Therefore our reparametrization of $x$ is a solution as well.
 \newpage
 \begin{problem}
 \end{problem}
+We determine the equations of motion for $\eL_1 = T_{g_E} = \frac{1}{2}(E-V(x)) g_{ij}(x)\dot{x}^i \dot{x}^j$: 
+
+\begin{align*}
+\frac{d}{dt} \left(\frac{\partial \eL_1}{\partial \dot{x}^k}\right) &= \frac{d}{dt} \left(\frac{1}{2}(E-V(x))g_{kj}(x) \dot{x}^j \right)
+\\ & = -\grad V(x) \cdot \dot{x} g_{ki}(x)\dot{x}^i  +  \left( \frac{g_{ij}(x)}{\partial x^k} \dot{x}^k \dot{x}^i + g_{ij}(x)\ddot{x}^j \right).
+\end{align*}
+And,
+$$\frac{\partial \eL_1}{\partial x^k} =-\frac{1}{2} \frac{\partial V}{\partial x^k}  g_{ij}\dot{x}^i \dot{x}^j  + \frac{1}{2}(E - V(x)) \frac{\partial g_{ij}(x)}{\partial x^k} \dot{x}^i \dot{x}^j.$$
+Therefore the equations of motion satisfy: 
+$$-\frac{1}{2} \grad V(x) \cdot \dot{x} g_{ki}(x)\dot{x}^i  + \frac{1}{2} \left( \frac{g_{ij}(x)}{\partial x^k} \dot{x}^k \dot{x}^i + g_{ij}(x)\ddot{x}^j \right) =  -\frac{1}{2} \frac{\partial V}{\partial x^k}  g_{ij}\dot{x}^i \dot{x}^j  + \frac{1}{2}(E - V(x)) \frac{\partial g_{ij}(x)}{\partial x^k} \dot{x}^i \dot{x}^j$$
+Similarly for $\eL_2 = T_g - V$, we compute:
+	$$\frac{d}{dt} \left( \frac{\partial \eL_2}{\partial \dot{x}^k}\right)  = \frac{d}{dt} \left( g_{ki}(x) \dot{x}^i \right) 
+ = \frac{ \partial g_{ki}(x)}{\partial x^i} \dot{x}^i \dot{x}^j + g_{ki}(x) \ddot{x}^i $$
 \newpage
 \begin{problem}
 \end{problem}
+\penum
+\item The form $g_p$ is clearly linear and symmetric. We must show that it is positive definite. Consider a basis for $T_pX$, $\{e^i\}$. For any $\theta \in S^1$, we have a basis for $T_\theta S^1$ given by $1$, since $T_\theta S^1 \cong\R$. It is sufficient to verify that $g_P$ is positive definite
+on vectors of the form $(e^i, 1)$.
+$$g_p((e^i, 1),(e^i,1)) = g(x)(e^i, e^i) + (A + d\theta )(e^i,1) \cdot (A + d\theta)(e^i, 1) =g_{ii}(x) + A_i(x)^2  + 1. $$
+This will always be positive since $g$ is a metric. Finally we show that this metric is non degenerate. Clearly if $u = (v,c)$, $g_P((v,c),(v,c)) = 0$. Suppose that $g_P((v,c),(v,c)) = 0$. Then, 
+$$0 = g(x)v^{i}v^{j}  +  Av^2 + c^2 \implies c=v=0.$$
+\item 
+\item 
+\epenum
 \newpage
 
 \end{document}
