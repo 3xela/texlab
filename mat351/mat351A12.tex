@@ -176,19 +176,100 @@ bmargin=0.5in]{geometry}
 
 \begin{problem}
 \end{problem}
+\penum
+\item By Kirchoff's formula, the solution will be given as
+	$$u(x,t) = \frac{1}{4\pi c^2t} \int_{|y-x| = ct}g(y) dS_y + \partial_t \left[\frac{1}{4\pi c^2 t} \int_{|y-x| = ct} f(y) dy \right].$$
+If $A$ is an orthogonal transformation, then 
+\begin{align*}
+	u(Ax, t) & = \frac{1}{4\pi c^2t} \int_{|y-Ax| = ct}g(y) dS_y + \partial_t \left[\frac{1}{4\pi c^2 t} \int_{|y-Ax| = ct} f(y) dy \right]
+	\\ & = \frac{1}{4\pi c^2t} \int_{|A^{-1}y-x| = ct}g(y) dS_y + \partial_t \left[\frac{1}{4\pi c^2 t} \int_{|A^{-1}y-x| = ct} f(y) dy \right] \tag{Since $A$ preserves lengths}
+	\\ & =  \frac{1}{4\pi c^2t} \int_{|y-x| = ct}g(A^{-1}y) dS_y + \partial_t \left[\frac{1}{4\pi c^2 t} \int_{|y-x| = ct} f(A^{-1}y) dy \right] \tag{Change of variables}
+	\\ & =  \frac{1}{4\pi c^2t} \int_{|y-x| = ct}g(y) dS_y + \partial_t \left[\frac{1}{4\pi c^2 t} \int_{|y-x| = ct} f(y) dy \right] \tag{Since $f,g$ are radial}
+	\\ & = u(x,t).
+\end{align*}
+\item Suppose $u$ is a solution of the wave equation for radially symmetric initial conditions. Then $$v(x,t) = u(Ax,t)$$ for $A$ orthogonal will solve the wave equation with the same initial conditions. 
+By uniqueness, we have that $v = u$, and so $u(x,t) = u(Ax,t)$. 
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
+We can define the operator $\mathcal{S}$ as
+$$S_t g(x) = \frac{1}{4\pi c^2 t} \int_{|y-x| = ct} g(y) dS_y.$$
+Therefore the homogenous wave equation is solved by
+$$u(x,t) = \partial_t \mathcal{S}_t \phi(x) + \mathcal{S}_t \psi(x). $$
+From this it follows by duhamels principle that for the inhomogenous wave equation, that
+$$u(x,t) = \int_0^t S_{t-s} f(x,s) ds = \int_0^t \frac{1}{4\pi c^2(t-s)^2} \int_{|y-x| = c(t-s)} f(y,s)dS_y ds. $$
 \newpage
 \begin{problem}
 \end{problem}
+\penum 
+\item Suppose that $\dot{E}(t) \leq a(t) E(t)$. Dividing both sides by $E(t)$ and integrating from $t_0$ to $t$, we see
+$$\int_{t_0}^t \frac{\dot{E}(s)}{E(s)} ds \leq \int_{t_0}^t a(s) ds. $$
+Evaluating the lefthand side integral, we get: 
+$$\log E(t) - \log E(0) \leq \int_{t_0}^t a(s) ds.$$
+Rearranging and exponentiating we get
+$$E(t) \leq e^{\int_{t_0}^t a(s) ds} E(t_0)$$
+as desired. 
+\item Define
+	$$h(t) = \exp \left(-\int_0^t a(s)ds \right)\left(\int_0^t a(s) E(s) ds + c(t) \right).$$
+We compute its derivative. 
+\begin{align*}
+	\frac{d}{dt}h(t)  & = \exp \left(-\int_0^t a(s)ds \right) \cdot -a(t) c(t) +\exp \left(-\int_0^t a(s)ds \right) c^\prime(t) \\ & + \exp \left(-\int_0^t a(s)ds \right) \cdot -a(t) \int_0^t E(s)a(s) ds + \exp \left(-\int_0^t a(s)ds \right)E(t)a(t)
+	\\ & = \exp \left(-\int_0^t a(s)ds \right) \left[-a(t)c(t) - a(t) \int_0^t E(s)a(s) ds + E(t)a(t) \right] + c^\prime(t) \exp \left(-\int_0^t a(s)ds \right)
+	\\ & \leq \exp \left(-\int_0^t a(s)ds \right) c^\prime(t) \tag{Multiplying assumed inequality by $a(t)$}.
+\end{align*} 
+Therefore we have 
+$$h^\prime(s) \leq c^\prime(s) \exp \left(-\int_0^s a(r)dr \right) .$$
+Integrating from $0$ to $t$ we get:
+	$$h(t)  = h(0) + \int_0^t c^\prime(s) \exp\left(\int_s^0 a(r) dr\right)ds $$
+By the definition of $h(t)$, we have that 
+$$ \exp \left(-\int_0^t a(s)ds \right)\left(\int_0^t a(s) E(s) ds + c(t) \right) \leq  h(0) + \int_0^t c^\prime(s) \exp\left(\int_t^0 a(r) dr\right)ds.$$
+We multiply by $\exp \left( \int_0^t a(s)ds\right)$ and apply the inequality on $E(t)$ and get:
+$$E(t) \leq h(0)\exp \left( \int_0^t a(s)ds\right) + \exp \left( \int_0^t a(s)ds\right)\int_0^tc^\prime(s) \exp\left(\int_s^0 a(r) dr \right)ds.$$
+Finally we notice that $h(0) = c$, and we can bring in the constant on the second summand and use the properties of $\exp$ to get that:
+$$E(t) \leq c(0) \exp \left( \int_0^t a(s) ds \right) + \int_0^t c^\prime(s) \exp\left(\int_s^t a(r)dr \right)ds.$$
+\epenum
 \newpage
 \begin{problem}
 \end{problem}
+Recall by Kirchoff's formula we have
+$$t|u(x,t)| = \left|\frac{1}{4\pi } \int_{S} h(y) dS_y + t \partial_t\frac{1}{4\pi t} \int_{S} f(y) dS_y \right| \leq \left|\frac{1}{4\pi} \int_{S} h(y) dS_y \right| + t\left| \partial_t\frac{1}{4\pi } \int_{S} f(y) dS_y \right| $$
+Where $S = \{y: |x-y| = t\}$. Since $h$ has compact support, we have 
+$$ \left|\frac{1}{4\pi t} \int_{S} h(y) dS_y \right| \leq \frac{\norm{h}_{L^1}}{4\pi }.$$
+For the second summand, we have that:
+$$t \left| \partial_t\frac{1}{4\pi t} \int_{S} f(y) dS_y \right|  =t \left|-\frac{1}{4\pi t^2} \int_{S} f(y) dS_y + \frac{1}{4\pi t} \partial_t \int_S f(y) dy \right| \leq  \left|-\frac{1}{4\pi t} \int_{S} f(y) dS_y\right| +\left| \frac{1}{4\pi } \partial_t \int_S f(y) dy \right|.$$
+We can bound the first term by performing a change of variables: 
+$$\frac{1}{4\pi t} \left|\int_{S} f(y) dS_y\right| = \frac{1}{4\pi t}\left|t \int_{S/t}f(y) dS_y \right| \leq \frac{1}{4\pi} \sup f \cdot |B_1|. $$
+The second summand is bounded in a similar way: 
+$$\frac{1}{4\pi} \left| \partial_t \int_S f(y) dS_y \right| = \frac{1}{4\pi} \left|\partial_t \int_{B_1(x)} tf(y) dS_y \right|\leq \frac{1}{4\pi} \sup |f| \cdot |B_1(x)|.  $$
+Therefore $t |u(x,t)| \leq C = \frac{1}{4\pi}\left(\norm{h}_{L^1} + 2\sup |f|\cdot |B_1| \right)$. 
 \newpage
 \begin{problem}
 \end{problem}
-\newpage
-
+\penum 
+\item First in the case of linear klein gordon equation, we multiply the PDE by $u_t$ to get:
+$$u_t u_{tt} - \Delta u u_t + \mu u u_t = 0.$$
+Notice that we can write this as
+$$\left(\frac{1}{2} u^2_t + \frac{1}{2} |\grad u|^2 + \frac{\mu}{2} u^2 \right)_t - \grad \cdot ( u_t \grad u) = 0.$$
+Furthermore the second summand goes to $0$ as $|x| \to \infty$, so we can integrate over $\R^n$ to get that
+$$ \frac{d}{dt} \int_{\R^n} \frac{1}{2} u^2_t + \frac{1}{2} |\grad u|^2 + \frac{\mu}{2} u^2  dx = 0.$$
+Therefore our conserved quantity is 
+$$ \int_{\R^n} \frac{1}{2} u^2_t + \frac{1}{2} |\grad u|^2 + \frac{\mu}{2} u^2  dx = 0.$$
+Now consider for when $ f= |u|^{p-1} u$. Define $E(t) =  \int_{\R^n} \frac{1}{2} u^2_t + \frac{1}{2} |\grad u|^2 + \frac{\mu}{2} u^2  dx$, and set $\frac{d}{dt}E(t) = 0:$
+We compute that
+$$0 = \frac{d}{dt} E(t) =- \int_{\R^n} -|u|^{p-1} u u_t dx =   -\int_{\R^n} \frac{d}{dt} \left(\frac{1}{p}|u|^p u\right) dx,$$
+Assuming $u$ decays sufficiently fast. 
+Therefore the conserved quantity is 
+$$E = \int_{\R^n} \frac{1}{2}u_t^2 +  \frac{1}{2} |\grad u|^2 + \frac{\mu}{2} u^2 + \frac{1}{p} |u|^{p-1}p dx. $$
+\item Let $u_1,u_2$ be given with corresponding initial conditions $f,g$ solving inhomogenous Klein-Gordon Equation. Define $w = u_1-u_2$. 
+Then the energy of $w$ is given as:
+$$E(t) = \int_{\R^n}\frac{1}{2} w_t^2 + \frac{1}{2} |\grad w|^2 + \frac{\mu}{2} w^2  dx.$$
+Since $w$ solves homogenous Klein-Gordon equation, we must have that this is conserved. Taking the derivative, we get that 
+$$0 = \frac{d}{dt} E(t) = \int_{\R^n}w_t w_{tt}+ \grad w \cdot \grad w_t +\mu  w w_t dx.$$
+Integrating by parts, we get that
+$$0 = \int_{\R^n} \Delta w_t-  w_{ttt} - w_{tt} dx .$$
+Thus this satisfies an inhomogenous wave equation, with $f = w_{t}$. By $Q2$, we have that $$w(x,t) = \int_0^t \frac{1}{4\pi (t-s)^2} \int_{|y-x| = t}\frac{w_t(y, t - |y-x|)}{|y-x|} dS_y.$$
+Since $w$ is bounded, this must be identically $0$. Therefore solutions to Klein-gordon are Unique.
+\epenum
 
 \end{document}
