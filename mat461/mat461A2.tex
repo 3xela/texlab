@@ -217,7 +217,7 @@ $$ \partial_k g_{ij} \dot{x}^k \dot{x}^j + g_{ij} \ddot{x}^i + \partial_j A_i \d
 	 \\ & \iff \pmat{\frac{\partial^2 \eL}{\partial {x}^i \partial {x}^j}} \text{ is non degenerate.}
 \end{align*}
 \item For $\eL = T_g + f_A - \pi^\ast V$, we compute the energy as:
-	$$E = \inn{(x, \dot{x}), (x, F \eL(x, \dot{x})} - L(x, \dot{x})=\inn{\dot{x}, g_{ij}(x) \cdot \dot{x} + A(x)} - T_g - F_A + \pi^\ast V = V(x). $$
+	$$E = \inn{(x, \dot{x}), (x, F \eL(x, \dot{x})} - L(x, \dot{x})=\inn{\dot{x}, g_{ij}(x) \cdot \dot{x} + A(x)} - T_g - f_A + \pi^\ast V = T_g +V. $$
 	Since $V(x)$ is independant of time, this will be conserved along any solution curve. 
 \epenum
 \newpage
@@ -235,11 +235,23 @@ Suppose that $x(t)$ is a solution and we reparametrize it to $x(t(s))$. Then by 
 $$\left(\partial_i A_j(x(t(s)) - \partial_j A_i(x(t(s)) \right)\dot{x(t(s))}^i =(\partial_i A_j (x) - \partial_j A_i(x))\dot{x}^i \cdot \dot{t}  =0.$$
 Therefore our reparametrization of $x$ is a solution as well. 
 \item The equations of motion can be written in the following way: 
-	$$\bmat{(\partial_i A_1 - \partial_1  A_i) \dot{x}^i  \\ \vdots \\ (\partial_i A_n - \partial_n A_i) \dot{x}^i} = 0$$
-\item 
-\item 
-\item 
-\item
+	$$\bmat{(\partial_i A_1 - \partial_1  A_i) \dot{x}^i  \\ \vdots \\ (\partial_i A_n - \partial_n A_i) \dot{x}^i} = 0.$$
+This is the same as saying that as a $1-form$, $dA(\dot{x},- ) = 0$ for a critical path $\dot{x}$. 
+\item If $A = xdy - ydx$, then $f_A = x\dot{y} - y\dot{x}$. We compute the Euler-Lagrange equations as:
+	$$\frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{x}} \right) =-\dot{y}  = \dot{y} = \frac{ \partial f_A	 }{\partial x  }$$
+	and
+	$$ \frac{ d }{dt  } \left( \frac{ \partial f_A }{\partial \dot{y}  } \right) =\dot{x} = -\dot{x} = \frac{ \partial f_A }{\partial y  }   $$ 
+	Therefore we have that $\dot{x} = \dot{y} = 0$. The only critical paths are constant and so no such paths can exist from $(0,0)$ to $(1,0)$. 
+\item In coordinates we have $f_A (\theta, \dot{\theta}) = \dot{\theta}$. By Euler-Lagrange equations, the equations of motion satisfy
+	$$ \frac{d}{dt} \left(\frac{\partial f_A}{\partial \dot{\theta}} \right) = 0 = \frac{\partial f_A}{\partial \theta} .  $$ 
+	Under this lagrangian every path is critical. Therefore any path is critical. So every path connecting a point to itself is critical.  
+\item We write $A = \dot{z} - y \dot{x}$. We compute out the Euler-Lagrange equations:  
+	$$ \frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{x}}  \right) = -\dot{y} = \frac{\partial f_A}{\partial x}  = 0. $$ 
+	$$ \frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{y}}  \right)  = 0 = \frac{\partial f_A}{\partial y}  $$ 
+	$$ \frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{z}}  \right) = 0 = \frac{\partial f_A}{\partial z}   $$ 
+	The only restriction is that $\dot{y} = 0$. Therefore any path of the form $(x(t), y_0,z(t))$ is critical. A critical trajectory between $ \left(x_1,y_1,z_1 \right) $ and $ \left(x_0, y_0, z_0 \right) $ exists when $y_0 = y_1$. 
+\item Let $A = A_i(x) dx^i$. We compute the fiber derivative of $f_A$:
+	$$ FL(x,\dot{x}) = \left(x, \frac{\partial f_A}{\partial \dot{x}} \right) = \left(x, A(x) \right)  $$ 
 \item 
 \epenum
 \newpage
@@ -258,6 +270,19 @@ $$-\frac{1}{2} \grad V(x) \cdot \dot{x} g_{ki}(x)\dot{x}^i  + \frac{1}{2} \left(
 Similarly for $\eL_2 = T_g - V$, we compute:
 	$$\frac{d}{dt} \left( \frac{\partial \eL_2}{\partial \dot{x}^k}\right)  = \frac{d}{dt} \left( g_{ki}(x) \dot{x}^i \right) 
  = \frac{ \partial g_{ki}(x)}{\partial x^i} \dot{x}^i \dot{x}^j + g_{ki}(x) \ddot{x}^i $$
+ Ok try this. 
+ Let $x_1(t)$ be an equation of motion for $\eL_1$, and $x_2(s)$ be an equation of motion for $\eL_2$. We have shown in $1.n$ that the corresponding fiber derivatives $F \eL_1$, $F\eL_2$ are diffoemorphisms. We apply them to the corresponding paths: 
+ $$ F \eL_1(x_1(t), \dot{x}_1(t))= \left(x_1(t), (E-V) g(x_1(t))\dot{x}_1(t) \right)  $$ 
+ $$ F \eL_2(x_2(s), \dot{x}_2(s)) = \left(x_2(s), g(x_2(s)) \dot{x}_2(s) \right)  $$ 
+ Consider the reparametrization given by:
+$$ s(t) = \int_0^t E - V(x_1(\tau)) d\tau. $$ 
+Since
+$$ \frac{d}{dt} s(t) = E- V(x) >0, $$ 
+this is a valid reparametrization. 
+We get that
+$$ F \eL_2(x_2(s(t)), \dot{x}_2(s(t))) = \left(x_2(s(t)) ,(E-V) g(x_2(s(t)))\dot{x}_2(s(t))  \right) . $$ 
+Since $F\eL_1$ is a diffeomorphism we can apply it's inverse to above and get $(x_2(s(t)), \dot{x}_2(s(t))).$
+We now claim that $(x_2(t), x_2(t))$ is a critical path of 
 \newpage
 \begin{problem}
 \end{problem}
@@ -267,7 +292,7 @@ on vectors of the form $(e^i, 1)$.
 $$g_p((e^i, 1),(e^i,1)) = g(x)(e^i, e^i) + (A + d\theta )(e^i,1) \cdot (A + d\theta)(e^i, 1) =g_{ii}(x) + A_i(x)^2  + 1. $$
 This will always be positive since $g$ is a metric. Finally we show that this metric is non degenerate. Clearly if $u = (v,c)$, $g_P((v,c),(v,c)) = 0$. Suppose that $g_P((v,c),(v,c)) = 0$. Then, 
 $$0 = g(x)v^{i}v^{j}  +  Av^2 + c^2 \implies c=v=0.$$
-\item 
+\item
 \item 
 \epenum
 \newpage
