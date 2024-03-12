@@ -110,8 +110,8 @@ bmargin=0.5in]{geometry}
 \newcommand{\tr}{\mathrm{tr}}
 \newcommand{\Range}[1]{\mathrm{range}(#1)}
 \newcommand{\Null}[1]{\mathrm{null}(#1)}
-\newcommand{\lan}{\langle}
-\newcommand{\ran}{\rangle}
+\newcommand{\lan}{\left\langle}
+\newcommand{\ran}{\right\rangle}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\inn}[1]{\lan#1\ran}
 \newcommand{\op}[1]{\operatorname{#1}}
@@ -198,17 +198,17 @@ This is a smooth mapping since $g,A$ both are. Furthermore, since $g$ is nondege
 $$H(x,y) = (x, g^{-1}(x) \cdot(y - A(x))).$$
 This will be smooth since it is composed of smooth functions. It remains to verify that it is in fact the inverse of $g$:
 $$H\circ F \eL(x,y) = H ( x, g(x) + A(x)) =(x , g^{-1}(x) \left(g(x) \cdot \dot{x} + A(x) - A(x) \right))  = (x, \dot{x}).$$
-The composition $F \eL \circ H$ is comptuted similarly. Therefore $F \eL$ is a diffeomorphism. 
+The composition $F \eL \circ H$ is computed similarly. Therefore $F \eL$ is a diffeomorphism. 
 \item We compute the Euler Lagrange equations for our system: 
 	$$\frac{d}{dt} \left( \frac{\partial \eL}{\partial \dot{x}} \right) = \frac{\partial \eL}{\partial x}.$$
 	We already have computed $\frac{\partial \eL}{\partial \dot{x}^i}$ as
-	$$g_{ij} \dot{x}^j + A_i(x).$$
+	$$ \frac{\partial \eL}{\partial \dot{x}^i} = g_{ij}  \dot{x}^j + A_i(x).$$
 Taking the time derivative along a path $x$, we get that 
-$$\frac{d}{dt} \left(\frac{\partial \eL}{\partial \dot{x}^i} \right) =\partial_kg_{ij}\dot{x}^k \dot{x}^j +g^{ij}\ddot{x}^{i} + \partial_j A_i \dot{x}^j.$$
+$$\frac{d}{dt} \left(\frac{\partial \eL}{\partial \dot{x}^i} \right) =\partial_k g_{ij}\dot{x}^k \dot{x}^j +g_{ij}\ddot{x}^{j} + \partial_j A_i \dot{x}^j.$$
 Similarly we compute: 
-$$\frac{\partial \eL}{\partial x^i} = \partial_i g_{pq} \dot{x}^p \dot{x}^q +\partial_i A_j \dot{x}^j + \partial_i V.$$
+$$\frac{\partial \eL}{\partial x^i} = \frac{1}{2} \partial_i g_{pq} \dot{x}^p \dot{x}^q +\partial_i A_j \dot{x}^j - \partial_i V.$$
 Setting these equal to eachother we obtain the equations of motion. 
-$$ \partial_k g_{ij} \dot{x}^k \dot{x}^j + g_{ij} \ddot{x}^i + \partial_j A_i \dot{x}^j = \partial_i g_{pq} \dot{x}^p \dot{x}^q + \partial_i A_j \dot{x}^j + \partial_i V. $$
+$$\partial_k g_{ij}\dot{x}^k \dot{x}^j +g_{ij}\ddot{x}^{j} + \partial_j A_i \dot{x}^j=\frac{1}{2} \partial_i g_{pq} \dot{x}^p \dot{x}^q + \partial_i A_j \dot{x}^j - \partial_i V. $$
 \item The following equivalences hold: 
 \begin{align*}
 	  \text{L regular} & \iff \left(x, \frac{\partial \eL}{\partial \dot{x}}  \right)\text{ is a local diffeomorphism.}
@@ -217,8 +217,23 @@ $$ \partial_k g_{ij} \dot{x}^k \dot{x}^j + g_{ij} \ddot{x}^i + \partial_j A_i \d
 	 \\ & \iff \pmat{\frac{\partial^2 \eL}{\partial {x}^i \partial {x}^j}} \text{ is non degenerate.}
 \end{align*}
 \item For $\eL = T_g + f_A - \pi^\ast V$, we compute the energy as:
-	$$E = \inn{(x, \dot{x}), (x, F \eL(x, \dot{x})} - L(x, \dot{x})=\inn{\dot{x}, g_{ij}(x) \cdot \dot{x} + A(x)} - T_g - f_A + \pi^\ast V = T_g +V. $$
-	Since $V(x)$ is independant of time, this will be conserved along any solution curve. 
+$$E = \inn{(x, \dot{x}), (x, F \eL(x, \dot{x})} - L(x, \dot{x})=\inn{\dot{x}, g_{ij}(x) \cdot \dot{x} + A(x)} - T_g - f_A + \pi^\ast V = T_g +V. $$
+We claim that this is conserved. Let $x(t)$ be a solution curve. We compute the derivative of energy along $x$. 
+\begin{align*}
+	\frac{d}{dt}E & = \frac{d}{dt} \left( \frac{1}{2}g_{ij}(x) \dot{x}_i \dot{x}_j + V(x) \right)
+	\\ & = \frac{1}{2} \left(\grad g_{ij} (x) \cdot \dot{x} \right)\dot{x}^i \dot{x}^j+ \frac{1}{2} g_{ij}\ddot{x}^i \dot{x}^i + \frac{1}{2}g_{ij}\dot{x}^i \ddot{x}^j +  \grad V(x) \cdot \dot{x}
+	\\ & = \left( \frac{1}{2}(\grad g_{ij}\cdot \dot{x}) \dot{x} + g_{ij}\ddot{x}^j + \grad V\right)\cdot \dot{x}
+	\\ & = \left(  \frac{1}{2}(\grad g_{ij}\cdot \dot{x}) \dot{x} + g_{ij}\ddot{x} + \frac{1}{2}(\grad g_{ij} \cdot{x})\dot{x} - (\grad g_{ij} \cdot \dot{x}) \cdot{x} + dA(\dot{x}, -) - g_{ij}\ddot{x}   \right) \cdot \dot{x} \tag{By Substituting EoM}
+	\\ & = dA(\dot{x}, \dot{x})
+	\\ & = 0.
+\end{align*}
+By the way here is a simpler way to do it for a general (time independant) Lagrangian:
+\begin{align*}
+	\frac{d}{dt}E &= \frac{d}{dt}\left( \inn{ \frac{\partial \eL}{\partial \dot{x}}, \dot{x}} - \eL(x,\dot{x})\right)
+	\\ & = \frac{d}{dt} \frac{\partial \eL}{\partial \dot{x}}\dot{x} + \frac{\partial \eL}{\partial \dot{x} }\ddot{x}- \left( \frac{\partial \eL}{\partial x}\dot{x} + \frac{\partial \eL }{\partial \dot{x}}\ddot{x} \right)
+	\\ & = \left( \frac{d}{dt} \frac{\partial \eL}{\partial \dot{x}} - \frac{\partial \eL }{\partial x} \right)\dot{x} 
+	\\ & = 0 \tag{By Euler-Lagrange Equations.}
+\end{align*}
 \epenum
 \newpage
 \begin{problem}
@@ -230,70 +245,96 @@ and
 $$\frac{\partial \eL}{\partial x_j} = \partial_j A_i(x) \dot{x}^i.$$
 These must be equal so we have that:
 $$(\partial_i A_j(x) - \partial_jA_i(x))\dot{x}^i = 0.$$
-This will give motion that is (...).
+This will give motion that is perpendicular to the vector fields given by $ \left(\partial_i A_j(x) -\partial_j A_i(x) \right)e^i$ for all $j$. 
 Suppose that $x(t)$ is a solution and we reparametrize it to $x(t(s))$. Then by the chain rule we have that:
 $$\left(\partial_i A_j(x(t(s)) - \partial_j A_i(x(t(s)) \right)\dot{x(t(s))}^i =(\partial_i A_j (x) - \partial_j A_i(x))\dot{x}^i \cdot \dot{t}  =0.$$
 Therefore our reparametrization of $x$ is a solution as well. 
 \item The equations of motion can be written in the following way: 
 	$$\bmat{(\partial_i A_1 - \partial_1  A_i) \dot{x}^i  \\ \vdots \\ (\partial_i A_n - \partial_n A_i) \dot{x}^i} = 0.$$
-This is the same as saying that as a $1-form$, $dA(\dot{x},- ) = 0$ for a critical path $\dot{x}$. 
+This is the same as saying that as a $1-form$, $dA(\dot{x},- ) = 0$ for a critical path $\dot{x}$, since each row of the vector given above is of the form $dA(\dot{x}, e^i)$. 
 \item If $A = xdy - ydx$, then $f_A = x\dot{y} - y\dot{x}$. We compute the Euler-Lagrange equations as:
-	$$\frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{x}} \right) =-\dot{y}  = \dot{y} = \frac{ \partial f_A	 }{\partial x  }$$
+	$$\frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{x}} \right) =-\dot{y}  ,\quad   \frac{ \partial f_A	 }{\partial x  } = \dot{y}$$
 	and
-	$$ \frac{ d }{dt  } \left( \frac{ \partial f_A }{\partial \dot{y}  } \right) =\dot{x} = -\dot{x} = \frac{ \partial f_A }{\partial y  }   $$ 
+	$$ \frac{ d }{dt  } \left( \frac{ \partial f_A }{\partial \dot{y}  } \right) =\dot{x}, \quad  \frac{ \partial f_A }{\partial y  } = - \dot{x}    $$ 
 	Therefore we have that $\dot{x} = \dot{y} = 0$. The only critical paths are constant and so no such paths can exist from $(0,0)$ to $(1,0)$. 
 \item In coordinates we have $f_A (\theta, \dot{\theta}) = \dot{\theta}$. By Euler-Lagrange equations, the equations of motion satisfy
-	$$ \frac{d}{dt} \left(\frac{\partial f_A}{\partial \dot{\theta}} \right) = 0 = \frac{\partial f_A}{\partial \theta} .  $$ 
-	Under this lagrangian every path is critical. Therefore any path is critical. So every path connecting a point to itself is critical.  
+	$$ \frac{d}{dt} \left(\frac{\partial f_A}{\partial \dot{\theta}} \right) = 0  , \quad \frac{\partial f_A}{\partial \theta} = 0 .  $$ 
+	Under this lagrangian every path is critical.  So every path connecting a point to itself is critical.  
 \item We write $A = \dot{z} - y \dot{x}$. We compute out the Euler-Lagrange equations:  
-	$$ \frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{x}}  \right) = -\dot{y} = \frac{\partial f_A}{\partial x}  = 0. $$ 
-	$$ \frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{y}}  \right)  = 0 = \frac{\partial f_A}{\partial y}  $$ 
-	$$ \frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{z}}  \right) = 0 = \frac{\partial f_A}{\partial z}   $$ 
-	The only restriction is that $\dot{y} = 0$. Therefore any path of the form $(x(t), y_0,z(t))$ is critical. A critical trajectory between $ \left(x_1,y_1,z_1 \right) $ and $ \left(x_0, y_0, z_0 \right) $ exists when $y_0 = y_1$. 
+	$$ \frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{x}}  \right) = -\dot{y}, \quad \frac{\partial f_A}{\partial x}  = 0. $$ 
+	$$ \frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{y}}  \right)  = 0 , \quad \frac{\partial f_A}{\partial y}  = -\dot{x}  $$ 
+	$$ \frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{z}}  \right) = 0 ,  \quad \frac{\partial f_A}{\partial z}    = 0$$ 
+	The restrictions are that $y=y_0, x=x_0$. Therefore any path of the form $(x_0, y_0,z(t))$ is critical. A critical trajectory between $ \left(x_1,y_1,z_1 \right) $ and $ \left(x_0, y_0, z_0 \right) $ exists when $y_0 = y_1, x_0 = x_1$.  
 \item Let $A = A_i(x) dx^i$. We compute the fiber derivative of $f_A$:
-	$$ FL(x,\dot{x}) = \left(x, \frac{\partial f_A}{\partial \dot{x}} \right) = \left(x, A(x) \right)  $$ 
-\item 
+	$$ FL(x,\dot{x}) = \left(x, \frac{\partial f_A}{\partial \dot{x}} \right) = \left(x, A(x) \right) . $$ 
+	This will never be an isomorphism for any choice of $A$, since this will output a $1-$dimensional subspace. 
+\item We compute the Euler-Lagrange equations for $\eL + f_A$:
+	$$ \frac{d}{dt} \left( \frac{\partial \eL}{\partial \dot{x}^i} + \frac{\partial f_A}{\partial\dot{x}^i} \right) = \frac{\partial \eL}{\partial x^i} + \frac{\partial f_A}{\partial x^i}  \implies \frac{d}{dt} \left( \frac{\partial \eL}{\partial \dot{x}^i } \right) = \frac{\partial \eL}{\partial x^i} + \left( \frac{\partial f_A}{\partial x^i} - \frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{x}^i} \right)\right).$$
+	We have already computed that 
+	$$  \frac{\partial f_A}{\partial x^i} - \frac{d}{dt} \left( \frac{\partial f_A}{\partial \dot{x}^i} \right) = \left[\partial_j A_i - \partial_i A_j \right]\dot{x}^j = 0 $$
+	since $dA =0$.
+Therefore a path is critical for $\eL+f_A$ if and only if it is critical for $\eL$. We compute the energy as follows: 
+$$ E(\eL + f_A) = \inn{ \frac{\partial \eL}{\partial \dot{x}} + \frac{\partial f_A}{\partial \dot{x}},\dot{x} } - \eL - f_A = \inn{ \frac{\partial \eL}{\partial \dot{x}}, \dot{x}} + f_A - \eL - f_A = E(\eL). $$
 \epenum
 \newpage
 \begin{problem}
 \end{problem}
-We determine the equations of motion for $\eL_1 = T_{g_E} = \frac{1}{2}(E-V(x)) g_{ij}(x)\dot{x}^i \dot{x}^j$: 
-
+Let $\eL_1 = T_{gE}$, $\eL_2 = T_{g} - V$. Solutions of $\eL_1$ will extremize the action
+$$ S[x] = \int_{s_0}^{s_1}  \frac{1}{2}{g_E}_{ij}(x) \dot{x}^i \dot{x}^j ds,  $$
+and similarly solutions of $\eL_2$ will extremize the actions 
+$$S[y] = \int_{t_0}^{t_1} \frac{1}{2}g_{ij}(y)\dot{y}^i \dot{y}^j - V(y) dt.$$
+We make the change of variables $ds = \frac{1}{2}(E-V(x))dt$, 
 \begin{align*}
-\frac{d}{dt} \left(\frac{\partial \eL_1}{\partial \dot{x}^k}\right) &= \frac{d}{dt} \left(\frac{1}{2}(E-V(x))g_{kj}(x) \dot{x}^j \right)
-\\ & = -\grad V(x) \cdot \dot{x} g_{ki}(x)\dot{x}^i  +  \left( \frac{g_{ij}(x)}{\partial x^k} \dot{x}^k \dot{x}^i + g_{ij}(x)\ddot{x}^j \right).
+	S[y] & = \int_{s_0}^{s_1} g_{ij}(y)\dot{y}^i \dot{y}^j \cdot \left( \frac{ds}{dt}\right)^2\cdot \frac{2ds}{(E-V)} - \int_{t_0}^{t_1} E - \frac{1}{2}g_{ij}\dot{y}^i \dot{y}^j dt \tag{Since $T_g + V = E$}
+	\\ & =  \int_{s_0}^{s_1}\frac{1}{4}(E-V(x)) g_{ij}(y)\dot{y}^i \dot{y}^j ds - \int_{t_0}^{t_1} E - \frac{1}{2}g_{ij}\dot{y}^i \dot{y}^j dt \tag{Simplifying}
+	\\ & = \int_{s_0}^{s_1} \frac{1}{4}(E-V)g_{ij}(y) \dot{y}^i \dot{y}^j ds + \int_{s_0}^{s_1} \frac{1}{4} (E-V)g_{ij}(y) \dot{y}^i \dot{y}^j ds - E(t_1-t_0) \tag{Making the same substitution in second integral}
+	\\ & = \int_{s_0}^{s_1} g_E(y) \dot{y}^i \dot{y}^j ds - E(t_1-t_0).
 \end{align*}
-And,
-$$\frac{\partial \eL_1}{\partial x^k} =-\frac{1}{2} \frac{\partial V}{\partial x^k}  g_{ij}\dot{x}^i \dot{x}^j  + \frac{1}{2}(E - V(x)) \frac{\partial g_{ij}(x)}{\partial x^k} \dot{x}^i \dot{x}^j.$$
-Therefore the equations of motion satisfy: 
-$$-\frac{1}{2} \grad V(x) \cdot \dot{x} g_{ki}(x)\dot{x}^i  + \frac{1}{2} \left( \frac{g_{ij}(x)}{\partial x^k} \dot{x}^k \dot{x}^i + g_{ij}(x)\ddot{x}^j \right) =  -\frac{1}{2} \frac{\partial V}{\partial x^k}  g_{ij}\dot{x}^i \dot{x}^j  + \frac{1}{2}(E - V(x)) \frac{\partial g_{ij}(x)}{\partial x^k} \dot{x}^i \dot{x}^j$$
-Similarly for $\eL_2 = T_g - V$, we compute:
-	$$\frac{d}{dt} \left( \frac{\partial \eL_2}{\partial \dot{x}^k}\right)  = \frac{d}{dt} \left( g_{ki}(x) \dot{x}^i \right) 
- = \frac{ \partial g_{ki}(x)}{\partial x^i} \dot{x}^i \dot{x}^j + g_{ki}(x) \ddot{x}^i $$
- Ok try this. 
- Let $x_1(t)$ be an equation of motion for $\eL_1$, and $x_2(s)$ be an equation of motion for $\eL_2$. We have shown in $1.n$ that the corresponding fiber derivatives $F \eL_1$, $F\eL_2$ are diffoemorphisms. We apply them to the corresponding paths: 
- $$ F \eL_1(x_1(t), \dot{x}_1(t))= \left(x_1(t), (E-V) g(x_1(t))\dot{x}_1(t) \right)  $$ 
- $$ F \eL_2(x_2(s), \dot{x}_2(s)) = \left(x_2(s), g(x_2(s)) \dot{x}_2(s) \right)  $$ 
- Consider the reparametrization given by:
-$$ s(t) = \int_0^t E - V(x_1(\tau)) d\tau. $$ 
-Since
-$$ \frac{d}{dt} s(t) = E- V(x) >0, $$ 
-this is a valid reparametrization. 
-We get that
-$$ F \eL_2(x_2(s(t)), \dot{x}_2(s(t))) = \left(x_2(s(t)) ,(E-V) g(x_2(s(t)))\dot{x}_2(s(t))  \right) . $$ 
-Since $F\eL_1$ is a diffeomorphism we can apply it's inverse to above and get $(x_2(s(t)), \dot{x}_2(s(t))).$
-We now claim that $(x_2(t), x_2(t))$ is a critical path of 
+Therefore if $S[y]$ is extremized, so will be $S[x]$, after our reparametrization. Therefore solutions to $\eL_2$ can be reparametrized to give a solution to $\eL_2$. A similar argument with the inverse reparametrization gives the reverse. 
 \newpage
 \begin{problem}
 \end{problem}
 \penum
 \item The form $g_p$ is clearly linear and symmetric. We must show that it is positive definite. Consider a basis for $T_pX$, $\{e^i\}$. For any $\theta \in S^1$, we have a basis for $T_\theta S^1$ given by $1$, since $T_\theta S^1 \cong\R$. It is sufficient to verify that $g_P$ is positive definite
 on vectors of the form $(e^i, 1)$.
-$$g_p((e^i, 1),(e^i,1)) = g(x)(e^i, e^i) + (A + d\theta )(e^i,1) \cdot (A + d\theta)(e^i, 1) =g_{ii}(x) + A_i(x)^2  + 1. $$
-This will always be positive since $g$ is a metric. Finally we show that this metric is non degenerate. Clearly if $u = (v,c)$, $g_P((v,c),(v,c)) = 0$. Suppose that $g_P((v,c),(v,c)) = 0$. Then, 
-$$0 = g(x)v^{i}v^{j}  +  Av^2 + c^2 \implies c=v=0.$$
-\item
-\item 
+$$g_p((e^i, 1),(e^i,1)) = g(x)(e^i, e^i) + (A + d\theta )(e^i,1) \cdot (A + d\theta)(e^i, 1) =g_{ii}(x) + \left(A_i(x)  + 1\right)^2. $$
+This will always be positive since $g$ is a metric. Finally we show that this metric is non degenerate. Clearly if $ (v,c) = (0,0)$, $g_P((v,c),(v,c)) = 0$. Suppose that $g_P((v,c),(v,c)) = 0$. Then, 
+$$0 = g(x)v^{i}v^{j}  +  \left(Av + c\right)^2.$$
+Since $g_{ij} \dot{x}^i \dot{x}^j \geq 0$ we must have that $v = 0$ for the above quantity to be $0$. From this it follows that $c^2 = 0$ and clearly $c = 0$. 
+\item For $\eL = T_g + f_A$ we have that $\theta$ will obviously be a cyclic variable; this lagrangian does not depend on $\theta$. The corresponding conserved quantity will be
+	$$ \frac{d}{dt} \left( \frac{\partial \eL}{\partial \dot{\theta}} \right) = \frac{d}{dt}0 = 0.$$
+So $0$ is conserved. 
+We now give expressions for the generalized momenta:
+$$ \frac{\partial \eL}{\partial \dot{x}^i}  = g_{ij}\dot{x}^j+ A_i. $$
+For $T_{g_p}$, we can write this as 
+	$$ T_{g_p} =  \frac{1}{2} \left(g_{ij}(x)\dot{x}^i \dot{x}^j + A_iA_j\dot{x}^i \dot{x}^j + 2\dot{\theta} A_i \dot{x}^i + \dot{\theta}^2 \right).$$
+We can see once again that this lagrangian does not depend on $\theta$ ; it is a cyclic variable with corresponding conserved quantity
+$$ 0 =  \frac{d}{dt} \left( \frac{\partial T_{g_p}}{\partial \dot{\theta}} \right) =  \frac{d}{dt} \left(A_i(x) \dot{x}^i + \dot{\theta}\right) = \partial_j A_i \dot{x}^i \dot{x}^j  + A_i \ddot{x}^i  + \ddot{\theta} . $$
+We now give expression or the generalized momenta for $T_{g_p}$: 
+$$ \frac{\partial T_{g_p}}{\partial \dot{x}^i} = g_{ij}\dot{x}^j + A_i A_j\dot{x}^j  + \dot{\theta} A_i  $$
+\item We first compute the equations of motion for $\eL = T_g + f_A$:
+	$$ \begin{cases}
+		\frac{\partial \eL}{\partial x^i} &= \frac{1}{2}\partial_i g_{pq} \dot{x}^p \dot{x}^q + \partial_i A_j \dot{x}^j
+		\\ \frac{d}{dt} \left( \frac{\partial \eL}{\partial \dot{x}^i} \right) &=  \partial_k g_{ij} \dot{x}^k\dot{x}^j + g_{ij} \ddot{x}^j + \partial_j A_i \dot{x}^j
+	\end{cases}$$	
+	Similarly we compute for $T_{g_P}$:
+	$$ \begin{cases}
+		\frac{\partial T_{g_p}}{\partial x^i} & = \frac{1}{2}\partial_i g_{pq} \dot{x}^p \dot{x}^q + (\partial_i A_p)A_q \dot{x}^p \dot{x}^q + \dot{\theta} \partial_i A_j \dot{x}^j
+		\\ \frac{d}{dt} \left( \frac{\partial T_{g_p}}{\partial \dot{x}^i} \right) & = g_{ij} \ddot{x}^j + \partial_k g_{ij} \dot{x}^k \dot{x}^i + \partial_j A_i A_j \dot{x}^j \dot{x}^i + A_i \partial_k A_j \dot{x}^k \dot{x}^j + A_i A_j \ddot{x}^j + \ddot{\theta} A_i +  \dot{\theta} \partial_j A_i \dot{x}^j.
+	\end{cases}$$
+Note that we can rearrange the second equation as follows: 
+\begin{align*}
+	& g_{ij} \ddot{x}^j + \partial_k g_{ij} \dot{x}^k \dot{x}^i + \partial_j A_i A_j \dot{x}^j \dot{x}^i + A_i \partial_k A_j \dot{x}^k \dot{x}^j + A_i A_j \ddot{x}^j + \ddot{\theta} A_i +  \dot{\theta} \partial_j A_i \dot{x}^j
+	\\ & =  g_{ij} \ddot{x}^j + \partial_k g_{ij} \dot{x}^k \dot{x}^i + \partial_j A_i A_j \dot{x}^j \dot{x}^i  +   \dot{\theta} \partial_j A_i \dot{x}^j + A_i \left(\ddot{\theta} + A_j \ddot{x}^j + \partial_k A_j \dot{x}^k \dot{x}^j  \right)
+	\\ & =  g_{ij} \ddot{x}^j + \partial_k g_{ij} \dot{x}^k \dot{x}^i + \partial_j A_i A_j \dot{x}^j \dot{x}^i  +   \dot{\theta} \partial_j A_i \dot{x}^j \tag{Since conserved.}
+\end{align*}
+The equations of motion are given by:
+$$  \frac{1}{2}\partial_i g_{pq} \dot{x}^p \dot{x}^q + (\partial_i A_p)A_q \dot{x}^p \dot{x}^q + \dot{\theta} \partial_i A_j \dot{x}^j =  g_{ij} \ddot{x}^j + \partial_k g_{ij} \dot{x}^k \dot{x}^i + \partial_j A_i A_j \dot{x}^j \dot{x}^i  +   \dot{\theta} \partial_j A_i \dot{x}^j. $$
+We can rearrange this further:
+$$ \frac{1}{2}\partial_i g_{pq} \dot{x}^p \dot{x}^q - g_{ij}\ddot{x}^j - \partial_k g_{ij}\dot{x}^k \dot{x}^j + \left(A_i\dot{x}^i + \dot{\theta} \right) \left(\partial_i A_j \dot{x}^j - \partial_j A_i \dot{x}^j \right) = 0.$$
+Since $A_i\dot{x}^i + \dot{\theta}$ is a constant, we obtain equations of motions:
+$$ \frac{1}{2}\partial_i g_{pq} \dot{x}^p \dot{x}^q - g_{ij}\ddot{x}^j - \partial_k g_{ij}\dot{x}^k \dot{x}^j + C \left(\partial_i A_j \dot{x}^j - \partial_j A_i \dot{x}^j \right) = 0.$$
+For some parameter $C$, which we can set to $1$. Note that this is exactly the equations of motion on $X$ given by $\eL = T_g + f_A$. Conversely, given an equation of motion on $X$ of $\eL$, we can embed $X$ into $P$, and it will satisfy the equations of motion of $T_{g_p}$ by specifiying $\dot{\theta} = 1 - A_i\dot{x}$. 
 \epenum
 \newpage
 \end{document}
