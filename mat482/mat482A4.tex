@@ -1,0 +1,235 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathbb{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\bd}{\partial}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\left\langle}
+\newcommand{\ran}{\right\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{MAT482}
+\newcommand{\hwNumber}{4}
+
+%preamble
+
+\title{MAT482 HW4}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+% problem number 1
+\end{problem}
+We first claim that $B_{ \frac{\ep}{2} } (0) \subset Du \left(\Gamma^+ \cap \left\{ u < u(0)+ \frac{\ep}{2}  \right\} \right)$.
+Take $|\xi| < \frac{\ep}{2}$. We define the affine linear mapping $l(x) = \xi \cdot x  + u(0)$.
+Note that on $\bd B_1$, we have that
+$$l(x) \leq |\xi| \cdot |x| + u(0) < u(x).$$
+Therefore we have that $ \left\{ l>u \right\} \subset \subset B_1$. Similarly to $ABP$, we have the existence of an $a>0$ so that $l - a$ touches $u$ at some $x_0$, and $l-a \leq u$ elsewhere, so that $x\in \Gamma^+$. Furthermore, 
+$$ u(x_0) = \xi \cdot x_0 + u(0) - a \leq |\xi | \cdot |x_0| + u(0) < \frac{\ep}{2} + u(0). $$ 
+Therefore $x_0 \in \Gamma^+ \cap \left\{ u< u(0) + \frac{\ep}{2} \right\}$ and $l-a$ is tangent to $u$ at $x_0$, so $\xi = Du(x_0)$ i.e. $\xi \in D \left( \Gamma^+ \cap \left\{ u< u(0) + \frac{\ep}{2} \right\} \right)$. 
+We apply the change of variables theorem for $g = 1$, and get that 
+$$ \omega_n \left( \frac{\ep}{2} \right)^n = \int_{B_\frac{\ep}{2}} 1 \leq \int_{ Du\left(\Gamma^+ \cap \left\{ u< u(0) + \frac{\ep}{2} \right\} \right)} 1 dy \leq \int_{\Gamma^+ \cap \left\{ u< u(0) + \frac{\ep}{2} \right\}} \det D^2 u. $$ 
+Dividing and taking the $n-$th root, we see
+$$\ep \leq \frac{2}{\sqrt[n]{\omega_n}}\int_{\Gamma^+ \cap \left\{ u< u(0) + \frac{\ep}{2} \right\}} \det D^2 u. $$
+\newpage
+\begin{problem}
+% problem number 2
+\end{problem}
+\penum
+\item Suppose that $| \left\{ |u-u_Q|>kC(n) \right\}\cap Q| \leq 2^{-k} |Q| $. Then for some choice of $\delta(n)$, we have that 
+\begin{align*}
+	\int_Q e^{\delta(n) |u-u_Q|} & = \delta(n) \int_0^\infty e^{\delta t} \left| \left\{ \left| u-u_Q \right|>t \right\}\cap Q \right|dt 
+	\\ & = \delta(n) \sum_{k=0}^\infty \int_{kC}^{(k+1)C} e^{\delta t} \left| \left\{ \left| u-u_Q \right|>t \right\}\cap Q \right|dt 
+	\\ & \leq \delta(n) \sum_{k=0}^\infty  \int_{kc}^{k(c+1)} 2^{-k} |Q| e^{\delta t} dt
+	\\ & = \delta |Q| \sum_{k=0}^\infty 2^{-k} \int_{kC}^{C(k+1)} e^{\delta t} dt
+	\\ & = \delta |Q| (e^{\delta C} - 1) \sum_{k=0}^\infty 2^{-k} e^{\delta kc}
+	\\ & = |Q| \frac{2(e^{\delta C} - 1)}{2- e^{\delta C}}
+\end{align*}
+Dividing by $|Q|$, and setting $\frac{2(e^{\delta C} - 1)}{2- e^{\delta C}}= C$, we see that choosing $\delta = \frac{1}{c}\log \left( \frac{2(1+C)}{2+C} \right)$ works. Since $C$ depends on $n$ so will $\delta$. 
+\item It is sufficient to show that $ \left\{ \left| u-u_Q \right|>2 \right\}\cap Q \subset \bigcup \tilde{Q}$, up to a set of measure 0. Note that by applying the search algorithm we get that if $x_i \in  \left\{ \left| u-u_Q \right|>2 \right\}\cap Q $ then $x_0$ must belong to some $\tilde{Q}$. It remains to show that the set of $x$ in $ \left\{ \left| u-u_Q \right|>2 \right\}\cap Q $ but not in $\bigcup \tilde{Q}$ is measure $0$. 
+Call this set $N$. If $x_0 \in N$ then we can produce a sequence of cubes shrinking down to it, say $ \left\{ Q_i \right\}$. By the lebesque differentiation theorem, we have that 
+$$ \lim_{n\to \infty} \frac{1}{|Q_n|}\int_{Q_i} |u- u_Q| dx = u(y). $$
+This must be greater than $2$ except on a null set. This contradicts the assumption that $x_0\not \in \tilde{Q}$ for any $\tilde{Q}$. 
+\item We have that 
+$$ 2 \leq \frac{1}{|\tilde{Q}|}\int_{\tilde{Q}} |u-u_Q|. $$ 
+Therefore 
+$$ |\tilde{Q}| \leq \frac{1}{2}\int_{\tilde{Q}} |u-u_Q| $$ 
+Summing over each $\tilde{Q}$, we get that 
+$$\sum_{\tilde{Q}} |\tilde{Q}| \leq \frac{1}{2}\sum\int_{\tilde{Q}} |u-u_Q| \leq \frac{1}{2}\int_{Q} |u-u_Q| \leq \frac{1}{2}|Q|.$$
+Applying this to part $b)$ we see that 
+$$ \left| \left\{ \left| u-u_Q \right|>2 \right\}\cap Q \right|\leq \frac{1}{2}|Q|.$$
+\item Let $\tilde{Q}^\prime$ be the predecessor of $\tilde{Q}$. Then,
+	\begin{align*}
+		|u_Q - u_{\tilde{Q}}| & = \left| \frac{1}{|\tilde{Q}|}\int_{\tilde{Q}} u-u_Q \right|
+		\\ & \leq \frac{1}{|\tilde{Q}|} \int_{|\tilde{Q}^\prime|} |u-u_Q|dy
+		\\ & \leq \frac{|\tilde{Q}^\prime|}{|\tilde{Q}|}\cdot \frac{1}{|\tilde{Q}^\prime|} \int_{|\tilde{Q}^\prime|} |u-u_Q|dy
+		\\ & \leq 2\cdot 2^{n+1}.
+	\end{align*}
+\item 
+\item 
+\epenum
+\newpage
+\begin{problem}
+% problem number 3
+\end{problem}
+\newpage
+
+
+\end{document}
