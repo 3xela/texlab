@@ -224,15 +224,84 @@ $$ \left| \left\{ \left| u-u_Q \right|>2 \right\}\cap Q \right|\leq \frac{1}{2}|
 	\end{align*}
 \item Fix a $\tilde{Q}$. The following inequality holds: 
 	$$ |u-u_Q| \leq |u-u_{\tilde{Q}}| + |u_Q - u_{\tilde{Q}}|. $$
-	We have that $|u-u_Q|> 2 \cdot 2^{n+1}$ only if $|u-u_{\tilde{Q}}|$ or $|u_Q - u_{\tilde{Q}}|$ are greater thatn $2 \cdot 2^{n+1}$. 
-	We have shown in $d)$ that
-\item 
+	We have that $|u-u_Q|> 2 \cdot 2^{n+1}$ only if $|u-u_{\tilde{Q}}|$ or $|u_Q - u_{\tilde{Q}}|$ are greater than $2 \cdot 2^{n+1}$. 
+	We have shown in $d)$ that this cannot occur for $|u_Q - u_{\tilde{Q}}|$, therefore if $ \left| u-u_Q \right|>2\cdot 2^{n+1}$, we must have that $ \left| u-u_{\tilde{Q}} \right|>2 \cdot 2^{n+1}$. 
+$$ \left\{ \left| u-u_Q \right|> 2 \cdot 2^{n+1} \right\} \subset \left\{ \left| |u-u_{\tilde{Q}} \right|>2 \cdot 2^{n+1} \right\}. $$ 
+It follows that 
+\begin{align*}
+	\left| \left\{ \left| u-u_Q \right|>2\cdot 2^{n+1} \right\}\cap Q  \right| & = 	\sum_{\tilde{Q}}\left| \left\{ \left| u-u_Q \right|>2\cdot 2^{n+1} \right\}\cap \tilde{Q}  \right| 
+	\\ & \leq \sum_{\tilde{Q}}\left| \left\{ \left| u-u_{\tilde{Q}} \right|>2\cdot 2^{n+1} \right\}\cap \tilde{Q}  \right|
+	\\ & \leq \sum_{\tilde{Q}}\left| \left\{ \left| u-u_{\tilde{Q}} \right|>2 \right\}\cap \tilde{Q}  \right|
+\end{align*}
+We now perform the same C-Z decomposition on each $\tilde{Q}$ labeling the children cubes as $R$. where we keep $R$ if $ \frac{1}{|R|}\int_R |u-u_Q| \geq 2 $. We can reapply $b),c),d)$ to these cubes to get that 
+$$ \left| \left\{ \left| u-u_Q \right|>2 \right\}\cap \tilde{Q} \right|\leq \frac{1}{2}|\tilde{Q}| $$ 
+and by summing over over all $ \tilde{Q}$, we get that 
+$$\sum_{\tilde{Q}} \left| \left\{ \left| u-u_{\tilde{Q}} \right|>2 \right\}\cap \tilde{Q}  \right| \leq \sum_{\tilde{Q}} \frac{1}{2}|\tilde{Q}| \leq \frac{1}{4}|Q|. $$ 
+As desired. 
+\item Taking the same $R$ as before, we have that 
+$$ \left| u-u_Q \right|  \leq |u-u_R| + |u_R - u_{\tilde{Q}}| + |u_Q - u_{\tilde{Q}}|.$$ 
+Similarly as above, we have that $|u-u_Q|> 3\cdot 2^{n+1}$ implies that $|u-u_R|>2^{n+1}$ for the $R$ kept from the C-Z decomposition. Therefore we compute that 
+\begin{align*}
+	\left| \left\{ \left| u-u_Q \right|>3\cdot 2^{n+1} \right\}\cap Q \right| & = \sum_{\tilde{Q}}	\left| \left\{ \left| u-u_Q \right|>3\cdot 2^{n+1} \right\}\cap \tilde{Q} \right| 
+	\\ & = \sum_{\tilde{Q}} \sum_R 	\left| \left\{ \left| u-u_Q \right|>3\cdot 2^{n+1} \right\}\cap R \right| 
+	\\ & \leq \sum_{\tilde{Q}} \sum_R \left| \left\{ \left| u-u_Q \right|> 2^{n+1} \right\}\cap R \right| 
+	\\ & \leq \sum_{\tilde{Q}} \sum_R \left| \left\{ \left| u-u_Q \right|> 2 \right\}\cap R \right| 
+\end{align*}
+Once again as in $e)$, this willl be bounded above by 
+$$ \sum_{\tilde{Q}} \sum_R \frac{1}{2}|R| \leq \sum_{\tilde{Q}} 2^{-2} |\tilde{Q}| \leq2^{-3} |Q|. $$ 
+We can repeat this again for each $R$ and producing $\tilde{R}$ using C-Z decomposition. We get that
+$$ |u-u_Q|\leq |u-u_{\tilde{R}}| + |u_R - u_{\tilde{R}}| + |u_R - u_{\tilde{Q}}| + |u_{\tilde{Q}} - u_Q|. $$ 
+We will see that 
+$$ \left| \left\{ \left| u-u_Q \right|>4 \cdot 2^{n+1} \right\}\cap Q \right|\leq 2^{-4} |Q|. $$
+We can iterate this $k$ times and conclude that 
+$$ \left| \left\{ \left| u-u_Q \right|> k \cdot 2^{n+1} \right\}\cap Q \right| \leq 2^{-k}|Q|. $$
+This establishes $a)$ and we conclude the result. 
 \epenum
 \newpage
 \begin{problem}
 % problem number 3
 \end{problem}
-\newpage
-
-
+\penum 
+\item Take $R = \tau^{k-1}$. Then applying the given bound to this we see that:
+	$$ \omega( \tau^k) \leq \gamma \omega(\tau^{k-1})  + \gamma \tau^{k1} F(\tau^{k-1}) \leq \gamma \left( \gamma \omega(\tau^{k-2}) + \gamma \tau^{k-2} F(\tau^{k-2}) \right)+ \gamma \tau^{k-1} F(\tau^{k-1})$$ 
+Iterating $k-1$ more times, we get that the above is less than or equal to by the nondecreasingness of $F$, 
+$$ \gamma^k \omega(1) + \sum_{i=1}^k \gamma^i \tau^{k-i} F(\tau^{k-i}) \leq \gamma^k \left( \omega(1) + F(1) \sum_{i=1}^\infty \left(\frac{\tau}{\gamma}\right)^{k-i} \right) = \gamma^k \left( \omega(1) + C(\gamma, \tau) F(1) \right).$$ 
+Letting $C(\tau, \gamma) = C$. We take $\alpha = \frac{\log \gamma}{\log \tau}$, so that $\gamma = \tau^\alpha$. Then for any $R\in (0,1]$, take $k$ so that $\tau^{k+1} \leq R \leq \tau^k$. 
+Since $\omega$ nondecreasing we have that 
+$$ \omega(R) \leq \omega(\tau^k) \leq (\tau^k)^\alpha (\omega(1) + C F(1))  = \tau^{-\alpha} (\tau^{k+1})^\alpha \left( \omega(1) + C \ F(1) \right)\leq \tau^{-\alpha} R^\alpha (\omega(1) + C F(1)).$$
+Take $ C = \max \left\{ \tau^{-\alpha} , C \tau^{-\alpha} \right\}$ to get 
+$$\omega(R) \leq C R^\alpha \left( \omega(1) + F(1) \right).$$
+\item We first claim that under the assumptions of theorem 0.4, 
+	$$  \sup_{B_{R/2}}  \leq C \left( \inf_{B_{R/2}} + R \norm{ f }_{L^n(B_{R/2})} \right) $$ 
+We first define $\tilde{u} (x) = u(Rx)$. Notice that this solves a rescaled PDE, $\tilde{a_{ij}}\tilde{u_{ij}} = \tilde{f}$, where $\tilde{a_{ij}} = a_{ij}(Rx)$ and $\tilde{f} = f(Rx)$. 
+Applying theorem 0.4 we get that 
+$$ \sup_{B_{R/2}} u = \sup_{B_{1/2}} \tilde{u} \leq C \left( \inf_{B_{1/2}} \tilde{u} + \norm{\tilde{f}}_{L^n(B_1)}\right)  = C \left( \inf_{B_{r/2}} u + \norm{\tilde{f}}_{L^n(B_1)} \right)$$ 
+Finally 
+$$ \norm{\tilde{f}}_{L^n(B_1)} = \left( \int_{B_1} R^2n \left| f(Rx) \right|^n dx \right)^{ \frac{ 1 }{ n }}  = R \left( \int_{B_R} \left| f(y) \right|^n dy \right)^{ \frac{ 1 }{ n }} = R \norm{f}_{L^n(B_R)} $$
+We conclude the claim. 
+Define the following functions: 
+$$ v(x) = \sup_{B_R} u - u(x), \quad w(x) = u(x) - \inf_{B_R} u(x).$$ 
+These will solve the same PDE as $u$, since they differ by a constant and sign, and they are both nonegative.  
+Therefore by the claim, we have that 
+$$ \sup_{B_{R/2}} v = \sup_{B_{R}} u - \inf_{B_{R/2}} u \leq C \left( \sup_{B_r} u - \sup_{B_{R/2}} u + R \norm{f}_{L^n(B_R)} \right),$$ 
+and
+$$ \sup_{B_{R/2}} w = \sup_{B_{R/2}} u - \inf_{B_R} u \leq \left( \inf_{B_{R/2}} u - \inf_{B_R} u + R \norm{f}_{L^n(B_R)} \right) $$ 
+We add these two equations together to get that
+$$ osc_{B_{R/2}} u \leq \frac{ C-1 }{ C+1 } osc_{B_R} u + \frac{ 2R }{ C+1 } \norm{f}_{L^n(B_R)}\leq \frac{ C-1 }{ C+1 }osc_{B_R} u + \frac{ C-1 }{ C+1 }R \norm{f}_{L^n(B_R)}. $$
+Where we take $C$ sufficiently large so that $C\geq 3$. We now define $\omega(R) = osc_{B_R} u$, $F(R) = \norm{f}_{L^n(B_R)}$. We have that $\omega, F$ are non decreasing and that 
+$$\omega(\tau R) \leq \gamma \omega (R) + \gamma RF(R) $$
+for $\tau = \frac{ 1 }{ 2 }$, $\gamma = \frac{ C-1 }{ C+1 }$. 
+By the $a)$, we have that 
+$$ osc_{B_R} \leq CR^\alpha \left( \omega(1) + F(1) \right) = C R^\alpha \left( osc_1 u + \norm{f}_{L^n(B_1)} \right). $$
+Which implies that 
+$$ |u(x) - u(0)| \leq C |x|^\alpha \left( \norm{u}_{L^\infty(B_R)} + \norm{f}_{L^n(B_1)} \right)$$ 
+It remains to show that $u\in C^\alpha(B_{1/2})$. 
+For $x\in B_{1/2}$ define $u_x(a) = u( x + \frac{ 1 }{ 4 }a)$. Since $u_x$ has the same bounds as $u$, we can apply the above result to $u_x$:
+$$ |u_x(a) - u_x(0) | = \left| u(x+ \frac{ 1 }{ 4 }a) - u(x) \right| \leq 4^\alpha C | \frac{ a }{ 4 }|^\alpha \left( \norm{u}_{L^\infty(B_1)} + \norm{f}_{L^n(B_1)} \right) .$$
+This is the same as saying that for $x,y\in B_{1/2}$, so that $|x-y|\leq \frac{ 1 }{ 4 }$, 
+$$ |u(x) - u(y)| \leq C \left( \norm{u}_{L^\infty(B_1)} + \norm{f}_{L^n(B_1)} \right)|x-y|^\alpha. $$ 
+If we have that $x,y\in B_{1/2}$ with $|x-y|> \frac{ 1 }{ 4 }$, then 
+$$|u(x) - u(y) | \leq 2 \norm{u}_{L^\infty(B_1)} \frac{ |x-y|^\alpha }{ |x-y|^\alpha } \leq 2\cdot 4^\alpha \norm{u}_{L^\infty(B_1)} |x-y|^\alpha.$$
+We can take $C$ sufficiently large so that the righthand side of the above inequality is less than \\ $C \left( \norm{u}_{L^\infty(B_1)} + \norm{f}_{L^n(B_1)} \right)$. Thus we are done. 
+\epenum
 \end{document}
