@@ -1,0 +1,267 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathbb{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\bd}{\partial}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\left\langle}
+\newcommand{\ran}{\right\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{MAT351}
+\newcommand{\hwNumber}{13}
+
+%preamble
+
+\title{}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+
+
+
+\begin{problem}
+% problem number 1
+\end{problem}
+\penum 
+\item Solutions to the heat equation in $3-$d space are given as:
+$$ v(x,t)  = \frac{ 1 }{( 4\pi t)^{n/2} }\int_{\R^n} e^{- \frac{ |x-y|^2 }{ 4t } } v_0(y) dt .$$
+Taking absolutely value and supremums of both sides, we see that: 
+$$ \sup_{x\in \R^n} |v(x,t)| \leq \sup_{x\in \R^n}\left| \frac{ 1 }{ (4\pi t)^{n/2} } \right|\int_{\R^n} e^{- \frac{ |x-y|^2 }{ 4t } } \left| v_0(y) \right|dy \leq   \sup_{x\in \R^n}\left| \frac{ 1 }{ (4\pi t)^{n/2} } \right|\int_{\R^n} e^{- \frac{ |x-y|^2 }{ 4t } }dy \cdot \int_{\R^n} |v_0(y)|dy \leq B. $$ 
+Similarly, we have: 
+$$ \sup_{x\in \R^n}|v(x,t)|  = \frac{ 1 }{ t^{n/2} }\sup_{x\in \R^n} \frac{ 1 }{ (4\pi)^{n/2}} \left| \int_{\R^n} e^{- \frac{ |x-y|^2 }{ 4t }} v_0(y) dy \right|\leq \frac{ 1 }{ t^{n/2} } \sup_{x\in \R^n} |v_0(x)| \frac{ 1 }{(4\pi)^{n/2} }\int_{\R^n} e^{-y^2}{4t} dy\leq \frac{ B }{ t^{n/2} }.$$
+Notice that for $t<1$, the first bound is stronger, and that for $t\geq 1$ the second bound is stronger. Consider $C_n = 2^n$. Then we have for $t<1$:
+$$\sup_{x\in \R^n} |v(x,t)| \leq B \leq 2^n \frac{ B}{t^{n/2}},$$
+and for $t \geq 1$, 
+$$ \sup_{x \in \R^n} |v(x,t)| \leq \frac{ B }{ t^{n/2} }\leq 2^n \frac{ B }{ (1+t)^{n/2} }. $$ 
+\item Recall that the solution to the inhomogenous heat equation will be given by: 
+	$$ u(x,t) = \frac{ 1 }{ (4\pi t)^{n/2}  } \int_{\R^n} e^{- \frac{ |x-y|^2 }{ 4t }} u_0(y) dy + \int_0^t \frac{ 1 }{ (4\pi(t-s))^{n/2} }  \int_{\R^n} e^{- \frac{ |x-y| }{ 4(t-s) }} F(y,s) dy dx.$$
+Therefore the $L^2$ norm (across x) of $u(x,t)$ is controlled by: 
+\begin{align*}
+	\norm{u(\cdot,t)}_{L^2} & \leq \norm{ \frac{ 1 }{ (4\pi t)^{n/2} } \int_{\R^n} e^{ - \frac{ |x-y|^2  }{ 4t }} u_0(y) dy}_{L^2} + \norm{ \int_0^t \frac{ 1 }{ (4\pi(t-s))^{n/2} }  \int_{\R^n} e^{- \frac{ |x-y| }{ 4(t-s) }} F(y,s) dy dx.}
+	\\ & \leq \norm{u_0}_{L^2}  + \int_0^t \norm{ \frac{ 1 }{ 4\pi(t-s) } \int_{\R^n} e^{- \frac{ |x-y|^2 }{ 4(t-s) }} F(y,s) dy}_{L^2}ds  \tag{By Cauchy-Schwartz, exponential has norm 1 }
+	\\ & \leq \norm{u_0}_{L^2} + \int_0^t \norm{F(\cdot, s)}ds \tag{Cauchy-Schwartz on second summand}
+\end{align*}
+\item For $F = v^3(x,t)$, we have that:
+	$$ \norm{u(\cdot , t)}\leq \norm{u_0}_{L^2} + \int_{0}^t \norm{v^3(\cdot,s)}_{L^2}ds.$$
+	Provided that the righthand side is finite we have that $u_0\in L^2$ so we simply need to bound $\int_0^t \norm{v^3(\cdot, s) }_{L^2} ds$ with a constant. 
+We have: 
+\begin{align*}
+	\int_0^t \norm{v^3(\cdot, s) }_{L^2} ds &= \int_0^t \left( \int_{\R^n} \left| v(y,s) \right|^6dy \right)^{1/2}ds
+	\\ & \leq \int_0^t B^3 C^3 \left(\frac{1}{ (1+s)^{3n} } \right)^{1/2}ds\tag{by bound on $v$}
+\end{align*}
+\epenum
+\newpage
+\begin{problem}
+% problem number 2
+\end{problem}
+\penum
+\item We first compute $\Delta w$, $w_{tt}$:
+	$$ \Delta w = \Delta e^{Dt} u = e^{Dt} \Delta u. $$ 
+	$$ w_{tt} = \left( De^{Dt} u + e^{Dt} u_t \right)_t = D^2e^{Dt} u +2 De^{Dt} u_t + e^{Dt} u_{tt}. $$ 
+	To see what wave-liek equation $w$ satifies, we compute 
+	$$w_{tt} - \Delta w = e^{Dt} \left( D^2u + 2Du_t + u_{tt} - \Delta u \right) = e^{Dt} \left( D^2u+ 2Du_t - A^2 u_{t} \right).$$
+	We see that if we take $D = \frac{ A^2 }{ 2 }$, then $w$ satisfies
+	$$ w_{tt} - \Delta w = D^2 w. $$ 
+\item We verify that $v$ satisfies the wave equation for some choice of $B$:
+	$$ \Delta v = e^{Bz} \Delta w + B^2 e^{Bz} w. $$
+	$$ v_{tt} = e^{Bz} w_{tt}. $$ 
+Thus
+$$ v_{tt} - \Delta v = e^{Bz} \left( w_{tt} - \Delta w - B^2 w \right) $$ 
+Taking $B = \pm D$ suffices.
+\item Note that $v(0,x) = e^{Dz} w(x,y,0) = e^{Dz} u(x,y,0) = 0$ as well as $v_t(0,x) =D  h$
+	By Kirchoffs formula, we have:
+	$$v(x,t) = \frac{ 1 }{ 4\pi t }\int_{|x-y| = t} Dh dS_y.$$
+But $v(x,t) = e^{Dt + Dz} u(x,y,t)$, so
+$$u(x,y,t) = \frac{ e^{ \frac{ -A^2 z - A^2t }{ 2 }} }{ 4\pi t } \int_{|x-y|= t} \frac{ -A^2 }{ 2 }h dS_y.$$
+\epenum
+\newpage
+\begin{problem}
+% problem number 3
+\end{problem}
+\penum 
+\item Suppose that $Q(x,t) = t^{-\alpha} v(t^{-\beta} x)$ satisfies the 3d heat equation for some $v$.  Then we must have:
+	$$ \Delta Q = t^{- \alpha} \Delta v(t^{-\beta} x) \cdot t^{-2\beta} = -\alpha t^{-\alpha-1} v(t^{-\beta} x) + t^{-\alpha} \grad v(t^{-\beta} x ) \cdot -\beta t^{-\beta - 1} x = Q_t. $$ 
+\item Choose $\beta = \frac{ 1 }{ 2 } $, and change to radial coordinates to get :
+	$$  \Delta_r v(t^{-1/2} r) = -\alpha t^{-1} v(t^{-1/2} r) - \frac{ r }{ 2 } t^{- 1/2- 1} \frac{ \partial v }{ \partial r }(t^{-1/2} r). $$ 
+We can further simplify as
+$$ t^{-1} \frac{ \partial^2 v }{ \partial r^2 } + \frac{ 2t^{-1/2} }{ r } \frac{ \partial v }{ \partial v } =  -\alpha t^{-1} v(t^{-1/2} r) - \frac{ r }{ 2 } t^{- 1/2- 1} \frac{ \partial v }{ \partial r }(t^{-1/2} r). $$ 
+\item 
+\item Given $Q(x,t) = \frac{ 1 }{ (2\pi t)^{3/2} }e^{- \frac{ |x|^2 }{ 4t }}$, we wish to show that $$ \lim_{t\to 0} Q_t \ast \phi(x) = \phi.$$ 
+We claim that 
+$$ \lim_{t\to 0} \int_{\R^3} \left| Q_t\ast \phi(y) - \phi(x) \right| dy =0. $$ 
+The idea is that as $t\to 0$ then $Q_t$ behaves like a delta function. We break up the integral into a large region where $Q$ is sufficiently small, and a small region where $Q$ is large, but $\phi(y) $ is close to $\phi(x)$. Then this integral will vanish as we take $t\to 0$. 
+\epenum
+\newpage
+\begin{problem}
+% problem number 4
+\end{problem}
+\penum 
+\item On each component of $P$, by integrating by parts we have
+	$$ P_i = -i \int \ol{u} \partial_i u dx= i \int \ol{\partial_i u}u dx = \ol{P_i}. $$ 
+Therefore $P_i$ and so $P$ is real. 
+We take the time derivative of $P_i$, and once again by intgration by parts we have: 
+$$ \frac{ d }{ dt }P_i = -i\int \ol{u}_t \cdot \partial_i u dx - i\int \ol{u} \cdot  \partial_i u_t = -i \int \ol{u}_t \cdot \partial_i u dx + i \int \partial_i \ol{u} u_t dx = 2i Im \left( \int \ol{u_t} \cdot \partial_i u dx \right) .$$
+Since $P$ is real valued, it can only have a complex derivative if the derivative is identically 0. 
+\item 
+\item 
+\item 
+\epenum
+\newpage
+
+
+\end{document}
