@@ -1,0 +1,368 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.5 in, 
+rmargin=0.5in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathbb{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\bd}{\partial}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\left\langle}
+\newcommand{\ran}{\right\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{MAT351}
+\newcommand{\hwNumber}{14}
+
+%preamble
+
+\title{}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+
+
+
+\begin{problem}
+% problem number 1
+\end{problem}
+\penum
+\item Suppose that $u$ is a minimizer of the functional $$ I[u] = \frac{ \int_U |\grad u|^2 }{ \int_U |u|^2 }, $$
+and the minimum $\lambda$ is attained by $u$. Let $v$ be any smooth function which vanishes on $\bd U$. 
+Then we must have that $$ \frac{ d }{ d\ep } I[u + \ep v] \Big|_{\ep = 0}= 0. $$ 
+We compute:
+$$ \frac{ d }{ d\ep  } I[u + \ep v] = \frac{ \left( \int 2 \grad u \cdot \grad v + 2\ep |\grad v|^2 \right) \left( \int u^2 + 2 \ep u v + \ep^2 v^2 \right) - \left( \int |\grad u|^2 + 2\ep \grad u \cdot \grad v + \ep^2 |\grad v|^2\right) \left( \int 2 uv + 2\ep v^2 \right) }{ \left( \int u^2 + 2\ep uv + \ep^2  v^2 \right)^2 } .$$
+This must vanish at $\ep = 0$, so 
+$$ 0 = \frac{ 2\int\grad u \cdot \grad v \cdot \int u^2 }{ \left( \int u^2 \right)^2 } - \frac{ \int |\grad u |^2  \cdot \int 2uv}{ \left( \int u^2 \right)^2 } = \frac{ 2\int \grad u \cdot \grad v }{\int u^2 }- \frac{ \lambda \int 2uv }{ \int u^2 }. $$
+Thus we must have that $$ \int \grad u \cdot \grad v  = \int \lambda u v.$$
+Applying Green's First identity this reduces to 
+$$ \int v(-\Delta u - \lambda u) =0. $$ 
+Since this holds for all $v$ we must have that $-\Delta u = \lambda u$. 
+\item Suppose that $v$ satisfies $-\Delta v = \lambda_1 v$. By minimality and Green's First identity, we have that
+	$$ \lambda \leq \frac{ \int|\grad v|^2 }{ \int |v|^2 } = \frac{ \int-\Delta v \cdot v }{ \int |v|^2 } = \lambda_1 \frac{ \int |v|^2 }{ \int |v|^2 } = \lambda_1. $$ 
+Therefore $\lambda$ is the smallest eigenvalue of $-\Delta$ on $U$.
+\item By above we must have that $\int v \Delta v \leq -\lambda_1 \int v^2$. Define $E(t) = \norm{v}_{L_2}^2$. We compute the time evolution of $E$ as:
+	$$ \frac{ d }{ dt }E(t) = \int 2 v\cdot v_t dy = 2 \int v \Delta v dy \leq -2\lambda \int v^2 dy\leq -2\lambda E(t). $$ 
+By Gronwalls inequality, we have that 
+$$ \norm{v(x,t)}_{L^2}^2= E(t) \leq E(0) e^{\int_0^t -2\lambda dt} = \norm{g}_{L_2}^2 e^{-2 \lambda t} .$$
+Taking square roots we get the desired inequality. 
+\epenum
+\newpage
+\begin{problem}
+% problem number 2
+\end{problem}
+\penum 
+\item We proceed by induction on $k$ for $\lambda = 2k+1$. We have that $H_1(x) = - e^{x^2} \frac{ d }{ dx }e^{-x^2} = -2x$. Clearly $H^{\prime \prime } = 0$, and $-2x H_1^\prime + 2H = 0$. 
+Now suppose that $H_k$ satisfies $w'' - 2x w' + (2k) w = 0$. Observe:
+$$ \frac{ d }{ dx } H_k(x) = (-1)^k 2x e^{x^2} \frac{ d^k }{ (dx)^k }e^{-x^2} + (-1)^k e^{x^2} \frac{ d^{k+1} }{ (dx)^{k+1} }e^{-x^2} = 2x H_k(x) - H_{k+1}(x).$$ 
+Therefore $H_{k+1}(x) = 2x H_k(x) - H_k^\prime(x)$. We compute $H_{k+1}^\prime $ as 
+$$ H_{k+1}^\prime = 2H_k + 2x H^\prime_k - H^{\prime \prime }  = 2H_k + 2x H^\prime_k - H^{\prime \prime } - (2x H_k^\prime - 2k H_k) = (2+2k) H_k.$$ 
+From this it is easy to see that 
+$$ H^{\prime \prime}_{k+1} = (2+2k) H_k^\prime. $$ 
+And so 
+\begin{align*}
+	H^{\prime \prime }_{k+1} - 2x H^\prime_{k+1} + (2+2k) H_{k+1} &= (2+2k)H_k^\prime - 2x(2+2k)H_k + (2k+2) (2x H_k - H^\prime_k) 
+	\\ & = 2 H_k^\prime + 2k H_k^\prime - 4xH_k - 4xkH_k + 4xk H_k - 2kH_k^\prime + 4xH_k - 2H_k^\prime 
+	\\ & = 0.
+\end{align*}
+\item Suppose $w$ is a solution for $\lambda \not \in 2\N +1$. Let $w = \sum_{n\geq 0} a_n x^n$. Then
+\begin{align*}
+	w'' &  = \sum_{n\geq 0} n(n-1) a_n x^{n-2}
+	\\ 2x w^\prime & = \sum_{n\geq 0} 2n a_n x^{n}
+	\\ (\lambda - 1) w & =\sum_{n\geq 0} (\lambda - 1) a_n x^n.
+\end{align*}
+Therefore if $w$ satisfies the ODE, we must have that the coefficients must satisfy
+$$(n+2)(n+1) a_{n+2} = (2n+ 1 - \lambda) a_n.$$
+If we impose that at least one of $a_0, a_1$ is nonzero this recursion relation will never be 0 since $2n + 1 - \lambda \neq 0$ for all $n$. 
+Therefore the solutions will be power series. 
+\epenum
+\newpage
+\begin{problem}
+% problem number 3
+\end{problem}\penum 
+\item 
+We suppose $\psi$ satisfies $-\Delta \psi  + V \psi  = \lambda \psi$ for $\lambda <0$ and $V \geq 0$. Take the inner product of both sides with $\psi$, to get that:
+$$ \inn{-\Delta \psi, \psi} + \inn{V\psi, \psi} = \inn{\lambda \psi, \psi}. $$
+We integrate by parts on the lefthand side and rewrite it as 
+$$ \int |\grad \psi|^2 + \int V |\psi|^2 = \lambda \int |\psi|^2. $$ 
+The lefthandside is strictly greater than $0$ since $V$ is, but the righthandside is less than $0$ since $\lambda $ is. This is a contradiction. 
+\item Suppose $u(x,t) = e^{i \lambda t} Q(x)$ satisfies the nonlinear Schr\"odinger Equation. Then we must have:
+$$ -\lambda e^{i\lambda t} Q = e^{i \lambda t} \Delta Q + |Q|^2 Qe^{- \lambda t}. $$ 
+Thus 
+$$ -\lambda Q = \Delta Q + |Q|^2Q $$ 
+\epenum
+\newpage
+\begin{problem}
+% problem number 4
+\end{problem}
+\penum
+\item 
+\begin{enumerate}[label = \roman*)]
+	\item First deal with nonlinear SE, with nonlinearity of $p=2$. We compute the time evolution of mass: 
+\begin{align*}
+	\frac{ d }{ dt }\int u \ol{u} & = \int \ol{u} u_t + \ol{(\ol{u} u_t)}
+	\\ & = 2 Re \int \ol{u} u_t
+	\\ & = 2 Re \int \ol{u} \left( i \Delta u \pm i |u|^2 u \right)
+	\\ & = 2Re i \int - |\grad u|^2 \pm |u|^4 \tag{Greens First Identity}
+	\\ & = 0 \tag{integral is pure imaginary}
+\end{align*}
+Therefore Mass is conserved. We now compute the time evolution of momentum. For simplicity we compute it on an arbitrary component of momemtum  
+\begin{align*}
+	\frac{ d }{ dt } Im \int u \ol{u}_j & = Im  \int u_t \ol{u}_j + u \ol{u}_{jt} 
+	\\ & = Im \int u_t \ol{u}_j - \ol{u}_t u_j \tag{Integration by Parts}
+	\\ & = Im 2i Im \int u_t \ol{u_j} 
+	\\ & = Im 2i Im \int  \ol{u}_j \left( i \Delta u \pm |u|^2 u \right)
+	\\ & = Im 2i Im  \int u \left( i \Delta \ol{u} \pm |u|^2\ol{ u} \right) \tag{Integrating by parts twice}
+	\\ & = 0 \tag{Since Integrand equal to its conjugate}
+\end{align*}
+Finally we check energy evolution. 
+\begin{align*}
+	\frac{ d }{ dt } \int \grad u \cdot \grad \ol{u} & = 2Re \int \grad u_t \cdot \grad \ol{u}
+	\\ & = - 2Re \int u_t \Delta \ol{u} \tag{Greens first identity}
+	\\ & = -2Re \int \Delta \ol{u} (i \Delta u \pm i |u|^2 u)
+	\\ & = -2 Re \int i |\Delta u|^2 \pm i \Delta \ol{u} |u|^2 u
+	\\ & = 2 Re \int i \grad \ol{u} \cdot \grad \left(\pm |u|^2 u \right)\tag{first summand is pure imaginary}
+	\\ & = 2 Re \int \pm i 2|u|^2 |\grad u|^2 + u^2 |\grad \ol{u}|^2
+	\\ & = 2 Re \int \pm i \int u^2 |\grad \ol{u} |^2 \tag{first summand pure imaginary}
+	\\ \neq 0
+\end{align*}
+Therefore energy isnt necessarily conserved. 
+\item We now check the conservation for the linear SE with real potential. For mass conservation, we have: 
+\begin{align*}
+\frac{ d }{ dt } \int u \ol{u} & = 2 Re \int u_t \ol{u}
+	\\ & = 2Re \int \ol{u} \left( i \Delta u - iV(x) u \right)
+	\\ & = 2 Re \int -i |\grad u|^2 -iV(x) |u|^2 \tag{integrating by parts}
+	\\ & = 0 \tag{integrand is pure imaginary}
+\end{align*}
+Similarly we verify momentum conservation for a component of momentum. 
+\begin{align*}
+	\frac{ d }{ dt  }\int u \ol{u}_j & = Im 2i Im \int \ol{u}_j u_t \tag{integrate by parts}
+	\\ & = Im 2i Im \int \ol{u}_j \left( i \Delta u - i V(x) u \right)
+	\\ & = Im 2i Im \int u_j \left( -i \Delta \ol{u} + i V(x) \ol{u} \right) \tag{integrate by parts}
+	\\ & = 0 \tag{since equal to its conjugate}
+\end{align*}
+Finally we verify if energy is conserved.
+\begin{align*}
+	\frac{ d }{ dt } \int \grad u \cdot \grad \ol{u} & = 2Re \int \left( \grad u_t \cdot \grad \ol{u} \right)
+	\\ & = -2 Re \int u_t \Delta \ol{u} \tag{Integrate by Parts}
+	\\ & = -2 Re \int (i \Delta u - i V(x) u)\Delta u
+	\\ & = -2 Re \int i |\Delta u|^2 - i V(x) u \Delta u
+	\\ & = -2 Re \int -i V(x) u \Delta u\tag{first summand pure imaginary}
+	\\ & = -2 Re -i \int V(x) |\grad u|^2 + u \grad V \cdot \grad \ol{u} 
+	\\ & = -2 Re -i \int u \grad V \cdot \grad \ol{u} \tag{ first summand pure imaginary}
+	\\ & = -2 Re i \int \ol{u} \grad V \cdot \grad u \tag{integrating by parts}
+	\\ & = 0 \tag{since equal to its conjugate must be pure real and, and real part of i times integrand is 0}
+\end{align*}
+\end{enumerate}
+\item Write $\psi(x,t) = e^{i x \cdot v} e^{-i t|v|^2} u(x-2vt, t)$ for a solution $u$ of SE. 
+	We compute: 
+$$ \psi_t = -i |v|^2 e^{i x \cdot v} e^{-it |v|^2} u(x-2tv, t) + e^{ix \cdot v} e^{-i t|v|^2} \left( -2 v \cdot \grad_x u(x-2v, t) + u_t \right) $$ 
+and 
+\begin{align*}
+	\Delta \psi(x,t) & = 	\Delta \left( e^{i x \cdot v} e^{-it|v|^2}  \right) u(x-2tv,t) + 2 \left( \grad e^{i x \cdot v} e^{-i t|v|^2} \cdot \grad{u(x-2tv, t)} \right)+ e^{i x \cdot v} e^{-i t|v|^2} \Delta u(x-2tv, t)
+	\\ & = -|v|^2 e^{ix \cdot v} e^{-i|v|^2} u(x-2tv, t) + 2iv e^{i x\cdot v} e^{-i|v|^2} \cdot \grad_x u  + e^{ix \cdot v} e^{-it|v|^2} \Delta u.
+\end{align*}
+We now compute that:
+\begin{align*}
+	i \psi_t + \Delta \psi & =  |v|^2 e^{i x \cdot v} e^{-it |v|^2} u(x-2tv, t) + ie^{ix \cdot v} e^{-i t|v|^2} \left( -2 v \cdot \grad_x u(x-2v, t) + u_t \right)
+	\\ &  -|v|^2 e^{ix \cdot v} e^{-i|v|^2} u(x-2tv, t) + 2iv e^{i x\cdot v} e^{-i|v|^2} \cdot \grad_x u  + e^{ix \cdot v} e^{-it|v|^2} \Delta u
+	\\ & = e^{i x \cdot v} e^{-i t|v|^2} \left( iu_t + \Delta u \right)
+	\\ & = 0
+\end{align*}
+\item Suppose $u$ solves SE. We claim that $J_ku = \left( x_k + 2it \partial_k \right)u$ does as well.  We compute: 
+\begin{align*}
+	i (J_k u)_t + \Delta (J_k u) & = i (x_k u_t + 2i u_k + 2it u_{kt}) + 2u_k +x_k \Delta u+ 2it \Delta u_k
+	\\ & = x_k (i u_t + \Delta u) + 2ti (iu_t +\Delta u)_k
+	\\ & = 0.
+\end{align*}
+Therefore if $u$ solves SE, so does $J_k u$. It follows inductively that any $J^\alpha u$ solves SE as long as $u$ does. 
+\item We first claim that for any $u$. $Ju = 2it \ol{M} \grad(Mu)$ for $M = e^{ \frac{ -i|x|^2 }{ 4t }	}$. We compute the righthand side:
+	$$ 2it\ol{M} \grad(Mu) = 2it \ol{M}\left( M \grad u + u \grad M \right)  =2it \grad u + 2it \frac{ -2ix }{ 4t }M u = xu + 2it \grad u = Ju. $$ 
+We get that $\grad (Mu) = \frac{ Ju }{ 2it \ol{M} }$. 
+We have the following inequality: 
+$$ \sup_{x\in \R^3} |Mu|^2 \leq C_0 \norm{\grad_x (Mu)}_{L^2} \cdot \sum_{|\alpha | = 2} \norm{\grad_x^\alpha( Mu)}_{L^2}. $$ Since $|M| = 1$, we have the following chain of inequalities:
+\begin{align*}
+	\sup_{x\in \R^3} |Mu|^2& = \sup_{x\in\R^3} |u|^2 
+	\\ & \leq C_0 \norm{ \frac{ Ju }{ 2it\ol{M} } }_{L^2} \cdot \sum_{|\alpha| = 2} \norm{ \frac{ J^\alpha }{ -4t^2 \ol{M} }}_{L^2} 
+	\\ &= \frac{ C_0 }{ 8 t^3 } \norm{Ju}_{L^2} \sum_{|\alpha | = 2} \norm{J^\alpha u}_{L^2}
+\end{align*}
+Square rooting we get that $$ \sup_{x\in \R^3} |u| \leq \frac{ \sqrt{C_0} }{ \sqrt{8} |t|^{3/2} } \norm{Ju}_{L^2}^{1/2} \cdot \left( \sum_{|\alpha| = 2} \norm{J^\alpha u} \right)^{1/2}. $$ 
+Finally since $ab \leq \frac{ a^2 }{ 2 } + \frac{ b^2 }{ 2 }$, we get that 
+$$ \sup_{x\in \R^3} |u| \leq \frac{ C }{ |t|^{3/2} } \left( \norm{Ju}_{L^2} + \sum_{|\alpha| = 2} \norm{J^\alpha u}_{L^2} \right) .$$
+As desired. 
+\epenum
+\newpage
+\begin{problem}
+% problem number 5
+\end{problem}
+\penum
+\item Let $g(x) = e^{-\pi |x|^2}$. By elementary calculus we have that $g^\prime  = -2\pi x g$. 
+\item Let $\hat{g} $ be the fourier transform in $1-d$ of $g$. Using properties of the Fourier Transform, we have
+	$$\hat{g}^\prime ( \xi) = (-2\pi i x g)^{\string^} (\xi) = i (\hat{g^\prime}) (\xi) = i(2\pi i\xi)\hat{g}(\xi)= -2\pi \xi \hat{g}(\xi).$$
+	Therefore $g, \hat{g} $ satisfy the same ODE.
+\item Note that $g(0) = e^0 = 1.$ Furthermore,
+	$$ \hat{g}(x) = \int_{\R} e^{-\pi |x|^2} dx = 1. $$ 
+Both $g, \hat{g} $ satisfy the same ODE and agree at a point, so they must be equal by uniqueness. 
+\item For $G: \R^n \to \R$, $g(x) = e^{-\pi |x|^2}$, we can factor it as 
+$$G(x) = e^{-\pi x_1^2} \cdot \dots \cdot e^{-\pi x_n^2}$$
+Since $|x|^2 = x_1^2 + \dots + x_n^2$. 
+Thus we have:
+\begin{align*}
+	G(\xi) &= e^{\-\pi \xi_1^2} \cdot \dots \cdot e^{-\pi \xi_n^2} 
+	\\ & = \int_\R e^{-2\pi i x_1 \xi_1} g(x_1) dx_1 \cdot \dots \cdot \int_{\R} e^{-2\pi i x_n \xi_n} g(x_n) dx_n \tag{by c)}
+	\\ & = \int_{\R^n} e^{-2\pi i x \cdot \xi} g_1(x_1) \cdot \dots \cdot g_n(x_n) dx_1 \dots dx_n \tag*{Fubini-Tonelli}
+	\\ & = \int_{\R^n} e^{-2\pi i x\cdot \xi } G(x) dx 
+\end{align*}
+\epenum
+\end{document}
