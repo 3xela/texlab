@@ -251,20 +251,20 @@ This aligns with what we expect.
 \begin{problem}
 % problem number 3
 \end{problem}
-First given $Q = \bmat{4 & \sqrt{3} \\ \sqrt{3} & 3}$, we compute the eigenvalues $\lambda_0 = \frac{ 7+ \sqrt{13} }{ 2 }$, $\lambda_1 = \frac{ 7-\sqrt{13} }{ 2 }$ with corresponding eigenvectors $v_0 = \bmat{ \frac{ 1+ \sqrt{13} }{2\sqrt{3} }\\ 1}, v_1 = \bmat{ \frac{ 1-\sqrt{13} }{2\sqrt{3} }\\ 1}$.
+First given $Q = \bmat{4 & \sqrt{3} \\ \sqrt{3} & 3}$, we compute the eigenvalues $\lambda_0 = \frac{ 7- \sqrt{13} }{ 2 }$, $\lambda_1 = \frac{ 7+\sqrt{13} }{ 2 }$ with corresponding eigenvectors $v_0 = \bmat{ 1- \sqrt{13} \\ 2\sqrt{3}}, v_1 = \bmat{ 1+\sqrt{13}  \\2\sqrt{3 }}$.
 We now perform the conjugate directions algorithm starting with $x_0 = (10,-20)$.  
 We set 
-$$g_1 = Qx_0 = \bmat{4 & \sqrt{3} \\ \sqrt{3} & 3} \bmat{10 \\ -20}=\bmat{40 - 20 \sqrt{3} \\ 10\sqrt{3} -60} .$$
+$$g_0 = Qx_0 = \bmat{4 & \sqrt{3} \\ \sqrt{3} & 3} \bmat{10 \\ -20}=\bmat{40 - 20 \sqrt{3} \\ 10\sqrt{3} -60} .$$
 Therefore
-$$ \alpha_0 = -\frac{ g_1\cdot v_0 }{ v_0^T Q v_0 }= - \frac{ \bmat{40 - 20 \sqrt{3} \\ 10\sqrt{3} -60} \cdot \bmat{ \frac{ 1+ \sqrt{13} }{ 2\sqrt{3} }\\ 1}}{\bmat{ \frac{ 1+ \sqrt{13} }{ 2\sqrt{3}} & 1}  \bmat{4 & \sqrt{3} \\ \sqrt{3} & 3} \bmat{ \frac{ 1+\sqrt{13} }{ 2\sqrt{3} } \\ 1} } =- \frac{ 50\sqrt{3} + 20\sqrt{39} + 30 \sqrt{13} -210 }{ 3 }.	$$ 
+$$ \alpha_0 = -\frac{ g_0\cdot v_0 }{\lambda_0 \norm{v_0}^2}= - \frac{ \bmat{40 - 20 \sqrt{3} \\ 10\sqrt{3} -60} \cdot \bmat{ 1-\sqrt{13} \\ 2\sqrt{3}}}{ (\frac{7-\sqrt{13}}{2})  \cdot \norm{\bmat{ 1-\sqrt{13} \\ 2\sqrt{3}} }^2} =\frac{5\left(3\sqrt{13}+13\sqrt{3}+\sqrt{39}\right)}{39}.	$$ 
 Therefore
-$$ x_1 = x_0 + \alpha_0 v_0 = \bmat{ \frac{ 65+20\sqrt{39} - 5 \sqrt{13} }{ 13 }\\ \frac{ -130\sqrt{3} -30\sqrt{13} - 10 \sqrt{39}  }{ 13\sqrt{3} } }. $$ 
+$$ x_1 = x_0 + \alpha_0 v_0  =\begin{bmatrix}\frac{65+5\sqrt{13}-20\sqrt{39}}{13}\\ \frac{-130\sqrt{3}+30\sqrt{13}+10\sqrt{39}}{13\sqrt{3}}\end{bmatrix}. $$ 
 We now find $g_1 = Qx_1$:
-$$ g_1 = Qx_1 = \bmat{4 & \sqrt{3} \\ \sqrt{3} & 3}  \bmat{ \frac{ 65+20\sqrt{39} - 5 \sqrt{13} }{ 13 }\\ \frac{ -130\sqrt{3} -30\sqrt{13} - 10 \sqrt{39}  }{ 13\sqrt{3} } }= \bmat{ \frac{ 260+ 70 \sqrt{39} - 50 \sqrt{13} - 130 \sqrt{3} }{ 13 }\\ \frac{ 65\sqrt{3} + 30 \sqrt{13} - 35 \sqrt{39} - 390 }{ 13 } } .$$
+$$ g_1 = Qx_1 = \begin{bmatrix}4&\sqrt{3}\\ \:\sqrt{3}&3\end{bmatrix}\begin{bmatrix}\frac{65+5\sqrt{13}-20\sqrt{39}}{13}\\ \:\:\frac{-130\sqrt{3}+30\sqrt{13}+10\sqrt{39}}{13\sqrt{3}}\end{bmatrix}= \begin{bmatrix}\frac{260+50\sqrt{13}-70\sqrt{39}-130\sqrt{3}}{13}\\ \frac{65\sqrt{3}+35\sqrt{39}-30\sqrt{13}-390}{13}\end{bmatrix} .$$
 We compute $\alpha_1$, 
-$$ \alpha_1= - \frac{ g_1 \cdot v_1}{v_1 Q v_1 }= \frac{ 10\sqrt{39} + 30 \sqrt{13} + 130\sqrt{3}  }{ 13\sqrt{3} } $$ 
+$$ \alpha_1= - \frac{ g_1 \cdot v_1}{\lambda_1 \norm{v_1}^2 }= -\frac{5\left(3\sqrt{13}+\sqrt{39}-13\sqrt{3}\right)}{39} $$ 
 Finally, we compute 
-$$x_2 = x_1 + \alpha_1 v_1=\bmat{ \frac{ 260+ 70 \sqrt{39} - 50 \sqrt{13} - 130 \sqrt{3} }{ 13 }\\ \frac{ 65\sqrt{3} + 30 \sqrt{13} - 35 \sqrt{39} - 390 }{ 13 } }  +   \frac{ 10\sqrt{39} + 30 \sqrt{13} + 130\sqrt{3}  }{ 13\sqrt{3} } \bmat{ \frac{ 1-\sqrt{13} }{2\sqrt{3} }\\ 1} = 0.$$
+$$x_2 = x_1 + \alpha_1 v_1=\begin{bmatrix}\frac{65+5\sqrt{13}-20\sqrt{39}}{13}\\ \frac{-130\sqrt{3}+30\sqrt{13}+10\sqrt{39}}{13\sqrt{3}}\end{bmatrix}-\frac{5\left(3\sqrt{13}+\sqrt{39}-13\sqrt{3}\right)}{39} \bmat{1+ \sqrt{13} \\ 2\sqrt{3}} =0.$$
 Therefore the minimum is 0, which is what we expect since this is of the form $x^TQx$. 
 \newpage
 \begin{problem}
