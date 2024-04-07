@@ -177,22 +177,100 @@ bmargin=0.5in]{geometry}
 \begin{problem}
 % problem number 1
 \end{problem}
+\begin{enumerate}[label = \textbf{\roman*)}, leftmargin = 0pt]
+	\item $f = \chi_{[-1,1]}$.
+We compute the fourier transform of $f$ as:
+\begin{align*}
+	\hat{f}(\xi) & = \int_{\R} e^{-2\pi i x \cdot \xi} \chi_{[-1,1]} dx
+	\\ & = \int_{[-1,1]} e^{-2\pi i x \cdot \xi} dx
+	\\ & = \int_{[-1,1]} \cos \left( 2\pi \xi x \right) - i \sin \left( 2\pi \xi x \right) dx
+	\\ & = \int_{[-1,1]} \cos \left( 2\pi \xi x \right) dx \tag{ integral of $\sin$ on symmetric domain is 0}
+	\\ & = 2\int_{[0,1]} \cos \left( 2\pi \xi x \right) dx
+	\\ & =  \frac{ 2 }{ 2\pi \xi }\sin \left( 2\pi \xi x \right)\Big|_{0}^1
+	\\ & = \frac{ \sin \left( 2\pi \xi \right) }{ \pi \xi }
+\end{align*}
+\item $g = \left( 1 -|x| \right) \chi_{[-1,1]}$. 
+We first make the following preliminary computation: 
+		$$ \frac{ d }{ dx } \left( \frac{ x }{ -2\pi i \xi } e^{ -2\pi i x \cdot \xi} - \frac{ 1 }{ \left( 2\pi i \xi \right)^2 } e^{-2\pi i x \cdot \xi}\right)  = x e^{-2\pi i x \cdot \xi}.$$ 
+	The fourier transform is :
+	\begin{align*}
+		\hat{g} (\xi ) & = \int_{\R} e^{-2\pi i x \cdot \xi } g(x) dx
+		\\ & = \int_{[-1,1]} e^{-2\pi i x \cdot \xi} \left( 1-|x| \right) dx
+		\\ & = \frac{ \sin \left( 2\pi \xi \right) }{ \pi \xi } - \int_{[-1,1]} e^{-2\pi i x \cdot \xi} |x| dx
+		\\ & = \frac{ \sin 2\pi \xi }{ \pi \xi }- \left( \int_{-1}^0 -x e^{-2 \pi i x \cdot \xi} dx + \int_0^1 xe^{-2\pi i x \cdot \xi} dx\right) 
+		\\ & = \frac{ \sin 2\pi \xi }{ \pi \xi } +  \int_{-1}^0 \frac{ d }{ dx } \left( \frac{ x }{ -2\pi i \xi } e^{ -2\pi i x \cdot \xi} - \frac{ 1 }{ \left( 2\pi i \xi \right)^2 } e^{-2\pi i x \cdot \xi}\right) dx
+		\\ &- \int_0^1  \frac{ d }{ dx } \left( \frac{ x }{ -2\pi i \xi } e^{ -2\pi i x \cdot \xi} - \frac{ 1 }{ \left( 2\pi i \xi \right)^2 } e^{-2\pi i x \cdot \xi}\right)    
+		\\ & = \frac{ \sin 2\pi \xi }{ \pi \xi } + \frac{ 2i  }{ -2\pi i \xi } Im \left( e^{-2\pi ix \cdot \xi} \right) + \frac{ (2i)^2}{ \left( 2\pi i \xi \right)^2 } Im \left( e^{\pi i x \cdot \xi} \right)^2
+		\\ & = \frac{ \sin^2 \left( \pi \xi \right) }{ \left( \pi \xi \right)^2 }
+	\end{align*}
+\end{enumerate}
 \newpage
 \begin{problem}
 % problem number 2
 \end{problem}
+It is know that $f\in L^1 \left( \R \right)$. We claim that $\hat{f}\in L^1$. First observe: 
+$$ \int_{|\xi| \leq 1} |\hat{f}| d\xi = \int_{|\xi|\leq 1} \left| \int_\R e^{-2\pi i x \cdot \xi} f(x) dx\right| d \xi  \leq \int_{|\xi| \leq 1} \int_\R \left| f(x) \right|dx d\xi= \int_{|\xi|\leq 1} \norm{f}_{L^1}\leq 2 \norm{f_{L^1}}.$$ 
+Now observe:
+$$ \int_{\R} | \hat{f}(\xi) |d\xi = \int_{|\xi| \geq 1} | \hat{f} (\xi) |d \xi + \int_{|\xi| \leq 1} |\hat{f}(\xi)| d\xi \leq \int_{|\xi| \geq 1} C|\xi|^{-1-\alpha} d\xi + 2 \norm{f}_{L^1} <\infty.$$ 
+Where we use the fact that $|x|^r$ is integrable if and only if $r<-1$. Thus $\hat{f}\in L^1$ and so we have access to the Fourier Inversion Theorem. we have that
+\begin{align*}
+	\left| f(x+h) - f(x)  \right| & = \left| \int_\R e^{2\pi i (x+h) \xi}\hat{f}(\xi) - e^{2\pi i x \xi} \hat{f}(\xi) d\xi \right|
+	\\ & = \left| \int_\R e^{2\pi i x \cdot \xi} \hat{f}(\xi) \left( e^{2\pi i h \xi} - 1 \right)d \xi \right|
+	\\ & \leq \left| \int_{|\xi| \geq 1 /h} e^{2\pi i x \cdot \xi} \hat{f}(\xi) \left( e^{2\pi i h \xi} - 1 \right)d \xi  \right| + \left| \int_{|\xi| \leq 1/h} e^{2\pi i x \cdot \xi} \hat{f}(\xi) \left( e^{2\pi i h \xi} - 1 \right)d \xi \right|
+	\\ &  \leq 2 \int_{|\xi| \geq 1/h}|\hat{f} (\xi)| d\xi + 2\int_{|\xi| < 1/h} |\hat{f} (\xi)|d\xi 
+	\\ & \leq M \int_{|\xi | > 1/h} |\xi|^{-1 - \alpha} d\xi + 2 \int_{|\xi^\prime| \geq 1/h} |\hat{f} (\xi^\prime) |\left(\frac{ 1 }{\xi^\prime}\right)^2 d\xi^\prime \tag{ apply bound on first term, set $\xi = \frac{ 1 }{ \xi^\prime }$ in second }
+	\\ &  \leq M|h|^{\alpha} + 2 \int_{|\xi^\prime| \geq 1/h} |\xi^\prime |^{-3-\alpha}d \xi
+	\\ & \leq M|h|^\alpha + K |h|^\alpha \tag{integrating second term}
+\end{align*}
 \newpage
 \begin{problem}
 % problem number 3
 \end{problem}
+Let $f, g \in \mathcal{S} (\R)$. We claim that $f \ast g \in \mathcal{S}(\R)$. First note that since $g \in \mathcal{S}$, we have that $|x|^2 |g(x)| < C$ and $|g(x)| <D$ so $(1 +|x|^2)|g(x)| < A$.
+From this it follows that $|g(x)| < \frac{ A }{ 1+|x|^2 }$ and so $g\in L^1$. Therefore:
+\begin{align*}
+	\sup_{x} |x|^\alpha D^\beta |f\ast g(x)| & \leq \sup_x |x|^\alpha D^\beta \int_\R| f(x-y) g(y)| dy
+	\\ & = \sup_x \int_\R |x|^\alpha D^\beta| f(x-y) g(y)| dy
+	\\ & \leq \int_\R \sup_x |x|^\alpha D^\beta |f(x-y) g(y)| dy \tag{interchange derivative and integral}
+	\\ & \leq \int_\R C_{f,\alpha,\beta} |g(y)| dy \tag{since $f \in \mathcal{S}$}
+	\\ & <\infty \tag{since $g\in L^1$}
+\end{align*}
 \newpage
 \begin{problem}
 % problem number 4
 \end{problem}
+The following chain of inequalities is true:
+\begin{align*}
+	\norm{u}_{L^\infty} &\leq \norm{\hat{u}}_{L^1} \tag{shown in class}
+	\\ & \leq C \left( \int \left( 1+| \xi|^4\right)|\hat{u}(\xi)|^2 d\xi \right)^{1/2} \tag{assumption}
+	\\ & \leq C \left( \norm{\hat{u}}_{L^2} + \norm{|\xi|^2 \hat{u}}_{L^2} \right) \tag{triangle inequality for $L^2$ norm}
+	\\ &\leq C \left( \norm{u}_{L^2} + K\norm{\widehat{\Delta u}} \right) \tag{Plancharel + Fourier transforming polynomials into derivatives}
+	\\ & \leq C \left( \norm{u}_{L^2} + \norm{\Delta u}_{L^2} \right) \tag{Plancharel, enlarging C if necessary}
+\end{align*}
 \newpage
 \begin{problem}
 % problem number 5
 \end{problem}
+\penum
+\item Given the PDE
+$$ \begin{cases}
+	iu_t + \Delta u = 0
+	\\ u(t=0)  = g
+\end{cases} .$$ 
+We Fourier transform in $x$ to get:
+$$ \begin{cases}
+	\hat{u}_t  = i |\xi|^2 \hat{u}
+	\\ \hat{u}(t = 0)  = \hat{g}
+\end{cases} $$ 
+This is a linear ODE in $t$, which we know is solved by 
+$$ \hat{u}(t, \xi) = e^{i |\xi|^2 t}\hat{g}(\xi) $$ 
+\item Since $\widehat{e^{i\pi |x|^2}} = e^{i \pi |\xi|^2}$, by dilation we have:
+	$$ \left( e^{i|x|^2 t} \right)^{\wedge} = \left( e^{i\pi \left| \frac{ \sqrt{t} }{ \sqrt{\pi} }x \right|^2 } \right)^\wedge = \left( \frac{ \pi }{ t } \right)^{n/2}e^{i t|\xi|^2 }.$$ 
+Since the Fourier transform, and hence the inverse takes products to convolutions, we have:
+$$ u(x,t) = \left( \hat{u}(\xi,t) \right)^\vee  = \left( e^{it|\xi|^2} \hat{g}(\xi )\right)^\vee = \left( \frac{ \pi }{ t } \right)^{n/2} e^{it|x|^2} \ast g(x).$$ 
+\item 
+\item 
+\epenum
 \newpage
 
 
