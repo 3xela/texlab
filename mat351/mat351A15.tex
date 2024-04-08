@@ -264,12 +264,22 @@ $$ \begin{cases}
 \end{cases} $$ 
 This is a linear ODE in $t$, which we know is solved by 
 $$ \hat{u}(t, \xi) = e^{i |\xi|^2 t}\hat{g}(\xi) $$ 
-\item Since $\widehat{e^{i\pi |x|^2}} = e^{i \pi |\xi|^2}$, by dilation we have:
-	$$ \left( e^{i|x|^2 t} \right)^{\wedge} = \left( e^{i\pi \left| \frac{ \sqrt{t} }{ \sqrt{\pi} }x \right|^2 } \right)^\wedge = \left( \frac{ \pi }{ t } \right)^{n/2}e^{i t|\xi|^2 }.$$ 
+\item Since $\widehat{e^{i\pi |x|^2}} = i^{-1/2}e^{i \pi |\xi|^2}$, by dilation we have:
+	$$ \left( e^{i|x|^2 t} \right)^{\wedge} = \left( e^{i\pi \left| \frac{ \sqrt{t} }{ \sqrt{\pi} }x \right|^2 } \right)^\wedge = \left( \frac{ \pi }{ it } \right)^{n/2}e^{i t|\xi|^2 }.$$ 
 Since the Fourier transform, and hence the inverse takes products to convolutions, we have:
-$$ u(x,t) = \left( \hat{u}(\xi,t) \right)^\vee  = \left( e^{it|\xi|^2} \hat{g}(\xi )\right)^\vee = \left( \frac{ \pi }{ t } \right)^{n/2} e^{it|x|^2} \ast g(x).$$ 
-\item 
-\item 
+$$ u(x,t) = \left( \hat{u}(\xi,t) \right)^\vee  = \left( e^{it|\xi|^2} \hat{g}(\xi )\right)^\vee = \left( \frac{ \pi }{ it } \right)^{n/2} e^{it|x|^2} \ast g(x).$$ 
+\item We have:
+	\begin{align*}
+		\norm{J^\alpha u(t)}_{L^2} & = \norm{\widehat{J^\alpha u(t) }}_{L^2} \tag{Plancharel}
+		\\ & = C\norm{\partial^\alpha_\xi e^{-it|\xi|^2} \hat{u}} \tag{by fourier transforming $J$, and part $b)$}\
+		\\ & = C \norm{x^\alpha e^{-i t \Delta} u(t)}_{L^2} \tag{Plancharel}
+	\end{align*}
+\item From the previous problem set we have:
+	\begin{align*}
+		\norm{u(t)}_{L^\infty}  & \leq \frac{ C }{ |t|^{3/2} } \sum_{|\alpha| \leq 2} \norm{J^\alpha u(t)}_{L^2}
+		\\ & \leq \frac{ C^\prime }{ (1+|t|)^{3/2} } \left( \norm{e^{-it\Delta}u(t)}_{L^2}+\sum_{|\alpha | \leq 2} \norm{x^\alpha e^{-it\Delta} u(t)} \right) 
+		\\ & \leq \frac{ C^\prime }{ \left( 1+|t| \right)^{3/2} } \left( \norm{\Delta g} + \sum_{|\alpha| \leq 2} \norm{x^\alpha g} \right)
+	\end{align*}
 \epenum
 \newpage
 

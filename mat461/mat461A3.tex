@@ -243,10 +243,16 @@ We now determine the image of the critical points. Evaluating $\mu$, we get that
 \end{align*}
 The critical values are as follows:
 $$ \includegraphics[width = 0.5\textwidth]{mat461A3Q1.jpg} $$ 
-Where we label the points with a red $\times$ and the boundary of the enclosed area is the case with motion, pictured in orange. The regular values are in green. 
+Where we label the points with a red $\times$ and the boundary of the enclosed area is the case with motion, pictured in orange. The regular values are in green. The image of $\mu$ was obtained in the following way. Consider the image of the critical points parametrized as:
+$$  \mu \left( \varphi , \theta , \pm \frac{ g }{ R \cos \varphi  }, 0 \right)  = \left( R \frac{ g\sin^2 \varphi }{ \cos \varphi },  \frac{ g^2 }{ 2 }\frac{  \sin^2 \varphi  }{  \cos^2 \varphi} - gR \cos \varphi \right).
+ $$
+ This defines the boundary of the image of $\mu$. Since $\mu$ is continuous, we have that the image of $T^\ast S^2$ under it is connected since the manifold is. We by plotting any other point, namely $(\pi, 0, 0 ,0)$ we conclude that the image of $\mu$ is the area above the parametrized curve. 
 \item Let $(J_0, E_0)$ be a regular point. It must be within the green region. Our submanifold is given implicitly by solutions to
 	$$ (J_0, E_0 ) = \left( R^2 \dot{\theta} \sin^2 \varphi , \frac{ R^2 }{ 2 } \left( \dot{\varphi}^2  + \dot{\theta}^2 \sin^2 \varphi \right)  - gR \cos \varphi\right) .$$
-We claim that this is a torus. First note that this manifold must be compact since it is parametrized by continuous functions on compact sets. We first compute the differential $d\mu$:
+We claim that this is a torus. First note that this manifold must be compact. Since $\varphi \in [0,\pi]$ and $J_0 = R^2 \dot{\theta} \sin^2\varphi$, $\dot{\theta}$ must be within some interval $[a,b]$ We can implicitly write 
+$$ \frac{ R^2 \dot{\varphi}^2 }{ 2 } = E_0 + gR \cos \varphi - \frac{ R^2 }{ 2 }\dot{\theta}^2 \sin^2 \varphi.$$
+This implies that $\dot{varphi}^2$ is also defined in closed interval.
+We first compute the differential $d\mu$:
 $$ d\mu = \bmat{2 R^2 \dot{\theta} \sin \varphi \cos \varphi & 0 & 0 & R^2 \sin^2 \varphi 
 \\ R^2 \dot{\theta}^2 \sin \varphi \cos \varphi + gR \sin \varphi & 0 & R^2 \dot{\varphi} & J_0}.$$
 The kernel of this mapping is the tangent space to $\mu^{-1}(J_0, E_0)$, since $(J_0, E_0)$ is a regular point. Observe that $(0,1,0,0) = \partial_\theta$ is in the kernel. We now look for a vector of the form $(x_1,0,x_3,x_4)$ in the kernel. We solve: 
@@ -257,7 +263,7 @@ x_1 \left( 2R^2 \dot{\theta} \sin \varphi \cos \varphi \right)+ x_4 \left( R^2 \
 Solutions will be given by vectors of the form:
 $$ \bmat{2 R \dot{\varphi} \sin \varphi \\0 \\  \dot{\theta} J_0 \cos \varphi - gR \sin^2 \varphi \\-4R \dot{\varphi} \dot{\theta} \cos \varphi } .$$
 Therefore we have a linearly independant set of tangent vectors to $\mu^{-1}(J_0,E_0)$: $$ X_1 = \frac{\partial }{ \partial \theta },\quad X_2 = 2 R \dot{\varphi} \sin \varphi \frac{ \partial  }{ \partial \varphi }+  \dot{\theta} J_0 \cos \varphi - gR \sin^2 \varphi \frac{ \partial  }{ \partial \dot{\varphi} }  -4R \dot{\varphi} \dot{\theta} \cos \varphi   \frac{ \partial  }{ \partial \dot{\theta} }.$$  
-Furthermore note that these vector fields commute i.e. $[X_1,X_2]=0$. Now let $\Phi^1_t, \Phi_s^2$ be their respective flows. We have that $\Phi_t^1 \Phi_s^2$ is a diffeomorphism of $\R^2 \to \mu^{-1}(J_0,E_0)$, and since the vector fields are periodic we must have that the diffeomorphism is periodic as a function of $t,s$. Therefore $\R^2$ acts freely on $\mu^{-1}(J_0,E_0)$ and we conclude that it must in fact be the torus. 
+Furthermore note that these vector fields commute i.e. $[X_1,X_2]=0$. Now let $\Phi^1_t, \Phi_s^2$ be their respective flows. We have that $\Phi_t^1 \Phi_s^2$ is a diffeomorphism of $\R^2 \to \mu^{-1}(J_0,E_0)$. Therefore $\R^2$ acts freely on $\mu^{-1}(J_0,E_0)$ and we conclude that it must in fact be the torus. 
 \item We now determine $\mu^{-1}$ of the critical values. First for $ \left(0 , -gR \right) $ we have that 
 $$ \left( 0,-gR  \right) =  \left( R^2 \dot{\theta} \sin^2 \varphi , \frac{ R^2 }{ 2 } \left( \dot{\varphi}^2  + \dot{\theta}^2 \sin^2 \varphi \right)  - gR \cos \varphi\right) .  $$ 
 Therefore $\dot{\theta}= 0$ or $\sin^2\varphi = 0$, and so $\dot{\varphi} = 0$, and  $\varphi =  0 $. The preimage under $\mu$ is therefore the point  $ \left( 0, 0 ,0,0 \right) $. 
@@ -272,7 +278,7 @@ Finally if our point is on the boundary of the range, the preimage will be diffe
 \end{problem}
 \penum 
 \item Recall that Hamiltons Equations of Motion are given as 
-	$$ \begin{cases}  \dot{x} &= - \frac{ \partial H  }{ \partial p } \\ \dot{p} &= \frac{ \partial H  }{ \partial x } \end{cases} .$$
+	$$ \begin{cases}  \dot{x} &=  \frac{ \partial H  }{ \partial p } \\ \dot{p} &=- \frac{ \partial H  }{ \partial x } \end{cases} .$$
 For $ H = f_g = \frac{ 1 }{ 2 }g^{ij} p_ip_j$, this becomes 
 $$ \begin{cases}  \dot{x}_i & =  g^{ij} p_j \\ \dot{p}_i   &= -\frac{ 1 }{ 2 } \frac{ \partial g^{ij}  }{ \partial x_i  }p^i p^j \end{cases} $$ 
 \item The standard metric on $S^2$ is given as 
@@ -289,10 +295,17 @@ $$ \begin{cases}  \omega^\# (\partial_{p_\theta} )& = d_\theta
 	\\ \omega^\# (\partial_{p_{\varphi}}) & = d \varphi
 	\\ \omega^\# (\partial_\varphi) & = - dp_{\varphi}.
 \end{cases} $$ 
-This allows us to determine the Hamiltonian flow, $X_H$:
+This allows us to determine the Hamiltonian flow $X_H$:
 $$ X_H  = - \left( \omega^\# \right)^{-1} (dH) = \frac{ p_\theta^2 \cos \varphi }{ \sin^3 \varphi } \frac{ \partial  }{ \partial p_\varphi } + p_\varphi \frac{ \partial  }{ \partial \varphi } + \frac{ p_\theta }{ \sin^2 \varphi } \frac{ \partial  }{ \partial \theta } $$ 
-\item Rotations correspond to the vector field $ \frac{ \partial  }{ \partial \theta }$. Our Hamiltonian function $J$ must satisfy:
-	$$ \frac{ \partial  }{ \partial \theta } = - \left(\omega^\# \right)^{-1} (dJ) \implies dJ = \omega^\# \left( - \frac{ \partial  }{ \partial \theta } \right) = dp_{\theta}.$$ 
+Furthermore form part $a)$, we can write:
+$$ \begin{cases}
+	\dot{\varphi} = p_\varphi
+	\\ \dot{\theta} = \frac{ p_\theta }{ \sin^2 \varphi }
+	\\ \dot{p_\varphi} = p_\theta^2 \frac{ \cos \varphi }{ \sin^3 \varphi }
+	\\ \dot{p_\theta} = 0
+\end{cases}$$ 
+This is the geodesic equations on a sphere, and we know that the geodesics are given by great circles. 
+\item Rotations correspond to the vector field $ \frac{ \partial  }{ \partial \theta }$. Our Hamiltonian function $J$ must satisfy: $$ \frac{ \partial  }{ \partial \theta } = - \left(\omega^\# \right)^{-1} (dJ) \implies dJ = \omega^\# \left( - \frac{ \partial  }{ \partial \theta } \right) = dp_{\theta}.$$ 
 We conclude that $J= p_\theta.$
 We compute the time evolution of $J$ as
 $$ \left\{ J,H \right\} = dJ(X_H) =  dp_\theta \left( \frac{ p_\theta^2 \cos \varphi }{ \sin^3 \varphi } \frac{ \partial  }{ \partial p_\varphi } + p_\varphi \frac{ \partial  }{ \partial \varphi } + \frac{ p_\theta }{ \sin^2 \varphi } \frac{ \partial  }{ \partial \theta }  \right)  = 0.$$ 
@@ -318,11 +331,25 @@ This is an isomorphism since these vectors are linearly independant.
 Therefore $\omega_B$ is a symplectic form. 
 \item We compute the time evolution of $H$ under $\omega_B$:
 \begin{align*}
-	- \left( \omega_B^\# \right)^{-1} \left( dH \right) & = - \left( \omega_B^\# \right)^{-1} \left(   \frac{ p_\theta^2 \cos \varphi }{ \sin^3 \varphi } \frac{ \partial  }{ \partial p_\varphi } + p_\varphi \frac{ \partial  }{ \partial \varphi } + \frac{ p_\theta }{ \sin^2 \varphi } \frac{ \partial  }{ \partial \theta } \right)\
-	\\ & = \frac{ p_\theta^2 \cos \varphi }{ \sin^3 \varphi } \left( \omega_B^\# \right)^{-1} \left( d \varphi \right)- p_\theta \left( \omega_B^\# \right)^{-1} \left( dp_\varphi \right)- \frac{ p_\theta }{ \sin^2 \varphi } \left( \omega_B^\# \right)^{-1} \left( dp_\theta \right)
-	\\ & = \frac{ p_\theta^2 \cos \varphi}{ \sin^3 \varphi } \frac{ \partial  }{ \partial p_\varphi } + p_\theta \left( b \sin \varphi \frac{ \partial  }{ \partial p_\theta } + \frac{ \partial  }{ \partial \varphi } \right) - \frac{ p_\theta }{ \sin^2 \varphi } \left( b \sin \varphi \frac{ \partial  }{ \partial p_\varphi } - \frac{ \partial  }{ \partial \theta } \right)
+	- \left( \omega_B^\# \right)^{-1} \left( dH \right) & = - \left( \omega_B^\# \right)^{-1} \left(   \frac{ -p_\theta^2 \cos \varphi }{ \sin^3 \varphi }d\varphi + p_\varphi dp_\varphi + \frac{ p_\theta }{ \sin^2\varphi }dp_\theta \right)
+	\\ & = \frac{ p_\theta^2 \cos \varphi }{ \sin^3 \varphi } \left( \omega_B^\# \right)^{-1} \left(d {\varphi} \right)- p_\varphi \left( \omega_B^\# \right)^{-1} \left(d{p_\varphi} \right)- \frac{ p_\theta }{ \sin^2 \varphi } \left( \omega_B^\# \right)^{-1} \left( d{p_\theta} \right)
+	\\ & = \frac{ p_\theta^2 \cos \varphi}{ \sin^3 \varphi } \frac{ \partial  }{ \partial p_\varphi } - p_\varphi \left( b \sin \varphi \frac{ \partial  }{ \partial p_\theta } - \frac{ \partial  }{ \partial \varphi } \right) - \frac{ p_\theta }{ \sin^2 \varphi } \left( -b \sin \varphi \frac{ \partial  }{ \partial p_\varphi } - \frac{ \partial  }{ \partial \theta } \right)
+	\\ & = p_\varphi\frac{ \partial }{ \partial \varphi } + \frac{ p_\theta }{ \sin^2 \varphi } \frac{ \partial  }{ \partial \theta } + \left( \frac{ p_\theta^2 \cos \varphi }{ \sin^3 \varphi } + \frac{ b p_\theta }{ \sin \varphi }\right) \frac{ \partial  }{ \partial p_\varphi } - p_\varphi b \sin \varphi \frac{ \partial  }{ \partial p_\theta }
 \end{align*}
 Where we use our computation of $\omega_B^\#$ in part $d)$ to find the inverse. 
+The equations of motion satisfy the following ODEs:
+$$ \begin{cases}
+	\dot{\varphi} = p_\varphi
+	\\ \dot{\theta} = \frac{ p_\theta }{ \sin^2 \varphi }
+	\\ \dot{p}_\varphi = \frac{ p_\theta^2\cos \varphi }{ \sin^3 \varphi }+ \frac{ bp_\theta }{ \sin \varphi }
+	\\ \dot{p}_\theta = -p_\varphi b \sin \varphi
+\end{cases}$$ 
+We can look for solutions in the following way: 
+First differentiate $\dot{\varphi}$ in time :
+$$ \ddot{\varphi} = \dot{p}_\varphi = \frac{ p_\theta^2 \cos \varphi }{ \sin^3 \varphi } + \frac{ bp_\theta }{ \sin \varphi }. $$
+Differentiating $\dot{\theta}$ in the same way, we get:
+$$ \ddot{\theta} = \frac{ \dot{p}_\theta \sin^2 \varphi - 2p_\theta\sin \varphi \cos \varphi }{ \sin^4 \varphi } = \frac{ -p_\varphi b \sin^3 \varphi - 2p_\theta \sin \varphi \cos \varphi }{ \sin^4 \varphi } = \frac{ -p_\varphi b }{ \sin \varphi } - 2 \dot{\theta} \tan \varphi$$ 
+
 \item We show that $B = b \sin \varphi d \varphi \wedge d \theta$ is preserved by the flow generated by $\partial_\theta$. It is sufficient to show that $L_{\partial_\theta} B = 0$. 
 \begin{align*}
 	L_{\partial_\theta} B & = i_{\partial_\theta} dB + d \left( i_{\partial_\theta} B \right)
