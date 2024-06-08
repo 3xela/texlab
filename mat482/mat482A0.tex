@@ -1,0 +1,385 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[lmargin =0.75 in, 
+rmargin=0.75in, 
+tmargin=1in,
+bmargin=0.5in]{geometry}
+\geometry{letterpaper}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{cool}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\graphicspath{ }					%path to an image
+
+%-------- sexy font ------------%
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+
+%\usepackage{mlmodern}				% very nice and classic
+%\usepackage[utopia]{mathdesign}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{mlmodern}
+\usepackage{eulervm}
+%\usepackage{tgtermes} 				%times new roman
+%-------- sexy font ------------%
+
+
+% Problem Styles
+%====================================================================%
+
+
+\newtheorem{problem}{Problem}
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{fact}{Fact}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{question}{Question}
+
+\newtheorem{manualprobleminner}{Problem}
+
+\newenvironment{manualproblem}[1]{%
+	\renewcommand\themanualprobleminner{#1}%
+	\manualprobleminner
+}{\endmanualprobleminner}
+
+\newcommand{\penum}{ \begin{enumerate}[label=\bf(\alph*), leftmargin=0pt]}
+	\newcommand{\epenum}{ \end{enumerate} }
+
+% Math fonts shortcuts
+%====================================================================%
+
+\newcommand{\ring}{\mathcal{R}}
+\newcommand{\N}{\mathbb{N}}                           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}                           % Integers
+\newcommand{\R}{\mathbb{R}}                           % Real numbers
+\newcommand{\C}{\mathbb{C}}                           % Complex numbers
+\newcommand{\F}{\mathbb{F}}                           % Arbitrary field
+\newcommand{\Q}{\mathbb{Q}}                           % Arbitrary field
+\newcommand{\PP}{\mathcal{P}}                         % Partition
+\newcommand{\M}{\mathcal{M}}                         % Mathcal M
+\newcommand{\eL}{\mathcal{L}}                         % Mathcal L
+\newcommand{\T}{\mathbb{T}}                         % Mathcal T
+\newcommand{\U}{\mathcal{U}}                         % Mathcal U\\
+\newcommand{\V}{\mathcal{V}}                         % Mathcal V
+
+% symbol shortcuts
+%====================================================================%
+
+\newcommand{\bd}{\partial}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\imp}{\implies}
+\newcommand{\all}{\forall}
+\newcommand{\exs}{\exists}
+\newcommand{\delt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\vph}{\varphi}
+
+\newcommand{\ol}{\overline}
+\newcommand{\f}{\frac}
+\newcommand{\lf}{\lfrac}
+\newcommand{\df}{\dfrac}
+
+% bracketting shortcuts
+%====================================================================%
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\babs}[1]{\Big|#1\Big|}
+\newcommand{\bound}{\Big|}
+\newcommand{\BB}[1]{\left(#1\right)}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\artanh}{\mathrm{artanh}}
+\newcommand{\Med}{\mathrm{Med}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Range}[1]{\mathrm{range}(#1)}
+\newcommand{\Null}[1]{\mathrm{null}(#1)}
+\newcommand{\lan}{\left\langle}
+\newcommand{\ran}{\right\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\inn}[1]{\lan#1\ran}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\newcommand{\amogus}{{\bigcap}\kern-0.8em\raisebox{0.3ex}{$\subset$}}
+\newcommand{\Note}{\textbf{Note: }}
+\newcommand{\Aside}{{\bf Aside: }}
+%restriction
+%\newcommand{\op}[1]{\operatorname{#1}}
+%\newcommand{\done}{$$\mathcal{QED}$$}
+
+%====================================================================%
+
+
+\setlength{\parindent}{0pt}      	% No paragraph indentations
+\pagestyle{fancy}
+\fancyhf{}							% fancy header
+
+\setcounter{secnumdepth}{0}			% sections are numbered but numbers do not appear
+\setcounter{tocdepth}{2} 			% no subsubsections in toc
+
+%template
+%====================================================================%
+%\begin{manualproblem}{1}
+%Spivak.
+%\end{manualproblem}
+
+%\begin{proof}[Solution]
+%\end{proof}
+
+%----------- or -----------%
+
+%\begin{problem} 		
+%\end{problem}	
+
+%\penum
+%	\item
+%\epenum
+%====================================================================%
+
+
+\newcommand{\Course}{MAT482}
+\newcommand{\hwNumber}{0}
+
+%preamble
+
+\title{Elliptic PDEs}
+\author{A.N.}
+\date{\today}
+\lhead{\Course A\hwNumber}
+\rhead{\thepage}
+%\cfoot{\thepage}
+
+
+%====================================================================%
+\begin{document}
+
+\maketitle
+\begin{tcolorbox}[colback = white]
+\begin{defn}
+	If $u$ is $C^2$ in $\Omega\subset \R^n$, we define the \textbf{Laplacian} of $u$ to be:
+	$$ \Delta u = \sum_{i=1}^n \frac{ \partial^2 }{ \partial x_i^2 } u = \grad \cdot (\grad u) $$ 
+\end{defn}
+\end{tcolorbox}
+The Laplacian is the prototypical linear elliptic operator of $2$nd order. 
+\begin{tcolorbox}[colback = white]
+\begin{defn}
+	We say $u$ is \textbf{Harmonic} if $\Delta u = 0$. 
+\end{defn}
+\end{tcolorbox}
+\begin{tcolorbox}[colback = white]
+	\textbf{Properties}
+	\begin{enumerate}[label = \roman*)]
+		\item $\Delta$ is linear. If $c_1,c_2 \in \R$, then 
+			$$ \Delta \left( c_1 u + c_2 v \right) = c_1 \Delta u + c_2 \Delta v. $$ 
+		\item $\Delta$ is self adjoint. If $u,v$ completely supported in $\Omega$ i.e. $0$ near the boundary, 
+			$$ \int_\Omega \left( \Delta u \right) v = - \int_\Omega \grad u \cdot \grad v = \int_\Omega u \left( \Delta v \right). $$ 
+	\item $\Delta$ is translationally invariant. If $\Delta u  =f$, then
+	$$ \Delta \left( u(x-a) \right) = f(x-a) = \left( \Delta u \right) (x-a).$$
+\item $\Delta$ is rotationally invariant. If $A \in O(n)$ then $u_A = u(Ax)$ satisfies
+	$$ \Delta u_A = f(Ax) = \left( \Delta u \right) (Ax). $$ 
+	\item If $\lambda \neq 0$, then 
+		$$ \Delta u(\lambda x) = \lambda^2 \left( \Delta u \right) \left( \lambda x \right). $$ 
+\end{enumerate}
+\end{tcolorbox}
+We now give some examples of simple harmonic functions. 
+\begin{tcolorbox}[colback = white]
+\begin{example}
+\end{example}
+	\begin{enumerate}[label = \roman*)]
+		\item 	Constant functions. $\Delta (1) = 0$
+\item 	Linear functions. $\Delta( a\cdot x + b) = 0$. 
+\item Radial Harmonic functions? $u = u(|x|)= u(r)$. The radial laplacian is given as
+	$$ \Delta u = \frac{ \partial^2 u}{ \partial r^2 } + \frac{ n-1 }{ r } \frac{ \partial u }{ \partial r } = \frac{ \partial  }{ \partial r } \left( r^{n-1} \frac{ \partial u  }{ \partial r } \right). $$ 
+Therefore if $\Delta u = 0$, then 
+			$$ \frac{ \partial u  }{ \partial r  }= cr^{1-n} .$$
+So 
+			$$ u(r) = \begin{cases}
+				r^{2-n} & n>2
+				 \\ \log r & n=2
+			\end{cases} $$ 
+Notice that $u$ blows up at $0$, so $u$ not harmonic at $0$. In fact, $\Delta u = c \delta_{\{0\}}$ 
+	\end{enumerate}
+\end{tcolorbox}
+\begin{tcolorbox}[colback = white]
+\begin{defn}
+A function $u$ on $\Omega$ is said to be: 
+\begin{enumerate}[label = \roman*)]
+	\item  \textbf{Subharmonic} if $\Delta u \geq 0$
+	\item \textbf{Superharmonic} if $\Delta u \leq 0$. 
+\end{enumerate}
+\end{defn}
+\end{tcolorbox}
+\begin{tcolorbox}[colback = white]
+\begin{example}
+\end{example} $u(x) = \frac{ 1 }{ 2 }|x|^2$ is subharmonic. 
+\end{tcolorbox}
+Given $u$ harmonic and $v$ subharmonic on $\Omega$, with $u|_{\bd \Omega} = v|_{\bd \Omega}$, we have that $v \leq u$. So for given boundary data on $\Omega$, a harmonic function satisfying this data is the "biggest" subharmonic function this data. The following results make this more precise. 
+\begin{tcolorbox}
+\begin{lemma}
+	\textbf{Mean Value Property}
+\end{lemma}
+If $u$ satisfies $\Delta u \geq 0$ in $\Omega$, then for any $x_0 \in \Omega$ and for any $r>0$ so that $B_r(x_0) \subset \Omega$, then:
+\begin{enumerate}[label = \roman*)]
+	\item $$u(x_0) \leq \frac{ 1 }{ n \omega_n } \int_{S^{n-1}}u(x_0 + r\omega) d\sigma(\omega) $$
+	\item $$ u(x_0) \leq \frac{ 1 }{ \omega_n r^n } \int_{B_r(x_0)} u(y) dy. $$ 
+\end{enumerate}
+\begin{proof}
+	We first translate so that $x_0 = 0$, and rescale so that $\tilde{u}(x) = u(rx)$, so that we work on $B_1(0)$. We define the quantity 
+	$$ g(s) = \frac{ 1 }{ |B_1(0)| } \int_{\bd B_1} u(s\omega) d \sigma(\omega). $$
+	Clearly we have that $g(s) \to u(0)$ as $s \to 0$. We take the the derivative in $s$ of $u(s\omega)$. Get
+	$$ \frac{ \partial  }{ \partial s } u(s \omega) = \omega \cdot \grad u (s\omega) , $$ 
+Where $\omega$ is the unit normal to $S^{n-1}$. 
+So,
+\begin{align*}
+	\frac{ d }{ ds } \int_{\bd B_1} u(s \omega ) d \sigma(\omega) & = \int_{\bd B_1} \grad_\omega u(sw) 
+	\\ & = \int_{B_1} \grad \cdot \grad u(sx) dx \tag{Divergence Theorem}
+	\\ &= s^2 \int_{B_1} \left( \Delta u \right) (sx) dx \geq 0.
+\end{align*}
+So 
+	$$ u(0) \leq \frac{ 1 }{ |\bd B_1| } \int_{B_1} u(\omega) d \sigma(\omega). $$ 
+Now, 
+	$$ \int_{B_1} u(x) dx = \int_0^1 \int_{\bd B_1} u(s\omega) s^{n-1} ds d\sigma \geq \left| \int_0^1 u(0) s^{n-1} ds \right| \cdot |\bd B_1| = \frac{ 1 }{ n  } |\bd B_1| u(0). $$ 
+As desired. 
+\end{proof}
+\end{tcolorbox}
+\begin{tcolorbox}
+\begin{cor}
+\end{cor}
+If $\Delta u =0$, then 
+\begin{enumerate}[label = \roman*)]
+	\item $$ u(x_0) = \frac{ 1 }{ n \omega_n } \int_{S^{n-1}} u(x_0 + r \omega) d \sigma(\omega). $$
+	\item  $$ u(x_0) = \frac{ 1 }{ \omega r^n } \int-{B_r(x_0)} u(y) dy. $$ 
+\end{enumerate}
+\begin{proof}
+If $\Delta u = 0$, then $\pm u$ is subharmonic.
+\end{proof}
+\end{tcolorbox}
+\begin{tcolorbox}
+\begin{cor}
+	\textbf{Strong Maximum Principle}
+\end{cor}
+	If $\Delta u \geq 0$ on $\Omega$, where $\Omega$ is open and connected, and $\ol{\Omega}$ is compact,  then 
+	$$ u(x) \leq \sup_{x\in \bd \Omega} u, $$ 
+	with equality holding if and only if $u$ is constant. 
+	\begin{proof}
+		Take $x_0 \in \Omega$ so that $u(x_0) = \sup_\Omega u$. Choose $r>0$ sufficiently small so that $B_r(x_0) \subset \Omega$. Then
+		$$ u(x_0) \leq \frac{ 1 }{ \omega_n r^n }\int_{B_r(x_0)} u \leq \sup u. $$ 
+Since $u(x_0) = \sup u$ get that $u = \sup u$ on $B_r(x_0)$. Define
+		$$ \Sigma = \left\{ x\in \Omega : u(x) = \sup_\Omega u \right\} .$$ 
+		$\Sigma $ is open by above, and is closed by continuity of $u$. Therefore $\Sigma = \Omega$ by connectedness. 
+	\end{proof}
+\end{tcolorbox}
+\begin{tcolorbox}
+\begin{cor}
+	\textbf{Comparison Principle}
+\end{cor}
+	Suppose $\Omega$ open, $\ol{\Omega}$ compact. Then if $\Delta u = 0, \Delta v \geq 0$, and 
+$u|_{\bd \Omega} = v|_{\bd \Omega}$, then $u(x) \geq v(x)$ for all $x$ and equality holds if and only if $u = v$. 
+\begin{proof}
+	$\Delta (v-u) \geq 0$ and $v-u|_{\bd \Omega} = 0$, so $v-u \leq 0$ in $\Omega$ follows from the strong maximum principle. 
+\end{proof}
+\end{tcolorbox}
+\begin{tcolorbox}
+\begin{cor}
+	\textbf{Uniquness of Solution to Dirichlet Problem}
+\end{cor}
+	If $\Omega \subset \R^n$ open, $\ol{\Omega}$ compact, $g: \bd \Omega \to \R$, then there is at most one unique function satisfying:
+	$$ \begin{cases}
+		\Delta u & = 0
+		\\ u|_{\bd \Omega} & = g
+	\end{cases} $$ 
+\begin{proof}
+Let $u_1, u_2$ both satisfy the Dirichlet Problem. Apply the strong maximum principle to $u_1-u_2$, 
+$u_2-u_1$. 
+\end{proof}
+\end{tcolorbox}
+\begin{tcolorbox}
+\begin{lemma}
+	\textbf{Higher Order Regularity}
+\end{lemma}
+	If $\Delta u =0$ in $\Omega$, then $u \in C^\infty (\Omega)$. 
+\begin{proof}
+	Let $\varphi(x) = \varphi(|x|)$ be a smooth function so that $\varphi \geq 0$, $\varphi \equiv 0$ for $|x|\geq 1$, and 
+	$$ n \omega_n \int_0^1 r^{n-1} \varphi(r) dr = 1 = \int_{B_1(0)} \varphi(x) dx. $$ 
+	For $y\in \R^n$ consider $ \frac{ 1 }{ \ep^n } \varphi \left( \frac{ x-y }{ \ep } \right)$ supported in $B_\ep (y)$. Note that 
+	$$ \frac{ 1 }{ \ep^n  }\in_{B_\ep (y)} \varphi \left( \frac{ x-y }{ \ep } \right)dx = 1. $$ 
+	Let $\Omega_\ep = \left\{ y\in \Omega : d(, \bd \Omega) > \ep \right\}$. 
+	Define 
+	$$ v(y) = \frac{ 1 }{ \ep^n  }\int u(x) \varphi \left( \frac{ x-y }{ \ep }  \right)dx. $$ 
+(This is called the "Mollification" of $u$). Note that this is $C^\infty$ since $\varphi$ is. 
+	We claim that $v(y) = u(y)$. By translation, assume that $y=0$. 
+	Then, 
+	\begin{align*}
+		v(0) & = \frac{ 1 }{ \ep^n  }\int u(x) \varphi (|x|/\ep) dx
+		\\ & = \frac{ 1 }{ \ep^n } \int_0^\ep \int_{S^{n-1}} u(s \omega) \varphi(s/\ep) ds d\sigma(\omega)
+		\\ & = n|B_1(0)| u(0) \frac{ 1 }{ \ep^n  }\int_0^\ep \phi (s/\ep)s^{n-1} ds \tag{Mean Value Property}
+		\\ & = u(0) \tag{by definition of $\varphi$}
+	\end{align*}
+\end{proof}
+\end{tcolorbox}
+In general we will see if $\Delta u = f$, then $u$ has two more derivatives than $f$. 
+\begin{tcolorbox}
+\begin{lemma}
+	\textbf{Gradient Estimate}
+\end{lemma}
+	Suppose $u$ harmonic on $B_r(0) \subset \R^n$. Then 
+	$$ |\grad u|(0) \leq \frac{ n }{ r } \sup_{\bd B_r} |u|. $$ 
+	\begin{proof}
+	Since $u$ is $C^\infty$ we can differentiate the equation $\Delta u = 0$ to get $\Delta u_i = 0$. By the mean value property, we have
+		$$ \frac{ \partial u }{ \partial x_i }(0) = \frac{ 1 }{ \omega_n r^n }\int_{B_r} \frac{ \partial u }{ \partial x_i } dy = \frac{ 1 }{ \omega_n r^n } \int_{B_r} \grad \cdot (u e_i)dy. $$
+Where $e_i$ is the $i$th standard basis vector. 
+By the divergence theorem, 
+		$$ \int_{B_r} \grad \cdot \left( u e_i \right) dy = \int_{\bd B_r} ue_i \cdot \vec{\nu} d\sigma $$ 
+with $\vec{\nu} = \frac{ x }{ |x| }$. 
+Therefore
+\begin{align*}
+	\left| \frac{ \partial u }{ \partial x_i  }(0) \right| & \leq \frac{ 1 }{ \omega_n r^n } \int_{\bd B_r} |u| d \sigma 
+	\\ & \leq \frac{ 1 }{ \omega_n r^n } n \omega_n r^{n-1} \sup_{\bd B_r} |u|
+	\\ & = \frac{ n }{ r }\sup_{\bd B_r} |u|
+\end{align*}
+		By rotation, we can assume that $\grad u(0) = |\grad u(0)| e_1$, so the result follows. 
+	\end{proof}
+\end{tcolorbox}
+\begin{tcolorbox}
+\begin{cor}
+	\textbf{Liouville Theorem}
+\end{cor}
+If $u$ harmonic on all of $\R^n$ and $u$ bounded then $u$ is constant. 
+\begin{proof}
+For any $x\in \R^n$, $r>0$ we have
+	$$ |\grad u(x)| \leq \frac{ n }{ r }\sup_{\bd B_r(x)} |u| \leq \frac{ n }{ r } \sup_{\R^n} |u| \leq \frac{ nC }{ r } $$
+for some $C$. Taking $r\to \infty$ tells us that $|\grad u(x)| = 0$. Since $x$ arbitrary, $u$ is constant. 
+\end{proof}
+\end{tcolorbox}
+\begin{tcolorbox}
+\begin{lemma}
+	\textbf{Real Analycity}
+\end{lemma}
+Suppose that $\Delta u = 0$ in $\Omega \subset \R^n$. Then $u$ analytic in $\Omega$. 
+\begin{proof}
+	By translating and rescaling, we can assume that $\Delta u = 0$ in $B_1(0)$. It suffices to show that $u$ has a convergent power series at $0$.
+We make the following claim: 
+	For all $m \in \N$, for any multi-index $\alpha = (\alpha_1, \dots, \alpha_n)$ with size $m$, z
+\end{proof}
+\end{tcolorbox}
+\end{document}
