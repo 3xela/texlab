@@ -1,6 +1,6 @@
 \documentclass[12pt, a4paper]{article}
-\usepackage[lmargin =0.75 in, 
-rmargin=0.75in, 
+\usepackage[lmargin =1 in, 
+rmargin=1in, 
 tmargin=1in,
 bmargin=0.5in]{geometry}
 \geometry{letterpaper}
@@ -16,7 +16,7 @@ bmargin=0.5in]{geometry}
 \usepackage{cool}
 \usepackage{thmtools}
 \usepackage{hyperref}
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
 \graphicspath{ }					%path to an image
 
 %-------- sexy font ------------%
@@ -63,7 +63,7 @@ bmargin=0.5in]{geometry}
 
 % Math fonts shortcuts
 %====================================================================%
-
+\newcommand{\X}{\mathfrak{X}}
 \newcommand{\ring}{\mathcal{R}}
 \newcommand{\N}{\mathbb{N}}                           % Natural numbers
 \newcommand{\Z}{\mathbb{Z}}                           % Integers
@@ -80,7 +80,7 @@ bmargin=0.5in]{geometry}
 
 % symbol shortcuts
 %====================================================================%
-
+\newcommand{\ssubset}{\subset\joinrel\subset}
 \newcommand{\bd}{\partial}
 \newcommand{\grad}{\nabla}
 \newcommand{\lam}{\lambda}
@@ -96,7 +96,7 @@ bmargin=0.5in]{geometry}
 \newcommand{\f}{\frac}
 \newcommand{\lf}{\lfrac}
 \newcommand{\df}{\dfrac}
-
+\newcommand{\st}{\text{ s.t. }}
 % bracketting shortcuts
 %====================================================================%
 \newcommand{\abs}[1]{\left| #1 \right|}
@@ -243,6 +243,7 @@ If $u$ satisfies $\Delta u \geq 0$ in $\Omega$, then for any $x_0 \in \Omega$ an
 	\item $$u(x_0) \leq \frac{ 1 }{ n \omega_n } \int_{S^{n-1}}u(x_0 + r\omega) d\sigma(\omega) $$
 	\item $$ u(x_0) \leq \frac{ 1 }{ \omega_n r^n } \int_{B_r(x_0)} u(y) dy. $$ 
 \end{enumerate}
+\end{tcolorbox}
 \begin{proof}
 	We first translate so that $x_0 = 0$, and rescale so that $\tilde{u}(x) = u(rx)$, so that we work on $B_1(0)$. We define the quantity 
 	$$ g(s) = \frac{ 1 }{ |B_1(0)| } \int_{\bd B_1} u(s\omega) d \sigma(\omega). $$
@@ -261,7 +262,6 @@ Now,
 	$$ \int_{B_1} u(x) dx = \int_0^1 \int_{\bd B_1} u(s\omega) s^{n-1} ds d\sigma \geq \left| \int_0^1 u(0) s^{n-1} ds \right| \cdot |\bd B_1| = \frac{ 1 }{ n  } |\bd B_1| u(0). $$ 
 As desired. 
 \end{proof}
-\end{tcolorbox}
 \begin{tcolorbox}
 \begin{cor}
 \end{cor}
@@ -270,10 +270,10 @@ If $\Delta u =0$, then
 	\item $$ u(x_0) = \frac{ 1 }{ n \omega_n } \int_{S^{n-1}} u(x_0 + r \omega) d \sigma(\omega). $$
 	\item  $$ u(x_0) = \frac{ 1 }{ \omega r^n } \int-{B_r(x_0)} u(y) dy. $$ 
 \end{enumerate}
+\end{tcolorbox}
 \begin{proof}
 If $\Delta u = 0$, then $\pm u$ is subharmonic.
 \end{proof}
-\end{tcolorbox}
 \begin{tcolorbox}
 \begin{cor}
 	\textbf{Strong Maximum Principle}
@@ -281,6 +281,7 @@ If $\Delta u = 0$, then $\pm u$ is subharmonic.
 	If $\Delta u \geq 0$ on $\Omega$, where $\Omega$ is open and connected, and $\ol{\Omega}$ is compact,  then 
 	$$ u(x) \leq \sup_{x\in \bd \Omega} u, $$ 
 	with equality holding if and only if $u$ is constant. 
+\end{tcolorbox}
 	\begin{proof}
 		Take $x_0 \in \Omega$ so that $u(x_0) = \sup_\Omega u$. Choose $r>0$ sufficiently small so that $B_r(x_0) \subset \Omega$. Then
 		$$ u(x_0) \leq \frac{ 1 }{ \omega_n r^n }\int_{B_r(x_0)} u \leq \sup u. $$ 
@@ -288,17 +289,16 @@ Since $u(x_0) = \sup u$ get that $u = \sup u$ on $B_r(x_0)$. Define
 		$$ \Sigma = \left\{ x\in \Omega : u(x) = \sup_\Omega u \right\} .$$ 
 		$\Sigma $ is open by above, and is closed by continuity of $u$. Therefore $\Sigma = \Omega$ by connectedness. 
 	\end{proof}
-\end{tcolorbox}
 \begin{tcolorbox}
 \begin{cor}
 	\textbf{Comparison Principle}
 \end{cor}
 	Suppose $\Omega$ open, $\ol{\Omega}$ compact. Then if $\Delta u = 0, \Delta v \geq 0$, and 
 $u|_{\bd \Omega} = v|_{\bd \Omega}$, then $u(x) \geq v(x)$ for all $x$ and equality holds if and only if $u = v$. 
+\end{tcolorbox}
 \begin{proof}
 	$\Delta (v-u) \geq 0$ and $v-u|_{\bd \Omega} = 0$, so $v-u \leq 0$ in $\Omega$ follows from the strong maximum principle. 
 \end{proof}
-\end{tcolorbox}
 \begin{tcolorbox}
 \begin{cor}
 	\textbf{Uniquness of Solution to Dirichlet Problem}
@@ -308,16 +308,17 @@ $u|_{\bd \Omega} = v|_{\bd \Omega}$, then $u(x) \geq v(x)$ for all $x$ and equal
 		\Delta u & = 0
 		\\ u|_{\bd \Omega} & = g
 	\end{cases} $$ 
+\end{tcolorbox}
 \begin{proof}
 Let $u_1, u_2$ both satisfy the Dirichlet Problem. Apply the strong maximum principle to $u_1-u_2$, 
 $u_2-u_1$. 
 \end{proof}
-\end{tcolorbox}
 \begin{tcolorbox}
 \begin{lemma}
 	\textbf{Higher Order Regularity}
 \end{lemma}
 	If $\Delta u =0$ in $\Omega$, then $u \in C^\infty (\Omega)$. 
+\end{tcolorbox}
 \begin{proof}
 	Let $\varphi(x) = \varphi(|x|)$ be a smooth function so that $\varphi \geq 0$, $\varphi \equiv 0$ for $|x|\geq 1$, and 
 	$$ n \omega_n \int_0^1 r^{n-1} \varphi(r) dr = 1 = \int_{B_1(0)} \varphi(x) dx. $$ 
@@ -336,7 +337,6 @@ $u_2-u_1$.
 		\\ & = u(0) \tag{by definition of $\varphi$}
 	\end{align*}
 \end{proof}
-\end{tcolorbox}
 In general we will see if $\Delta u = f$, then $u$ has two more derivatives than $f$. 
 \begin{tcolorbox}
 \begin{lemma}
@@ -344,6 +344,7 @@ In general we will see if $\Delta u = f$, then $u$ has two more derivatives than
 \end{lemma}
 	Suppose $u$ harmonic on $B_r(0) \subset \R^n$. Then 
 	$$ |\grad u|(0) \leq \frac{ n }{ r } \sup_{\bd B_r} |u|. $$ 
+\end{tcolorbox}
 	\begin{proof}
 	Since $u$ is $C^\infty$ we can differentiate the equation $\Delta u = 0$ to get $\Delta u_i = 0$. By the mean value property, we have
 		$$ \frac{ \partial u }{ \partial x_i }(0) = \frac{ 1 }{ \omega_n r^n }\int_{B_r} \frac{ \partial u }{ \partial x_i } dy = \frac{ 1 }{ \omega_n r^n } \int_{B_r} \grad \cdot (u e_i)dy. $$
@@ -359,27 +360,321 @@ Therefore
 \end{align*}
 		By rotation, we can assume that $\grad u(0) = |\grad u(0)| e_1$, so the result follows. 
 	\end{proof}
-\end{tcolorbox}
 \begin{tcolorbox}
 \begin{cor}
 	\textbf{Liouville Theorem}
 \end{cor}
 If $u$ harmonic on all of $\R^n$ and $u$ bounded then $u$ is constant. 
+\end{tcolorbox}
 \begin{proof}
 For any $x\in \R^n$, $r>0$ we have
 	$$ |\grad u(x)| \leq \frac{ n }{ r }\sup_{\bd B_r(x)} |u| \leq \frac{ n }{ r } \sup_{\R^n} |u| \leq \frac{ nC }{ r } $$
 for some $C$. Taking $r\to \infty$ tells us that $|\grad u(x)| = 0$. Since $x$ arbitrary, $u$ is constant. 
 \end{proof}
-\end{tcolorbox}
 \begin{tcolorbox}
 \begin{lemma}
 	\textbf{Real Analycity}
 \end{lemma}
 Suppose that $\Delta u = 0$ in $\Omega \subset \R^n$. Then $u$ analytic in $\Omega$. 
+\end{tcolorbox}
 \begin{proof}
 	By translating and rescaling, we can assume that $\Delta u = 0$ in $B_1(0)$. It suffices to show that $u$ has a convergent power series at $0$.
 We make the following claim: 
-	For all $m \in \N$, for any multi-index $\alpha = (\alpha_1, \dots, \alpha_n)$ with size $m$, z
+	For all $m \in \N$, for any multi-index $\alpha = (\alpha_1, \dots, \alpha_n)$ with size $m$,
+	$$ \sup_{B_{1/2}(0)} \left| D^\alpha u(x) \right| \leq (2ne)^m m!\sup_{B_1}|u|.$$ 
+	Fix an $m$. Let $r_k = \frac{ 1 }{ 2 } + \frac{ m-k }{ 2m }$. Consider $B_{r_m} (0) = B_{1/2}(0) \subset B_{r_{m-1}} (0) \subset \dots \subset B_1(0) = B_{r_0}(0)$. 
+	Note that if $x\in B_{r_k}(0)$, then $B_{1/2m}(x) \subset B_{r_{k-1}}$
+	By the gradient estimate, we have that 
+	$$ \sup_{{B_{1/2}}(0)} \left| D^\alpha u \right| \leq \frac{ n }{ 1/2m } \sup_{B_{r_{m-1}}} \left| D^{\alpha^\prime} u \right|. $$ 
+	Where $\alpha^\prime  = (\alpha_1 , \dots , \alpha_i - 1, \dots , \alpha_n)$ for some index $i$. We iterate this estimate and get
+	$$ \sup_{B_{1/2}(0)} \left| D^\alpha u  \right| \leq n^m 2^m m^m \sup_{B_1} |u|. $$ 
+	By Sterlings formula, $m^m \leq m! e^m$ so
+	$$ \sup_{B_{1/2}(0)} \left| D^\alpha \right| \leq (2ne)^m m! \sup_{B_1(0)}|u|. $$
+	This proves the claim. 
+	Now to prove the lemma, let $|x| < \frac{ 1 }{ 4ne }$. Let $P_m(x)$ be the $m$-th order taylor polynomial at $0$. Consider $\sup_{B_{ \frac{ 1 }{ 4ne }}(0)} |u-P_m|$. By a rotation, we can assume that the $sup$ is achieved at $x = (x_1,0,  \dots , 0)$ , $|x_1| \leq \frac{ 1 }{ 4ne }$. 
+	By Taylor's Theorem, there exists a $\theta \in [0,1]$ so that 
+	\begin{align*}
+	\left| u(x) - P_m(x) \right| & = \frac{ x^{m+1} }{ (m+1)! } \left| D^{m+1} u(\theta x) \right|
+		\\ & \leq x^{m+1} (2ne)^{m+1} \sup_{ B_1(0) } |u|
+		\\ & \leq \frac{ 1 }{ 2^{m+1} } \sup_{B_1(0)} |u| \to 0. 
+	\end{align*}
 \end{proof}
+\begin{tcolorbox}
+\begin{lemma}
+	\textbf{Strong Unique Continuation}
+\end{lemma}
+	If $u,v$ harmonic functions in $B_1(0)$, and $D^\alpha u(0) = D^\alpha v (0)$ for all $\alpha, |\alpha| \geq 0$, then $u = v$. 
 \end{tcolorbox}
+\begin{proof}
+$u$ and $v$ are real analytic. 
+\end{proof}
+Aside: How do we prove the excistence of harmonic functions?
+\begin{tcolorbox}[breakable, colback = white]
+	\textbf{Strategies}
+\begin{enumerate}[label = \roman*)]
+	\item Viscocity or Envelope Approach:
+		\newline Idea: By comparison principle, we know that if $u|_{\bd \Omega} = v|_{\bd \Omega}$ and $\Delta v \geq \Delta u$, ten $v \geq u$ in $\Omega$. So if $u$ is the largest subharmonic function with given boundary values, it must be harmonic. 
+		So
+		$$ u = \sup \left\{ v: \ol{\Omega} \to \R ,v\in C^0 : v|_{\bd \Omega} = g, \Delta v \geq 0 \right\}. $$
+		The upside of this strategy is it is robust, only requires comparison principle. On the other hand it may only produce a continuous function, not $C^2$. 
+	\item Energy Methods: 
+		\newline Idea: Consider the energy functional :
+		$$ v \mapsto \frac{ 1 }{ 2 } \int_{\Omega} \left| \grad v \right|^2  = E(v) $$
+		on the space of functions satisfying $v|_{\bd \Omega} = g$. Note that if $u$ is a critical point of $E$ then for any smooth $\phi$ with compact support in $\Omega$ we have
+		$$ 0 = \frac{ d }{ dt } \Big|_{t = 0} E(u + t\phi) = \int \grad u \cdot \grad \phi. $$ If we can integrate by parts, then 
+		$$ \int_\Omega \grad u \cdot \grad \phi = \int_\Omega \Delta u \cdot \phi = 0 \implies  \Delta u = 0.]
+	$$ 
+		The strategy is to minimize $E(v)$. Downsides: 
+		To guarantee that $E(v)$ has a minimum, we need some form of compactness for the space of fucntions $v$ (Sobolev Spaces). The solution will also be some weekly differentiable function; we need to prove regularity. This only works for equations of divergence type. The upside is that it doesnt require maximum principle, and works for elliptic systems. (Calculus of Variations)
+	\item Method of Continuity/ A priori Estimates. 
+Idea: start with some equation you can solve and deform it into  the equation you want to solve. eg:
+$$ \begin{cases}
+	\Delta u & = 0
+	\\ u|_{\bd \Omega} & = g.
+\end{cases} $$ 
+		Chose some function $v_0$ so that $v_0|_{\bd \Omega} = g, \Delta v_0 = f_0$. 
+		Consider:
+		$$ (*_t) \begin{cases}
+			\Delta v_t & = (1-t)f_0
+			\\ v_t |_{\bd \Omega} &= g
+		\end{cases} $$ 
+		Let $I = \left\{ t \in [0,1] : (*_t) \text{ has a smooth solution} \right\}	$
+
+\end{enumerate}
+We make the following observations:
+\begin{enumerate}[label = \roman*)]
+	\item $0\in I$ by construction .
+	\item I is open, by the Implicit Function Theorem for Banach Spaces
+	\item I is closed. This is the main step!!!!!
+		The task is to show that $v_t$ satisfy uniform estimates and take limits. (if $ \left| v_t \right|_{C^3}$ then  $v_t \to v_{t^\ast} \in C^2$ and so the equation holds. )
+Upside: Always works with mooth functions. The downside is that we need to proce a lot of estimates to get excistence. We also need to deal with more general equation, 
+$\Delta v = f$ rather than $\Delta v = 0$. The point is that excistence of solutions to PDE's is intimately tied to estimates for solutions. 
+\end{enumerate}
+\end{tcolorbox}
+Here is an example of weak regularity $\implies $ strong regularity. 
+\begin{tcolorbox}
+\begin{lemma}
+	Suppose $u: \Omega \to \R$, $\int u^2 < \infty$ and $\int u \cdot \Delta \varphi = 0$ for all $\varphi \in C^\infty(\Omega)$ with compact support. Then $u\in C^\infty$ and $\Delta u = 0$. 
+\end{lemma}
+\end{tcolorbox}
+\begin{proof}
+	Idea: make a clever choice for $\varphi$ ($n>2$ for simplicity). Recall that $\Delta \left( |x|^{2-n} \right) = 0$ for $x \neq 0$. Consider the function:
+	$$ \rho_r(x) = \begin{cases}
+		|x|^{2-n} & |x| \geq r 
+
+		\\
+		r^{2-n} + \frac{ n-2 }{ 2 }r^{-n} \left( r^2 - |x|^2 \right) & |x| < r
+	\end{cases} $$
+	Note that $\rho_r \in C^1$ but not $C^2$. Furthermore, $ \left| D^2 \rho_r \right|$ bounded so $\rho_r \in C^{1,1}$. 
+	Now taking $r_2 < r_1 <1$, consider $\varphi= \rho_{r_1} - \rho_{r_2}$. We have that 
+	$$ \Delta \varphi = \frac{ n-2 }{ r_2^n  } \chi_{B_{2_r}} - \frac{ n-2 }{ r_1^n }\chi_{B_{r_1}}. $$ 
+	We claim that $0 = \int_{B_1} u\cdot  \Delta \varphi $. First , let $\psi_n$ be a sequence of smooth compactly supported functions so that $ \left| D^2 \psi_n \right| <C$ and $\Delta \psi_n \to \Delta \varphi$. This can be done since $\Delta \varphi $ is bounded and compactly supported. 
+Thus for all $n$, we have:
+$$ 0 = \int_\Omega u \cdot \Delta \psi_n .  $$
+We have that $|u \Delta \psi_n 
+	|\leq Cn |u|$ so by the dominated convergence theorem $\int u \Delta \psi_n \to \int u \Delta \varphi$. 
+\end{proof}
+\begin{tcolorbox}[colback = white]
+\begin{defn}
+	We define $$\eL^1_{loc}(\Omega) = \left\{ u: \Omega \to \R \text{ integrable}: \forall p \in \Omega , \exists r>0 \st \int_{B_r(p)} |u| <\infty \right\}$$
+\end{defn}
+\end{tcolorbox}
+We are going to define a notion of weak differentiability using integration by parts. 
+\begin{tcolorbox}[colback = white]
+\begin{defn}
+	Say $u,v \in \eL^1_{loc}(\Omega)$, and $\alpha = \left( \alpha_1, \dots , \alpha_n \right)$ is a multi-index of length $|\alpha| =  \sum_i \alpha_i$. We say that $v$ is the weak derivative of $u$, written 
+	$$ v = D^\alpha u = \frac{ \partial^{|\alpha|} u }{ \partial x_1^{\alpha_1} \dots \partial x_n^{\alpha_n} } $$ if: 
+	$$ \int_\Omega u D^\alpha \varphi = (-1)^{|\alpha|} \int_\Omega v \varphi dx$$
+	for all $\varphi \in C_c^\infty(\Omega)$. 
+\end{defn}
+\end{tcolorbox}
+The idea is that if $u$ is already $|\alpha|$ times differentiable, then $v = D^\alpha u$ by integration by parts. 
+Furthermore, if for some $v, \tilde{v}$ the definition holds then $v = \tilde{v}$ a.e.
+\begin{tcolorbox}
+\begin{lemma}
+	Suppose that $v , \tilde{v}$ are $\alpha$'th weak derivatives of $u$. Then $v = \tilde{v} $ a.e.
+\end{lemma}
+
+\end{tcolorbox}
+\begin{proof}
+Let $\varphi \in C_c^\infty$. Then, 
+	$$ \int v \varphi = (-1)^{|\alpha|} \int u D^\alpha \varphi = \int \tilde{v} \varphi $$ 
+	so $\int (v - \tilde{v} ) \varphi = 0 $ for all $\varphi \in C_c^\infty$. Therefore $v = \tilde{v} $ a.e. 
+\end{proof}
+\begin{tcolorbox}[breakable, colback = white]
+\begin{example}
+	let $u(x) = |x|$. $u$ is not differentiable at $0$. We claim that $u$ is weak differentiable, and 
+	$$ \frac{ du }{ dx } = H(x) = 
+	\begin{cases}
+		-1 & x \leq 0 \\ 1 & x>0
+	\end{cases} $$ 
+	Take $\varphi \in C_c^\infty (-1,1)$. Then, 
+	\begin{align*}
+		\int_{-1}^1 u \frac{ \partial \varphi }{ \partial x } & = \int_{-1}^0 (-x) \frac{ \partial \varphi }{ \partial x } + \int_0^1 x \frac{ \partial \varphi }{ \partial x } 
+		\\ & = -x \varphi \Big|_{-1}^0 + \int_{-1}^0 \varphi  + x \varphi\Big|_{0}^1 - \int_0^1 \varphi 
+		\\ & = - \int_{-1}^1 H(x) \varphi 
+	\end{align*}
+	We now claim that $H$ is not weakly differentiable. 
+	Take $\varphi \in C_c^\infty(-1,1)$, then 
+\begin{align*}
+	\int_{-1}^1 H(x) \varphi(x) & = -\int_{-1}^0 \frac{ \partial \varphi  }{ \partial x } + \int_0^1 \frac{ \partial \varphi  }{ \partial x } 
+	\\ & = -2 \varphi(0)
+\end{align*}
+	Thus if $ \frac{ dH }{ dx } = v$, then $v(x) = 0$ for all $x \neq 0$. So 
+	$$ \int v(x) \varphi(x) = 2 \varphi(0) $$ 
+	This is not in $L_{loc}^1$. In fact, $ \frac{ dH }{ dx }$ exists as a distribution. 
+\end{example}
+\end{tcolorbox}
+Onwards, we will fix $1 \leq p \leq\infty$ and let $k \geq 0$. Recall that 
+$$ \eL^p(\Omega) = \left\{ u : \Omega \to \R : \int_{\Omega} |u|^p < \infty \right\} .$$
+\begin{tcolorbox}[colback = white]
+\begin{defn}
+	The \textbf{Sobolev Space} $W^{k,p}(\Omega)$ is the set of $u\in \eL^1_{loc}$ such that for all multi-indices $\alpha$ with  $|\alpha|\leq k$ $D^\alpha u$ exists and belongs to $\eL^p(\Omega)$. If $p = 2$, it is common to write $W^{k,2} = H^k$ where $H$ stands for "hilbert space".
+\end{defn}
+\end{tcolorbox}
+\begin{tcolorbox}[colback = white]
+\begin{defn}
+	We define a norm on $W^{k,2p}(\Omega)$ by:
+	$$ \norm{u}_{W^{k,p}(\Omega)} =  \begin{cases}
+	\sum_{|\alpha| \leq k} \left(  \int_{\Omega} \left| D^\alpha u \right|^p \right)^{	\frac{ 1 }{ p }	 } &  p < \infty
+		\\ \sum_{ |\alpha| \leq k} \norm{D^\alpha u}_{\eL^\infty(\Omega)} & p = \infty 
+	\end{cases}$$ 
+	Where $ \norm{v}_{\eL^\infty} = ess \sup_\Omega |v|$. 
+\end{defn}
+	Note $ \left( W^{k,p} (\Omega), \norm{\cdot}_{W^{k,p}(\Omega)} \right)$ is a normed vector space. 
+\end{tcolorbox}
+\begin{tcolorbox}[colback = white]
+\begin{defn}
+	Let $ \left\{ u_m \right\}  $ be a sequence in $W^{k,p}(\Omega)$. 
+	\begin{enumerate}[label = \roman*)]
+		\item We say $u_m$ converges to $u$ in $W^{k,p}( \Omega)$ if $ \norm{u_m - u}_{W^{k,p}} \to 0$ as $m \to \infty$. 
+		\item We say $u_m \to u$ in $W^{k,p}_{loc}(\Omega)$ if $u_m \to u$ in $W^{k,p}(V)$ for all $V \ssubset \Omega$. 
+		\item We denote $W_o^{k,p}(\Omega)$, the closure of $C_c^\infty(\Omega)$ in $W^{k,p}(\Omega)$. 
+	\end{enumerate}
+	Roughly speaking, $W_o^{k,p}$ is the set of all functions $u\in W^{k,p}$ such that $D^\alpha u = 0 $ on $\bd \Omega$ for all $|\alpha| \leq k$. 
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{thm}
+Elementary Properties of Sobolev Spaces
+\end{thm}
+	Assume $u,v \in W^{k,p}(\Omega)$, $|\alpha| \leq k$. Then: 
+	\begin{enumerate}[label = \roman*)]
+		\item $D^\alpha u \in W^{k-|\alpha|, p}(\Omega)$ and $D^\beta (D^\alpha u) = D^\alpha(D^\beta u) = D^{\beta + \alpha} u$, for all $\alpha, \beta$ with $|\alpha| + |\beta| \leq k$. 
+		\item If $\Omega^\prime \subset \Omega$ open then $u\in W^{k,p}(\Omega^\prime)$. 
+		\item If $\eta \in C_c^\infty(\Omega)$, then $\eta u \in W^{k,p}(\Omega)$, and
+			$D^\alpha (\eta u) = \sum_{\beta \leq \alpha} \pmat{|\alpha |\\ |\beta|} D^\beta \eta D^{\alpha - \beta} u$. 
+	\end{enumerate}
+\end{tcolorbox}
+\begin{proof}
+aaa
+\end{proof}
+\begin{tcolorbox}[colback = white]
+\begin{defn}
+	Let $\X$ be a vector space over a field (say $\R$ or $\C$). A \textbf{norm} on $\X$ is a map
+	$$ \norm{\cdot} : \X \to [0 , \infty) $$ such that
+\begin{enumerate}[label = \roman*)]
+	\item $\norm{u+v} \leq \norm{u} + \norm{v}.$
+	\item $\norm{\lambda u} = |\lambda| \cdot \norm{u}, \forall \lambda \in \F$
+	\item $\norm{u} = 0 \iff u = 0$
+\end{enumerate}	
+	If $(\X, \norm{\cdot})$ is a normed vector space, can define a metrix space structure on $\X$ by $d(x,y) = \norm{x -y}$. This gives rise to a topology and a notion of convergence. 
+\end{defn}
+\end{tcolorbox}
+\begin{tcolorbox}[colback = white]
+\begin{defn}
+ Banach Space
+\end{defn}
+	A Banach space is a vector space $\X$ over field ($\R$ or $\C$) such that $(\X, \norm{\cdot })$ defines a complete metric space. (sequence converges iff sequence is cauchy). 
+	
+\end{tcolorbox}
+\begin{tcolorbox}[colback = white]
+\begin{example}
+\end{example}
+\begin{enumerate}[label = \roman*)]
+	\item $\R^n$ with $ \norm{x} = \sqrt{x\cdot x}$ is a banach space ( in fact all finite dimensional normed vectors spaces are banach spaces. )
+	\item $C^0([0,1])$, continuous functions on $[0,1]$, with $ \norm{f} = \sup |f|$. 
+	\item $\X = \left\{ f \in C^0([0,1]) : \frac{ df }{ dx } \text{ exists on } (0,1) \right\}$. Give $\X$ the $ \norm{\cdot}_{C^0}$ norm. 
+\end{enumerate}
+\end{tcolorbox}
+Claim: $ \left( C^1([0,1]), \norm{\cdot} \right)$ is not complete. Consider
+$$ f_\ep(x) = \begin{cases}
+	-x  & x \leq - \ep
+	\\ \frac{ 1 }{ 2\ep }x^2 + \frac{ \ep }{ 2 } & -\ep \leq x \leq \ep
+	\\ x & x \geq \ep
+\end{cases}  $$ 
+Then, $ \left\{ f_{1/n} \right\}$ is cauchy but $f_{1/n} \to |x| \not \in \X$. 
+\begin{tcolorbox}[colback = white]
+\begin{thm}
+	$W^{k,p}$ is a banach space. 
+\end{thm}
+\end{tcolorbox}
+\begin{proof}
+	Follows from the fact that $\eL^p(\Omega)$ is a banach space. 
+\end{proof}
+\begin{tcolorbox}[colback = white]
+\begin{thm}
+Local Approximation Theorem
+\end{thm}
+	Let $\ep >0$, $\Omega_\ep = \left\{ x \in \Omega : d(x, \bd \Omega) > \ep \right\}. $
+	If $u\in W^{k,p}$ then there exists $u_\ep \in C^\infty(\Omega_\ep)$ so that $u_\ep \to u$ in $W^{k,p}_{loc}(\Omega)$. 
+\end{tcolorbox}
+\begin{proof}
+	The proof is based on mollification. Let $\eta(x) = \eta(|x|)$ be a $C^\infty$ function such that $\eta \geq 0$, $\eta \equiv 0$ for $|x|\geq 1$ and $\int_{\R^n} \eta(|x|) dx = 1$. Define $\eta_\ep(x) = \frac{ 1 }{ \ep^n } \eta \left( \frac{ x }{ \ep } \right)$. Note that: $$ \begin{cases}
+		\int_{\R^n} \eta_\ep(x) dx = 1
+		\\ \text{supp} \eta_\ep(x) \subset B_\ep(0)
+	\end{cases} $$
+	Claim: if $u \in \eL^p(\Omega)$, then $u_\ep(x) = \int_\Omega \eta_\ep(x-y) u(y) dy = \eta_\ep \ast u$ is defined in $\Omega_\ep$ and $u_\ep \in C^\infty(\Omega_\ep)$ and $u_\ep \to u$ in $\eL^p_{loc}(\Omega)$ as $\ep \to 0$.
+\begin{enumerate}[label = \roman*)]
+	\item 
+	First, note that the integral is well defined since :
+	$$ \left| \int_\Omega \eta_\ep(x-y)u(y) dy \right| \leq \sup |\eta_\ep| \int_{B_\ep(x)} |u| dy \leq C \norm{u}_{\eL^p}.$$
+	Where the second inequality follows from Cauchy-Schwartz. 
+\item Let $h$ be small, $e_i = (0, \dots , 1 ,\dots 0)$ standard basis vector. We have:
+	$$ \frac{ 1 }{ h } u_\ep(x+ h e_i) - u_\ep(x)) = \int_\Omega \frac{ 1 }{ h } \left( \eta_\ep(x + he_i - y) - \eta_\ep (x-y) \right)u(y) dy.  $$ 
+		Since $\eta_\ep$ is in $C^\infty$, $ \frac{ 1 }{ h } \left( \eta_\ep(x + he_i - y) - \eta_\ep(x-y) \right)  \rightrightarrows \frac{ \partial \eta_\ep }{ \partial x_i  }(x-y)$. Thus 
+		$$ \frac{ \partial u_\ep }{ \partial x_i }(x) = \int \frac{ \partial \eta_\ep  }{ \partial x_i }(x-y) u(y) dy.$$
+		Applying this reasoning inductively, we have that $u_\ep \in C^\infty$. 
+		\end{enumerate}
+		Next, we claim that if $u \in \eL^p(\Omega)$, then $u_\ep = \eta_\ep \ast u \in \eL^p_{loc} (\Omega) and u_\ep \to u$ in $\eL^p_{loc}(\Omega)$. To prove this, we need $3$ steps.
+		\begin{enumerate}[label = \roman*)]
+			\item continuous functions
+			\item $u_\ep \in \eL_{loc}^p(\Omega_ep)$
+			\item $u_\ep \to u$ in $\eL^p_{loc}(\Omega)$. 
+		\end{enumerate}
+		Step 1: Say $u$ is continuous. Then $u_\ep \to u$ uniformly in compact sets. 
+		\begin{proof}
+		If $u$ is continious, then for all $V \ssubset \Omega_\ep$,
+	\begin{align*}
+		|u_\ep(x) - u(x)| & = \left| \int \eta_\ep(x-y) \left( u(y) - u(x) \right) dy \right|
+		\\ & = \left| \int_{|w|\leq 1} \eta_\ep(w) \left( u(x+ \ep w) - u(x) \right)dw \right|\tag{sub $y = x + \ep w$}
+	\end{align*}
+			By uniform continuity, $ \left| u(x + \ep w) - u(x) \right| \leq \delta$ for all $|w| \leq 1$, for $x\in V$. 
+			Therefore $|u_\ep(x) - u(x)| \leq \delta$ since $\int \eta  = 1$. So $u_\ep \rightrightarrows u$ uniformly on $V$. 
+		\end{proof}
+		Step 2: If $u\in \eL_{loc}^p(\Omega)$, then for all $V \ssubset W \ssubset \Omega $we have $ \norm{u_\ep}_{\eL^p(v)} \leq \norm{u}_{L^p(w)}. $
+	\begin{proof}
+		If $x\in V$, for $\ep$ sufficiently small, 
+		\begin{align*}
+			|u_\ep(x)|  & = \left| \int_{y\in \Omega} \eta_\ep (x-y) u(y) dy \right|
+			\\ & \leq \int_{y\in \Omega} \left| \eta_\ep(x-y) \right||u(y)| dy
+			\\ & \leq \left( \int \eta_\ep(x-y) |u(y)|^p dy \right)^{1/p} \overbrace{\left( \int \eta(x-y) dy \right)^{1- 1/p}}^{=1}
+		\end{align*}
+		Thus:
+		$$ \int_{x\in V} |u_\ep(x)|^p \leq \int_V \int_W \eta_\ep(x-y) |u(y)|^p dy dx = \int_W |u(y)|^p dy $$ 
+		Since $\int_V \eta_\ep(x-y) \leq 1$. 
+	\end{proof}
+	Step 3: $u_\ep \to u$ in $\eL^p_{loc}(\Omega)$. 
+	\begin{proof}
+		Fix $\tilde{V} \ssubset V \ssubset \Omega_\ep$. Fix $\delta >0$. 
+		By a general result from measure theory, can find $g\in C(V)$ such that $ \norm{u-g}_{\eL^p(V)} <  \delta$. Then. 
+		\begin{align*}
+			\norm{u - u_\ep}_{\eL(\tilde{V})} & \leq \norm{u - g}_{L^p(\tilde{V})} + \norm{u_\ep - g_\ep}_{\eL^p(\tilde{V})} + \norm{g_\ep - g}_{\eL^p(\tilde{V})}\
+			\\ & \leq 2 \norm{u - g}_{\eL^p(V)} + |\tilde{v}|^{1/p} \sup_{\tilde{V}} |g_\ep - g| \tag{step 2, Cauchy-Schwartz}
+		\end{align*}
+	\end{proof}
+	Since $g_\ep \to g$ uniformly on $\tilde{V}$ by step 1, and $ \norm{u - g}_{\eL^P(\tilde{V})} < \delta$ we get that $u_\ep \to u$ in $\eL^p(\tilde{V})$ as desired. 
+
+\end{proof}
 \end{document}
